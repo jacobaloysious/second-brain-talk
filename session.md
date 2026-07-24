@@ -1,6 +1,6 @@
 # Session Handoff: Second Brain for Engineering Teams
 
-Last updated: 2026-07-18
+Last updated: 2026-07-24
 
 ## Current Laptop State
 
@@ -8,6 +8,7 @@ The working artifacts now available on this laptop are:
 
 ```text
 /Users/jacobaloysious/Desktop/secondbrain/Second Brain for Engineering Teams-editable.html
+/Users/jacobaloysious/Desktop/secondbrain/speaker-notes.md
 /Users/jacobaloysious/Desktop/secondbrain/second-brain-demo/field-issue-demo/
 /Users/jacobaloysious/Desktop/secondbrain/second-brain-demo/manager-collaboration-demo/
 ```
@@ -30,6 +31,11 @@ Use them as follows:
     - curated component knowledge that remains unchanged during triage
     - human-reviewed promotion of verified learning
     - closing line: **Every issue creates a case. Only verified learning becomes shared memory.**
+- **Read-aloud speaker script:** `speaker-notes.md`
+  - Covers slides 1–17, the appendix transition, both live demos, the final close, and demo-recovery lines.
+  - Includes the speaker's Chennai, KLA, Singapore, Meta, and family introduction.
+  - Written in a casual voice with light jokes and explicit stage directions.
+  - Designed for approximately 30 minutes of presentation and 30 minutes of live demonstration.
 - **Semiconductor field-issue demo:** `second-brain-demo/field-issue-demo/`
   - Uses a case-based architecture: every report gets an isolated folder under `field-issues/<case-id>/`.
   - Includes fab-side raw evidence, a sanitized debug-packet boundary, assigned-engineer case files, curated component knowledge, a human-review promotion queue, prompts, expected outputs, a runbook, seed files, and reset tooling.
