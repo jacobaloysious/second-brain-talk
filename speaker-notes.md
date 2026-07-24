@@ -102,17 +102,23 @@ The second is lost rationale. We can see what decision was made, but not why. Th
 
 The third is open loops: follow-ups, missing owners, and small commitments that remain active in our head.
 
-Your brain is not a storage system. It is much better at judgment, pattern recognition, and arguing about naming conventions.
+Your brain is not a storage system. It should not have to remember where a decision was recorded, which hypothesis was rejected, or who promised the next step.
 
-When we use it as a database, memory tax steals attention from the work that actually needs human judgment.
+Human attention is more valuable for connecting signals, challenging assumptions, weighing trade-offs, and deciding what to do next.
+
+When we use our brain as a database, we spend that valuable attention reconstructing context before the real engineering work can even begin. That is the memory tax.
 
 ---
 
 ## Slide 3 — One engineering organization, different context needs
 
-This talk is aimed at the whole engineering organization.
+This talk is for the whole engineering organization, not one specific job title.
 
-Most of the audience and most of the talk are focused on engineers: individual contributors, field engineers, and technical leads. But engineering managers are also part of the system, so I do not want to pretend that coordination magically happens by itself.
+The primary audience is the people doing and leading technical work: software engineers, systems engineers, application engineers, field engineers, individual contributors, and technical leads.
+
+Engineering managers are included because they depend on the same context to coordinate work, remove blockers, support engineers, follow through on commitments, and communicate risk.
+
+The memory foundation can be shared, while the information surfaced to each role can be different.
 
 For individual contributors, the context problem often appears as repeated explanation. You explain the codebase to a reviewer, then to a new teammate, then to an AI coding agent, and then again to the same AI agent in a new session.
 
@@ -196,7 +202,11 @@ The important point is not that an LLM can summarize text. We have known that fo
 
 The useful capability is continuously turning unstructured context into controlled, retrievable, action-oriented memory.
 
-And yes, “continuously” is doing a lot of work in that sentence. If the system needs a twenty-step ritual every evening, it is not a second brain. It is another stakeholder.
+Here, “continuously” means the memory loop happens as part of normal work.
+
+If people must spend every evening sorting notes, adding tags, and updating several systems, the memory system has created more work instead of reducing it.
+
+A useful second brain should be simple: capture once, let the system organize the information, and involve the human only when clarification or review is needed.
 
 ---
 
@@ -871,4 +881,3 @@ and:
 ```text
 messy capture -> structured project and professional memory -> role-specific outputs
 ```
-

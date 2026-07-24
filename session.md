@@ -1176,3 +1176,53 @@ Closing CTA:
 Use this concise narrative if you need to brief a new AI assistant:
 
 > I am preparing a 1-hour talk called Second Brain for Engineering Teams for the broader engineering organization: approximately 80% engineers and 20% engineering managers. The primary technical demo covers a semiconductor field issue where raw fab logs cannot leave the site. A local model creates a sanitized packet, and engineering opens an isolated case to investigate, fix, verify, and close; only reviewed learning becomes shared component knowledge. A shorter second demo covers manager collaboration: a messy post-standup capture updates project risk, professional commitments, actions, and receipts, then surfaces a daily brief, 1:1 preparation, stakeholder update, and delegation context. Both demos use Capture -> Process -> Surface, with different memory boundaries and outputs. Key lines: Raw logs stay in the fab. Debug memory travels to engineering. Every issue creates a case. Only verified learning becomes shared memory.
+
+## Visual refresh — July 24, 2026
+
+- The deck remains a single self-contained editable HTML file.
+- The visual direction is now Instagram-inspired but presentation-first: white canvas, dark navy typography, soft tinted surfaces, and restrained violet–magenta–orange gradients.
+- Slide 2 was rebuilt to remove unavailable icon-font glyphs and fix card alignment and clipping.
+- Slides 4 and 11 now have explicit, visible progression lines and aligned stage markers.
+- Slide 12 was rebuilt with the title `Continuity for managers—without surveillance` and a cleaner manager-demo composition.
+- The browser autosave key is now `second-brain-editable-v7`, preventing stale saved slide markup from restoring the broken slide 12 layout.
+- Continue using gradients only as accents; preserve clear engineering hierarchy and high contrast.
+- Slide 3 was subsequently rebuilt as a compact 2×2 audience matrix. It uses the same white canvas and Instagram-inspired accent sequence, with consistent 18pt card headings, 13.8pt body copy, and reduced vertical gaps.
+- The browser autosave key is now `second-brain-editable-v8`.
+- Auditorium review completed for a 1,000+ person room:
+  - Slides 5–10 were rebuilt in the white, Instagram-inspired visual system.
+  - Titles are generally 36–38pt, key slide-one messaging reaches 54pt, and essential body text is now approximately 18pt.
+  - Smaller 9.5–15pt text is limited to decorative chips, sequence numbers, and nonessential labels.
+  - Dense copy was shortened instead of being squeezed into smaller type.
+  - The browser autosave key is now `second-brain-editable-v10`.
+- Slide 1 was rebuilt as the stage-opening cover:
+  - 54pt two-line title and 22pt subtitle for auditorium readability.
+  - White canvas with a restrained Instagram-gradient top rule and abstract gradient orb.
+  - Presenter identity now reads `Jacob Aloysious — Software Engineering Manager · Meta · Singapore`.
+  - The browser autosave key is now `second-brain-editable-v11`.
+- Final theme pass:
+  - Slides 13–21 were fully rebuilt in the white Instagram-inspired system; slide 18 is now a dark appendix divider.
+  - Essential body copy on these slides is 18pt; smaller type is limited to sequence numbers and decorative chips.
+  - Slides 3 and 12 received larger text containers to prevent auditorium-sized copy from being clipped.
+  - Slide 9’s assigned engineer is now `Shweta`.
+  - The browser autosave key is now `second-brain-editable-v12`.
+- Visual maturity refinement:
+  - Keep the white canvas and casual energy, but reduce the “kiddish” effect by using blue/violet as primary accents, magenta sparingly, smaller corner radii, fewer pills, and lighter shadows.
+  - Slide 7 is now a compact left-to-right architecture flow with aligned reading zones and less eye travel.
+  - Slide 8 replaces tight capsule labels with 16pt editorial eyebrow labels: `RECEIPT`, `BOUNCER`, and `FIX BUTTON`.
+  - The browser autosave key is now `second-brain-editable-v13`.
+- Responsive presentation engine:
+  - Slides now render on a fixed 1600×900 design canvas and scale as one unit to the available browser stage.
+  - Typography, spacing, cards, and alignment remain proportional across projectors, laptops, tablets, and phones.
+  - Narrow screens use compact controls; the download button and secondary hint are hidden below 700px.
+  - Touch screens support horizontal swipe navigation.
+  - The browser autosave key is now `second-brain-editable-v14`.
+- Responsive overflow correction:
+  - Responsive scaling preserves the layout, but cannot repair text that already overflows its design-time box.
+  - Slide 4 copy was shortened and its subtitle/card text containers enlarged.
+  - The deck now runs a post-font-load overflow check and reduces only overflowing text enough to fit, with a minimum-size guard.
+  - Edited text is refitted automatically.
+  - The browser autosave key is now `second-brain-editable-v15`.
+- Slide 2 overflow correction:
+  - The three card descriptions were shortened and their text containers increased from 10% to 12% slide height.
+  - The 18pt auditorium body size is preserved instead of relying on additional shrinking.
+  - The browser autosave key is now `second-brain-editable-v16`.
