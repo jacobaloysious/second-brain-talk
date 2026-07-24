@@ -16,15 +16,15 @@ Slides 18–21 are appendix and demo-reference slides. Use them when transitioni
 Reset both demos:
 
 ```bash
-./second-brain-demo/field-issue-demo/scripts/reset-demo.sh
-./second-brain-demo/manager-collaboration-demo/scripts/reset-demo.sh
+./Demo/field-issue/scripts/reset-demo.sh
+./Demo/manager-collaboration/scripts/reset-demo.sh
 ```
 
 Open the following in separate VS Code windows:
 
 ```text
-second-brain-demo/field-issue-demo/
-second-brain-demo/manager-collaboration-demo/
+Demo/field-issue/
+Demo/manager-collaboration/
 ```
 
 In the field-issue workspace, keep these files ready:
@@ -700,7 +700,7 @@ The second demo is shorter.
 
 We are using the same architecture—capture, process, surface—but with different memory boundaries and outputs.
 
-[Switch to `manager-collaboration-demo`.]
+[Switch to `manager-collaboration`.]
 
 [Open `inbox.md`.]
 

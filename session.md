@@ -9,8 +9,8 @@ The working artifacts now available on this laptop are:
 ```text
 /Users/jacobaloysious/Desktop/secondbrain/Second Brain for Engineering Teams-editable.html
 /Users/jacobaloysious/Desktop/secondbrain/speaker-notes.md
-/Users/jacobaloysious/Desktop/secondbrain/second-brain-demo/field-issue-demo/
-/Users/jacobaloysious/Desktop/secondbrain/second-brain-demo/manager-collaboration-demo/
+/Users/jacobaloysious/Desktop/secondbrain/Demo/field-issue/
+/Users/jacobaloysious/Desktop/secondbrain/Demo/manager-collaboration/
 ```
 
 Use them as follows:
@@ -36,18 +36,18 @@ Use them as follows:
   - Includes the speaker's Chennai, KLA, Singapore, Meta, and family introduction.
   - Written in a casual voice with light jokes and explicit stage directions.
   - Designed for approximately 30 minutes of presentation and 30 minutes of live demonstration.
-- **Semiconductor field-issue demo:** `second-brain-demo/field-issue-demo/`
+- **Semiconductor field-issue demo:** `Demo/field-issue/`
   - Uses a case-based architecture: every report gets an isolated folder under `field-issues/<case-id>/`.
   - Includes fab-side raw evidence, a sanitized debug-packet boundary, assigned-engineer case files, curated component knowledge, a human-review promotion queue, prompts, expected outputs, a runbook, seed files, and reset tooling.
   - Case-specific actions live inside the case; there is no global actions file.
   - Component knowledge is read-only during triage. Only verified learning may be proposed for promotion, and a human component owner must approve it before shared knowledge changes.
-  - `second-brain-demo/field-issue-demo/scripts/reset-demo.sh` has been run and verified successfully.
-- **Engineering manager collaboration demo:** `second-brain-demo/manager-collaboration-demo/`
+  - `Demo/field-issue/scripts/reset-demo.sh` has been run and verified successfully.
+- **Engineering manager collaboration demo:** `Demo/manager-collaboration/`
   - Restores the post-standup capture use case from the earlier deck.
   - Processes project risk, professional commitments, actions, and receipts.
   - Surfaces a daily brief, 1:1 preparation, stakeholder update, and delegation context.
   - Rejects speculative people memory and stores only professional working context.
-  - `second-brain-demo/manager-collaboration-demo/scripts/reset-demo.sh` has been run and verified successfully.
+  - `Demo/manager-collaboration/scripts/reset-demo.sh` has been run and verified successfully.
 
 The temporary multi-file HTML export folder and conversion scripts were removed after the self-contained HTML was produced. Do not expect or depend on them.
 
@@ -203,7 +203,7 @@ Demo flow:
 Suggested demo folder:
 
 ```text
-field-issue-demo/
+field-issue/
   AGENTS.md
   fab-side/
     raw-logs/
@@ -338,7 +338,7 @@ Self-Contained Rebuild Guide -> Copy-Paste Script To Generate The Demo
 If notes repo access is restored later, regenerate the demo from this Markdown file and save it under:
 
 ```text
-presentation/field-issue-demo/
+presentation/field-issue/
 ```
 
 ## Historical Remote Slide Deck
@@ -391,7 +391,7 @@ Best positioning:
 4. Build the new local demo in any working folder:
 
    ```text
-   field-issue-demo/
+   field-issue/
    ```
 
 5. Keep the core loop:
@@ -423,7 +423,7 @@ The latest local deck still contains a lot of EM-oriented content. Given the sem
 
 # Self-Contained Rebuild Guide
 
-> **Important:** The copy-paste rebuild script in this historical section describes the earlier global `engineering-memory/` architecture and is now deprecated. Do not use it to overwrite the current `second-brain-demo/field-issue-demo/`. Until this embedded script is regenerated, the verified demo folder on the current laptop is the source of truth for the implementation. The current architecture is documented in **Demo Architecture Correction** above.
+> **Important:** The copy-paste rebuild script in this historical section describes the earlier global `engineering-memory/` architecture and is now deprecated. Do not use it to overwrite the current `Demo/field-issue/`. Until this embedded script is regenerated, the verified demo folder on the current laptop is the source of truth for the implementation. The current architecture is documented in **Demo Architecture Correction** above.
 
 Use this section if a future laptop has this Markdown file and the self-contained HTML deck, but no local demo files.
 
@@ -432,10 +432,10 @@ Use this section if a future laptop has this Markdown file and the self-containe
 Recreate a new demo workspace called:
 
 ```text
-field-issue-demo/
+field-issue/
 ```
 
-This replaces the old EM-focused `second-brain-demo`.
+This replaces the old EM-focused `Demo`.
 
 The demo is designed for a semiconductor software engineering audience:
 
@@ -472,13 +472,13 @@ Key line:
 
 ## Copy-Paste Script To Generate The Demo
 
-On the new laptop, create a folder where you want the demo and run this script from a terminal. It will generate the full `field-issue-demo` workspace.
+On the new laptop, create a folder where you want the demo and run this script from a terminal. It will generate the full `field-issue` workspace.
 
 ```bash
 #!/usr/bin/env bash
 set -euo pipefail
 
-ROOT="${1:-field-issue-demo}"
+ROOT="${1:-field-issue}"
 
 mkdir -p "$ROOT/fab-side/raw-logs"
 mkdir -p "$ROOT/fab-side/local-analysis"
