@@ -258,25 +258,41 @@ Show me what changed. Show me why. Let me fix it.
 
 ## Slide 9 — Field Issue Case
 
-Now let us move to the primary engineering use case.
+Now let us move to the primary engineering demo: resolving a field issue.
 
-A semiconductor tool in a fab reports an intermittent wafer-alignment failure.
+A semiconductor tool in a fab has reported an intermittent wafer-alignment failure.
 
-Raw logs cannot leave the fab environment, so the remote engineering team receives a sanitized debug packet.
+The raw machine logs cannot leave the fab. A local model analyzes them onsite and produces a sanitized debug packet that engineering is allowed to receive.
 
-That packet creates a field-issue case: FI-2026-00421.
+When that packet arrives, it opens an isolated case: FI-2026-00421. Shweta is the assigned engineer.
 
-The case has an assigned engineer, a current state, known facts, hypotheses, evidence, actions, experiments, and a definition of done.
+The case gives Shweta three things.
 
-The goal is not to update memory. The goal is to fix and verify the issue.
+First, the current state: the customer impact, confirmed facts, open hypotheses, known evidence, and the definition of done.
 
-Memory is what prevents the next engineer or agent from starting at zero.
+Second, the investigation history.
 
-Each action belongs to this case and contains an owner and an expected result.
+At the beginning, this does not mean that the sanitized packet already contains a complete engineering investigation.
 
-This distinction is important. We do not create a global action list containing every action from every issue ever reported. That would stop being memory and become a very intimidating historical novel.
+The packet may contain a sanitized field-side timeline, observed symptoms, repeated error codes, suspicious sensor patterns, and any checks already performed onsite. Those become the first evidence entries in the case, with their source and confidence preserved.
 
-Every issue gets an isolated case.
+From that point onward, the case history is built by the engineering work itself. Shweta records each experiment, the evidence it produced, the decision that followed, and any hypothesis that was accepted or rejected.
+
+If information comes from a ticket, code change, test result, field engineer, or AI agent, the case records where it came from. It does not invent history, and it does not copy the restricted raw logs into engineering memory.
+
+Third, the execution surface: the next experiments and actions, with an owner and an expected result.
+
+Shweta is not being asked to maintain a knowledge base for its own sake. She is being asked to resolve the issue.
+
+Her job is to clarify missing evidence, choose the next experiment, record the result, implement and verify the fix, and close the case when the agreed completion criteria are met.
+
+The case memory supports that work. It prevents Shweta, another engineer, or an AI agent from repeatedly reconstructing the investigation from scattered messages.
+
+We keep this case isolated because early hypotheses may be wrong. With hundreds of field reports over time, we do not want every suspicion automatically entering shared component knowledge.
+
+So the rule is simple:
+
+Every field report creates a case. The case holds the investigation. Only verified and reviewed learning can later become shared knowledge.
 
 ---
 

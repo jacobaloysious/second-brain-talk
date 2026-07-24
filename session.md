@@ -1226,3 +1226,7 @@ Use this concise narrative if you need to brief a new AI assistant:
   - The three card descriptions were shortened and their text containers increased from 10% to 12% slide height.
   - The 18pt auditorium body size is preserved instead of relying on additional shrinking.
   - The browser autosave key is now `second-brain-editable-v16`.
+- Presentation chrome:
+  - The in-page toolbar is permanently hidden for presenting.
+  - Its reserved grid row was removed so the slide uses the full viewport.
+  - Arrow-key, Page Up/Down, URL-hash, and swipe navigation remain available.
