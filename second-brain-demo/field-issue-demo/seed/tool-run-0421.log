@@ -1,0 +1,16 @@
+2026-07-18T09:41:02Z INFO LOT=REDACTED WAFER=REDACTED recipe=ALIGN_FINE stage=pre-align
+2026-07-18T09:41:08Z INFO stage_controller move_start axis=X target=12.440mm
+2026-07-18T09:41:11Z WARN stage_controller settle_time_ms=480 threshold_ms=300
+2026-07-18T09:41:12Z INFO vision_alignment fiducial_detected score=0.91
+2026-07-18T09:41:14Z ERROR ALIGN-274 wafer_alignment_delta_um=8.7 threshold_um=5.0
+2026-07-18T09:41:17Z INFO retry alignment_attempt=2
+2026-07-18T09:41:20Z WARN stage_controller settle_time_ms=515 threshold_ms=300
+2026-07-18T09:41:21Z ERROR ALIGN-274 wafer_alignment_delta_um=9.1 threshold_um=5.0
+2026-07-18T09:41:25Z INFO operator_intervention requested=true
+2026-07-18T09:48:02Z INFO LOT=REDACTED WAFER=REDACTED recipe=ALIGN_FINE stage=pre-align
+2026-07-18T09:48:07Z INFO stage_controller move_start axis=X target=12.441mm
+2026-07-18T09:48:10Z WARN stage_controller settle_time_ms=502 threshold_ms=300
+2026-07-18T09:48:12Z INFO vision_alignment fiducial_detected score=0.89
+2026-07-18T09:48:13Z ERROR ALIGN-274 wafer_alignment_delta_um=8.4 threshold_um=5.0
+2026-07-18T09:48:18Z ERROR STAGE-119 x_axis_settle_timeout=true
+2026-07-18T09:48:22Z INFO operator_intervention requested=true
