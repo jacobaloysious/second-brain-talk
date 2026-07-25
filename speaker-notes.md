@@ -7,7 +7,7 @@ These notes are written as a read-aloud script for a one-hour session:
 - approximately 8 minutes for the manager-collaboration demo
 - approximately 2 minutes to close and transition to questions
 
-The deck has 19 slides. Slides 1–14 form the main narrative. Slide 15 transitions into the live demos. Slides 16–18 are optional demo-reference slides. Slide 19 is the closing Q&A screen.
+The deck has 19 slides. Slides 1–12 build the concept. Slide 13 transitions into the live demos, slide 14 sets the viewing lens, and slide 15 delivers the post-demo recommendation. Slides 16–18 are optional demo-reference slides. Slide 19 is the closing Q&A screen.
 
 ---
 
@@ -406,7 +406,21 @@ The agent supports the work. It does not own the outcome.
 
 ---
 
-## Slide 13 — What to watch in the two demos
+## Slide 13 — Live demos
+
+We have covered the idea. Now let us see the behavior.
+
+Two cases. One memory loop. Different boundaries.
+
+First, a field issue moves safely from onsite evidence to an engineering fix.
+
+Then, one manager note becomes reviewable follow-through.
+
+**[Advance to slide 14.]**
+
+---
+
+## Slide 14 — What to watch in the two demos
 
 We have the mental model. Now let us watch the behavior rather than the mechanics of the files.
 
@@ -430,11 +444,15 @@ Both demos use the same loop:
 
 Capture. Process. Surface.
 
-**[Advance to slide 15.]**
+**[Leave the deck and run Demo 1: field issue resolution.]**
+
+**[Then run Demo 2: manager collaboration.]**
+
+**[Return to slide 15 after both demos. Do not continue to the next section until both demos are complete.]**
 
 ---
 
-## Slide 14 — Start with one context leak
+## Slide 15 — Start with one context leak
 
 You have now seen both workflows.
 
@@ -466,25 +484,7 @@ That is the practical starting point: one context leak, one bounded memory loop,
 
 ---
 
-# Live-demo transition and reference
-
-## Slide 15 — Live demos
-
-We have covered the idea. Now let us see the behavior.
-
-Two cases. One memory loop. Different boundaries.
-
-First, a field issue moves safely from onsite evidence to an engineering fix.
-
-Then, one manager note becomes reviewable follow-through.
-
-**[Leave the deck and run Demo 1: field issue resolution.]**
-
-**[Then run Demo 2: manager collaboration.]**
-
-**[Return to slide 14 after both demos.]**
-
----
+# Optional demo-reference slides
 
 ## Slide 16 — Demo setup: local and reviewable
 

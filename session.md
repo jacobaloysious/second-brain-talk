@@ -1379,3 +1379,12 @@ Use this concise narrative if you need to brief a new AI assistant:
   - Retained the dark panel, three-step path, and gradient outcome band as the slide's visual hierarchy.
   - The browser autosave key is now `second-brain-editable-v42`.
 - All slides now display a subtle 24px gray slide number in the bottom-right using the shared `data-slide` attribute.
+- Current closing and demo sequence:
+  - The deck now contains 19 slides.
+  - Slide 13 is the softened white `Live demos` transition.
+  - Slide 14 is `What to watch in the two demos`.
+  - After both demos, the presenter returns to Slide 15, `Start with one context leak`, for the final recommendation.
+  - Slides 16–18 are optional demo-reference slides.
+  - Slide 19 is the minimal white `Q&A / Thank you!` closing screen.
+  - Speaker notes follow this sequence and explicitly mark where to leave and return to the deck.
+  - The HTML navigation sorts slides by `data-slide`, and the browser autosave key is now `second-brain-editable-v51`.
