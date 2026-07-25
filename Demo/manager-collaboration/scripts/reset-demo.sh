@@ -11,9 +11,8 @@ cp "$ROOT/seed/mobile-app-migration.md" "$ROOT/memory/projects/mobile-app-migrat
 cp "$ROOT/seed/priya.md" "$ROOT/memory/people/priya.md"
 cp "$ROOT/seed/actions.md" "$ROOT/memory/actions.md"
 cp "$ROOT/seed/receipts.md" "$ROOT/memory/receipts.md"
+cp "$ROOT/seed/placeholder.md" "$ROOT/outputs/manager-follow-through.md"
 cp "$ROOT/seed/placeholder.md" "$ROOT/outputs/daily-brief.md"
-cp "$ROOT/seed/placeholder.md" "$ROOT/outputs/one-on-one-prep-priya.md"
-cp "$ROOT/seed/placeholder.md" "$ROOT/outputs/stakeholder-update.md"
-cp "$ROOT/seed/placeholder.md" "$ROOT/outputs/delegation-context.md"
+cp "$ROOT/seed/placeholder.md" "$ROOT/outputs/stakeholder-draft.md"
 
 echo "Manager collaboration demo reset complete: $ROOT"

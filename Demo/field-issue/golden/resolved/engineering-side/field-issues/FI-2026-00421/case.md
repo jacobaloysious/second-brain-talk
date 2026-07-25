@@ -1,0 +1,35 @@
+# Case FI-2026-00421
+
+Status: closed
+Assigned engineer: Shweta
+Severity: resolved
+Opened: 2026-07-18
+Closed: 2026-07-18
+Source: reviewed engineering inbox packet plus reviewed experiment result
+
+## Impact
+
+Fine alignment failed repeatedly and the onsite run was paused.
+
+## Outcome
+
+Shweta isolated the stage path, defined the discriminating experiment, and
+reviewed the returned sanitized results. The onsite field engineer replaced a
+degraded stage damper under the approved service procedure. Five consecutive
+validation runs completed without the reported alignment or stage-timeout
+errors.
+
+## Ownership Boundary
+
+- **Shweta, offsite:** diagnosis, experiment design, and verification decision.
+- **Onsite field engineer:** approved capture and physical damper replacement.
+- **Motion Controls:** component-specific diagnostic review.
+
+## Definition of Done
+
+- [x] Cause supported by reviewed evidence.
+- [x] Shweta defined the intervention and verification criteria.
+- [x] Onsite field engineer applied the approved physical intervention.
+- [x] Returned sanitized results met the verification criteria.
+- [x] Field follow-up completed.
+- [x] Reusable learning proposed for human review.

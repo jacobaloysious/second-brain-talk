@@ -1,30 +1,36 @@
 # Demo Prompts
 
-## Prompt 1: Process the capture
+## Prompt 1: Decide, remember, and surface
 
 ```text
-Process the latest entry in inbox.md using AGENTS.md.
+Process the latest capture in inbox.md using AGENTS.md.
 
-Update the relevant project memory, professional people follow-up, actions, and receipts.
-Separate facts from uncertain timing. Do not invent information or add speculative people notes.
+For each capture fragment, decide whether to:
+- remember it as supported professional context
+- keep it explicitly uncertain and create a clarification action
+- reject it as speculative people judgment
+
+Then, in one pass:
+1. update the relevant project memory
+2. update only supported professional follow-up in people memory
+3. update actions and append one processing receipt
+4. generate:
+   - outputs/manager-follow-through.md
+   - outputs/daily-brief.md
+   - outputs/stakeholder-draft.md
+
+Preserve conditional language such as "may" and "if".
+Do not invent dates, owners, evidence, intent, or personality conclusions.
+Keep all outputs as drafts with the metadata required by AGENTS.md.
 ```
 
-## Prompt 2: Surface collaboration outputs
+## Optional Prompt 2: Explain the boundary
 
 ```text
-Using the updated memory, generate:
-
-1. outputs/daily-brief.md — top actions, risks, and unresolved questions
-2. outputs/one-on-one-prep-priya.md — project check-in and the staffing commitment only
-3. outputs/stakeholder-update.md — concise rollout-risk update for Maya
-4. outputs/delegation-context.md — goal, blocker, owners, evidence, expected result, and review checklist for investigating the QA login failure
+Review the latest receipt and outputs without changing files.
+Explain, in four bullets:
+1. what became project memory
+2. what became a professional follow-up
+3. what remained uncertain
+4. what was rejected and why
 ```
-
-## Optional Prompt 3: Demonstrate the bouncer
-
-```text
-Process this note: "Priya seemed off today."
-
-Do not add it to people memory. Explain why it is speculative and add a precise clarification question only if an actionable professional follow-up is needed.
-```
-

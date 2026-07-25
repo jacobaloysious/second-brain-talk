@@ -12,9 +12,8 @@ None yet.
 
 ## Missing Evidence
 
-- Sanitized debug packet from fab-side analysis.
+- Reviewed sanitized packet accepted through the engineering inbox.
 
 ## Experiments
 
 No experiments recorded.
-

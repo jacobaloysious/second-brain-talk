@@ -1,36 +1,84 @@
 # Demo Runbook
 
-## Move 1: Capture
+Target time: **5–7 minutes**.
 
-Open `inbox.md` and show the messy post-standup note.
+## Before the session
+
+```bash
+./scripts/reset-demo.sh
+./scripts/validate-demo.sh --initial
+```
+
+Keep these files open:
+
+- `inbox.md`
+- `outputs/manager-follow-through.md`
+- `outputs/daily-brief.md`
+- `outputs/stakeholder-draft.md`
+- `memory/receipts.md`
+
+## Move 1: Ask the room
+
+Open `inbox.md`.
+
+Ask:
+
+> Which lines should become durable memory, which should remain uncertain, and
+> which should be rejected?
+
+Use a show of hands for the final line before revealing the policy.
+
+## Move 2: Run one prompt
+
+Run Prompt 1 from `DEMO-PROMPTS.md`.
+
+While it runs, say:
+
+> The useful part is not summarization. It is the memory decision: facts may
+> persist, uncertainty must stay uncertain, and speculative people judgment
+> does not become a dossier.
+
+## Move 3: Show one compact view
+
+Open `outputs/manager-follow-through.md`.
+
+Walk down the four decisions:
+
+1. rollout risk — remember
+2. Rahul's conditional timing — keep uncertain
+3. the manager's staffing promise — remember as professional follow-through
+4. “Priya seemed off today” — rejected and not retained
+
+Then show only:
+
+- `outputs/daily-brief.md`
+- `outputs/stakeholder-draft.md`
+
+Point to the draft metadata before reading the content.
+
+## Move 4: Prove traceability
+
+Open `memory/receipts.md`.
 
 Say:
 
-> This is the manager version of context leakage: project risk, an owner dependency, a stakeholder update, and a promise to a teammate are mixed together.
+> The receipt tells us what source was processed, what changed, what was
+> rejected, the confidence, and what still needs clarification.
 
-## Move 2: Process
+Do not open every memory file during the live run unless the audience asks.
 
-Run Prompt 1. Show the diffs in:
+## Recovery
 
-- `memory/projects/mobile-app-migration.md`
-- `memory/people/priya.md`
-- `memory/actions.md`
-- `memory/receipts.md`
+If the live agent is slow or produces an unusable result:
 
-## Move 3: Surface
+```bash
+./scripts/use-golden.sh
+./scripts/validate-demo.sh --final
+```
 
-Run Prompt 2. Show:
-
-- `outputs/daily-brief.md`
-- `outputs/one-on-one-prep-priya.md`
-- `outputs/stakeholder-update.md`
-- `outputs/delegation-context.md`
-
-## Optional trust moment
-
-Run Prompt 3 to show that the system rejects speculative people memory.
+The golden state contains the complete expected memory and outputs.
 
 Closing line:
 
-> The same loop supports engineering execution and management continuity; only the memory boundaries and surfaced outputs change.
-
+> Useful professional context survives. Uncertainty stays visible. Speculative
+> judgment does not become memory.

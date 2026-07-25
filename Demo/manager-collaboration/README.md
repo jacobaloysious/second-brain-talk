@@ -1,19 +1,43 @@
-# Engineering Manager Collaboration Demo
+# Manager Collaboration — Governed Continuity Demo
 
-This is the second live demo for **Second Brain for Engineering Teams**.
+This short demo asks one question:
 
-It shows how one messy post-standup capture becomes reliable collaboration context:
+> What should be remembered, what should remain uncertain, and what should be
+> rejected?
 
-1. Update project state and risk.
-2. Preserve a professional follow-up for a teammate.
-3. Record actions and receipts.
-4. Surface a daily brief, 1:1 preparation, stakeholder update, and delegation prompt.
+The fictional post-standup capture contains a supported rollout risk, Rahul's
+conditional dependency, the manager's staffing-review promise to Priya, and one
+speculative people judgment. The workflow:
 
-All people, projects, and details are fictional.
+1. classifies every fragment before writing memory
+2. preserves conditional language and creates clarification actions
+3. rejects speculative people judgment from durable memory
+4. records a processing receipt
+5. produces three drafts for human review:
+   - `outputs/manager-follow-through.md`
+   - `outputs/daily-brief.md`
+   - `outputs/stakeholder-draft.md`
 
-Reset before rehearsal:
+All people, projects, and details are fictional. No draft is sent externally.
+
+## Verify and reset
 
 ```bash
+./scripts/test-demo.sh
 ./scripts/reset-demo.sh
 ```
 
+## Present
+
+Follow `DEMO-RUNBOOK.md` and use the single prompt in `DEMO-PROMPTS.md`.
+If the live result is slow or noisy:
+
+```bash
+./scripts/use-golden.sh
+./scripts/validate-demo.sh --final
+```
+
+Closing line:
+
+> Useful professional context survives. Uncertainty stays visible.
+> Speculative judgment does not become memory.

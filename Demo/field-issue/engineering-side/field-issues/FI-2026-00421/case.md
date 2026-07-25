@@ -1,13 +1,17 @@
 # Case FI-2026-00421
 
-Status: awaiting sanitized debug packet
-Assigned engineer: Priya Nair
+Status: awaiting reviewed engineering ingestion
+Assigned engineer: Shweta
 Severity: needs triage
 Opened: 2026-07-18
 
 ## Goal
 
 Identify, fix, and verify the cause of the reported fine-alignment failure.
+
+Shweta owns offsite diagnosis, experiment design, and verification. The onsite
+field engineer owns approved evidence capture and any physical intervention at
+the tool.
 
 ## Definition of Done
 
@@ -16,4 +20,3 @@ Identify, fix, and verify the cause of the reported fine-alignment failure.
 - The result has been verified against an agreed test.
 - Field follow-up is complete.
 - Any reusable learning has been proposed for human review.
-

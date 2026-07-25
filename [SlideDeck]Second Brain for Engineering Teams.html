@@ -1,20 +1,20 @@
-<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Second Brain for Engineering Teams — Editable</title><style>
-*{box-sizing:border-box}body{margin:0;background:#111827;color:#fff;font-family:Inter,Arial,sans-serif;overflow:hidden}.app{height:100dvh;display:grid;grid-template-rows:minmax(0,1fr)}.toolbar{display:none!important}.toolbar button{background:#27324a;color:#fff;border:1px solid #46516a;border-radius:7px;padding:8px 12px;cursor:pointer}.toolbar .title{font-weight:700;flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.stage{position:relative;overflow:hidden;min-width:0;min-height:0;touch-action:pan-y}.slide{position:absolute;left:50%;top:50%;width:1600px;height:900px;background:var(--slide-bg);box-shadow:0 18px 60px #0008;overflow:hidden;display:none;transform:translate(-50%,-50%) scale(var(--deck-scale,1));transform-origin:center center}.slide::after{content:attr(data-slide);position:absolute;right:24px;bottom:18px;z-index:999;font-family:Inter,Arial,sans-serif;font-size:24px;font-weight:500;line-height:1;color:rgba(100,116,139,.48);letter-spacing:.04em;pointer-events:none}.slide.active{display:block}.obj{position:absolute}.text{padding:.35%;white-space:pre-wrap;overflow:hidden;line-height:1.13;outline:0}.text:hover{box-shadow:inset 0 0 0 1px #60a5fa88}.text:focus{box-shadow:inset 0 0 0 2px #3b82f6;background-color:#eff6ff18!important}.image{object-fit:contain}.counter{min-width:75px;text-align:center;color:#cbd5e1}.hint{color:#94a3b8;font-size:13px}@media(max-width:700px){.app{grid-template-rows:minmax(0,1fr)}}
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Second Brain for Engineering Teams</title><style>
+*{box-sizing:border-box}:root{--deck-font:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif}body{margin:0;background:#111827;color:#fff;font-family:var(--deck-font);overflow:hidden}.app{height:100dvh;display:grid;grid-template-rows:minmax(0,1fr)}.toolbar{display:none!important}.toolbar button{background:#27324a;color:#fff;border:1px solid #46516a;border-radius:7px;padding:8px 12px;cursor:pointer}.toolbar .title{font-weight:700;flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.stage{position:relative;overflow:hidden;min-width:0;min-height:0;touch-action:pan-y}.slide{position:absolute;left:50%;top:50%;width:1600px;height:900px;background:var(--slide-bg);box-shadow:0 18px 60px #0008;overflow:hidden;display:none;transform:translate(-50%,-50%) scale(var(--deck-scale,1));transform-origin:center center}.slide::after{content:attr(data-slide);position:absolute;right:24px;bottom:18px;z-index:999;font-family:var(--deck-font);font-size:24px;font-weight:500;line-height:1;color:rgba(100,116,139,.48);letter-spacing:.04em;pointer-events:none}.slide.active{display:block}.obj{position:absolute}.text,.text *{font-family:var(--deck-font)!important}.text{padding:.12%;white-space:pre-wrap;overflow:hidden;line-height:1.13;outline:0}.text:hover{box-shadow:inset 0 0 0 1px #60a5fa88}.text:focus{box-shadow:inset 0 0 0 2px #3b82f6;background-color:#eff6ff18!important}.image{object-fit:contain}.counter{min-width:75px;text-align:center;color:#cbd5e1}.hint{color:#94a3b8;font-size:13px}@media(max-width:700px){.app{grid-template-rows:minmax(0,1fr)}}
 </style></head><body><div class="app"><header class="toolbar"><div class="title">Second Brain for Engineering Teams</div><span class="hint">Click any text to edit · autosaves in this browser</span><button id="prev">←</button><span class="counter" id="counter"></span><button id="next">→</button><button id="download">Download HTML</button></header><main class="stage"><section class="slide" data-slide="1" style="--slide-bg:#FFFFFF">
   <div class="obj shape" style="left:0;top:0;width:100%;height:1.4%;background:linear-gradient(90deg,#405DE6,#833AB4,#E1306C,#F77737,#FCAF45)"></div>
   <div class="obj shape" style="left:76%;top:-10%;width:31%;height:55%;background:radial-gradient(circle at 35% 65%,rgba(247,119,55,.92),rgba(225,48,108,.82) 34%,rgba(131,58,180,.68) 61%,rgba(64,93,230,.12) 76%,transparent 77%);border-radius:50%"></div>
   <div class="obj shape" style="left:82%;top:8%;width:10%;height:18%;border:3px solid rgba(255,255,255,.65);border-radius:50%"></div>
 
-  <div class="obj shape" style="left:5.5%;top:15%;width:23%;height:5.5%;background:#F5F7FF;border:1px solid #D6DDF7;border-radius:999px"></div>
-  <div class="obj text" style="left:5.5%;top:16.2%;width:23%;height:3%;font-family:'Poppins',Arial,sans-serif;font-size:12pt;font-weight:700;letter-spacing:.08em;color:#405DE6;text-align:center">ENGINEERING MEMORY • AI • EXECUTION</div>
+  <div class="obj shape" style="left:5.5%;top:15%;width:27%;height:5.5%;background:#F5F7FF;border:1px solid #D6DDF7;border-radius:999px"></div>
+  <div class="obj text" style="left:5.5%;top:16.2%;width:27%;height:3%;font-family:'Poppins',Arial,sans-serif;font-size:14pt;font-weight:700;letter-spacing:.05em;color:#405DE6;text-align:center">ENGINEERING MEMORY • AI • EXECUTION</div>
 
   <div class="obj text" contenteditable="true" data-key="s1r-title" style="left:5.5%;top:29%;width:78%;height:25%;font-family:'Poppins',Arial,sans-serif;font-size:54pt;font-weight:700;line-height:1.05;color:#102A43">Second Brain for<br>Engineering Teams</div>
-  <div class="obj text" contenteditable="true" data-key="s1r-subtitle" style="left:5.8%;top:58%;width:71%;height:10%;font-family:'Lato',Arial,sans-serif;font-size:22pt;line-height:1.3;color:#52697A">Turn scattered context into collective memory.<br><b style="color:#833AB4">Context is the new execution layer.</b></div>
+  <div class="obj text" contenteditable="true" data-key="s1r-subtitle" style="left:5.8%;top:57%;width:72%;height:12%;font-family:'Lato',Arial,sans-serif;font-size:21pt;line-height:1.32;color:#52697A">Preserve context. Respect boundaries. Improve the next decision.<br><b style="color:#833AB4">A governed memory pipeline—not another knowledge dump.</b></div>
 
   <div class="obj shape" style="left:5.5%;top:76%;width:89%;height:.45%;background:linear-gradient(90deg,#405DE6,#833AB4,#E1306C,#F77737,transparent);border-radius:999px"></div>
   <div class="obj text" contenteditable="true" data-key="s1r-name" style="left:5.5%;top:80%;width:42%;height:5%;font-family:'Poppins',Arial,sans-serif;font-size:20pt;font-weight:700;color:#102A43">Jacob Aloysious</div>
   <div class="obj text" contenteditable="true" data-key="s1r-role" style="left:5.5%;top:86%;width:55%;height:4%;font-family:'Lato',Arial,sans-serif;font-size:18pt;color:#52697A">Software Engineering Manager · Meta · Singapore</div>
-  <div class="obj text" contenteditable="true" data-key="s1r-audience" style="left:65%;top:82%;width:29%;height:6%;font-family:'Poppins',Arial,sans-serif;font-size:16pt;font-weight:600;color:#833AB4;text-align:right">Built for engineers<br>and engineering managers</div>
+  <div class="obj text" contenteditable="true" data-key="s1r-audience" style="left:63%;top:82%;width:31%;height:6%;font-family:'Poppins',Arial,sans-serif;font-size:16pt;font-weight:600;color:#833AB4;text-align:right">Built for engineering<br>organizations</div>
 </section>
 
 <section class="slide" data-slide="2" style="--slide-bg:#FFFFFF">
@@ -23,7 +23,7 @@
   <div class="obj text" contenteditable="true" data-key="s2r-subtitle" style="left:7.2%;top:17.2%;width:82%;height:6%;font-family:'Lato',Arial,sans-serif;font-size:18pt;color:#52697A">Engineering work creates more context than one person can reliably hold.</div>
 
   <div class="obj shape" style="left:4.6875%;top:28%;width:90.625%;height:12.5%;background:#102A43;border-radius:16px;box-shadow:0 10px 24px rgba(16,42,67,.12)"></div>
-  <div class="obj text" contenteditable="true" data-key="s2r-callout" style="left:8%;top:31.1%;width:84%;height:6.5%;font-family:'Poppins',Arial,sans-serif;font-size:22pt;font-weight:600;color:#FFFFFF;text-align:center">Your brain is not a storage system. Memory tax steals judgment.</div>
+  <div class="obj text" contenteditable="true" data-key="s2r-callout" style="left:8%;top:31.1%;width:84%;height:6.5%;font-family:'Poppins',Arial,sans-serif;font-size:22pt;font-weight:600;color:#FFFFFF;text-align:center">When engineers reconstruct history, judgment starts late.</div>
 
   <div class="obj shape" style="left:4.6875%;top:48%;width:28.125%;height:36%;background:#F6F8FB;border:1px solid #D8E2EC;border-radius:18px;box-shadow:0 10px 28px rgba(16,42,67,.07)"></div>
   <div class="obj shape" style="left:4.6875%;top:48%;width:28.125%;height:1.1%;background:#405DE6;border-radius:18px 18px 0 0"></div>
@@ -49,204 +49,185 @@
 
 <section class="slide" data-slide="3" style="--slide-bg:#FFFFFF">
   <div class="obj shape" style="left:4.6875%;top:7.5%;width:1.1%;height:7.8%;background:linear-gradient(180deg,#405DE6,#833AB4,#E1306C,#F77737);border-radius:999px"></div>
-  <div class="obj text" contenteditable="true" data-key="s3r-title" style="left:7.2%;top:7.2%;width:84%;height:8%;font-family:'Poppins',Arial,sans-serif;font-size:36pt;font-weight:700;color:#102A43">One engineering organization. Different context needs.</div>
-  <div class="obj text" contenteditable="true" data-key="s3r-subtitle" style="left:7.2%;top:17.2%;width:84%;height:6%;font-family:'Lato',Arial,sans-serif;font-size:18pt;line-height:1.3;color:#52697A">Engineers are the primary audience; managers need the same continuity for coordination, commitments, and decisions.</div>
+  <div class="obj text" contenteditable="true" data-key="s3r-title" style="left:7.2%;top:7.2%;width:84%;height:8%;font-family:'Poppins',Arial,sans-serif;font-size:36pt;font-weight:700;color:#102A43">Different roles lose the same thing: decision context</div>
+  <div class="obj text" contenteditable="true" data-key="s3r-subtitle" style="left:7.2%;top:17.2%;width:84%;height:6%;font-family:'Lato',Arial,sans-serif;font-size:18pt;line-height:1.3;color:#52697A">The details change. The failure is the same—context arrives late, incomplete, or untrusted.</div>
 
-  <div class="obj shape" style="left:4.6875%;top:29%;width:43.8%;height:23%;background:#F5F7FF;border:1px solid #D6DDF7;border-radius:16px;box-shadow:0 8px 24px rgba(16,42,67,.06)"></div>
-  <div class="obj shape" style="left:4.6875%;top:29%;width:.75%;height:23%;background:#405DE6;border-radius:16px 0 0 16px"></div>
-  <div class="obj shape" style="left:7%;top:32.2%;width:7%;height:4.2%;background:#405DE6;border-radius:999px"></div>
-  <div class="obj text" style="left:7%;top:32.9%;width:7%;height:2.6%;font-family:'Poppins',Arial,sans-serif;font-size:9.5pt;font-weight:700;letter-spacing:.07em;color:#FFFFFF;text-align:center">BUILD</div>
-  <div class="obj text" contenteditable="true" data-key="s3r-ic-title" style="left:7%;top:38.5%;width:37.5%;height:5%;font-family:'Poppins',Arial,sans-serif;font-size:18pt;font-weight:700;color:#102A43">Individual contributors</div>
-  <div class="obj text" contenteditable="true" data-key="s3r-ic-body" style="left:7%;top:44%;width:37.5%;height:8.5%;font-family:'Lato',Arial,sans-serif;font-size:18pt;line-height:1.35;color:#52697A">Need code, incident, and decision context ready for debugging, reviews, and AI tools.</div>
+  <div class="obj shape" style="left:7%;top:30%;width:86%;height:.2%;background:#D8E2EC"></div>
+  <div class="obj shape" style="left:7%;top:48%;width:86%;height:.2%;background:#D8E2EC"></div>
+  <div class="obj shape" style="left:7%;top:66%;width:86%;height:.2%;background:#D8E2EC"></div>
+  <div class="obj shape" style="left:7%;top:84%;width:86%;height:.2%;background:#D8E2EC"></div>
 
-  <div class="obj shape" style="left:51.5%;top:29%;width:43.8%;height:23%;background:#FBF5FF;border:1px solid #E2D0ED;border-radius:16px;box-shadow:0 8px 24px rgba(16,42,67,.06)"></div>
-  <div class="obj shape" style="left:51.5%;top:29%;width:.75%;height:23%;background:#833AB4;border-radius:16px 0 0 16px"></div>
-  <div class="obj shape" style="left:53.8%;top:32.2%;width:8.5%;height:4.2%;background:#833AB4;border-radius:999px"></div>
-  <div class="obj text" style="left:53.8%;top:32.9%;width:8.5%;height:2.6%;font-family:'Poppins',Arial,sans-serif;font-size:9.5pt;font-weight:700;letter-spacing:.07em;color:#FFFFFF;text-align:center">CONNECT</div>
-  <div class="obj text" contenteditable="true" data-key="s3r-tl-title" style="left:53.8%;top:38.5%;width:37.5%;height:5%;font-family:'Poppins',Arial,sans-serif;font-size:18pt;font-weight:700;color:#102A43">Tech leads</div>
-  <div class="obj text" contenteditable="true" data-key="s3r-tl-body" style="left:53.8%;top:44%;width:37.5%;height:8.5%;font-family:'Lato',Arial,sans-serif;font-size:18pt;line-height:1.35;color:#52697A">Need fresh decisions, dependency risks, and cross-team rationale without another status meeting.</div>
+  <div class="obj text" contenteditable="true" data-key="s3r-engineer-title" style="left:8%;top:34%;width:20%;height:5%;font-family:'Poppins',Arial,sans-serif;font-size:20pt;font-weight:700;color:#405DE6">ENGINEERS</div>
+  <div class="obj text" contenteditable="true" data-key="s3r-engineer-body" style="left:30%;top:32.5%;width:60%;height:11%;font-family:'Lato',Arial,sans-serif;font-size:22pt;line-height:1.35;color:#102A43">“What failed? Why did we choose this? What should I try next?”</div>
 
-  <div class="obj shape" style="left:4.6875%;top:56%;width:43.8%;height:23%;background:#FFF6F8;border:1px solid #F2C5D3;border-radius:16px;box-shadow:0 8px 24px rgba(16,42,67,.06)"></div>
-  <div class="obj shape" style="left:4.6875%;top:56%;width:.75%;height:23%;background:#E1306C;border-radius:16px 0 0 16px"></div>
-  <div class="obj shape" style="left:7%;top:59.2%;width:7.5%;height:4.2%;background:#E1306C;border-radius:999px"></div>
-  <div class="obj text" style="left:7%;top:59.9%;width:7.5%;height:2.6%;font-family:'Poppins',Arial,sans-serif;font-size:9.5pt;font-weight:700;letter-spacing:.07em;color:#FFFFFF;text-align:center">ENABLE</div>
-  <div class="obj text" contenteditable="true" data-key="s3r-em-title" style="left:7%;top:65.5%;width:37.5%;height:5%;font-family:'Poppins',Arial,sans-serif;font-size:18pt;font-weight:700;color:#102A43">Engineering managers</div>
-  <div class="obj text" contenteditable="true" data-key="s3r-em-body" style="left:7%;top:71%;width:37.5%;height:8.5%;font-family:'Lato',Arial,sans-serif;font-size:18pt;line-height:1.35;color:#52697A">Need continuity for daily briefs, 1:1s, commitments, delegation, and stakeholder updates.</div>
+  <div class="obj text" contenteditable="true" data-key="s3r-manager-title" style="left:8%;top:52%;width:20%;height:5%;font-family:'Poppins',Arial,sans-serif;font-size:20pt;font-weight:700;color:#833AB4">MANAGERS</div>
+  <div class="obj text" contenteditable="true" data-key="s3r-manager-body" style="left:30%;top:50.5%;width:60%;height:11%;font-family:'Lato',Arial,sans-serif;font-size:22pt;line-height:1.35;color:#102A43">“What changed? Who owns it? What must I follow through?”</div>
 
-  <div class="obj shape" style="left:51.5%;top:56%;width:43.8%;height:23%;background:#FFF8F3;border:1px solid #F5D2BF;border-radius:16px;box-shadow:0 8px 24px rgba(16,42,67,.06)"></div>
-  <div class="obj shape" style="left:51.5%;top:56%;width:.75%;height:23%;background:#F77737;border-radius:16px 0 0 16px"></div>
-  <div class="obj shape" style="left:53.8%;top:59.2%;width:7.5%;height:4.2%;background:#F77737;border-radius:999px"></div>
-  <div class="obj text" style="left:53.8%;top:59.9%;width:7.5%;height:2.6%;font-family:'Poppins',Arial,sans-serif;font-size:9.5pt;font-weight:700;letter-spacing:.07em;color:#FFFFFF;text-align:center">SCALE</div>
-  <div class="obj text" contenteditable="true" data-key="s3r-leader-title" style="left:53.8%;top:65.5%;width:37.5%;height:5%;font-family:'Poppins',Arial,sans-serif;font-size:18pt;font-weight:700;color:#102A43">Engineering leaders</div>
-  <div class="obj text" contenteditable="true" data-key="s3r-leader-body" style="left:53.8%;top:71%;width:37.5%;height:8.5%;font-family:'Lato',Arial,sans-serif;font-size:18pt;line-height:1.35;color:#52697A">Need patterns across onboarding, leverage, compliance, and safe adoption of AI.</div>
+  <div class="obj text" contenteditable="true" data-key="s3r-leader-title" style="left:8%;top:70%;width:20%;height:5%;font-family:'Poppins',Arial,sans-serif;font-size:20pt;font-weight:700;color:#E1306C">LEADERS</div>
+  <div class="obj text" contenteditable="true" data-key="s3r-leader-body" style="left:30%;top:68.5%;width:60%;height:11%;font-family:'Lato',Arial,sans-serif;font-size:22pt;line-height:1.35;color:#102A43">“Where does knowledge decay? What is reusable? Is it governed?”</div>
 
-  <div class="obj text" contenteditable="true" data-key="s3r-footer" style="left:10%;top:84%;width:80%;height:5%;font-family:'Poppins',Arial,sans-serif;font-size:18pt;font-weight:600;color:#833AB4;text-align:center">One shared memory foundation. Different surfaces for different decisions.</div>
+  <div class="obj text" contenteditable="true" data-key="s3r-footer" style="left:12%;top:87%;width:76%;height:5%;font-family:'Poppins',Arial,sans-serif;font-size:18pt;font-weight:600;color:#833AB4;text-align:center">THE SHARED NEED IS CONTINUITY AT THE MOMENT OF DECISION</div>
 </section>
 
 <section class="slide" data-slide="4" style="--slide-bg:#FFFFFF">
   <div class="obj shape" style="left:4.6875%;top:7.5%;width:1.1%;height:7.8%;background:linear-gradient(180deg,#833AB4,#E1306C,#F77737);border-radius:999px"></div>
-  <div class="obj text" contenteditable="true" data-key="s4r-title" style="left:7.2%;top:7.2%;width:75%;height:8%;font-family:'Poppins',Arial,sans-serif;font-size:36pt;font-weight:700;color:#102A43">Why traditional storage fails</div>
-  <div class="obj text" contenteditable="true" data-key="s4r-subtitle" style="left:7.2%;top:17.2%;width:82%;height:8%;font-family:'Lato',Arial,sans-serif;font-size:18pt;line-height:1.25;color:#52697A">Old second brains captured information, but left people responsible for maintaining the system.</div>
+  <div class="obj text" contenteditable="true" data-key="s4r-title" style="left:7.2%;top:7.2%;width:84%;height:8%;font-family:'Poppins',Arial,sans-serif;font-size:36pt;font-weight:700;color:#102A43">Storage preserves information. It does not maintain trust.</div>
+  <div class="obj text" contenteditable="true" data-key="s4r-subtitle" style="left:7.2%;top:17.2%;width:84%;height:7%;font-family:'Lato',Arial,sans-serif;font-size:18pt;line-height:1.3;color:#52697A">A folder can hold a note. It cannot decide whether that note is current, safe, or reusable.</div>
 
-  <div class="obj text" style="left:10%;top:46%;width:80%;height:4%;font-family:'Lato',Arial,sans-serif;font-size:11.5pt;font-weight:700;letter-spacing:.08em;color:#6B7F90;text-align:center">MAINTENANCE BURDEN RISES • TRUST FALLS</div>
-  <div class="obj shape" style="left:10%;top:54%;width:80%;height:.8%;background:linear-gradient(90deg,#405DE6 0%,#833AB4 34%,#E1306C 67%,#F77737 100%);border-radius:999px"></div>
-  <div class="obj shape" style="left:89.4%;top:52.85%;width:2.2%;height:3.1%;background:#F77737;clip-path:polygon(0 0,100% 50%,0 100%)"></div>
+  <div class="obj shape" style="left:6%;top:31%;width:39%;height:48%;background:#F6F8FB;border:1px solid #D8E2EC;border-radius:18px"></div>
+  <div class="obj text" style="left:9%;top:36%;width:28%;height:5%;font-family:'Poppins',Arial,sans-serif;font-size:16pt;font-weight:700;letter-spacing:.08em;color:#6B7F90">PASSIVE STORAGE</div>
+  <div class="obj text" contenteditable="true" data-key="s4r-old-title" style="left:9%;top:44%;width:30%;height:7%;font-family:'Poppins',Arial,sans-serif;font-size:26pt;font-weight:700;color:#102A43">Capture. File. Search. Guess.</div>
+  <div class="obj text" contenteditable="true" data-key="s4r-old-body" style="left:9%;top:55%;width:31%;height:16%;font-family:'Lato',Arial,sans-serif;font-size:20pt;line-height:1.5;color:#52697A">The pile grows.<br>The owner is unclear.<br>Freshness becomes invisible.</div>
 
-  <div class="obj shape" style="left:13.7%;top:51.4%;width:3.4%;height:6.2%;background:#405DE6;border:5px solid #FFFFFF;border-radius:50%;box-shadow:0 0 0 2px #405DE6"></div>
-  <div class="obj shape" style="left:37%;top:51.4%;width:3.4%;height:6.2%;background:#833AB4;border:5px solid #FFFFFF;border-radius:50%;box-shadow:0 0 0 2px #833AB4"></div>
-  <div class="obj shape" style="left:60.3%;top:51.4%;width:3.4%;height:6.2%;background:#E1306C;border:5px solid #FFFFFF;border-radius:50%;box-shadow:0 0 0 2px #E1306C"></div>
-  <div class="obj shape" style="left:83.6%;top:51.4%;width:3.4%;height:6.2%;background:#F77737;border:5px solid #FFFFFF;border-radius:50%;box-shadow:0 0 0 2px #F77737"></div>
+  <div class="obj shape" style="left:47.5%;top:52%;width:5%;height:7%;background:linear-gradient(90deg,#405DE6,#833AB4);clip-path:polygon(0 35%,65% 35%,65% 0,100% 50%,65% 100%,65% 65%,0 65%)"></div>
 
-  <div class="obj shape" style="left:6%;top:64%;width:20%;height:20%;background:#F6F8FB;border:1px solid #D8E2EC;border-radius:14px"></div>
-  <div class="obj text" contenteditable="true" data-key="s4r-step1-title" style="left:8%;top:67%;width:16%;height:5%;font-family:'Poppins',Arial,sans-serif;font-size:18pt;font-weight:700;color:#405DE6">01. Capture</div>
-  <div class="obj text" contenteditable="true" data-key="s4r-step1-body" style="left:8%;top:73%;width:16%;height:9%;font-family:'Lato',Arial,sans-serif;font-size:18pt;line-height:1.3;color:#52697A">Capture it while the context is fresh.</div>
+  <div class="obj shape" style="left:55%;top:31%;width:39%;height:48%;background:#FBF5FF;border:2px solid #D8C6E8;border-radius:18px"></div>
+  <div class="obj text" style="left:58%;top:36%;width:30%;height:5%;font-family:'Poppins',Arial,sans-serif;font-size:16pt;font-weight:700;letter-spacing:.08em;color:#833AB4">GOVERNED MEMORY</div>
+  <div class="obj text" contenteditable="true" data-key="s4r-new-title" style="left:58%;top:44%;width:31%;height:7%;font-family:'Poppins',Arial,sans-serif;font-size:26pt;font-weight:700;color:#102A43">Trace. Classify. Review. Retire.</div>
+  <div class="obj text" contenteditable="true" data-key="s4r-new-body" style="left:58%;top:55%;width:31%;height:16%;font-family:'Lato',Arial,sans-serif;font-size:20pt;line-height:1.5;color:#52697A">Sources stay visible.<br>Boundaries are explicit.<br>Reuse requires approval.</div>
 
-  <div class="obj shape" style="left:29.3%;top:27%;width:20%;height:18%;background:#F6F8FB;border:1px solid #D8E2EC;border-radius:14px"></div>
-  <div class="obj text" contenteditable="true" data-key="s4r-step2-title" style="left:31.3%;top:30%;width:16%;height:5%;font-family:'Poppins',Arial,sans-serif;font-size:18pt;font-weight:700;color:#833AB4">02. Organize</div>
-  <div class="obj text" contenteditable="true" data-key="s4r-step2-body" style="left:31.3%;top:36%;width:16%;height:8%;font-family:'Lato',Arial,sans-serif;font-size:18pt;line-height:1.3;color:#52697A">Choose the folder, title, tags, and structure.</div>
-
-  <div class="obj shape" style="left:52.6%;top:64%;width:20%;height:20%;background:#FFF9ED;border:1px solid #F5D89C;border-radius:14px"></div>
-  <div class="obj text" contenteditable="true" data-key="s4r-step3-title" style="left:54.6%;top:67%;width:16%;height:5%;font-family:'Poppins',Arial,sans-serif;font-size:18pt;font-weight:700;color:#E1306C">03. Forget</div>
-  <div class="obj text" contenteditable="true" data-key="s4r-step3-body" style="left:54.6%;top:73%;width:16%;height:9%;font-family:'Lato',Arial,sans-serif;font-size:18pt;line-height:1.3;color:#52697A">“Later” never comes. The pile keeps growing.</div>
-
-  <div class="obj shape" style="left:75.9%;top:27%;width:20%;height:18%;background:#FFF5F5;border:1px solid #F3C4C4;border-radius:14px"></div>
-  <div class="obj text" contenteditable="true" data-key="s4r-step4-title" style="left:77.9%;top:30%;width:16%;height:5%;font-family:'Poppins',Arial,sans-serif;font-size:18pt;font-weight:700;color:#D94F24">04. Abandon</div>
-  <div class="obj text" contenteditable="true" data-key="s4r-step4-body" style="left:77.9%;top:36%;width:16%;height:8%;font-family:'Lato',Arial,sans-serif;font-size:18pt;line-height:1.3;color:#52697A">Trust falls. The system gets abandoned.</div>
+  <div class="obj shape" style="left:20%;top:85%;width:60%;height:7%;background:#102A43;border-radius:10px"></div>
+  <div class="obj text" contenteditable="true" data-key="s4r-footer" style="left:24%;top:86.6%;width:52%;height:3.5%;font-family:'Poppins',Arial,sans-serif;font-size:18pt;font-weight:600;color:#FFFFFF;text-align:center">THE PROBLEM IS NOT CAPTURE · IT IS MAINTENANCE</div>
 </section>
 
 <section class="slide" data-slide="5" style="--slide-bg:#FFFFFF">
   <div class="obj shape" style="left:4.7%;top:7.5%;width:1.1%;height:7.8%;background:linear-gradient(180deg,#405DE6,#833AB4,#E1306C);border-radius:999px"></div>
-  <div class="obj text" contenteditable="true" data-key="s5a-title" style="left:7.2%;top:7%;width:82%;height:8%;font-family:'Poppins',Arial,sans-serif;font-size:38pt;font-weight:700;color:#102A43">Start with the moment that leaks</div>
-  <div class="obj text" contenteditable="true" data-key="s5a-sub" style="left:7.2%;top:17%;width:84%;height:6%;font-family:'Lato',Arial,sans-serif;font-size:19pt;line-height:1.25;color:#52697A">A quick human note often contains project risk, ownership, a promise, and a next action.</div>
-  <div class="obj shape" style="left:4.7%;top:29%;width:42%;height:49%;background:#FFF6F8;border:1px solid #F2C5D3;border-radius:18px"></div>
-  <div class="obj shape" style="left:7%;top:33%;width:12%;height:5%;background:#E1306C;border-radius:999px"></div>
-  <div class="obj text" style="left:7%;top:34%;width:12%;height:3%;font-family:'Poppins',Arial,sans-serif;font-size:11pt;font-weight:700;letter-spacing:.06em;color:#FFFFFF;text-align:center">RAW CAPTURE</div>
-  <div class="obj text" contenteditable="true" data-key="s5a-raw" style="left:7%;top:41%;width:37.5%;height:31%;font-family:'Lato',Arial,sans-serif;font-size:18pt;line-height:1.42;color:#102A43">Talked to Priya after stand-up.<br><br>Auth migration is behind because QA login keeps failing.<br><br>Rahul may unblock it Thursday. Tell Maya the rollout risk is medium.<br><br>I promised Priya a staffing review.</div>
-  <div class="obj shape" style="left:48.5%;top:51%;width:4%;height:7%;background:linear-gradient(90deg,#833AB4,#E1306C);clip-path:polygon(0 35%,65% 35%,65% 0,100% 50%,65% 100%,65% 65%,0 65%)"></div>
-  <div class="obj shape" style="left:54.3%;top:29%;width:41%;height:49%;background:#F5F7FF;border:1px solid #D6DDF7;border-radius:18px"></div>
-  <div class="obj shape" style="left:56.6%;top:33%;width:16%;height:5%;background:#833AB4;border-radius:999px"></div>
-  <div class="obj text" style="left:56.6%;top:34%;width:16%;height:3%;font-family:'Poppins',Arial,sans-serif;font-size:11pt;font-weight:700;letter-spacing:.06em;color:#FFFFFF;text-align:center">STRUCTURED MEMORY</div>
-  <div class="obj text" contenteditable="true" data-key="s5a-structured" style="left:56.6%;top:41%;width:35.5%;height:31%;font-family:'Lato',Arial,sans-serif;font-size:17.5pt;line-height:1.42;color:#102A43"><b>Risk</b> · QA login blocks auth migration<br><br><b>Owner</b> · Rahul / infrastructure<br><br><b>Stakeholder</b> · Tell Maya risk is medium<br><br><b>People</b> · Review Priya staffing<br><br><b>Next</b> · Delegate investigation</div>
-  <div class="obj text" contenteditable="true" data-key="s5a-foot" style="left:12%;top:84%;width:76%;height:5%;font-family:'Poppins',Arial,sans-serif;font-size:18pt;font-weight:600;color:#833AB4;text-align:center">Capture naturally. Structure automatically. Confirm before action.</div>
+  <div class="obj text" contenteditable="true" data-key="s5a-title" style="left:7.2%;top:7%;width:82%;height:8%;font-family:'Poppins',Arial,sans-serif;font-size:38pt;font-weight:700;color:#102A43">Start where context first leaks</div>
+  <div class="obj text" contenteditable="true" data-key="s5a-sub" style="left:7.2%;top:17%;width:84%;height:6%;font-family:'Lato',Arial,sans-serif;font-size:19pt;line-height:1.25;color:#52697A">The same failure appears in technical diagnosis and everyday coordination.</div>
+
+  <div class="obj shape" style="left:5%;top:30%;width:43%;height:48%;background:#F5F7FF;border:1px solid #D6DDF7;border-radius:18px"></div>
+  <div class="obj shape" style="left:8%;top:34%;width:17%;height:5%;background:#405DE6;border-radius:999px"></div>
+  <div class="obj text" style="left:8%;top:35%;width:17%;height:3%;font-family:'Poppins',Arial,sans-serif;font-size:13pt;font-weight:700;letter-spacing:.06em;color:#FFFFFF;text-align:center">FIELD ISSUE</div>
+  <div class="obj text" contenteditable="true" data-key="s5a-field-title" style="left:8%;top:44%;width:35%;height:7%;font-family:'Poppins',Arial,sans-serif;font-size:24pt;font-weight:700;color:#102A43">A tool fails after repeated retries.</div>
+  <div class="obj text" contenteditable="true" data-key="s5a-field-body" style="left:8%;top:55%;width:35%;height:15%;font-family:'Lato',Arial,sans-serif;font-size:20pt;line-height:1.45;color:#52697A">The logs contain restricted identifiers.<br>The field engineer sees behavior that the logs cannot explain.</div>
+  <div class="obj text" contenteditable="true" data-key="s5a-field-question" style="left:8%;top:71%;width:35%;height:5%;font-family:'Poppins',Arial,sans-serif;font-size:18pt;font-weight:600;color:#405DE6">What may safely leave the fab?</div>
+
+  <div class="obj shape" style="left:52%;top:30%;width:43%;height:48%;background:#FFF6F8;border:1px solid #F2C5D3;border-radius:18px"></div>
+  <div class="obj shape" style="left:55%;top:34%;width:19%;height:5%;background:#E1306C;border-radius:999px"></div>
+  <div class="obj text" style="left:55%;top:35%;width:19%;height:3%;font-family:'Poppins',Arial,sans-serif;font-size:13pt;font-weight:700;letter-spacing:.06em;color:#FFFFFF;text-align:center">AFTER STAND-UP</div>
+  <div class="obj text" contenteditable="true" data-key="s5a-manager-title" style="left:55%;top:44%;width:35%;height:7%;font-family:'Poppins',Arial,sans-serif;font-size:24pt;font-weight:700;color:#102A43">One note creates four follow-through items.</div>
+  <div class="obj text" contenteditable="true" data-key="s5a-manager-body" style="left:55%;top:55%;width:35%;height:15%;font-family:'Lato',Arial,sans-serif;font-size:20pt;line-height:1.45;color:#52697A">A delivery risk, an owner dependency,<br>a stakeholder update, and a promised follow-up.</div>
+  <div class="obj text" contenteditable="true" data-key="s5a-manager-question" style="left:55%;top:71%;width:35%;height:5%;font-family:'Poppins',Arial,sans-serif;font-size:18pt;font-weight:600;color:#E1306C">What should—and should not—be remembered?</div>
+
+  <div class="obj text" contenteditable="true" data-key="s5a-foot" style="left:10%;top:85%;width:80%;height:5%;font-family:'Poppins',Arial,sans-serif;font-size:18pt;font-weight:600;color:#833AB4;text-align:center">CAPTURE THE MOMENT · DEFINE THE BOUNDARY · THEN STRUCTURE</div>
 </section>
 
 <section class="slide" data-slide="6" style="--slide-bg:#FFFFFF">
   <div class="obj shape" style="left:4.7%;top:7.5%;width:1.1%;height:7.8%;background:linear-gradient(180deg,#405DE6,#833AB4,#E1306C);border-radius:999px"></div>
-  <div class="obj text" contenteditable="true" data-key="s6a-title" style="left:7.2%;top:7%;width:82%;height:8%;font-family:'Poppins',Arial,sans-serif;font-size:38pt;font-weight:700;color:#102A43">The shift: AI runs the memory loop</div>
-  <div class="obj text" contenteditable="true" data-key="s6a-sub" style="left:7.2%;top:17%;width:84%;height:6%;font-family:'Lato',Arial,sans-serif;font-size:19pt;color:#52697A">People keep one reliable behavior: capture. The system does the organizing and resurfacing.</div>
-  <div class="obj shape" style="left:6%;top:33%;width:27%;height:36%;background:#F5F7FF;border:1px solid #D6DDF7;border-radius:18px"></div>
-  <div class="obj shape" style="left:9%;top:37%;width:6%;height:10.5%;background:#405DE6;border-radius:50%"></div><div class="obj text" style="left:9%;top:39.5%;width:6%;height:5%;font-family:'Poppins';font-size:18pt;font-weight:700;color:#FFF;text-align:center">01</div>
-  <div class="obj text" contenteditable="true" data-key="s6a-capture-title" style="left:9%;top:50%;width:21%;height:6%;font-family:'Poppins';font-size:22pt;font-weight:700;color:#102A43">Capture</div>
-  <div class="obj text" contenteditable="true" data-key="s6a-capture-body" style="left:9%;top:57%;width:21%;height:9%;font-family:'Lato';font-size:18pt;line-height:1.35;color:#52697A">One frictionless inbox for thoughts, notes, and updates.</div>
-  <div class="obj shape" style="left:36.5%;top:33%;width:27%;height:36%;background:#FBF5FF;border:1px solid #E2D0ED;border-radius:18px"></div>
-  <div class="obj shape" style="left:39.5%;top:37%;width:6%;height:10.5%;background:#833AB4;border-radius:50%"></div><div class="obj text" style="left:39.5%;top:39.5%;width:6%;height:5%;font-family:'Poppins';font-size:18pt;font-weight:700;color:#FFF;text-align:center">02</div>
-  <div class="obj text" contenteditable="true" data-key="s6a-process-title" style="left:39.5%;top:50%;width:21%;height:6%;font-family:'Poppins';font-size:22pt;font-weight:700;color:#102A43">Process</div>
-  <div class="obj text" contenteditable="true" data-key="s6a-process-body" style="left:39.5%;top:57%;width:21%;height:9%;font-family:'Lato';font-size:18pt;line-height:1.35;color:#52697A">Classify, connect, and ask when confidence is low.</div>
-  <div class="obj shape" style="left:67%;top:33%;width:27%;height:36%;background:#FFF6F8;border:1px solid #F2C5D3;border-radius:18px"></div>
-  <div class="obj shape" style="left:70%;top:37%;width:6%;height:10.5%;background:#E1306C;border-radius:50%"></div><div class="obj text" style="left:70%;top:39.5%;width:6%;height:5%;font-family:'Poppins';font-size:18pt;font-weight:700;color:#FFF;text-align:center">03</div>
-  <div class="obj text" contenteditable="true" data-key="s6a-surface-title" style="left:70%;top:50%;width:21%;height:6%;font-family:'Poppins';font-size:22pt;font-weight:700;color:#102A43">Surface</div>
-  <div class="obj text" contenteditable="true" data-key="s6a-surface-body" style="left:70%;top:57%;width:21%;height:9%;font-family:'Lato';font-size:18pt;line-height:1.35;color:#52697A">Bring back the brief, risk, context, or next decision.</div>
-  <div class="obj shape" style="left:16%;top:78%;width:68%;height:7%;background:linear-gradient(90deg,#405DE6,#833AB4,#E1306C,#F77737);border-radius:999px"></div>
-  <div class="obj text" contenteditable="true" data-key="s6a-foot" style="left:18%;top:79.7%;width:64%;height:3.5%;font-family:'Poppins';font-size:18pt;font-weight:600;color:#FFF;text-align:center">CAPTURE → PROCESS → SURFACE</div>
+  <div class="obj text" contenteditable="true" data-key="s6a-title" style="left:7.2%;top:7%;width:84%;height:8%;font-family:'Poppins',Arial,sans-serif;font-size:38pt;font-weight:700;color:#102A43">The second brain is the governed transformation</div>
+  <div class="obj text" contenteditable="true" data-key="s6a-sub" style="left:7.2%;top:17%;width:84%;height:6%;font-family:'Lato',Arial,sans-serif;font-size:19pt;color:#52697A">Capture is easy. The value sits between raw context and the next decision.</div>
+
+  <div class="obj shape" style="left:5%;top:35%;width:25%;height:34%;background:#F5F7FF;border:1px solid #D6DDF7;border-radius:18px"></div>
+  <div class="obj text" style="left:8%;top:39%;width:18%;height:4%;font-family:'Poppins';font-size:13pt;font-weight:700;letter-spacing:.1em;color:#405DE6">01 · CAPTURE</div>
+  <div class="obj text" contenteditable="true" data-key="s6a-capture-title" style="left:8%;top:47%;width:18%;height:7%;font-family:'Poppins';font-size:24pt;font-weight:700;color:#102A43">Raw and natural</div>
+  <div class="obj text" contenteditable="true" data-key="s6a-capture-body" style="left:8%;top:57%;width:18%;height:9%;font-family:'Lato';font-size:19pt;line-height:1.4;color:#52697A">Logs, notes, observations, and messages.</div>
+
+  <div class="obj shape" style="left:32%;top:29%;width:36%;height:46%;background:linear-gradient(145deg,#405DE6,#833AB4,#E1306C);border-radius:22px;box-shadow:0 14px 34px rgba(77,62,167,.18)"></div>
+  <div class="obj text" style="left:36%;top:34%;width:28%;height:4%;font-family:'Poppins';font-size:13pt;font-weight:700;letter-spacing:.1em;color:#DDE5FF;text-align:center">02 · GOVERN</div>
+  <div class="obj text" contenteditable="true" data-key="s6a-govern-title" style="left:36%;top:42%;width:28%;height:7%;font-family:'Poppins';font-size:28pt;font-weight:700;color:#FFFFFF;text-align:center">Classify before remembering</div>
+  <div class="obj text" contenteditable="true" data-key="s6a-govern-body" style="left:37%;top:54%;width:26%;height:15%;font-family:'Lato';font-size:19pt;line-height:1.45;color:#F6F4FF;text-align:center">Ask when evidence is incomplete.<br>Validate the boundary.<br>Require review for reuse.</div>
+
+  <div class="obj shape" style="left:70%;top:35%;width:25%;height:34%;background:#FFF6F8;border:1px solid #F2C5D3;border-radius:18px"></div>
+  <div class="obj text" style="left:73%;top:39%;width:18%;height:4%;font-family:'Poppins';font-size:13pt;font-weight:700;letter-spacing:.1em;color:#E1306C">03 · SURFACE</div>
+  <div class="obj text" contenteditable="true" data-key="s6a-surface-title" style="left:73%;top:47%;width:18%;height:7%;font-family:'Poppins';font-size:24pt;font-weight:700;color:#102A43">Ready to decide</div>
+  <div class="obj text" contenteditable="true" data-key="s6a-surface-body" style="left:73%;top:57%;width:18%;height:9%;font-family:'Lato';font-size:19pt;line-height:1.35;color:#52697A">Case · experiment<br>brief · reviewed learning</div>
+
+  <div class="obj shape" style="left:28.5%;top:47%;width:3.5%;height:5%;background:#405DE6;clip-path:polygon(0 35%,65% 35%,65% 0,100% 50%,65% 100%,65% 65%,0 65%)"></div>
+  <div class="obj shape" style="left:67.7%;top:47%;width:3.5%;height:5%;background:#E1306C;clip-path:polygon(0 35%,65% 35%,65% 0,100% 50%,65% 100%,65% 65%,0 65%)"></div>
+
+  <div class="obj shape" style="left:20%;top:83%;width:60%;height:7%;background:#102A43;border-radius:10px"></div>
+  <div class="obj text" contenteditable="true" data-key="s6a-foot" style="left:24%;top:84.6%;width:52%;height:3.5%;font-family:'Poppins';font-size:18pt;font-weight:600;color:#FFF;text-align:center">CAPTURE → GOVERN → DECIDE</div>
 </section>
 
 <section class="slide" data-slide="7" style="--slide-bg:#FFFFFF">
   <div class="obj shape" style="left:4.7%;top:7.5%;width:.75%;height:7.8%;background:linear-gradient(180deg,#405DE6,#833AB4);border-radius:999px"></div>
-  <div class="obj text" contenteditable="true" data-key="s7m-title" style="left:7%;top:7%;width:84%;height:8%;font-family:'Poppins',Arial,sans-serif;font-size:38pt;font-weight:700;color:#102A43">Architecture is portable. Tools are not.</div>
-  <div class="obj text" contenteditable="true" data-key="s7m-sub" style="left:7%;top:17%;width:84%;height:6%;font-family:'Lato',Arial,sans-serif;font-size:19pt;line-height:1.25;color:#52697A">Keep the pattern stable even when chat, storage, and AI platforms change.</div>
+  <div class="obj text" contenteditable="true" data-key="s7m-title" style="left:7%;top:7%;width:84%;height:8%;font-family:'Poppins',Arial,sans-serif;font-size:38pt;font-weight:700;color:#102A43">Agents prepare context. Humans own the outcome.</div>
+  <div class="obj text" contenteditable="true" data-key="s7m-sub" style="left:7%;top:17%;width:84%;height:6%;font-family:'Lato',Arial,sans-serif;font-size:19pt;line-height:1.25;color:#52697A">Automation should remove reconstruction work—not move accountability to the model.</div>
 
-  <div class="obj shape" style="left:6%;top:31%;width:88%;height:37%;background:#F8F9FC;border:1px solid #D8E2EC;border-radius:12px"></div>
-  <div class="obj shape" style="left:8.5%;top:35%;width:25%;height:29%;background:#FFFFFF;border:1px solid #D6DDF7;border-radius:10px"></div>
-  <div class="obj shape" style="left:8.5%;top:35%;width:25%;height:.9%;background:#405DE6;border-radius:10px 10px 0 0"></div>
-  <div class="obj text" contenteditable="true" data-key="s7m-i-title" style="left:11%;top:39%;width:20%;height:6%;font-family:'Poppins';font-size:22pt;font-weight:700;color:#102A43"><span style="color:#405DE6">01</span> Interface</div>
-  <div class="obj text" contenteditable="true" data-key="s7m-i-body" style="left:11%;top:48%;width:20%;height:12%;font-family:'Lato';font-size:18pt;line-height:1.4;color:#52697A">Chat, email, voice, notes, or CLI—where people already work.</div>
+  <div class="obj shape" style="left:6%;top:31%;width:42%;height:47%;background:#F5F7FF;border:1px solid #D6DDF7;border-radius:18px"></div>
+  <div class="obj text" style="left:9%;top:36%;width:30%;height:5%;font-family:'Poppins';font-size:15pt;font-weight:700;letter-spacing:.09em;color:#405DE6">THE AGENT PREPARES</div>
+  <div class="obj text" contenteditable="true" data-key="s7m-agent" style="left:9%;top:45%;width:34%;height:25%;font-family:'Lato';font-size:21pt;line-height:1.65;color:#102A43">Extract facts and uncertainty<br>Ask for missing evidence<br>Draft the next experiment or message<br>Record the source and confidence</div>
 
-  <div class="obj shape" style="left:37.5%;top:35%;width:25%;height:29%;background:#FFFFFF;border:1px solid #DED5EA;border-radius:10px"></div>
-  <div class="obj shape" style="left:37.5%;top:35%;width:25%;height:.9%;background:#833AB4;border-radius:10px 10px 0 0"></div>
-  <div class="obj text" contenteditable="true" data-key="s7m-m-title" style="left:40%;top:39%;width:20%;height:6%;font-family:'Poppins';font-size:22pt;font-weight:700;color:#102A43"><span style="color:#833AB4">02</span> Memory</div>
-  <div class="obj text" contenteditable="true" data-key="s7m-m-body" style="left:40%;top:48%;width:20%;height:12%;font-family:'Lato';font-size:18pt;line-height:1.4;color:#52697A">Docs, database, tracker, or Markdown—the durable source of truth.</div>
+  <div class="obj shape" style="left:52%;top:31%;width:42%;height:47%;background:#FFF6F8;border:1px solid #F2C5D3;border-radius:18px"></div>
+  <div class="obj text" style="left:55%;top:36%;width:31%;height:5%;font-family:'Poppins';font-size:15pt;font-weight:700;letter-spacing:.09em;color:#E1306C">THE HUMAN DECIDES</div>
+  <div class="obj text" contenteditable="true" data-key="s7m-human" style="left:55%;top:45%;width:34%;height:25%;font-family:'Lato';font-size:21pt;line-height:1.65;color:#102A43">Authorize the boundary crossing<br>Choose the experiment or action<br>Verify the real-world result<br>Approve reuse or communication</div>
 
-  <div class="obj shape" style="left:66.5%;top:35%;width:25%;height:29%;background:#FFFFFF;border:1px solid #E5D4DC;border-radius:10px"></div>
-  <div class="obj shape" style="left:66.5%;top:35%;width:25%;height:.9%;background:#C9366F;border-radius:10px 10px 0 0"></div>
-  <div class="obj text" contenteditable="true" data-key="s7m-c-title" style="left:69%;top:39%;width:20%;height:6%;font-family:'Poppins';font-size:22pt;font-weight:700;color:#102A43"><span style="color:#C9366F">03</span> Compute</div>
-  <div class="obj text" contenteditable="true" data-key="s7m-c-body" style="left:69%;top:48%;width:20%;height:12%;font-family:'Lato';font-size:18pt;line-height:1.4;color:#52697A">LLM, coding agent, workflow, or internal platform—the loop runner.</div>
+  <div class="obj shape" style="left:47.8%;top:43%;width:4.4%;height:23%;background:linear-gradient(180deg,#405DE6,#833AB4,#E1306C);border-radius:999px"></div>
+  <div class="obj text" style="left:46%;top:51%;width:8%;height:5%;font-family:'Poppins';font-size:13pt;font-weight:700;color:#FFFFFF;text-align:center;transform:rotate(-90deg)">HANDOFF</div>
 
-  <div class="obj shape" style="left:32.6%;top:47%;width:5%;height:4%;background:#B8C5D1;clip-path:polygon(0 42%,70% 42%,70% 0,100% 50%,70% 100%,70% 58%,0 58%)"></div>
-  <div class="obj shape" style="left:61.6%;top:47%;width:5%;height:4%;background:#B8C5D1;clip-path:polygon(0 42%,70% 42%,70% 0,100% 50%,70% 100%,70% 58%,0 58%)"></div>
-
-  <div class="obj shape" style="left:12%;top:77%;width:76%;height:9%;background:#102A43;border-radius:10px"></div>
-  <div class="obj text" contenteditable="true" data-key="s7m-foot" style="left:16%;top:79.4%;width:68%;height:4%;font-family:'Poppins';font-size:18pt;font-weight:600;color:#FFFFFF;text-align:center">The demo uses local Markdown because every update is inspectable.</div>
+  <div class="obj shape" style="left:18%;top:85%;width:64%;height:7%;background:#102A43;border-radius:10px"></div>
+  <div class="obj text" contenteditable="true" data-key="s7m-foot" style="left:22%;top:86.6%;width:56%;height:3.5%;font-family:'Poppins';font-size:18pt;font-weight:600;color:#FFFFFF;text-align:center">AUTOMATE PREPARATION · NOT ACCOUNTABILITY</div>
 </section>
 
 <section class="slide" data-slide="8" style="--slide-bg:#FFFFFF">
   <div class="obj shape" style="left:4.7%;top:7.5%;width:.75%;height:7.8%;background:linear-gradient(180deg,#405DE6,#833AB4);border-radius:999px"></div>
-  <div class="obj text" contenteditable="true" data-key="s8m-title" style="left:7%;top:7%;width:84%;height:8%;font-family:'Poppins',Arial,sans-serif;font-size:38pt;font-weight:700;color:#102A43">Make memory trustworthy</div>
-  <div class="obj text" contenteditable="true" data-key="s8m-sub" style="left:7%;top:17%;width:84%;height:6%;font-family:'Lato',Arial,sans-serif;font-size:19pt;line-height:1.25;color:#52697A">The same three operating rules govern every capture, case, and surfaced action.</div>
+  <div class="obj text" contenteditable="true" data-key="s8m-title" style="left:7%;top:7%;width:84%;height:8%;font-family:'Poppins',Arial,sans-serif;font-size:38pt;font-weight:700;color:#102A43">Trust is an operating contract</div>
+  <div class="obj text" contenteditable="true" data-key="s8m-sub" style="left:7%;top:17%;width:84%;height:6%;font-family:'Lato',Arial,sans-serif;font-size:19pt;line-height:1.25;color:#52697A">Prompts guide behavior. Provenance, validation, review, and tests make it dependable.</div>
 
   <div class="obj shape" style="left:6%;top:32%;width:27%;height:39%;background:#FFFFFF;border:1px solid #D6DDF7;border-radius:10px;box-shadow:0 8px 22px rgba(16,42,67,.05)"></div>
   <div class="obj shape" style="left:6%;top:32%;width:.8%;height:39%;background:#405DE6;border-radius:10px 0 0 10px"></div>
-  <div class="obj text" contenteditable="true" data-key="s8m-r-label" style="left:9%;top:37%;width:20%;height:5%;font-family:'Poppins';font-size:16pt;font-weight:700;letter-spacing:.06em;color:#405DE6">RECEIPT</div>
+  <div class="obj text" contenteditable="true" data-key="s8m-r-label" style="left:9%;top:37%;width:20%;height:5%;font-family:'Poppins';font-size:16pt;font-weight:700;letter-spacing:.06em;color:#405DE6">PROVENANCE</div>
   <div class="obj text" contenteditable="true" data-key="s8m-r-title" style="left:9%;top:45%;width:21%;height:6%;font-family:'Poppins';font-size:22pt;font-weight:700;color:#102A43">Show your work</div>
   <div class="obj text" contenteditable="true" data-key="s8m-r-body" style="left:9%;top:54%;width:21%;height:12%;font-family:'Lato';font-size:18pt;line-height:1.4;color:#52697A">Expose the source, destination, timestamp, and confidence.</div>
 
   <div class="obj shape" style="left:36.5%;top:32%;width:27%;height:39%;background:#FFFFFF;border:1px solid #DED5EA;border-radius:10px;box-shadow:0 8px 22px rgba(16,42,67,.05)"></div>
   <div class="obj shape" style="left:36.5%;top:32%;width:.8%;height:39%;background:#833AB4;border-radius:10px 0 0 10px"></div>
-  <div class="obj text" contenteditable="true" data-key="s8m-b-label" style="left:39.5%;top:37%;width:20%;height:5%;font-family:'Poppins';font-size:16pt;font-weight:700;letter-spacing:.06em;color:#833AB4">BOUNCER</div>
+  <div class="obj text" contenteditable="true" data-key="s8m-b-label" style="left:39.5%;top:37%;width:20%;height:5%;font-family:'Poppins';font-size:16pt;font-weight:700;letter-spacing:.06em;color:#833AB4">CLARIFICATION GATE</div>
   <div class="obj text" contenteditable="true" data-key="s8m-b-title" style="left:39.5%;top:45%;width:21%;height:6%;font-family:'Poppins';font-size:22pt;font-weight:700;color:#102A43">Ask when unsure</div>
   <div class="obj text" contenteditable="true" data-key="s8m-b-body" style="left:39.5%;top:54%;width:21%;height:12%;font-family:'Lato';font-size:18pt;line-height:1.4;color:#52697A">Low confidence triggers clarification—not memory pollution.</div>
 
   <div class="obj shape" style="left:67%;top:32%;width:27%;height:39%;background:#FFFFFF;border:1px solid #E5D4DC;border-radius:10px;box-shadow:0 8px 22px rgba(16,42,67,.05)"></div>
   <div class="obj shape" style="left:67%;top:32%;width:.8%;height:39%;background:#C9366F;border-radius:10px 0 0 10px"></div>
-  <div class="obj text" contenteditable="true" data-key="s8m-f-label" style="left:70%;top:37%;width:20%;height:5%;font-family:'Poppins';font-size:16pt;font-weight:700;letter-spacing:.06em;color:#C9366F">FIX BUTTON</div>
-  <div class="obj text" contenteditable="true" data-key="s8m-f-title" style="left:70%;top:45%;width:21%;height:6%;font-family:'Poppins';font-size:22pt;font-weight:700;color:#102A43">Correct in one line</div>
-  <div class="obj text" contenteditable="true" data-key="s8m-f-body" style="left:70%;top:54%;width:21%;height:12%;font-family:'Lato';font-size:18pt;line-height:1.4;color:#52697A">A reply fixes the record without database maintenance.</div>
+  <div class="obj text" contenteditable="true" data-key="s8m-f-label" style="left:70%;top:37%;width:20%;height:5%;font-family:'Poppins';font-size:16pt;font-weight:700;letter-spacing:.06em;color:#C9366F">CORRECTION + EVALS</div>
+  <div class="obj text" contenteditable="true" data-key="s8m-f-title" style="left:70%;top:45%;width:21%;height:6%;font-family:'Poppins';font-size:22pt;font-weight:700;color:#102A43">Correct and test</div>
+  <div class="obj text" contenteditable="true" data-key="s8m-f-body" style="left:70%;top:54%;width:21%;height:12%;font-family:'Lato';font-size:18pt;line-height:1.4;color:#52697A">Human corrections update the record. Deterministic checks protect the boundary.</div>
 
   <div class="obj shape" style="left:17%;top:79%;width:66%;height:8%;background:#102A43;border-radius:10px"></div>
-  <div class="obj text" contenteditable="true" data-key="s8m-foot" style="left:21%;top:81%;width:58%;height:4%;font-family:'Poppins';font-size:18pt;font-weight:600;color:#FFFFFF;text-align:center">VISIBLE → CORRECTABLE → TRUSTWORTHY</div>
+  <div class="obj text" contenteditable="true" data-key="s8m-foot" style="left:21%;top:81%;width:58%;height:4%;font-family:'Poppins';font-size:18pt;font-weight:600;color:#FFFFFF;text-align:center">VISIBLE → CORRECTABLE → TESTABLE</div>
 </section>
 
 <section class="slide" data-slide="9" style="--slide-bg:#FFFFFF">
   <div class="obj shape" style="left:4.7%;top:7.5%;width:.75%;height:7.8%;background:linear-gradient(180deg,#405DE6,#833AB4);border-radius:999px"></div>
   <div class="obj text" contenteditable="true" data-key="s9a-title" style="left:7%;top:7%;width:84%;height:8%;font-family:'Avenir Next','Helvetica Neue',Arial,sans-serif;font-size:38pt;font-weight:700;color:#102A43">Case #1: Field issue — how context crosses the boundary</div>
-  <div class="obj text" contenteditable="true" data-key="s9a-sub" style="left:7%;top:17%;width:84%;height:6%;font-family:'Avenir Next','Helvetica Neue',Arial,sans-serif;font-size:19pt;color:#52697A">The onsite field engineer and a local AI agent co-create the packet that offsite engineering can safely use.</div>
+  <div class="obj text" contenteditable="true" data-key="s9a-sub" style="left:7%;top:17%;width:84%;height:6%;font-family:'Avenir Next','Helvetica Neue',Arial,sans-serif;font-size:19pt;color:#52697A">The field engineer and an onsite agent co-create a human-reviewed packet; a validator controls what leaves the fab.</div>
 
   <div class="obj shape" style="left:4%;top:31%;width:22%;height:44%;background:#102A43;border-radius:12px"></div>
-  <div class="obj text" style="left:6.5%;top:35%;width:17%;height:4%;font-family:'Avenir Next','Helvetica Neue',Arial,sans-serif;font-size:12pt;font-weight:700;letter-spacing:.07em;color:#9AC7FF">01 · INSIDE THE FAB</div>
+  <div class="obj text" style="left:6.5%;top:35%;width:17%;height:4%;font-family:'Avenir Next','Helvetica Neue',Arial,sans-serif;font-size:14pt;font-weight:700;letter-spacing:.07em;color:#9AC7FF">01 · INSIDE THE FAB</div>
   <div class="obj text" contenteditable="true" data-key="s9a-fab-title" style="left:6.5%;top:43%;width:17%;height:6%;font-family:'Avenir Next','Helvetica Neue',Arial,sans-serif;font-size:21pt;font-weight:700;color:#FFF">Raw evidence stays local</div>
-  <div class="obj text" contenteditable="true" data-key="s9a-fab-body" style="left:6.5%;top:53%;width:17%;height:16%;font-family:'Avenir Next','Helvetica Neue',Arial,sans-serif;font-size:17.5pt;line-height:1.42;color:#D5E2EC">Machine logs<br><br>Restricted identifiers<br><br>Live tool observations</div>
+  <div class="obj text" contenteditable="true" data-key="s9a-fab-body" style="left:6.5%;top:53%;width:17%;height:16%;font-family:'Avenir Next','Helvetica Neue',Arial,sans-serif;font-size:17.5pt;line-height:1.4;color:#D5E2EC">• Machine logs<br>• Restricted identifiers<br>• Live observations</div>
 
   <div class="obj shape" style="left:27%;top:49%;width:3%;height:5%;background:#B8C5D1;clip-path:polygon(0 42%,70% 42%,70% 0,100% 50%,70% 100%,70% 58%,0 58%)"></div>
 
   <div class="obj shape" style="left:30%;top:28%;width:39%;height:51%;background:#F5F7FF;border:2px solid #D6DDF7;border-radius:14px"></div>
-  <div class="obj text" style="left:33%;top:32%;width:30%;height:4%;font-family:'Avenir Next','Helvetica Neue',Arial,sans-serif;font-size:12pt;font-weight:700;letter-spacing:.07em;color:#405DE6">02 · ONSITE HUMAN + AI LOOP</div>
+  <div class="obj text" style="left:33%;top:32%;width:30%;height:4%;font-family:'Avenir Next','Helvetica Neue',Arial,sans-serif;font-size:14pt;font-weight:700;letter-spacing:.07em;color:#405DE6">02 · ONSITE HUMAN + AI LOOP</div>
 
   <div class="obj shape" style="left:34%;top:40%;width:11%;height:17%;background:#FFFFFF;border:2px solid #9AB0F4;border-radius:50%"></div>
   <div class="obj text" contenteditable="true" data-key="s9a-field-engineer" style="left:34.5%;top:44%;width:10%;height:8%;font-family:'Avenir Next','Helvetica Neue',Arial,sans-serif;font-size:15pt;font-weight:700;line-height:1.2;color:#405DE6;text-align:center">FIELD<br>ENGINEER</div>
 
   <div class="obj shape" style="left:54%;top:40%;width:11%;height:17%;background:linear-gradient(135deg,#405DE6,#833AB4);border:3px solid #FFFFFF;border-radius:50%;box-shadow:0 0 0 2px #7650C2"></div>
-  <div class="obj text" contenteditable="true" data-key="s9a-local-agent" style="left:54.5%;top:44%;width:10%;height:8%;font-family:'Avenir Next','Helvetica Neue',Arial,sans-serif;font-size:15pt;font-weight:700;line-height:1.2;color:#FFFFFF;text-align:center">LOCAL<br>AI / LLM</div>
+  <div class="obj text" contenteditable="true" data-key="s9a-local-agent" style="left:54.5%;top:44%;width:10%;height:8%;font-family:'Avenir Next','Helvetica Neue',Arial,sans-serif;font-size:15pt;font-weight:700;line-height:1.2;color:#FFFFFF;text-align:center">ONSITE<br>AGENT</div>
 
   <div class="obj shape" style="left:45.5%;top:43%;width:8%;height:2.5%;background:#405DE6;clip-path:polygon(0 38%,78% 38%,78% 0,100% 50%,78% 100%,78% 62%,0 62%)"></div>
-  <div class="obj text" style="left:46%;top:39.5%;width:7%;height:3%;font-family:'Avenir Next','Helvetica Neue',Arial,sans-serif;font-size:10pt;font-weight:700;color:#405DE6;text-align:center">QUESTIONS</div>
+  <div class="obj text" style="left:43.25%;top:39.2%;width:12.5%;height:3.5%;font-family:'Avenir Next','Helvetica Neue',Arial,sans-serif;font-size:12.5pt;font-weight:700;color:#405DE6;text-align:center">CLARIFYING QUESTION</div>
   <div class="obj shape" style="left:45.5%;top:52%;width:8%;height:2.5%;background:#833AB4;transform:rotate(180deg);clip-path:polygon(0 38%,78% 38%,78% 0,100% 50%,78% 100%,78% 62%,0 62%)"></div>
-  <div class="obj text" style="left:45%;top:55%;width:9%;height:3%;font-family:'Avenir Next','Helvetica Neue',Arial,sans-serif;font-size:10pt;font-weight:700;color:#833AB4;text-align:center">TOOL CONTEXT</div>
+  <div class="obj text" style="left:43.25%;top:55%;width:12.5%;height:3.5%;font-family:'Avenir Next','Helvetica Neue',Arial,sans-serif;font-size:12.5pt;font-weight:700;color:#833AB4;text-align:center">TOOL OBSERVATION</div>
 
-  <div class="obj text" contenteditable="true" data-key="s9a-agent-context" style="left:52%;top:58.5%;width:15%;height:5%;font-family:'Avenir Next','Helvetica Neue',Arial,sans-serif;font-size:13pt;color:#52697A;text-align:center">raw logs · local memory<br>approved guidance</div>
+  <div class="obj text" contenteditable="true" data-key="s9a-agent-context" style="left:52%;top:58.5%;width:15%;height:5%;font-family:'Avenir Next','Helvetica Neue',Arial,sans-serif;font-size:13.5pt;color:#52697A;text-align:center">raw evidence · field observation</div>
 
   <div class="obj shape" style="left:36.5%;top:64.5%;width:26%;height:11.5%;background:#FFFFFF;border:2px solid #B89BD7;border-radius:10px"></div>
-  <div class="obj text" contenteditable="true" data-key="s9a-packet-title" style="left:38.5%;top:66.3%;width:22%;height:4%;font-family:'Avenir Next','Helvetica Neue',Arial,sans-serif;font-size:17pt;font-weight:700;color:#102A43;text-align:center">Reviewed sanitized packet</div>
-  <div class="obj text" contenteditable="true" data-key="s9a-packet-body" style="left:38.5%;top:70.7%;width:22%;height:4%;font-family:'Avenir Next','Helvetica Neue',Arial,sans-serif;font-size:11.5pt;line-height:1.25;color:#52697A;text-align:center">symptoms · timeline · confidence<br>redactions · open questions</div>
+  <div class="obj text" contenteditable="true" data-key="s9a-packet-title" style="left:38.5%;top:66.3%;width:22%;height:4%;font-family:'Avenir Next','Helvetica Neue',Arial,sans-serif;font-size:17pt;font-weight:700;color:#102A43;text-align:center">Human-reviewed export packet</div>
+  <div class="obj text" contenteditable="true" data-key="s9a-packet-body" style="left:38.5%;top:70.3%;width:22%;height:5%;font-family:'Avenir Next','Helvetica Neue',Arial,sans-serif;font-size:13.5pt;line-height:1.2;color:#52697A;text-align:center">facts · hypotheses · confidence<br>redactions · open questions</div>
 
-  <div class="obj text" style="left:68.7%;top:43%;width:5.6%;height:5%;font-family:'Avenir Next','Helvetica Neue',Arial,sans-serif;font-size:9pt;font-weight:700;line-height:1.15;color:#833AB4;text-align:center">SANITIZED<br>PACKET</div>
+  <div class="obj text" style="left:68.4%;top:43%;width:6.2%;height:5%;font-family:'Avenir Next','Helvetica Neue',Arial,sans-serif;font-size:11.5pt;font-weight:700;line-height:1.12;color:#833AB4;text-align:center">VALIDATOR<br>PASS</div>
   <div class="obj shape" style="left:69%;top:50%;width:5%;height:5%;background:#833AB4;clip-path:polygon(0 42%,70% 42%,70% 0,100% 50%,70% 100%,70% 58%,0 58%)"></div>
 
   <div class="obj shape" style="left:74%;top:31%;width:22%;height:44%;background:#FBF5FF;border:2px solid #DED5EA;border-radius:12px"></div>
-  <div class="obj text" style="left:76.5%;top:35%;width:17%;height:4%;font-family:'Avenir Next','Helvetica Neue',Arial,sans-serif;font-size:12pt;font-weight:700;letter-spacing:.07em;color:#833AB4">03 · OFFSITE ENGINEERING</div>
-  <div class="obj text" contenteditable="true" data-key="s9a-case-title" style="left:76.5%;top:43%;width:17%;height:6%;font-family:'Avenir Next','Helvetica Neue',Arial,sans-serif;font-size:21pt;font-weight:700;color:#102A43">Shweta receives the case</div>
-  <div class="obj text" contenteditable="true" data-key="s9a-case-body" style="left:76.5%;top:53%;width:17%;height:16%;font-family:'Avenir Next','Helvetica Neue',Arial,sans-serif;font-size:17.5pt;line-height:1.42;color:#52697A">Sanitized evidence<br><br>Code + test access<br><br>Goal: fix, verify, close</div>
+  <div class="obj text" style="left:76.5%;top:35%;width:17%;height:4%;font-family:'Avenir Next','Helvetica Neue',Arial,sans-serif;font-size:14pt;font-weight:700;letter-spacing:.07em;color:#833AB4">03 · OFFSITE ENGINEERING</div>
+  <div class="obj text" contenteditable="true" data-key="s9a-case-title" style="left:76.5%;top:43%;width:17%;height:6%;font-family:'Avenir Next','Helvetica Neue',Arial,sans-serif;font-size:21pt;font-weight:700;color:#102A43">Shweta leads the diagnosis</div>
+  <div class="obj text" contenteditable="true" data-key="s9a-case-body" style="left:76.5%;top:53%;width:17%;height:16%;font-family:'Avenir Next','Helvetica Neue',Arial,sans-serif;font-size:17.5pt;line-height:1.4;color:#52697A">• Sanitized evidence<br>• Next experiment<br>• Verify and close</div>
 
   <div class="obj shape" style="left:14%;top:84%;width:72%;height:8%;background:linear-gradient(90deg,#405DE6,#833AB4);border-radius:10px"></div>
-  <div class="obj text" contenteditable="true" data-key="s9a-foot" style="left:18%;top:86%;width:64%;height:4%;font-family:'Avenir Next','Helvetica Neue',Arial,sans-serif;font-size:17pt;font-weight:600;color:#FFF;text-align:center">HUMAN-REVIEWED CONTEXT CROSSES · RESTRICTED EVIDENCE DOES NOT</div>
+  <div class="obj text" contenteditable="true" data-key="s9a-foot" style="left:18%;top:86%;width:64%;height:4%;font-family:'Avenir Next','Helvetica Neue',Arial,sans-serif;font-size:17pt;font-weight:600;color:#FFF;text-align:center">VALIDATED CONTEXT CROSSES · RESTRICTED EVIDENCE DOES NOT</div>
 </section>
 
 <section class="slide" data-slide="10" style="--slide-bg:#FFFFFF">
@@ -261,39 +242,39 @@
   <div class="obj text" contenteditable="true" data-key="s11v-left-sub" style="left:24%;top:41%;width:19%;height:5%;font-family:'Avenir Next','Helvetica Neue',Arial,sans-serif;font-size:16pt;color:#52697A;text-align:center">Every incident remains traceable</div>
 
   <div class="obj shape" style="left:25%;top:51%;width:6%;height:10.5%;background:#FFFFFF;border:2px solid #9AB0F4;border-radius:50%"></div>
-  <div class="obj text" style="left:25%;top:54.5%;width:6%;height:3%;font-family:'Avenir Next','Helvetica Neue',Arial,sans-serif;font-size:11pt;font-weight:700;color:#405DE6;text-align:center">FI-421</div>
+  <div class="obj text" style="left:25%;top:54.5%;width:6%;height:3%;font-family:'Avenir Next','Helvetica Neue',Arial,sans-serif;font-size:13pt;font-weight:700;color:#405DE6;text-align:center">FI-421</div>
   <div class="obj shape" style="left:34%;top:48%;width:6%;height:10.5%;background:#FFFFFF;border:2px solid #9AB0F4;border-radius:50%"></div>
-  <div class="obj text" style="left:34%;top:51.5%;width:6%;height:3%;font-family:'Avenir Next','Helvetica Neue',Arial,sans-serif;font-size:11pt;font-weight:700;color:#405DE6;text-align:center">FI-398</div>
+  <div class="obj text" style="left:34%;top:51.5%;width:6%;height:3%;font-family:'Avenir Next','Helvetica Neue',Arial,sans-serif;font-size:13pt;font-weight:700;color:#405DE6;text-align:center">FI-398</div>
   <div class="obj shape" style="left:28%;top:66%;width:6%;height:10.5%;background:#FFFFFF;border:2px solid #9AB0F4;border-radius:50%"></div>
-  <div class="obj text" style="left:28%;top:69.5%;width:6%;height:3%;font-family:'Avenir Next','Helvetica Neue',Arial,sans-serif;font-size:11pt;font-weight:700;color:#405DE6;text-align:center">FI-517</div>
+  <div class="obj text" style="left:28%;top:69.5%;width:6%;height:3%;font-family:'Avenir Next','Helvetica Neue',Arial,sans-serif;font-size:13pt;font-weight:700;color:#405DE6;text-align:center">FI-517</div>
   <div class="obj shape" style="left:38%;top:64%;width:6%;height:10.5%;background:#405DE6;border:3px solid #FFFFFF;border-radius:50%;box-shadow:0 0 0 2px #7088EB"></div>
-  <div class="obj text" style="left:38%;top:67.5%;width:6%;height:3%;font-family:'Avenir Next','Helvetica Neue',Arial,sans-serif;font-size:11pt;font-weight:700;color:#FFFFFF;text-align:center">FI-602</div>
+  <div class="obj text" style="left:38%;top:67.5%;width:6%;height:3%;font-family:'Avenir Next','Helvetica Neue',Arial,sans-serif;font-size:13pt;font-weight:700;color:#FFFFFF;text-align:center">FI-602</div>
   <div class="obj text" contenteditable="true" data-key="s11v-left-foot" style="left:25%;top:79%;width:18%;height:4%;font-family:'Avenir Next','Helvetica Neue',Arial,sans-serif;font-size:14pt;font-weight:600;color:#52697A;text-align:center">Most cases stay here</div>
 
   <div class="obj shape" style="left:43%;top:44%;width:14%;height:5%;background:#FFFFFF;border:1.5px solid #B89BD7;border-radius:999px"></div>
-  <div class="obj text" style="left:43%;top:45%;width:14%;height:3%;font-family:'Avenir Next','Helvetica Neue',Arial,sans-serif;font-size:10.5pt;font-weight:700;letter-spacing:.06em;color:#833AB4;text-align:center">PROMOTION REVIEW</div>
+  <div class="obj text" style="left:43%;top:45%;width:14%;height:3%;font-family:'Avenir Next','Helvetica Neue',Arial,sans-serif;font-size:12.5pt;font-weight:700;letter-spacing:.04em;color:#833AB4;text-align:center">PROMOTION REVIEW</div>
   <div class="obj shape" style="left:49.85%;top:49%;width:.3%;height:3.5%;background:linear-gradient(180deg,#405DE6,#833AB4);border-radius:999px"></div>
   <div class="obj shape" style="left:46.5%;top:52%;width:7%;height:12.5%;background:linear-gradient(135deg,#405DE6,#833AB4);border:4px solid #FFFFFF;border-radius:50%;box-shadow:0 0 0 2px #7650C2"></div>
-  <div class="obj text" contenteditable="true" data-key="s11v-overlap" style="left:46%;top:55%;width:8%;height:7%;font-family:'Avenir Next','Helvetica Neue',Arial,sans-serif;font-size:10pt;font-weight:700;line-height:1.15;color:#FFFFFF;text-align:center">VERIFIED<br>REUSABLE<br>LEARNING</div>
+  <div class="obj text" contenteditable="true" data-key="s11v-overlap" style="left:46%;top:55%;width:8%;height:7%;font-family:'Avenir Next','Helvetica Neue',Arial,sans-serif;font-size:12pt;font-weight:700;line-height:1.12;color:#FFFFFF;text-align:center">VERIFIED<br>REUSABLE<br>LEARNING</div>
 
   <div class="obj text" contenteditable="true" data-key="s11v-right-title" style="left:57%;top:35%;width:19%;height:5%;font-family:'Avenir Next','Helvetica Neue',Arial,sans-serif;font-size:19pt;font-weight:700;color:#833AB4;text-align:center">COMPONENT KNOWLEDGE</div>
   <div class="obj text" contenteditable="true" data-key="s11v-right-sub" style="left:58%;top:41%;width:17%;height:5%;font-family:'Avenir Next','Helvetica Neue',Arial,sans-serif;font-size:16pt;color:#52697A;text-align:center">Small, curated, and reviewed</div>
 
   <div class="obj shape" style="left:57%;top:51%;width:19%;height:6%;background:rgba(255,255,255,.82);border:1px solid #D9C8EA;border-radius:9px"></div>
-  <div class="obj text" contenteditable="true" data-key="s11v-chip1" style="left:58%;top:52.2%;width:17%;height:3.5%;font-family:'Avenir Next','Helvetica Neue',Arial,sans-serif;font-size:15pt;font-weight:600;color:#52697A;text-align:center">✓ Approved diagnostics</div>
+  <div class="obj text" contenteditable="true" data-key="s11v-chip1" style="left:57.5%;top:52.2%;width:18%;height:3.5%;font-family:'Avenir Next','Helvetica Neue',Arial,sans-serif;font-size:14.5pt;font-weight:600;color:#52697A;text-align:center">✓ Approved diagnostics</div>
   <div class="obj shape" style="left:57%;top:60%;width:19%;height:6%;background:rgba(255,255,255,.82);border:1px solid #D9C8EA;border-radius:9px"></div>
-  <div class="obj text" contenteditable="true" data-key="s11v-chip2" style="left:58%;top:61.2%;width:17%;height:3.5%;font-family:'Avenir Next','Helvetica Neue',Arial,sans-serif;font-size:15pt;font-weight:600;color:#52697A;text-align:center">✓ Validated failure modes</div>
+  <div class="obj text" contenteditable="true" data-key="s11v-chip2" style="left:57.5%;top:61.2%;width:18%;height:3.5%;font-family:'Avenir Next','Helvetica Neue',Arial,sans-serif;font-size:14.5pt;font-weight:600;color:#52697A;text-align:center">✓ Validated failure modes</div>
   <div class="obj shape" style="left:57%;top:69%;width:19%;height:6%;background:rgba(255,255,255,.82);border:1px solid #D9C8EA;border-radius:9px"></div>
-  <div class="obj text" contenteditable="true" data-key="s11v-chip3" style="left:58%;top:70.2%;width:17%;height:3.5%;font-family:'Avenir Next','Helvetica Neue',Arial,sans-serif;font-size:15pt;font-weight:600;color:#52697A;text-align:center">✓ Provenance + owner</div>
+  <div class="obj text" contenteditable="true" data-key="s11v-chip3" style="left:57.5%;top:70.2%;width:18%;height:3.5%;font-family:'Avenir Next','Helvetica Neue',Arial,sans-serif;font-size:14.5pt;font-weight:600;color:#52697A;text-align:center">✓ Provenance + owner</div>
 
   <div class="obj shape" style="left:28%;top:89%;width:44%;height:5.5%;background:#102A43;border-radius:9px"></div>
-  <div class="obj text" contenteditable="true" data-key="s10a-foot" style="left:31%;top:90.1%;width:38%;height:3%;font-family:'Avenir Next','Helvetica Neue',Arial,sans-serif;font-size:14.5pt;font-weight:600;color:#FFF;text-align:center">MANY CASES · FEW PROMOTIONS · TRUSTED GUIDANCE</div>
+  <div class="obj text" contenteditable="true" data-key="s10a-foot" style="left:31%;top:90%;width:38%;height:3.5%;font-family:'Avenir Next','Helvetica Neue',Arial,sans-serif;font-size:16pt;font-weight:600;color:#FFF;text-align:center">MANY CASES · FEW PROMOTIONS · TRUSTED GUIDANCE</div>
 </section>
 
 <section class="slide" data-slide="11" style="--slide-bg:#FFFFFF">
   <div class="obj shape" style="left:4.6875%;top:7.5%;width:1.1%;height:7.8%;background:linear-gradient(180deg,#833AB4,#E1306C,#F77737);border-radius:999px"></div>
-  <div class="obj text" contenteditable="true" data-key="s12r-title" style="left:7.2%;top:7.2%;width:84%;height:8%;font-family:'Poppins',Arial,sans-serif;font-size:36pt;font-weight:700;color:#102A43">Case #2: One stand-up, four kinds of follow-through</div>
-  <div class="obj text" contenteditable="true" data-key="s12r-subtitle" style="left:7.2%;top:17.2%;width:84%;height:9%;font-family:'Avenir Next','Helvetica Neue',Arial,sans-serif;font-size:18pt;line-height:1.35;color:#52697A">One stand-up creates risks to track, promises to remember, stakeholders to update, and work to follow through.<br><span style="font-size:15.5pt;color:#718696">Example: QA login risk · Rahul’s dependency · Maya’s update · Priya’s staffing follow-up</span></div>
+  <div class="obj text" contenteditable="true" data-key="s12r-title" style="left:7.2%;top:7.2%;width:84%;height:8%;font-family:'Poppins',Arial,sans-serif;font-size:36pt;font-weight:700;color:#102A43">Case #2: Continuity without surveillance</div>
+  <div class="obj text" contenteditable="true" data-key="s12r-subtitle" style="left:7.2%;top:17.2%;width:84%;height:9%;font-family:'Avenir Next','Helvetica Neue',Arial,sans-serif;font-size:18pt;line-height:1.35;color:#52697A">One stand-up creates four kinds of follow-through. The manager gets reviewable drafts—not judgments about people.<br><span style="font-size:15.5pt;color:#718696">Example: QA login risk · Rahul’s dependency · Maya’s update · Priya’s staffing follow-up</span></div>
 
   <div class="obj shape" style="left:33%;top:41%;width:10%;height:.55%;background:#C5CFD8;border-radius:999px;transform:rotate(12deg);transform-origin:right center"></div>
   <div class="obj shape" style="left:57%;top:41%;width:10%;height:.55%;background:#C5CFD8;border-radius:999px;transform:rotate(-12deg);transform-origin:left center"></div>
@@ -302,112 +283,104 @@
 
   <div class="obj shape" style="left:5%;top:29%;width:30%;height:20%;background:#F4F8FF;border:1px solid #C9D9F7;border-radius:16px;box-shadow:0 8px 20px rgba(16,42,67,.05)"></div>
   <div class="obj shape" style="left:7.5%;top:32%;width:7%;height:4.2%;background:#1769E0;border-radius:999px"></div>
-  <div class="obj text" style="left:7.5%;top:32.8%;width:7%;height:2.5%;font-family:'Avenir Next','Helvetica Neue',Arial,sans-serif;font-size:9.5pt;font-weight:700;color:#FFFFFF;text-align:center">TODAY</div>
+  <div class="obj text" style="left:7.5%;top:32.7%;width:7%;height:2.8%;font-family:'Avenir Next','Helvetica Neue',Arial,sans-serif;font-size:12pt;font-weight:700;color:#FFFFFF;text-align:center">TODAY</div>
   <div class="obj text" contenteditable="true" data-key="s12r-card1-title" style="left:7.5%;top:37.5%;width:25%;height:4.5%;font-family:'Avenir Next','Helvetica Neue',Arial,sans-serif;font-size:18pt;font-weight:700;color:#102A43">Daily brief</div>
-  <div class="obj text" contenteditable="true" data-key="s12r-card1-body" style="left:7.5%;top:42%;width:25%;height:6%;font-family:'Avenir Next','Helvetica Neue',Arial,sans-serif;font-size:17pt;line-height:1.25;color:#52697A">Risks, commitments, and the few follow-ups that matter today.</div>
+  <div class="obj text" contenteditable="true" data-key="s12r-card1-body" style="left:7.5%;top:42%;width:25%;height:6.5%;font-family:'Avenir Next','Helvetica Neue',Arial,sans-serif;font-size:16pt;line-height:1.22;color:#52697A">Risks, commitments, and the few follow-ups that matter today.</div>
 
   <div class="obj shape" style="left:65%;top:29%;width:30%;height:20%;background:#FBF5FF;border:1px solid #E2D0ED;border-radius:16px;box-shadow:0 8px 20px rgba(16,42,67,.05)"></div>
   <div class="obj shape" style="left:67.5%;top:32%;width:7%;height:4.2%;background:#833AB4;border-radius:999px"></div>
-  <div class="obj text" style="left:67.5%;top:32.8%;width:7%;height:2.5%;font-family:'Avenir Next','Helvetica Neue',Arial,sans-serif;font-size:9.5pt;font-weight:700;color:#FFFFFF;text-align:center">1:1</div>
+  <div class="obj text" style="left:67.5%;top:32.7%;width:7%;height:2.8%;font-family:'Avenir Next','Helvetica Neue',Arial,sans-serif;font-size:12pt;font-weight:700;color:#FFFFFF;text-align:center">1:1</div>
   <div class="obj text" contenteditable="true" data-key="s12r-card2-title" style="left:67.5%;top:37.5%;width:25%;height:4.5%;font-family:'Avenir Next','Helvetica Neue',Arial,sans-serif;font-size:18pt;font-weight:700;color:#102A43">Conversation continuity</div>
-  <div class="obj text" contenteditable="true" data-key="s12r-card2-body" style="left:67.5%;top:42%;width:25%;height:6%;font-family:'Avenir Next','Helvetica Neue',Arial,sans-serif;font-size:17pt;line-height:1.25;color:#52697A">Recall agreed commitments, blockers, and follow-ups—not a dossier.</div>
+  <div class="obj text" contenteditable="true" data-key="s12r-card2-body" style="left:67.5%;top:42%;width:25%;height:6.5%;font-family:'Avenir Next','Helvetica Neue',Arial,sans-serif;font-size:16pt;line-height:1.22;color:#52697A">Recall commitments and support needs—not a personality profile.</div>
 
   <div class="obj shape" style="left:5%;top:57%;width:30%;height:20%;background:#FFF6F8;border:1px solid #F2C5D3;border-radius:16px;box-shadow:0 8px 20px rgba(16,42,67,.05)"></div>
   <div class="obj shape" style="left:7.5%;top:60%;width:8%;height:4.2%;background:#E1306C;border-radius:999px"></div>
-  <div class="obj text" style="left:7.5%;top:60.8%;width:8%;height:2.5%;font-family:'Avenir Next','Helvetica Neue',Arial,sans-serif;font-size:9.5pt;font-weight:700;color:#FFFFFF;text-align:center">UPDATE</div>
+  <div class="obj text" style="left:7.5%;top:60.7%;width:8%;height:2.8%;font-family:'Avenir Next','Helvetica Neue',Arial,sans-serif;font-size:12pt;font-weight:700;color:#FFFFFF;text-align:center">UPDATE</div>
   <div class="obj text" contenteditable="true" data-key="s12r-card3-title" style="left:7.5%;top:65.5%;width:25%;height:4.5%;font-family:'Avenir Next','Helvetica Neue',Arial,sans-serif;font-size:18pt;font-weight:700;color:#102A43">Stakeholder preparation</div>
-  <div class="obj text" contenteditable="true" data-key="s12r-card3-body" style="left:7.5%;top:70%;width:25%;height:6%;font-family:'Avenir Next','Helvetica Neue',Arial,sans-serif;font-size:17pt;line-height:1.25;color:#52697A">Draft the message with evidence, confidence, owner, and explicit ask.</div>
+  <div class="obj text" contenteditable="true" data-key="s12r-card3-body" style="left:7.5%;top:70%;width:25%;height:6.5%;font-family:'Avenir Next','Helvetica Neue',Arial,sans-serif;font-size:16pt;line-height:1.22;color:#52697A">Draft with evidence, confidence, owner, and an explicit ask.</div>
 
   <div class="obj shape" style="left:65%;top:57%;width:30%;height:20%;background:#F1FBF5;border:1px solid #BDE7CD;border-radius:16px;box-shadow:0 8px 20px rgba(16,42,67,.05)"></div>
   <div class="obj shape" style="left:67.5%;top:60%;width:8%;height:4.2%;background:#19A974;border-radius:999px"></div>
-  <div class="obj text" style="left:67.5%;top:60.8%;width:8%;height:2.5%;font-family:'Avenir Next','Helvetica Neue',Arial,sans-serif;font-size:9.5pt;font-weight:700;color:#FFFFFF;text-align:center">OWNER</div>
+  <div class="obj text" style="left:67.5%;top:60.7%;width:8%;height:2.8%;font-family:'Avenir Next','Helvetica Neue',Arial,sans-serif;font-size:12pt;font-weight:700;color:#FFFFFF;text-align:center">OWNER</div>
   <div class="obj text" contenteditable="true" data-key="s12r-card4-title" style="left:67.5%;top:65.5%;width:25%;height:4.5%;font-family:'Avenir Next','Helvetica Neue',Arial,sans-serif;font-size:18pt;font-weight:700;color:#102A43">Delegation follow-through</div>
-  <div class="obj text" contenteditable="true" data-key="s12r-card4-body" style="left:67.5%;top:70%;width:25%;height:6%;font-family:'Avenir Next','Helvetica Neue',Arial,sans-serif;font-size:17pt;line-height:1.25;color:#52697A">Track who owns what, when to check back, and what “done” means.</div>
+  <div class="obj text" contenteditable="true" data-key="s12r-card4-body" style="left:67.5%;top:70%;width:25%;height:6.5%;font-family:'Avenir Next','Helvetica Neue',Arial,sans-serif;font-size:16pt;line-height:1.22;color:#52697A">Track the owner, check-back point, and what “done” means.</div>
 
   <div class="obj shape" style="left:41%;top:37%;width:18%;height:33%;background:linear-gradient(145deg,#405DE6,#833AB4,#E1306C);border:5px solid #FFFFFF;border-radius:50%;box-shadow:0 0 0 2px #D8C6E8,0 12px 28px rgba(52,43,122,.16)"></div>
   <div class="obj text" contenteditable="true" data-key="s12r-manager" style="left:42.5%;top:46%;width:15%;height:6%;font-family:'Avenir Next','Helvetica Neue',Arial,sans-serif;font-size:25pt;font-weight:700;color:#FFFFFF;text-align:center">MANAGER</div>
   <div class="obj text" contenteditable="true" data-key="s12r-boundary-title" style="left:42.5%;top:55%;width:15%;height:7%;font-family:'Avenir Next','Helvetica Neue',Arial,sans-serif;font-size:15.5pt;font-weight:600;line-height:1.25;color:#F7F2FA;text-align:center">Review · decide<br>follow through</div>
 
   <div class="obj shape" style="left:20%;top:83%;width:60%;height:8%;background:#102A43;border-radius:12px"></div>
-  <div class="obj text" contenteditable="true" data-key="s12r-footer" style="left:24%;top:85%;width:52%;height:4%;font-family:'Avenir Next','Helvetica Neue',Arial,sans-serif;font-size:17pt;font-weight:600;color:#FFFFFF;text-align:center">ASSIST THE MANAGER · DO NOT SCORE PEOPLE</div>
+  <div class="obj text" contenteditable="true" data-key="s12r-footer" style="left:24%;top:85%;width:52%;height:4%;font-family:'Avenir Next','Helvetica Neue',Arial,sans-serif;font-size:17pt;font-weight:600;color:#FFFFFF;text-align:center">REMEMBER COMMITMENTS · REJECT SPECULATION</div>
 </section>
 
 <section class="slide" data-slide="12" style="--slide-bg:#FFFFFF">
   <div class="obj shape" style="left:4.7%;top:7.5%;width:1.1%;height:7.8%;background:linear-gradient(180deg,#405DE6,#833AB4,#E1306C);border-radius:999px"></div>
-  <div class="obj text" contenteditable="true" data-key="s13f-title" style="left:7.2%;top:7%;width:85%;height:8%;font-family:'Avenir Next','Helvetica Neue',Arial,sans-serif;font-size:38pt;font-weight:700;color:#102A43">Same agent pattern. Different assignments.</div>
-  <div class="obj text" contenteditable="true" data-key="s13f-sub" style="left:7.2%;top:17%;width:84%;height:7%;font-family:'Avenir Next','Helvetica Neue',Arial,sans-serif;font-size:19pt;line-height:1.25;color:#52697A">Before an agent acts, define its job, the context it may trust, and the decision that remains human.</div>
+  <div class="obj text" contenteditable="true" data-key="s13f-title" style="left:7.2%;top:7%;width:85%;height:8%;font-family:'Avenir Next','Helvetica Neue',Arial,sans-serif;font-size:38pt;font-weight:700;color:#102A43">A second brain must improve decisions—not just create files</div>
+  <div class="obj text" contenteditable="true" data-key="s13f-sub" style="left:7.2%;top:17%;width:84%;height:7%;font-family:'Avenir Next','Helvetica Neue',Arial,sans-serif;font-size:19pt;line-height:1.25;color:#52697A">These are the signals worth measuring in a focused pilot.</div>
 
-  <div class="obj text" style="left:22%;top:28.5%;width:22%;height:4%;font-family:'Avenir Next','Helvetica Neue',Arial,sans-serif;font-size:13pt;font-weight:700;letter-spacing:.06em;color:#405DE6">SET THE JOB</div>
-  <div class="obj text" style="left:48%;top:28.5%;width:23%;height:4%;font-family:'Avenir Next','Helvetica Neue',Arial,sans-serif;font-size:13pt;font-weight:700;letter-spacing:.06em;color:#833AB4">SUPPLY TRUSTED CONTEXT</div>
-  <div class="obj text" style="left:75%;top:28.5%;width:18%;height:4%;font-family:'Avenir Next','Helvetica Neue',Arial,sans-serif;font-size:13pt;font-weight:700;letter-spacing:.06em;color:#E1306C">KEEP THE HUMAN DECISION</div>
+  <div class="obj shape" style="left:6%;top:30%;width:31%;height:51%;background:#102A43;border-radius:22px;box-shadow:0 14px 34px rgba(16,42,67,.15)"></div>
+  <div class="obj text" style="left:9%;top:36%;width:22%;height:5%;font-family:'Avenir Next','Helvetica Neue',Arial,sans-serif;font-size:14pt;font-weight:700;letter-spacing:.1em;color:#9AC7FF">PRIMARY SIGNAL</div>
+  <div class="obj text" contenteditable="true" data-key="s13f-primary" style="left:9%;top:46%;width:23%;height:17%;font-family:'Avenir Next','Helvetica Neue',Arial,sans-serif;font-size:34pt;font-weight:700;line-height:1.15;color:#FFFFFF">Time to the next grounded decision</div>
+  <div class="obj text" contenteditable="true" data-key="s13f-primary-sub" style="left:9%;top:68%;width:23%;height:8%;font-family:'Lato';font-size:18pt;line-height:1.3;color:#D5E2EC">How quickly can someone move from context to a justified next step?</div>
 
-  <div class="obj shape" style="left:5%;top:35%;width:90%;height:20%;background:#F5F7FF;border:1px solid #D6DDF7;border-radius:16px"></div>
-  <div class="obj shape" style="left:19.5%;top:35%;width:.12%;height:20%;background:#D6DDF7"></div>
-  <div class="obj shape" style="left:46%;top:38%;width:.12%;height:14%;background:#D6DDF7"></div>
-  <div class="obj shape" style="left:73%;top:38%;width:.12%;height:14%;background:#D6DDF7"></div>
-  <div class="obj text" contenteditable="true" data-key="s13f-case1-label" style="left:7.2%;top:39%;width:10.5%;height:11%;font-family:'Avenir Next','Helvetica Neue',Arial,sans-serif;font-size:16pt;font-weight:700;line-height:1.35;color:#405DE6">CASE #1<br><span style="font-size:13pt;color:#52697A">FIELD ISSUE</span></div>
-  <div class="obj text" contenteditable="true" data-key="s13f-case1-job" style="left:22%;top:39%;width:21.5%;height:12%;font-family:'Avenir Next','Helvetica Neue',Arial,sans-serif;font-size:17pt;line-height:1.35;color:#102A43">Diagnose and close one field issue.</div>
-  <div class="obj text" contenteditable="true" data-key="s13f-case1-context" style="left:48%;top:39%;width:22.5%;height:12%;font-family:'Avenir Next','Helvetica Neue',Arial,sans-serif;font-size:17pt;line-height:1.35;color:#102A43">Reviewed sanitized packet + approved component guidance.</div>
-  <div class="obj text" contenteditable="true" data-key="s13f-case1-human" style="left:75%;top:39%;width:17.5%;height:12%;font-family:'Avenir Next','Helvetica Neue',Arial,sans-serif;font-size:17pt;line-height:1.35;color:#102A43">Shweta verifies the fix and closes the case.</div>
+  <div class="obj shape" style="left:43%;top:31%;width:50%;height:.25%;background:#D6DDF7"></div>
+  <div class="obj text" style="left:43%;top:35%;width:5%;height:5%;font-family:'Poppins';font-size:16pt;font-weight:700;color:#405DE6">01</div>
+  <div class="obj text" contenteditable="true" data-key="s13f-metric1" style="left:50%;top:33.5%;width:42%;height:9%;font-family:'Lato';font-size:19pt;line-height:1.35;color:#52697A"><b style="font-family:Poppins;font-size:22pt;color:#102A43">Context recovery time ↓</b><br>Less time reconstructing the current state.</div>
 
-  <div class="obj shape" style="left:5%;top:58%;width:90%;height:20%;background:#FFF6F8;border:1px solid #F2C5D3;border-radius:16px"></div>
-  <div class="obj shape" style="left:19.5%;top:58%;width:.12%;height:20%;background:#F2C5D3"></div>
-  <div class="obj shape" style="left:46%;top:61%;width:.12%;height:14%;background:#F2C5D3"></div>
-  <div class="obj shape" style="left:73%;top:61%;width:.12%;height:14%;background:#F2C5D3"></div>
-  <div class="obj text" contenteditable="true" data-key="s13f-case2-label" style="left:7.2%;top:62%;width:10.5%;height:11%;font-family:'Avenir Next','Helvetica Neue',Arial,sans-serif;font-size:16pt;font-weight:700;line-height:1.35;color:#E1306C">CASE #2<br><span style="font-size:13pt;color:#52697A">MANAGER</span></div>
-  <div class="obj text" contenteditable="true" data-key="s13f-case2-job" style="left:22%;top:62%;width:21.5%;height:12%;font-family:'Avenir Next','Helvetica Neue',Arial,sans-serif;font-size:17pt;line-height:1.35;color:#102A43">Prepare today’s follow-ups from one stand-up.</div>
-  <div class="obj text" contenteditable="true" data-key="s13f-case2-context" style="left:48%;top:62%;width:22.5%;height:12%;font-family:'Avenir Next','Helvetica Neue',Arial,sans-serif;font-size:17pt;line-height:1.35;color:#102A43">Manager’s note + project state + professional commitments.</div>
-  <div class="obj text" contenteditable="true" data-key="s13f-case2-human" style="left:75%;top:62%;width:17.5%;height:12%;font-family:'Avenir Next','Helvetica Neue',Arial,sans-serif;font-size:17pt;line-height:1.35;color:#102A43">The manager reviews drafts before using or sending them.</div>
+  <div class="obj shape" style="left:43%;top:48%;width:50%;height:.25%;background:#E2D0ED"></div>
+  <div class="obj text" style="left:43%;top:52%;width:5%;height:5%;font-family:'Poppins';font-size:16pt;font-weight:700;color:#833AB4">02</div>
+  <div class="obj text" contenteditable="true" data-key="s13f-metric2" style="left:50%;top:50.5%;width:42%;height:9%;font-family:'Lato';font-size:19pt;line-height:1.35;color:#52697A"><b style="font-family:Poppins;font-size:22pt;color:#102A43">Late handoff clarification ↓</b><br>Ask early; avoid repeated reconstruction later.</div>
 
-  <div class="obj shape" style="left:18%;top:84%;width:64%;height:8%;background:#102A43;border-radius:13px"></div>
-  <div class="obj text" contenteditable="true" data-key="s13f-foot" style="left:22%;top:86%;width:56%;height:4%;font-family:'Avenir Next','Helvetica Neue',Arial,sans-serif;font-size:17.5pt;font-weight:600;color:#FFF;text-align:center">THE AGENT SUPPORTS THE WORK · IT DOES NOT OWN THE OUTCOME</div>
+  <div class="obj shape" style="left:43%;top:65%;width:50%;height:.25%;background:#F2C5D3"></div>
+  <div class="obj text" style="left:43%;top:69%;width:5%;height:5%;font-family:'Poppins';font-size:16pt;font-weight:700;color:#E1306C">03</div>
+  <div class="obj text" contenteditable="true" data-key="s13f-metric3" style="left:50%;top:67.5%;width:42%;height:12.5%;font-family:'Lato';font-size:19pt;line-height:1.35;color:#52697A"><b style="font-family:Poppins;font-size:22pt;color:#102A43">Governed reuse ↑</b><br>Approved learning helps later cases; unsafe reuse is blocked.</div>
+
+  <div class="obj shape" style="left:16%;top:86%;width:68%;height:7%;background:linear-gradient(90deg,#405DE6,#833AB4,#E1306C);border-radius:11px"></div>
+  <div class="obj text" contenteditable="true" data-key="s13f-foot" style="left:20%;top:87.5%;width:60%;height:3.5%;font-family:'Poppins';font-size:17.5pt;font-weight:600;color:#FFF;text-align:center">IF THE NEXT DECISION IS NOT FASTER OR SAFER, THE MEMORY IS NOT WORKING</div>
 </section>
 
 <section class="slide" data-slide="14" style="--slide-bg:#FFFFFF">
   <div class="obj shape" style="left:4.7%;top:7.5%;width:1.1%;height:7.8%;background:linear-gradient(180deg,#405DE6,#833AB4,#E1306C);border-radius:999px"></div>
   <div class="obj text" contenteditable="true" data-key="s15f-title" style="left:7.2%;top:7%;width:85%;height:8%;font-family:'Avenir Next','Helvetica Neue',Arial,sans-serif;font-size:38pt;font-weight:700;color:#102A43">What to watch in the two demos</div>
-  <div class="obj text" contenteditable="true" data-key="s15f-sub" style="left:7.2%;top:17%;width:84%;height:7%;font-family:'Avenir Next','Helvetica Neue',Arial,sans-serif;font-size:19pt;line-height:1.25;color:#52697A">Follow the boundary, the memory update, and the human decision—not the mechanics of the Markdown files.</div>
+  <div class="obj text" contenteditable="true" data-key="s15f-sub" style="left:7.2%;top:17%;width:84%;height:7%;font-family:'Avenir Next','Helvetica Neue',Arial,sans-serif;font-size:19pt;line-height:1.25;color:#52697A">Watch the decisions and guardrails—not the mechanics of the Markdown files.</div>
   <div class="obj shape" style="left:5%;top:31%;width:43%;height:46%;background:#F5F7FF;border:1px solid #D6DDF7;border-radius:18px"></div>
   <div class="obj shape" style="left:8%;top:35%;width:17%;height:5%;background:#405DE6;border-radius:999px"></div>
-  <div class="obj text" style="left:8%;top:36%;width:17%;height:3%;font-family:'Avenir Next','Helvetica Neue',Arial,sans-serif;font-size:11pt;font-weight:700;color:#FFF;text-align:center">DEMO 1 · FIELD ISSUE</div>
-  <div class="obj text" contenteditable="true" data-key="s15f-d1t" style="left:8%;top:44%;width:36%;height:6%;font-family:'Avenir Next','Helvetica Neue',Arial,sans-serif;font-size:23pt;font-weight:700;color:#102A43">Watch the boundary</div>
-  <div class="obj text" contenteditable="true" data-key="s15f-d1b" style="left:8%;top:53%;width:36%;height:19%;font-family:'Avenir Next','Helvetica Neue',Arial,sans-serif;font-size:18pt;line-height:1.43;color:#52697A">Raw evidence remains onsite.<br><br>A reviewed sanitized packet opens the case.<br><br>Shweta verifies the fix and closure.</div>
+  <div class="obj text" style="left:8%;top:36%;width:17%;height:3%;font-family:'Avenir Next','Helvetica Neue',Arial,sans-serif;font-size:13pt;font-weight:700;color:#FFF;text-align:center">DEMO 1 · FIELD ISSUE</div>
+  <div class="obj text" contenteditable="true" data-key="s15f-d1t" style="left:8%;top:44%;width:36%;height:6%;font-family:'Avenir Next','Helvetica Neue',Arial,sans-serif;font-size:23pt;font-weight:700;color:#102A43">Question → validate → reuse</div>
+  <div class="obj text" contenteditable="true" data-key="s15f-d1b" style="left:8%;top:52%;width:36%;height:22%;font-family:'Avenir Next','Helvetica Neue',Arial,sans-serif;font-size:17.5pt;line-height:1.42;color:#52697A">The onsite agent asks for missing evidence.<br><br>The validator rejects restricted content.<br><br>A later case reuses only approved learning.</div>
   <div class="obj shape" style="left:52%;top:31%;width:43%;height:46%;background:#FFF6F8;border:1px solid #F2C5D3;border-radius:18px"></div>
   <div class="obj shape" style="left:55%;top:35%;width:16%;height:5%;background:#E1306C;border-radius:999px"></div>
-  <div class="obj text" style="left:55%;top:36%;width:16%;height:3%;font-family:'Avenir Next','Helvetica Neue',Arial,sans-serif;font-size:11pt;font-weight:700;color:#FFF;text-align:center">DEMO 2 · MANAGER</div>
-  <div class="obj text" contenteditable="true" data-key="s15f-d2t" style="left:55%;top:44%;width:36%;height:6%;font-family:'Avenir Next','Helvetica Neue',Arial,sans-serif;font-size:23pt;font-weight:700;color:#102A43">Watch the follow-through</div>
-  <div class="obj text" contenteditable="true" data-key="s15f-d2b" style="left:55%;top:53%;width:36%;height:19%;font-family:'Avenir Next','Helvetica Neue',Arial,sans-serif;font-size:18pt;line-height:1.43;color:#52697A">One messy note becomes structured memory.<br><br>Four reviewable collaboration drafts appear.<br><br>The manager decides what to use.</div>
+  <div class="obj text" style="left:55%;top:36%;width:16%;height:3%;font-family:'Avenir Next','Helvetica Neue',Arial,sans-serif;font-size:13pt;font-weight:700;color:#FFF;text-align:center">DEMO 2 · MANAGER</div>
+  <div class="obj text" contenteditable="true" data-key="s15f-d2t" style="left:55%;top:44%;width:36%;height:6%;font-family:'Avenir Next','Helvetica Neue',Arial,sans-serif;font-size:23pt;font-weight:700;color:#102A43">Remember → qualify → reject</div>
+  <div class="obj text" contenteditable="true" data-key="s15f-d2b" style="left:55%;top:52%;width:36%;height:22%;font-family:'Avenir Next','Helvetica Neue',Arial,sans-serif;font-size:17.5pt;line-height:1.42;color:#52697A">The audience decides what belongs in memory.<br><br>Uncertainty stays conditional.<br><br>A speculative people judgment is rejected.</div>
   <div class="obj shape" style="left:26%;top:83%;width:48%;height:8%;background:linear-gradient(90deg,#405DE6,#833AB4,#E1306C);border-radius:12px"></div>
-  <div class="obj text" contenteditable="true" data-key="s15f-foot" style="left:30%;top:85%;width:40%;height:4%;font-family:'Avenir Next','Helvetica Neue',Arial,sans-serif;font-size:18pt;font-weight:600;color:#FFFFFF;text-align:center">CAPTURE → PROCESS → SURFACE</div>
+  <div class="obj text" contenteditable="true" data-key="s15f-foot" style="left:30%;top:85%;width:40%;height:4%;font-family:'Avenir Next','Helvetica Neue',Arial,sans-serif;font-size:18pt;font-weight:600;color:#FFFFFF;text-align:center">QUESTION → RESULT → MEANING</div>
 </section>
 
 <section class="slide" data-slide="15" style="--slide-bg:#FFFFFF">
   <div class="obj shape" style="left:4.7%;top:7.5%;width:1.1%;height:7.8%;background:linear-gradient(180deg,#405DE6,#833AB4,#E1306C);border-radius:999px"></div>
-  <div class="obj text" contenteditable="true" data-key="s17f-title" style="left:7.2%;top:7%;width:85%;height:8%;font-family:'Avenir Next','Helvetica Neue',Arial,sans-serif;font-size:38pt;font-weight:700;color:#102A43">Start with one context leak</div>
-  <div class="obj text" contenteditable="true" data-key="s17f-sub" style="left:7.2%;top:17%;width:84%;height:7%;font-family:'Avenir Next','Helvetica Neue',Arial,sans-serif;font-size:19pt;line-height:1.25;color:#52697A">Choose one recurring moment where your team reconstructs context that should already be available.</div>
+  <div class="obj text" contenteditable="true" data-key="s17f-title" style="left:7.2%;top:7%;width:85%;height:8%;font-family:'Avenir Next','Helvetica Neue',Arial,sans-serif;font-size:38pt;font-weight:700;color:#102A43">Start with one context leak—and one success signal</div>
+  <div class="obj text" contenteditable="true" data-key="s17f-sub" style="left:7.2%;top:17%;width:84%;height:7%;font-family:'Avenir Next','Helvetica Neue',Arial,sans-serif;font-size:19pt;line-height:1.25;color:#52697A">Do not launch a company-wide “second brain.” Run a governed pilot around one painful decision.</div>
 
-  <div class="obj shape" style="left:5%;top:29%;width:32%;height:48%;background:#102A43;border-radius:22px;box-shadow:0 16px 36px rgba(16,42,67,.16)"></div>
-  <div class="obj text" style="left:8%;top:35%;width:18%;height:4%;font-family:'Avenir Next','Helvetica Neue',Arial,sans-serif;font-size:13pt;font-weight:700;letter-spacing:.1em;color:#9AC7FF">YOUR FIRST MOVE</div>
-  <div class="obj text" contenteditable="true" data-key="s17f-one" style="left:8%;top:42%;width:17%;height:15%;font-family:'Avenir Next','Helvetica Neue',Arial,sans-serif;font-size:60pt;font-weight:700;color:#FFFFFF">ONE</div>
-  <div class="obj text" contenteditable="true" data-key="s17f-focus" style="left:8%;top:60%;width:24%;height:10%;font-family:'Avenir Next','Helvetica Neue',Arial,sans-serif;font-size:21pt;font-weight:650;line-height:1.25;color:#FFFFFF">Recurring context leak.<br>Visible weekly pain.</div>
+  <div class="obj shape" style="left:5%;top:30%;width:27%;height:47%;background:#102A43;border-radius:22px;box-shadow:0 16px 36px rgba(16,42,67,.16)"></div>
+  <div class="obj text" style="left:8%;top:36%;width:18%;height:4%;font-family:'Avenir Next','Helvetica Neue',Arial,sans-serif;font-size:13pt;font-weight:700;letter-spacing:.1em;color:#9AC7FF">30-DAY PILOT</div>
+  <div class="obj text" contenteditable="true" data-key="s17f-one" style="left:8%;top:45%;width:20%;height:13%;font-family:'Avenir Next','Helvetica Neue',Arial,sans-serif;font-size:54pt;font-weight:700;color:#FFFFFF">ONE</div>
+  <div class="obj text" contenteditable="true" data-key="s17f-focus" style="left:8%;top:61%;width:20%;height:10%;font-family:'Avenir Next','Helvetica Neue',Arial,sans-serif;font-size:20pt;font-weight:650;line-height:1.3;color:#FFFFFF">Recurring leak.<br>Visible weekly pain.<br>Measurable decision.</div>
 
-  <div class="obj shape" style="left:43%;top:29%;width:52%;height:14%;background:#F5F7FF;border:1px solid #D6DDF7;border-radius:16px"></div>
-  <div class="obj shape" style="left:46%;top:33%;width:4.5%;height:8%;background:#405DE6;border-radius:50%"></div>
-  <div class="obj text" style="left:46%;top:35%;width:4.5%;height:3%;font-family:'Avenir Next','Helvetica Neue',Arial,sans-serif;font-size:13pt;font-weight:700;color:#FFFFFF;text-align:center">01</div>
-  <div class="obj text" contenteditable="true" data-key="s17f-c1" style="left:53%;top:32%;width:38%;height:8%;font-family:'Avenir Next','Helvetica Neue',Arial,sans-serif;font-size:17.5pt;line-height:1.3;color:#52697A"><b style="font-size:20pt;color:#102A43">Capture once</b><br>Meet people where the evidence already appears.</div>
+  <div class="obj shape" style="left:38%;top:32%;width:55%;height:.25%;background:#D6DDF7"></div>
+  <div class="obj text" style="left:38%;top:36%;width:5%;height:5%;font-family:'Poppins';font-size:16pt;font-weight:700;color:#405DE6">01</div>
+  <div class="obj text" contenteditable="true" data-key="s17f-c1" style="left:45%;top:34.5%;width:46%;height:9%;font-family:'Lato';font-size:19pt;line-height:1.35;color:#52697A"><b style="font-family:Poppins;font-size:22pt;color:#102A43">Pick the leak</b><br>Choose one recurring handoff or decision.</div>
 
-  <div class="obj shape" style="left:43%;top:46%;width:52%;height:14%;background:#FBF5FF;border:1px solid #E2D0ED;border-radius:16px"></div>
-  <div class="obj shape" style="left:46%;top:50%;width:4.5%;height:8%;background:#833AB4;border-radius:50%"></div>
-  <div class="obj text" style="left:46%;top:52%;width:4.5%;height:3%;font-family:'Avenir Next','Helvetica Neue',Arial,sans-serif;font-size:13pt;font-weight:700;color:#FFFFFF;text-align:center">02</div>
-  <div class="obj text" contenteditable="true" data-key="s17f-c2" style="left:53%;top:49%;width:38%;height:8%;font-family:'Avenir Next','Helvetica Neue',Arial,sans-serif;font-size:17.5pt;line-height:1.3;color:#52697A"><b style="font-size:20pt;color:#102A43">Build the right memory</b><br>Separate cases, curated knowledge, projects, and commitments.</div>
+  <div class="obj shape" style="left:38%;top:48%;width:55%;height:.25%;background:#E2D0ED"></div>
+  <div class="obj text" style="left:38%;top:52%;width:5%;height:5%;font-family:'Poppins';font-size:16pt;font-weight:700;color:#833AB4">02</div>
+  <div class="obj text" contenteditable="true" data-key="s17f-c2" style="left:45%;top:50.5%;width:46%;height:9%;font-family:'Lato';font-size:19pt;line-height:1.35;color:#52697A"><b style="font-family:Poppins;font-size:22pt;color:#102A43">Define the boundary</b><br>State what persists, stays local, or needs a question.</div>
 
-  <div class="obj shape" style="left:43%;top:63%;width:52%;height:14%;background:#FFF6F8;border:1px solid #F2C5D3;border-radius:16px"></div>
-  <div class="obj shape" style="left:46%;top:67%;width:4.5%;height:8%;background:#E1306C;border-radius:50%"></div>
-  <div class="obj text" style="left:46%;top:69%;width:4.5%;height:3%;font-family:'Avenir Next','Helvetica Neue',Arial,sans-serif;font-size:13pt;font-weight:700;color:#FFFFFF;text-align:center">03</div>
-  <div class="obj text" contenteditable="true" data-key="s17f-c3" style="left:53%;top:66%;width:38%;height:8%;font-family:'Avenir Next','Helvetica Neue',Arial,sans-serif;font-size:17.5pt;line-height:1.3;color:#52697A"><b style="font-size:20pt;color:#102A43">Surface the next decision</b><br>Give each role the context it needs at the moment of action.</div>
+  <div class="obj shape" style="left:38%;top:64%;width:55%;height:.25%;background:#F2C5D3"></div>
+  <div class="obj text" style="left:38%;top:68%;width:5%;height:5%;font-family:'Poppins';font-size:16pt;font-weight:700;color:#E1306C">03</div>
+  <div class="obj text" contenteditable="true" data-key="s17f-c3" style="left:45%;top:66.5%;width:46%;height:10%;font-family:'Lato';font-size:19pt;line-height:1.35;color:#52697A"><b style="font-family:Poppins;font-size:22pt;color:#102A43">Assign one owner and one metric</b><br>Measure the next decision—not output volume.</div>
 
-  <div class="obj shape" style="left:14%;top:84%;width:72%;height:8%;background:linear-gradient(90deg,#405DE6,#833AB4,#E1306C,#F77737);border-radius:13px"></div>
-  <div class="obj text" contenteditable="true" data-key="s17f-foot" style="left:18%;top:86%;width:64%;height:4%;font-family:'Avenir Next','Helvetica Neue',Arial,sans-serif;font-size:20pt;font-weight:700;color:#FFFFFF;text-align:center">LESS RECONSTRUCTION · MORE ENGINEERING JUDGMENT</div>
+  <div class="obj shape" style="left:14%;top:85%;width:72%;height:8%;background:linear-gradient(90deg,#405DE6,#833AB4,#E1306C,#F77737);border-radius:13px"></div>
+  <div class="obj text" contenteditable="true" data-key="s17f-foot" style="left:18%;top:87%;width:64%;height:4%;font-family:'Avenir Next','Helvetica Neue',Arial,sans-serif;font-size:19pt;font-weight:700;color:#FFFFFF;text-align:center">ONE LEAK · ONE BOUNDARY · ONE OWNER · ONE METRIC</div>
 </section>
 
 <section class="slide" data-slide="13" style="--slide-bg:#FFFFFF">
@@ -416,88 +389,79 @@
   <div class="obj shape" style="left:76%;top:5%;width:15%;height:27%;border:3px solid rgba(131,58,180,.12);border-radius:50%"></div>
   <div class="obj text" contenteditable="true" data-key="s18f-label" style="left:7%;top:19%;width:30%;height:6%;font-family:'Poppins';font-size:17pt;font-weight:700;letter-spacing:.15em;color:#405DE6">NOW, LET’S SEE IT WORK</div>
   <div class="obj text" contenteditable="true" data-key="s18f-title" style="left:6.5%;top:30%;width:63%;height:15%;font-family:'Poppins';font-size:62pt;font-weight:700;letter-spacing:-.035em;color:#102A43">LIVE DEMOS</div>
-  <div class="obj text" contenteditable="true" data-key="s18f-sub" style="left:7%;top:49%;width:58%;height:9%;font-family:'Lato';font-size:23pt;line-height:1.35;color:#52697A">Two cases. One memory loop.<br>Different boundaries.</div>
+  <div class="obj text" contenteditable="true" data-key="s18f-sub" style="left:7%;top:49%;width:58%;height:9%;font-family:'Lato';font-size:23pt;line-height:1.35;color:#52697A">One engineering case in depth.<br>One short manager case for breadth.</div>
 
   <div class="obj shape" style="left:8%;top:72%;width:72%;height:.9%;background:linear-gradient(90deg,#405DE6,#833AB4,#E1306C,#F77737);border-radius:999px"></div>
   <div class="obj shape" style="left:78.5%;top:70.2%;width:3%;height:4.5%;background:#F77737;clip-path:polygon(0 0,100% 50%,0 100%)"></div>
   <div class="obj text" contenteditable="true" data-key="s18f-case1" style="left:8%;top:77%;width:31%;height:7%;font-family:'Poppins';font-size:17pt;font-weight:600;color:#405DE6">CASE #1 · FIELD ISSUE</div>
-  <div class="obj text" contenteditable="true" data-key="s18f-case2" style="left:49%;top:77%;width:35%;height:7%;font-family:'Poppins';font-size:17pt;font-weight:600;color:#E1306C">CASE #2 · MANAGER FOLLOW-THROUGH</div>
+  <div class="obj text" contenteditable="true" data-key="s18f-case2" style="left:49%;top:77%;width:35%;height:7%;font-family:'Poppins';font-size:17pt;font-weight:600;color:#E1306C">CASE #2 · CONTINUITY WITHOUT SURVEILLANCE</div>
 </section>
 
 <section class="slide" data-slide="16" style="--slide-bg:#FFFFFF">
   <div class="obj shape" style="left:4.7%;top:7.5%;width:1.1%;height:7.8%;background:linear-gradient(180deg,#405DE6,#833AB4,#E1306C);border-radius:999px"></div>
-  <div class="obj text" contenteditable="true" data-key="s19f-title" style="left:7.2%;top:7%;width:85%;height:8%;font-family:'Poppins',Arial,sans-serif;font-size:38pt;font-weight:700;color:#102A43">Demo setup: local and reviewable</div>
-  <div class="obj text" contenteditable="true" data-key="s19f-sub" style="left:7.2%;top:17%;width:84%;height:7%;font-family:'Lato',Arial,sans-serif;font-size:19pt;line-height:1.25;color:#52697A">The technology is deliberately boring so the memory behavior stays visible.</div>
+  <div class="obj text" contenteditable="true" data-key="s19f-title" style="left:7.2%;top:7%;width:85%;height:8%;font-family:'Poppins',Arial,sans-serif;font-size:38pt;font-weight:700;color:#102A43">Appendix: the memory contract is portable</div>
+  <div class="obj text" contenteditable="true" data-key="s19f-sub" style="left:7.2%;top:17%;width:84%;height:7%;font-family:'Lato',Arial,sans-serif;font-size:19pt;line-height:1.25;color:#52697A">Interfaces, storage, and models can change. Keep boundaries, ownership, provenance, and tests explicit as they evolve.</div>
   <div class="obj shape" style="left:6%;top:31%;width:38%;height:49%;background:#102A43;border-radius:28px;box-shadow:0 18px 42px rgba(16,42,67,.16)"></div>
   <div class="obj shape" style="left:8%;top:34%;width:15%;height:1.1%;background:linear-gradient(90deg,#405DE6,#833AB4,#E1306C,#F77737);border-radius:999px"></div>
-  <div class="obj text" style="left:9%;top:40%;width:29%;height:6%;font-family:'Poppins';font-size:14pt;font-weight:700;letter-spacing:.14em;color:#9AC7FF">THE DEMO RUNS</div>
-  <div class="obj text" contenteditable="true" data-key="s19f-local" style="left:8.5%;top:47%;width:31%;height:13%;font-family:'Poppins';font-size:49pt;font-weight:700;letter-spacing:-.04em;color:#FFFFFF">LOCAL</div>
-  <div class="obj text" contenteditable="true" data-key="s19f-local-sub" style="left:9%;top:62%;width:29%;height:10%;font-family:'Lato';font-size:21pt;line-height:1.35;color:#D5E2EC">Two Markdown workspaces.<br>Every change visible.</div>
+  <div class="obj text" style="left:9%;top:40%;width:29%;height:6%;font-family:'Poppins';font-size:14pt;font-weight:700;letter-spacing:.14em;color:#9AC7FF">THE DURABLE PART</div>
+  <div class="obj text" contenteditable="true" data-key="s19f-local" style="left:8.5%;top:47%;width:31%;height:13%;font-family:'Poppins';font-size:43pt;font-weight:700;letter-spacing:-.04em;color:#FFFFFF">CONTRACT</div>
+  <div class="obj text" contenteditable="true" data-key="s19f-local-sub" style="left:9%;top:62%;width:29%;height:10%;font-family:'Lato';font-size:21pt;line-height:1.35;color:#D5E2EC">What may be read.<br>What may be written.<br>Who must approve.</div>
 
   <div class="obj shape" style="left:50%;top:33%;width:42%;height:.25%;background:#D6DDF7"></div>
   <div class="obj text" style="left:50%;top:36%;width:5%;height:5%;font-family:'Poppins';font-size:15pt;font-weight:700;color:#405DE6">01</div>
-  <div class="obj text" contenteditable="true" data-key="s19f-c1" style="left:57%;top:34.5%;width:35%;height:10%;font-family:'Lato';font-size:18pt;line-height:1.35;color:#52697A"><b style="font-family:Poppins;font-size:23pt;color:#102A43">Reliable</b><br>No enterprise auth, VPN, or network dependency.</div>
+  <div class="obj text" contenteditable="true" data-key="s19f-c1" style="left:57%;top:34.5%;width:35%;height:10%;font-family:'Lato';font-size:18pt;line-height:1.35;color:#52697A"><b style="font-family:Poppins;font-size:23pt;color:#102A43">Replaceable interface</b><br>Chat, email, voice, tracker, or CLI.</div>
 
   <div class="obj shape" style="left:50%;top:49%;width:42%;height:.25%;background:#E2D0ED"></div>
   <div class="obj text" style="left:50%;top:52%;width:5%;height:5%;font-family:'Poppins';font-size:15pt;font-weight:700;color:#833AB4">02</div>
-  <div class="obj text" contenteditable="true" data-key="s19f-c2" style="left:57%;top:50.5%;width:35%;height:10%;font-family:'Lato';font-size:18pt;line-height:1.35;color:#52697A"><b style="font-family:Poppins;font-size:23pt;color:#102A43">Inspectable</b><br>Every memory update appears as a readable diff.</div>
+  <div class="obj text" contenteditable="true" data-key="s19f-c2" style="left:57%;top:50.5%;width:35%;height:10%;font-family:'Lato';font-size:18pt;line-height:1.35;color:#52697A"><b style="font-family:Poppins;font-size:23pt;color:#102A43">Inspectable memory</b><br>Versioned records, receipts, owners, reviews.</div>
 
   <div class="obj shape" style="left:50%;top:65%;width:42%;height:.25%;background:#F2C5D3"></div>
   <div class="obj text" style="left:50%;top:68%;width:5%;height:5%;font-family:'Poppins';font-size:15pt;font-weight:700;color:#E1306C">03</div>
-  <div class="obj text" contenteditable="true" data-key="s19f-c3" style="left:57%;top:66.5%;width:35%;height:10%;font-family:'Lato';font-size:18pt;line-height:1.35;color:#52697A"><b style="font-family:Poppins;font-size:23pt;color:#102A43">Portable</b><br>The pattern can move to enterprise tools later.</div>
+  <div class="obj text" contenteditable="true" data-key="s19f-c3" style="left:57%;top:66.5%;width:35%;height:10%;font-family:'Lato';font-size:18pt;line-height:1.35;color:#52697A"><b style="font-family:Poppins;font-size:23pt;color:#102A43">Durable controls</b><br>Access, validators, human gates, and evals.</div>
 
-  <div class="obj text" contenteditable="true" data-key="s19f-stack" style="left:8%;top:86%;width:84%;height:4%;font-family:'Poppins';font-size:15pt;font-weight:600;letter-spacing:.06em;color:#52697A;text-align:center">VS CODE  ·  CODING AGENT  ·  LOCAL MARKDOWN  ·  FICTIONAL DATA</div>
+  <div class="obj text" contenteditable="true" data-key="s19f-stack" style="left:8%;top:86%;width:84%;height:4%;font-family:'Poppins';font-size:15pt;font-weight:600;letter-spacing:.06em;color:#52697A;text-align:center">TRANSPARENT DEMO FILES  ·  VERSION CONTROL  ·  DETERMINISTIC TESTS  ·  FICTIONAL DATA</div>
 </section>
 
 <section class="slide" data-slide="17" style="--slide-bg:#FFFFFF">
   <div class="obj shape" style="left:4.7%;top:7.5%;width:1.1%;height:7.8%;background:linear-gradient(180deg,#405DE6,#833AB4,#E1306C);border-radius:999px"></div>
-  <div class="obj text" contenteditable="true" data-key="s20f-title" style="left:7.2%;top:7%;width:85%;height:8%;font-family:'Poppins',Arial,sans-serif;font-size:38pt;font-weight:700;color:#102A43">Two workspaces make the boundaries visible</div>
-  <div class="obj text" contenteditable="true" data-key="s20f-sub" style="left:7.2%;top:17%;width:84%;height:7%;font-family:'Lato',Arial,sans-serif;font-size:19pt;line-height:1.25;color:#52697A">The audience can inspect every file the agent reads and every file it changes.</div>
-  <div class="obj shape" style="left:0;top:29%;width:48.7%;height:55%;background:linear-gradient(135deg,#F4F7FF 0%,#EEF2FF 100%)"></div>
-  <div class="obj shape" style="left:51.3%;top:29%;width:48.7%;height:55%;background:linear-gradient(225deg,#FFF7FA 0%,#FBF2FF 100%)"></div>
-  <div class="obj shape" style="left:49.65%;top:29%;width:.7%;height:55%;background:linear-gradient(180deg,#405DE6,#833AB4,#E1306C,#F77737);border-radius:999px"></div>
+  <div class="obj text" contenteditable="true" data-key="s20f-title" style="left:7.2%;top:7%;width:85%;height:8%;font-family:'Poppins',Arial,sans-serif;font-size:38pt;font-weight:700;color:#102A43">Appendix: the field boundary is separate and testable</div>
+  <div class="obj text" contenteditable="true" data-key="s20f-sub" style="left:7.2%;top:17%;width:84%;height:7%;font-family:'Lato',Arial,sans-serif;font-size:19pt;line-height:1.25;color:#52697A">Engineering-side memory receives only a human-reviewed export that passes deterministic validation.</div>
 
-  <div class="obj text" style="left:7%;top:34%;width:34%;height:4%;font-family:'Poppins';font-size:13pt;font-weight:700;letter-spacing:.12em;color:#405DE6">CASE #1 · FIELD ISSUE</div>
-  <div class="obj text" contenteditable="true" data-key="s20f-field-root" style="left:7%;top:40%;width:35%;height:7%;font-family:'Poppins';font-size:25pt;font-weight:700;color:#102A43">field-issue/</div>
-  <div class="obj shape" style="left:8%;top:49%;width:.22%;height:26%;background:#A9BDF9"></div>
-  <div class="obj text" contenteditable="true" data-key="s20f-field" style="left:10%;top:48%;width:34%;height:29%;font-family:'Lato';font-size:18pt;line-height:1.65;color:#52697A"><b style="color:#405DE6">├─ fab-side/</b> · restricted evidence<br><b style="color:#405DE6">├─ field-issues/</b> · isolated cases<br><b style="color:#405DE6">├─ component-knowledge/</b> · reviewed guidance<br><b style="color:#405DE6">└─ promotion-queue/</b> · human approval</div>
+  <div class="obj shape" style="left:4%;top:31%;width:34%;height:48%;background:#F4F7FF;border:1px solid #C9D9F7;border-radius:18px"></div>
+  <div class="obj text" style="left:7%;top:36%;width:25%;height:4%;font-family:'Poppins';font-size:13pt;font-weight:700;letter-spacing:.12em;color:#405DE6">FAB-SIDE ROOT</div>
+  <div class="obj text" contenteditable="true" data-key="s20f-field-root" style="left:7%;top:43%;width:27%;height:6%;font-family:'Poppins';font-size:25pt;font-weight:700;color:#102A43">fab-side/</div>
+  <div class="obj text" contenteditable="true" data-key="s20f-field" style="left:7%;top:52%;width:27%;height:21%;font-family:'Lato';font-size:19pt;line-height:1.6;color:#52697A"><b style="color:#405DE6">raw-logs/</b> · restricted<br><b style="color:#405DE6">local-analysis/</b> · draft packet<br><b style="color:#405DE6">field-input/</b> · human response</div>
 
-  <div class="obj text" style="left:56%;top:34%;width:37%;height:4%;font-family:'Poppins';font-size:13pt;font-weight:700;letter-spacing:.12em;color:#E1306C">CASE #2 · MANAGER COLLABORATION</div>
-  <div class="obj text" contenteditable="true" data-key="s20f-manager-root" style="left:56%;top:40%;width:37%;height:7%;font-family:'Poppins';font-size:25pt;font-weight:700;color:#102A43">manager-collaboration/</div>
-  <div class="obj shape" style="left:57%;top:49%;width:.22%;height:26%;background:#E7AFC4"></div>
-  <div class="obj text" contenteditable="true" data-key="s20f-manager" style="left:59%;top:48%;width:34%;height:29%;font-family:'Lato';font-size:18pt;line-height:1.65;color:#52697A"><b style="color:#E1306C">├─ inbox.md</b> · messy capture<br><b style="color:#E1306C">├─ memory/projects/</b> · risk and state<br><b style="color:#E1306C">├─ memory/people/</b> · commitments<br><b style="color:#E1306C">└─ outputs/</b> · briefs and preparation</div>
+  <div class="obj shape" style="left:41%;top:39%;width:18%;height:32%;background:linear-gradient(145deg,#405DE6,#833AB4);border-radius:18px;box-shadow:0 10px 26px rgba(73,70,170,.18)"></div>
+  <div class="obj text" style="left:44%;top:43%;width:12%;height:4%;font-family:'Poppins';font-size:14pt;font-weight:700;letter-spacing:.07em;color:#DDE5FF;text-align:center">TRANSFER GATE</div>
+  <div class="obj text" contenteditable="true" data-key="s20f-gate" style="left:44%;top:50%;width:12%;height:16%;font-family:'Lato';font-size:17pt;font-weight:600;line-height:1.5;color:#FFFFFF;text-align:center">Reviewed?<br>Redacted?<br>Schema valid?<br>Checksum recorded?</div>
+  <div class="obj shape" style="left:37.5%;top:52%;width:3.5%;height:5%;background:#405DE6;clip-path:polygon(0 35%,65% 35%,65% 0,100% 50%,65% 100%,65% 65%,0 65%)"></div>
+  <div class="obj shape" style="left:58.7%;top:52%;width:3.5%;height:5%;background:#833AB4;clip-path:polygon(0 35%,65% 35%,65% 0,100% 50%,65% 100%,65% 65%,0 65%)"></div>
 
-  <div class="obj text" contenteditable="true" data-key="s20f-foot" style="left:12%;top:88%;width:76%;height:4%;font-family:'Poppins';font-size:18pt;font-weight:600;color:#833AB4;text-align:center">EVERY INPUT HAS A HOME · EVERY CHANGE HAS A BOUNDARY</div>
+  <div class="obj shape" style="left:62%;top:31%;width:34%;height:48%;background:#FBF5FF;border:1px solid #E2D0ED;border-radius:18px"></div>
+  <div class="obj text" style="left:65%;top:36%;width:27%;height:4%;font-family:'Poppins';font-size:13pt;font-weight:700;letter-spacing:.12em;color:#833AB4">ENGINEERING-SIDE ROOT</div>
+  <div class="obj text" contenteditable="true" data-key="s20f-manager-root" style="left:65%;top:43%;width:27%;height:6%;font-family:'Poppins';font-size:25pt;font-weight:700;color:#102A43">engineering-side/</div>
+  <div class="obj text" contenteditable="true" data-key="s20f-manager" style="left:65%;top:52%;width:27%;height:21%;font-family:'Lato';font-size:19pt;line-height:1.6;color:#52697A"><b style="color:#833AB4">field-issues/</b> · isolated cases<br><b style="color:#833AB4">component-knowledge/</b> · reviewed guidance<br><b style="color:#833AB4">future-cases/</b> · reuse proof</div>
+
+  <div class="obj text" contenteditable="true" data-key="s20f-foot" style="left:12%;top:87%;width:76%;height:4%;font-family:'Poppins';font-size:18pt;font-weight:600;color:#833AB4;text-align:center">PROMPT RULES GUIDE THE AGENT · TRANSFER VALIDATION ENFORCES ARTIFACT ADMISSION</div>
 </section>
 
 <section class="slide" data-slide="18" style="--slide-bg:#FFFFFF">
   <div class="obj shape" style="left:4.7%;top:7.5%;width:1.1%;height:7.8%;background:linear-gradient(180deg,#405DE6,#833AB4,#E1306C);border-radius:999px"></div>
-  <div class="obj text" contenteditable="true" data-key="s21f-title" style="left:7.2%;top:7%;width:85%;height:8%;font-family:'Poppins',Arial,sans-serif;font-size:38pt;font-weight:700;color:#102A43">Live runbook: prove depth, then show breadth</div>
-  <div class="obj text" contenteditable="true" data-key="s21f-sub" style="left:7.2%;top:17%;width:84%;height:7%;font-family:'Lato',Arial,sans-serif;font-size:19pt;line-height:1.25;color:#52697A">Most of the live time proves engineering execution; the shorter manager case shows that the pattern travels.</div>
+  <div class="obj text" contenteditable="true" data-key="s21f-title" style="left:7.2%;top:7%;width:85%;height:8%;font-family:'Poppins',Arial,sans-serif;font-size:38pt;font-weight:700;color:#102A43">Appendix: test the memory contract like software</div>
+  <div class="obj text" contenteditable="true" data-key="s21f-sub" style="left:7.2%;top:17%;width:84%;height:7%;font-family:'Lato',Arial,sans-serif;font-size:19pt;line-height:1.25;color:#52697A">A plausible-looking answer is not proof. Each boundary and lifecycle rule needs an executable check.</div>
 
-  <div class="obj shape" style="left:5%;top:30%;width:61%;height:48%;background:linear-gradient(135deg,#F4F7FF,#F8F4FF);clip-path:polygon(0 0,95% 0,100% 50%,95% 100%,0 100%)"></div>
-  <div class="obj shape" style="left:68%;top:30%;width:27%;height:48%;background:linear-gradient(135deg,#FFF4F8,#FFF8F4);clip-path:polygon(0 0,91% 0,100% 50%,91% 100%,0 100%)"></div>
+  <div class="obj shape" style="left:6%;top:30%;width:88%;height:50%;background:#F8F9FC;border:1px solid #D8E2EC;border-radius:20px"></div>
+  <div class="obj shape" style="left:49.9%;top:34%;width:.2%;height:42%;background:#D8E2EC"></div>
 
-  <div class="obj text" style="left:8%;top:34%;width:28%;height:4%;font-family:'Poppins';font-size:13pt;font-weight:700;letter-spacing:.14em;color:#405DE6">CASE #1 · FIELD ISSUE</div>
-  <div class="obj text" style="left:51%;top:34%;width:11%;height:4%;font-family:'Poppins';font-size:13pt;font-weight:700;letter-spacing:.14em;color:#833AB4;text-align:right">DEPTH</div>
-  <div class="obj text" style="left:71%;top:34%;width:20%;height:4%;font-family:'Poppins';font-size:13pt;font-weight:700;letter-spacing:.12em;color:#E1306C">CASE #2 · MANAGER</div>
-  <div class="obj text" style="left:83%;top:40%;width:8%;height:4%;font-family:'Poppins';font-size:13pt;font-weight:700;letter-spacing:.14em;color:#F77737;text-align:right">BREADTH</div>
+  <div class="obj text" style="left:10%;top:35%;width:34%;height:4%;font-family:'Poppins';font-size:15pt;font-weight:700;letter-spacing:.08em;color:#405DE6">FIELD-ISSUE CONTRACT</div>
+  <div class="obj text" contenteditable="true" data-key="s21f-field-checks" style="left:10%;top:43%;width:34%;height:29%;font-family:'Lato';font-size:19pt;line-height:1.62;color:#102A43">✓ Raw identifiers cannot cross<br>✓ Unreviewed packets cannot be ingested<br>✓ Checksum tampering is rejected<br>✓ Promotion requires human approval<br>✓ Future reuse cites approved guidance</div>
 
-  <div class="obj shape" style="left:10%;top:49%;width:76%;height:1.1%;background:linear-gradient(90deg,#405DE6 0%,#833AB4 58%,#E1306C 82%,#F77737 100%);border-radius:999px"></div>
-  <div class="obj shape" style="left:85%;top:47.2%;width:3.2%;height:4.8%;background:#F77737;clip-path:polygon(0 0,100% 50%,0 100%)"></div>
+  <div class="obj text" style="left:56%;top:35%;width:34%;height:4%;font-family:'Poppins';font-size:15pt;font-weight:700;letter-spacing:.08em;color:#E1306C">MANAGER-MEMORY CONTRACT</div>
+  <div class="obj text" contenteditable="true" data-key="s21f-manager-checks" style="left:56%;top:43%;width:34%;height:29%;font-family:'Lato';font-size:19pt;line-height:1.62;color:#102A43">✓ Conditional claims stay conditional<br>✓ Speculative people judgments are rejected<br>✓ Draft status and access scope are visible<br>✓ Every update produces a receipt<br>✓ Reset and recovery are deterministic</div>
 
-  <div class="obj shape" style="left:14%;top:44.5%;width:6%;height:11%;background:#405DE6;border:7px solid #FFFFFF;border-radius:50%;box-shadow:0 0 0 2px #A9BDF9"></div>
-  <div class="obj text" style="left:14%;top:48%;width:6%;height:3%;font-family:'Poppins';font-size:13pt;font-weight:700;color:#FFFFFF;text-align:center">01</div>
-  <div class="obj shape" style="left:43%;top:44.5%;width:6%;height:11%;background:#833AB4;border:7px solid #FFFFFF;border-radius:50%;box-shadow:0 0 0 2px #C9A7E0"></div>
-  <div class="obj text" style="left:43%;top:48%;width:6%;height:3%;font-family:'Poppins';font-size:13pt;font-weight:700;color:#FFFFFF;text-align:center">02</div>
-  <div class="obj shape" style="left:74%;top:44.5%;width:6%;height:11%;background:#E1306C;border:7px solid #FFFFFF;border-radius:50%;box-shadow:0 0 0 2px #E7AFC4"></div>
-  <div class="obj text" style="left:74%;top:48%;width:6%;height:3%;font-family:'Poppins';font-size:13pt;font-weight:700;color:#FFFFFF;text-align:center">03</div>
-
-  <div class="obj text" contenteditable="true" data-key="s21f-c1" style="left:8%;top:59%;width:25%;height:13%;font-family:'Lato';font-size:17.5pt;line-height:1.35;color:#52697A"><b style="font-family:Poppins;font-size:22pt;color:#102A43">Field evidence</b><br>Create a reviewed packet without crossing the raw-log boundary.</div>
-  <div class="obj text" contenteditable="true" data-key="s21f-c2" style="left:37%;top:59%;width:27%;height:13%;font-family:'Lato';font-size:17.5pt;line-height:1.35;color:#52697A"><b style="font-family:Poppins;font-size:22pt;color:#102A43">Engineering case</b><br>Investigate, fix, verify, close, and propose reusable learning.</div>
-  <div class="obj text" contenteditable="true" data-key="s21f-c3" style="left:70%;top:59%;width:22%;height:13%;font-family:'Lato';font-size:17.5pt;line-height:1.35;color:#52697A"><b style="font-family:Poppins;font-size:22pt;color:#102A43">Manager surfaces</b><br>Turn one note into reviewable follow-through.</div>
-
-  <div class="obj text" contenteditable="true" data-key="s21f-foot" style="left:15%;top:85%;width:70%;height:5%;font-family:'Poppins';font-size:18pt;font-weight:600;color:#833AB4;text-align:center">ONE LOOP · DIFFERENT BOUNDARIES · ROLE-MATCHED OUTPUTS</div>
+  <div class="obj shape" style="left:17%;top:86%;width:66%;height:7%;background:#102A43;border-radius:11px"></div>
+  <div class="obj text" contenteditable="true" data-key="s21f-foot" style="left:21%;top:87.5%;width:58%;height:3.5%;font-family:'Poppins';font-size:18pt;font-weight:600;color:#FFFFFF;text-align:center">DETERMINISTIC CHECKS · HUMAN REVIEW · VERSIONED EVIDENCE</div>
 </section>
 
 <section class="slide" data-slide="19" style="--slide-bg:#FFFFFF">
@@ -512,19 +476,21 @@
 </section>
 
 </main></div><script>
-const slides=[...document.querySelectorAll('.slide')].sort((a,b)=>Number(a.dataset.slide)-Number(b.dataset.slide));let current=0;const key='second-brain-editable-v51';
+const slides=[...document.querySelectorAll('.slide')].sort((a,b)=>Number(a.dataset.slide)-Number(b.dataset.slide));let current=0;const key='second-brain-editable-v61';
 const counterEl=document.getElementById('counter'),prevEl=document.getElementById('prev'),nextEl=document.getElementById('next'),downloadEl=document.getElementById('download'),stageEl=document.querySelector('.stage');
 const DESIGN_WIDTH=1600,DESIGN_HEIGHT=900;
 function fitDeck(){const r=stageEl.getBoundingClientRect(),g=window.innerWidth<=700?12:40;const scale=Math.min((r.width-g)/DESIGN_WIDTH,(r.height-g)/DESIGN_HEIGHT);document.documentElement.style.setProperty('--deck-scale',Math.max(.05,scale))}
-function fitText(el){if(!el.textContent.trim())return;const computed=getComputedStyle(el);if(!el.dataset.baseFontPx)el.dataset.baseFontPx=parseFloat(computed.fontSize);let size=Number(el.dataset.baseFontPx),minimum=Math.max(16,size*.78);el.style.fontSize=size+'px';while((el.scrollHeight>el.clientHeight+1||el.scrollWidth>el.clientWidth+1)&&size>minimum){size-=.5;el.style.fontSize=size+'px'}}
+function fitText(el){if(!el.textContent.trim())return;const computed=getComputedStyle(el);if(!el.dataset.baseFontPx)el.dataset.baseFontPx=parseFloat(computed.fontSize);let size=Number(el.dataset.baseFontPx),minimum=Math.max(20,size*.84);el.style.fontSize=size+'px';while((el.scrollHeight>el.clientHeight+1||el.scrollWidth>el.clientWidth+1)&&size>minimum){size-=.5;el.style.fontSize=size+'px'}}
 function fitAllText(){document.querySelectorAll('.text').forEach(fitText)}
-function show(n){current=(n+slides.length)%slides.length;slides.forEach((s,i)=>s.classList.toggle('active',i===current));counterEl.textContent=(current+1)+' / '+slides.length;location.hash='slide-'+(current+1);requestAnimationFrame(fitDeck)}
+function indexForSlide(number){return slides.findIndex(s=>Number(s.dataset.slide)===Number(number))}
+function show(n){current=(n+slides.length)%slides.length;slides.forEach((s,i)=>s.classList.toggle('active',i===current));counterEl.textContent=slides[current].dataset.slide+' / '+slides.length;location.hash='slide-'+slides[current].dataset.slide;requestAnimationFrame(fitDeck)}
+function step(direction){const number=Number(slides[current].dataset.slide);if(direction>0&&number===15)return show(indexForSlide(19));if(direction<0&&number===19)return show(indexForSlide(15));show(current+direction)}
 function save(){const data={};document.querySelectorAll('[contenteditable]').forEach(e=>data[e.dataset.key]=e.innerHTML);localStorage.setItem(key,JSON.stringify(data))}
 try{const data=JSON.parse(localStorage.getItem(key)||'{}');document.querySelectorAll('[contenteditable]').forEach(e=>{if(data[e.dataset.key]!=null)e.innerHTML=data[e.dataset.key]})}catch{}
-document.addEventListener('input',e=>{if(e.target.matches('[contenteditable]')){fitText(e.target);save()}});prevEl.onclick=()=>show(current-1);nextEl.onclick=()=>show(current+1);document.addEventListener('keydown',e=>{if(e.target.isContentEditable)return;if(e.key==='ArrowRight'||e.key==='PageDown')show(current+1);if(e.key==='ArrowLeft'||e.key==='PageUp')show(current-1)});
-let touchStartX=0;stageEl.addEventListener('touchstart',e=>{touchStartX=e.changedTouches[0].clientX},{passive:true});stageEl.addEventListener('touchend',e=>{const dx=e.changedTouches[0].clientX-touchStartX;if(Math.abs(dx)>45)show(current+(dx<0?1:-1))},{passive:true});
+document.addEventListener('input',e=>{if(e.target.matches('[contenteditable]')){fitText(e.target);save()}});prevEl.onclick=()=>step(-1);nextEl.onclick=()=>step(1);document.addEventListener('keydown',e=>{if(e.target.isContentEditable)return;if(e.key==='ArrowRight'||e.key==='PageDown'||e.key===' ')step(1);if(e.key==='ArrowLeft'||e.key==='PageUp')step(-1);if(e.key==='Home')show(indexForSlide(1));if(e.key==='End'||e.key.toLowerCase()==='q')show(indexForSlide(19));if(e.key.toLowerCase()==='d')show(indexForSlide(13));if(e.key.toLowerCase()==='c')show(indexForSlide(15));if(e.key.toLowerCase()==='a')show(indexForSlide(16))});
+let touchStartX=0;stageEl.addEventListener('touchstart',e=>{touchStartX=e.changedTouches[0].clientX},{passive:true});stageEl.addEventListener('touchend',e=>{const dx=e.changedTouches[0].clientX-touchStartX;if(Math.abs(dx)>45)step(dx<0?1:-1)},{passive:true});
 window.addEventListener('resize',fitDeck);window.addEventListener('orientationchange',()=>setTimeout(fitDeck,100));new ResizeObserver(fitDeck).observe(stageEl);
 if(document.fonts&&document.fonts.ready)document.fonts.ready.then(()=>{fitAllText();fitDeck()});else fitAllText();
-downloadEl.onclick=()=>{const clone=document.documentElement.cloneNode(true);clone.querySelectorAll('[contenteditable]').forEach(e=>e.removeAttribute('contenteditable'));const blob=new Blob(['<!doctype html>'+clone.outerHTML],{type:'text/html'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='second-brain-edited.html';a.click();URL.revokeObjectURL(a.href)};
-show(Math.max(0,Number((location.hash.match(/\d+/)||[1])[0])-1));
+downloadEl.onclick=()=>{const clone=document.documentElement.cloneNode(true);clone.querySelectorAll('[contenteditable]').forEach(e=>e.removeAttribute('contenteditable'));const blob=new Blob(['<!doctype html>'+clone.outerHTML],{type:'text/html'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='[SlideDeck]Second Brain for Engineering Teams.html';a.click();URL.revokeObjectURL(a.href)};
+const requestedSlide=Number((location.hash.match(/\d+/)||[1])[0]);show(Math.max(0,indexForSlide(requestedSlide)));
 </script></body></html>

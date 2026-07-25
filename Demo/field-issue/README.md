@@ -1,28 +1,64 @@
-# Field Issue AI Memory Demo
+# Field Issue — Governed Engineering Memory Demo
 
-This demo supports the talk **AI Memory for Engineering Teams**.
+A semiconductor tool reports intermittent fine-alignment failure. Restricted
+evidence stays inside `fab-side/`. An onsite agent and the field engineer
+co-create and review a sanitized packet. Only that validated export is accepted
+by `engineering-side/`.
 
-A semiconductor tool reports an intermittent wafer-alignment failure. Raw logs cannot leave the fab, so a local model produces a sanitized debug packet. Remote engineering turns that packet into an isolated case workspace for an assigned engineer.
+Shweta, the offsite assigned engineer, uses the packet and approved component
+knowledge to define the next discriminating experiment. The onsite field
+engineer performs approved local capture and any physical intervention. Closing
+the case creates a promotion proposal; it does not automatically rewrite shared
+knowledge.
 
-The case—not a global memory file—holds the investigation, actions, evidence, agent context, and resolution. Only verified, human-reviewed learning is later promoted into shared component knowledge.
+Six months later, a new engineer retrieves the small approved diagnostic—with
+provenance and limitations—without inheriting the original case or raw evidence.
 
-Core loop:
+## Operational Roots
 
-1. Capture raw evidence onsite.
-2. Process it into a sanitized debug packet.
-3. Create an issue-specific engineering case.
-4. Investigate, fix, and verify.
-5. Propose reusable learning for human-reviewed promotion.
+```text
+fab-side/
+  raw-logs/              restricted
+  local-analysis/        onsite-agent draft and reviewed packet
+  field-input/           onsite clarification
+  export/                only reviewed transfer artifact
 
-Key lines:
+engineering-side/
+  inbox/                 independently validated packet
+  verified-input/        reviewed experiment return
+  field-issues/          isolated case memory
+  component-knowledge/   curated shared guidance
+  promotion-queue/       proposed learning
+  promotion-approvals/   explicit human decision
+  future-cases/          cold-start reuse proof
+```
 
-> Raw logs stay in the fab. Debug memory travels to engineering.
-
-> Every issue creates a case. Only verified learning becomes shared memory.
-
-Reset before each rehearsal:
+## Quick Start
 
 ```bash
 ./scripts/reset-demo.sh
+./scripts/test-demo.sh
+./scripts/reset-demo.sh
 ```
 
+Then follow:
+
+- `DEMO-RUNBOOK.md` for the presentation sequence
+- `DEMO-PROMPTS.md` for live agent prompts
+- `DEMO-EXPECTED-OUTPUTS.md` for deterministic golden fallbacks
+
+## Enforced Boundaries
+
+- `export-reviewed-packet.sh` rejects unreviewed or raw-bearing packets.
+- `ingest-reviewed-packet.sh` accepts only the reviewed outbox artifact and
+  independently validates metadata and checksum.
+- `promote-approved-knowledge.sh` rejects promotion without a named human
+  approval record.
+- `test-demo.sh` proves the rejection and safe-reuse paths.
+
+Key lines:
+
+> The boundary is a test, not a sentence in a prompt.
+
+> Every issue creates traceable case history. Only verified, human-approved
+> learning becomes shared memory.

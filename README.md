@@ -1,30 +1,72 @@
 # Second Brain for Engineering Teams
 
-Talk materials for **Second Brain for Engineering Teams**.
+Conference talk, self-contained HTML slide deck, read-aloud speaker script, and
+two executable demos.
 
-## Contents
+## Authoritative artifacts
 
-- `[SlideDeck]Second Brain for Engineering Teams.html` — authoritative, self-contained HTML slide deck
-- `speaker-notes.md` — full read-aloud script for the presentation and both live demos
-- `session.md` — current session handoff, narrative decisions, and continuation context
-- `Demo/field-issue/` — primary engineering field-issue resolution demo
-- `Demo/manager-collaboration/` — secondary engineering-manager collaboration demo
+- `[SlideDeck]Second Brain for Engineering Teams.html` — the only slide deck;
+  19 slides, self-contained, responsive 16:9 presentation
+- `speaker-notes.md` — the 90-minute presenter route, stage cues, exact demo
+  commands, and recovery paths
+- `session.md` — current handoff and decisions for the next working session
+- `Demo/field-issue/` — primary engineering hero demo
+- `Demo/manager-collaboration/` — short manager-continuity demo
 
-## Demo reset
+## Talk thesis
+
+> A second brain is not a bigger knowledge dump. It is a governed
+> transformation from scattered context to a safer next decision.
+
+The recurring contract is:
+
+```text
+Capture -> Govern -> Surface
+```
+
+Agents prepare context. Humans decide what may cross a boundary, what becomes
+durable memory, and what deserves reuse.
+
+## Verify and reset the demos
 
 ```bash
+./Demo/field-issue/scripts/test-demo.sh
+./Demo/manager-collaboration/scripts/test-demo.sh
+
 ./Demo/field-issue/scripts/reset-demo.sh
 ./Demo/manager-collaboration/scripts/reset-demo.sh
 ```
 
-## Core idea
+Run the tests after changing either workflow. Reset both workspaces before a
+rehearsal or live session.
 
-> Context is the new execution layer.
+## Presentation route
 
-Both demos use:
+- Slides 1–12: problem, governed-memory model, two use cases, and success signal
+- Slides 13–14: demo transition and the audience's watch contract
+- Live demo 1: field issue, 17–19 minutes
+- Live demo 2: manager continuity, 5–7 minutes
+- Slide 15: 30-day pilot and closing synthesis
+- Slide 19: Q&A
+- Slides 16–18: appendix; use only when a question needs technical depth
 
-```text
-Capture -> Process -> Surface
-```
+Useful deck shortcuts:
 
-The memory boundaries and surfaced outputs differ by use case.
+- `D` — demo transition
+- `C` — closing pilot
+- `A` — appendix
+- `Q` or `End` — Q&A
+
+## What the demos prove
+
+The field demo keeps restricted evidence in `fab-side/`, admits only a reviewed
+and independently validated packet to `engineering-side/`, refuses automatic
+knowledge promotion, and proves safe later reuse.
+
+The manager demo classifies each fragment as **remember**, **keep uncertain**,
+or **reject**. It preserves professional commitments while refusing speculative
+people judgments.
+
+The repository demonstrates artifact admission, validation, receipts, and
+human gates. Production isolation also requires separate credentials, hosts,
+network policy, audit storage, and approved data-loss controls.

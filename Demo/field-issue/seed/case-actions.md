@@ -4,9 +4,8 @@ These actions belong only to this case.
 
 | Status | Owner | Action | Expected result |
 | --- | --- | --- | --- |
-| Open | Priya Nair | Review sanitized debug packet | Confirm facts, hypotheses, and first investigation step |
+| Open | Shweta | Review the ingested sanitized packet | Confirm facts, hypotheses, and the first offsite investigation step |
 
 ## Needs Review
 
 None.
-

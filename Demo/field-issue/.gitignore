@@ -1,0 +1,6 @@
+# Runtime-only boundary artifacts and demo decisions
+fab-side/export/
+engineering-side/inbox/
+engineering-side/promotion-queue/
+engineering-side/promotion-approvals/
+engineering-side/future-cases/*/agent-brief.md
