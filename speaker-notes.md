@@ -272,27 +272,43 @@ With that context, let us apply the pattern to a real engineering workflow.
 
 ---
 
-## Slide 9 — Use case 1: what reaches the engineer?
+## Slide 9 — Use case 1: how context crosses the boundary
 
 We have covered the concept, the architecture, and the trust rules.
 
-Now let us follow one field issue from the fab to the assigned engineer.
+Now let us follow one field issue from the tool to the engineer who can fix it.
 
 A semiconductor tool in a fab has reported an intermittent wafer-alignment failure.
 
 Start on the left.
 
+The field engineer is onsite, next to the tool. They can inspect the machine, reproduce symptoms, and answer questions using direct physical context.
+
 The raw logs and restricted identifiers stay inside the fab.
 
-In the middle, a local model creates the sanitized packet that is allowed to cross the boundary. It contains the symptoms, a field-side timeline, confidence, redactions, and open questions.
+In the middle is a human-and-AI loop.
 
-On the right, engineering receives one isolated case assigned to Shweta, with one clear goal: diagnose, fix, verify, and close this issue.
+The local AI agent can inspect the raw logs, local memory, and approved diagnostic guidance. It identifies patterns and asks clarification questions.
 
-That is the entire takeaway from this slide:
+The field engineer answers with observations from the tool, corrects misunderstandings, and adds context that may not exist in the logs.
 
-One field report becomes one actionable case. The raw logs remain in the fab.
+Together they produce the sanitized packet: symptoms, timeline, confidence, redactions, and open questions.
 
-Now that Shweta has the case, let us follow it through its lifecycle.
+The field engineer reviews that packet before it crosses the boundary. The AI assists; the onsite engineer remains responsible for what is sent.
+
+On the right, Shweta is offsite. She does not receive the restricted raw evidence, but she does have the codebase, tests, and engineering environment needed to debug and fix the issue.
+
+The packet opens one isolated case for her.
+
+This connects directly to slide 8:
+
+the packet is the receipt, missing evidence becomes a question, and the field engineer can correct the output before it travels.
+
+The takeaway is:
+
+Human-reviewed engineering context crosses the boundary. Restricted evidence does not.
+
+Now that Shweta has the reviewed case, we can look at what the second brain adds to her investigation.
 
 ---
 
@@ -304,7 +320,7 @@ The point is what the second brain adds to that familiar workflow.
 
 First, bounded intake. Shweta begins with sanitized evidence, provenance, confidence, and explicit open questions—not an unstructured raw-log dump.
 
-Second, an evidence trail. Each experiment stays connected to its owner, expected result, and the evidence it produced.
+Second, tracked experiments. For every test, the case records who ran it, what they expected, and what actually happened.
 
 Third, decision continuity. The case preserves why confidence changed, which hypotheses were rejected, and why the team chose the next step.
 
@@ -322,31 +338,33 @@ Now we can zoom out and ask which information should remain case-specific, and w
 
 ---
 
-## Slide 11 — What stays in the case—and what becomes reusable?
+## Slide 11 — Not every case becomes component knowledge
 
-This slide answers the question raised by the completed case lifecycle.
+This diagram shows the larger engineering-memory ecosystem.
 
-The case exists to solve the current issue.
+The left circle is case history.
 
-It contains issue-specific evidence, experiments, actions, decisions, and hypotheses that may still be wrong.
+Every field issue can remain there as a traceable case, including its evidence, experiments, decisions, and final resolution.
 
-Component knowledge exists to help with future issues.
+Most cases never need to become component knowledge.
 
-It contains validated diagnostics and reviewed failure modes with provenance, an owner, and a review date.
+They may be one-off failures, environment-specific events, or investigations that produced no reusable lesson.
 
-The relationship works in both directions.
+The right circle is shared component knowledge.
 
-The case may retrieve approved component guidance during the investigation.
+It is deliberately smaller. It contains reviewed diagnostics, validated failure modes, provenance, an owner, and a lifecycle.
 
-After resolution, verified reusable learning may be proposed back to component knowledge for review.
+The overlap is verified, reusable learning.
 
-But unverified hypotheses remain inside the case.
+A case enters that overlap only when a lesson has been verified, is useful beyond the current incident, and has been reviewed by the relevant component owner.
 
-Slide 9 showed how one issue becomes a case.
+Notice the other incident circles remaining on the left.
 
-Slide 10 followed that case from triage to closure.
+That is intentional. Retaining a case does not mean promoting all of its content into shared guidance.
 
-Slide 11 shows how the case can use shared knowledge—and contribute verified learning later—without polluting the wider component memory.
+The takeaway is:
+
+Many cases can accumulate as history. Only a small amount of verified learning should become shared component knowledge.
 
 ---
 

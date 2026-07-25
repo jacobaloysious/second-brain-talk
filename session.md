@@ -1268,4 +1268,39 @@ Use this concise narrative if you need to brief a new AI assistant:
   - It now explains what the second brain adds to a familiar engineering workflow: bounded intake, evidence trail, decision continuity, and verified closure.
   - Core takeaway: `The workflow is familiar. The context continuity is new.`
   - The browser autosave key is now `second-brain-editable-v23`.
-- All slides now display a subtle 24px gray slide number in the top-right using the shared `data-slide` attribute.
+- Slide 11 was redesigned as a Venn-style memory model:
+  - The left circle contains many traceable incident cases.
+  - The right circle represents small, curated component knowledge.
+  - The overlap represents verified reusable learning promoted through review.
+  - Several cases remain outside the overlap to show that not every incident needs promotion.
+  - The browser autosave key is now `second-brain-editable-v24`.
+- Slide 11 visual polish:
+  - Explicit sans-serif typography now matches the rest of the deck.
+  - One case is highlighted as the promotion candidate; other cases remain muted history.
+  - The overlap is labeled as a `Promotion review` gate.
+  - Component knowledge uses three compact reviewed-guidance chips instead of loose text.
+  - The takeaway band is narrower and less visually dominant.
+  - The browser autosave key is now `second-brain-editable-v25`.
+- Slide 9 now exposes the onsite packet-generation workflow:
+  - Raw logs and restricted identifiers remain inside the fab.
+  - A local AI/LLM works in a question-and-answer loop with the onsite field engineer using raw logs, local memory, approved guidance, and live tool observations.
+  - The field engineer reviews the sanitized packet before transmission.
+  - The packet crosses to Shweta, the offsite engineer with code and test access.
+  - The browser autosave key is now `second-brain-editable-v26`.
+- Slide 9 formatting and packet-generation deep dive:
+  - Slide 9 remains the high-level boundary overview.
+  - Font stacks were made explicit so the slide remains sans-serif when offline.
+  - The sanitized-packet contents and transfer arrow were repositioned to prevent clipping and label collisions.
+  - A new Slide 10 expands the onsite human-and-AI loop: local context, bidirectional questions and observations, a draft packet, and human approval as the release gate.
+  - Subsequent slides were renumbered; the deck now contains 22 slides.
+  - The browser autosave key is now `second-brain-editable-v27`.
+- Slide 10 duplicate removal:
+  - Removed the separate human-and-AI deep-dive slide because Slide 9 already communicates the loop clearly.
+  - Restored the deck to 21 slides and renumbered all subsequent slides and speaker notes.
+  - Slide 9 now transitions directly to what the second brain adds to Shweta's engineering case.
+  - The browser autosave key is now `second-brain-editable-v28`.
+- Slide 10 terminology clarification:
+  - Renamed `Evidence trail` to `Tracked experiments`.
+  - The card now says that every test records who ran it, what they expected, and what actually happened.
+  - Updated the matching speaker note and browser autosave key to `second-brain-editable-v29`.
+- All slides now display a subtle 24px gray slide number in the bottom-right using the shared `data-slide` attribute.
