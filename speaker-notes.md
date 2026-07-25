@@ -2,12 +2,12 @@
 
 These notes are written as a read-aloud script for a one-hour session:
 
-- approximately 30 minutes for slides 1–17
+- approximately 30 minutes for slides 1–14
 - approximately 20 minutes for the field-issue demo
 - approximately 8 minutes for the manager-collaboration demo
 - approximately 2 minutes to close and transition to questions
 
-Slides 18–21 are appendix and demo-reference slides. Use them when transitioning into the demos or when answering questions.
+The deck has 19 slides. Slides 1–14 form the main narrative. Slide 15 transitions into the live demos. Slides 16–18 are optional demo-reference slides. Slide 19 is the closing Q&A screen.
 
 ---
 
@@ -430,11 +430,7 @@ Both demos use the same loop:
 
 Capture. Process. Surface.
 
-**[Leave the deck and run Demo 1: field issue resolution.]**
-
-**[Then run Demo 2: manager collaboration.]**
-
-**[Return to slide 14 after both demos.]**
+**[Advance to slide 15.]**
 
 ---
 
@@ -470,9 +466,27 @@ That is the practical starting point: one context leak, one bounded memory loop,
 
 ---
 
-# Live Demo
+# Live-demo transition and reference
 
-## Transition using slides 18–21
+## Slide 15 — Live demos
+
+We have covered the idea. Now let us see the behavior.
+
+Two cases. One memory loop. Different boundaries.
+
+First, a field issue moves safely from onsite evidence to an engineering fix.
+
+Then, one manager note becomes reviewable follow-through.
+
+**[Leave the deck and run Demo 1: field issue resolution.]**
+
+**[Then run Demo 2: manager collaboration.]**
+
+**[Return to slide 14 after both demos.]**
+
+---
+
+## Slide 16 — Demo setup: local and reviewable
 
 I am using two small local Markdown workspaces.
 
@@ -480,13 +494,49 @@ This is intentionally less glamorous than a full enterprise platform.
 
 The advantage is that we can inspect every boundary and every file change. There is no complicated authentication, no customer data, and hopefully no conference Wi-Fi dependency. Conference Wi-Fi is a distributed system with very strong eventual-consistency properties.
 
+The setup is intentionally reliable, inspectable, and portable.
+
+Every change appears as a readable Markdown diff, and the same memory pattern could later move into enterprise tools.
+
+---
+
+## Slide 17 — Two workspaces make the boundaries visible
+
 The first workspace is the field-issue demo.
 
 The second is the manager-collaboration demo.
 
-I will spend most of the time on the engineering case, then use the shorter manager workflow to show that the pattern generalizes.
+In the field-issue workspace, the folder structure separates restricted fab evidence, isolated cases, reviewed component knowledge, and the human-approved promotion queue.
+
+In the manager workspace, it separates messy capture, project state, professional commitments, and the outputs the manager reviews.
+
+The important point is not the folder names. It is that the boundary is explicit and inspectable.
 
 ---
+
+## Slide 18 — Live runbook: prove depth, then show breadth
+
+I will spend most of the time on the engineering case, then use the shorter manager workflow to show that the pattern generalizes.
+
+First, we will keep raw field evidence local and create a reviewed sanitized packet.
+
+Second, we will follow the engineering case through investigation, fix, verification, closure, and a proposed reusable learning.
+
+Third, we will use the manager workflow to generate role-appropriate follow-through from one messy note.
+
+One loop, different boundaries, and outputs matched to the role.
+
+---
+
+## Slide 19 — Q&A and thank you
+
+Do not show this slide before the demos.
+
+After delivering the final close, jump to slide 19 and leave it visible throughout the Q&A.
+
+---
+
+# Live Demo
 
 ## Demo 1 — Field issue resolution
 
@@ -813,6 +863,8 @@ What context are we repeatedly reconstructing, and what decision or action would
 The goal is not to remember everything.
 
 The goal is to reduce context reconstruction so engineers and managers can spend more time on judgment, direction, and review.
+
+[Jump to slide 19.]
 
 Thank you.
 
