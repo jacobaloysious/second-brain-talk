@@ -272,7 +272,7 @@ With that context, let us apply the pattern to a real engineering workflow.
 
 ---
 
-## Slide 9 — Use case 1: how context crosses the boundary
+## Slide 9 — Use case 1: Field issue — how context crosses the boundary
 
 We have covered the concept, the architecture, and the trust rules.
 
@@ -308,37 +308,13 @@ The takeaway is:
 
 Human-reviewed engineering context crosses the boundary. Restricted evidence does not.
 
-Now that Shweta has the reviewed case, we can look at what the second brain adds to her investigation.
+Once Shweta receives the case, she still owns the engineering work. The second brain simply preserves the experiments, decisions, and final verification so the team does not have to reconstruct them later.
+
+That raises the next question: if we keep every case, will the shared engineering memory eventually become noisy and stale?
 
 ---
 
-## Slide 10 — What the second brain adds to the case
-
-You already know the investigation lifecycle. I am not introducing a new software-development or incident-management process here.
-
-The point is what the second brain adds to that familiar workflow.
-
-First, bounded intake. Shweta begins with sanitized evidence, provenance, confidence, and explicit open questions—not an unstructured raw-log dump.
-
-Second, tracked experiments. For every test, the case records who ran it, what they expected, and what actually happened.
-
-Third, decision continuity. The case preserves why confidence changed, which hypotheses were rejected, and why the team chose the next step.
-
-Fourth, verified closure. The success criteria remain visible, and reusable learning is proposed separately rather than mixed into the investigation.
-
-The engineer still performs the engineering work and owns the outcome.
-
-The second brain reduces context reconstruction around that work.
-
-That is the takeaway:
-
-The workflow is familiar. The context continuity is new.
-
-Now we can zoom out and ask which information should remain case-specific, and which verified lessons should help engineers working on future issues.
-
----
-
-## Slide 11 — Not every case becomes component knowledge
+## Slide 10 — Not every case becomes component knowledge
 
 This diagram shows the larger engineering-memory ecosystem.
 
@@ -368,7 +344,7 @@ Many cases can accumulate as history. Only a small amount of verified learning s
 
 ---
 
-## Slide 12 — Use case 2: manager collaboration continuity
+## Slide 11 — Use case 2: manager collaboration continuity
 
 The second use case changes the role, but not the underlying problem.
 
@@ -386,7 +362,7 @@ This use case is about continuity, follow-through, and clearer coordination—no
 
 ---
 
-## Slide 13 — What agents need: bounded context bundles
+## Slide 12 — What agents need: bounded context bundles
 
 Both use cases depend on the same agent design principle: give the agent a bounded assignment.
 
@@ -398,7 +374,7 @@ A useful context bundle tells the agent what it is trying to achieve, what evide
 
 ---
 
-## Slide 14 — Guardrails that prevent memory rot
+## Slide 13 — Guardrails that prevent memory rot
 
 There are four guardrails across these use cases.
 
@@ -422,7 +398,7 @@ Cases preserve history. Curated knowledge stays small.
 
 ---
 
-## Slide 15 — Two use cases, one memory loop
+## Slide 14 — Two use cases, one memory loop
 
 We have now walked through two use cases.
 
@@ -452,7 +428,7 @@ In the second, watch one manager capture become four useful collaboration surfac
 
 ---
 
-## Slide 16 — From case history to trusted knowledge
+## Slide 15 — From case history to trusted knowledge
 
 Now that you have seen both workflows live, let us zoom back out to organizational scale.
 
@@ -482,7 +458,7 @@ That is how memory compounds without becoming a landfill.
 
 ---
 
-## Slide 17 — Start with one context leak
+## Slide 16 — Start with one context leak
 
 My recommendation is not to build an enterprise second-brain platform on Monday morning.
 

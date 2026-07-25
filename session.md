@@ -1303,4 +1303,14 @@ Use this concise narrative if you need to brief a new AI assistant:
   - Renamed `Evidence trail` to `Tracked experiments`.
   - The card now says that every test records who ran it, what they expected, and what actually happened.
   - Updated the matching speaker note and browser autosave key to `second-brain-editable-v29`.
+- Slide 9 title clarification:
+  - Added `Field issue` to the title so the use case is immediately identifiable.
+  - The title is now `Use case 1: Field issue — how context crosses the boundary`.
+  - Updated the matching speaker-note heading and browser autosave key to `second-brain-editable-v30`.
+- Slide 10 narrative consolidation:
+  - Removed `What the second brain adds to the case` because Slide 9 already establishes the field-issue workflow and the slide repeated familiar incident-management concepts.
+  - Preserved its essential point in Slide 9's speaker notes: the engineer owns the work while the second brain preserves experiments, decisions, and verification.
+  - The case-versus-component diagram now follows Slide 9 directly and answers the memory-rot objection.
+  - The deck now contains 20 slides; subsequent slides and speaker notes were renumbered.
+  - The browser autosave key is now `second-brain-editable-v31`.
 - All slides now display a subtle 24px gray slide number in the bottom-right using the shared `data-slide` attribute.
