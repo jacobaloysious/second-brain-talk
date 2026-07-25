@@ -1230,3 +1230,42 @@ Use this concise narrative if you need to brief a new AI assistant:
   - The in-page toolbar is permanently hidden for presenting.
   - Its reserved grid row was removed so the slide uses the full viewport.
   - Arrow-key, Page Up/Down, URL-hash, and swipe navigation remain available.
+- Narrative bridge for slides 7–9:
+  - Slide 7 ends the architecture explanation and explicitly introduces the need for a trust contract.
+  - Slide 8 is now titled `Before the demo: make memory trustworthy`; receipt, bouncer, and fix button are framed as operating rules for both demos.
+  - Slide 9 is now titled `Demo 1: isolate every field issue`, making the transition into the primary engineering workflow explicit.
+  - The browser autosave key is now `second-brain-editable-v17`.
+- Demo sequencing revision:
+  - Slides 9–10 now provide only the minimum scenario and knowledge-boundary setup for Demo 1.
+  - Speaker notes explicitly leave the deck after slide 10 and return to slide 11.
+  - Slide 11 is a post-demo recap rather than a second pre-demo explanation.
+  - Slide 12 briefly sets up Demo 2; notes return to slide 13 after the live workflow.
+  - Slides 13–14 extract the common agent-context and guardrail lessons.
+  - Slide 15 now synthesizes two demos the audience has already seen.
+  - The browser autosave key is now `second-brain-editable-v18`.
+- Use-case ladder revision:
+  - Slides 9–14 are now a continuous conceptual walkthrough, not an interrupted demo sequence.
+  - Slide 9 introduces field-issue use case 1; slide 10 explains its memory boundary; slide 11 explains the engineer workflow.
+  - Slide 12 introduces manager-collaboration use case 2.
+  - Slides 13–14 identify the common agent-context and guardrail principles.
+  - Slide 15 synthesizes both use cases and launches the two live demos back-to-back.
+  - Slide 16 resumes the deck after both demos and returns to organizational scale.
+  - The browser autosave key is now `second-brain-editable-v19`.
+- Slide 8 title was simplified from `Before the demo: make memory trustworthy` to `Make memory trustworthy`; presenter logistics should not appear as audience-facing narrative.
+- The browser autosave key is now `second-brain-editable-v20`.
+- Slides 9–10 perspective clarification:
+  - Slide 9 now uses the assigned engineer’s intake perspective: raw fab evidence → sanitized packet → one isolated case owned by Shweta.
+  - Its single takeaway is `One report → one case; raw logs stay in the fab`.
+  - Slide 10 directly answers the next question: what remains issue-specific in the case, and what verified learning can become reusable component knowledge.
+  - The browser autosave key is now `second-brain-editable-v21`.
+- Case-lifecycle ordering:
+  - Slide 9 is followed by the engineer workflow, now slide 10.
+  - The case-versus-component boundary follows as slide 11, after the audience understands one complete case lifecycle.
+  - Speaker-note transitions now move from intake → case lifecycle → zoom out to reusable knowledge.
+  - The browser autosave key is now `second-brain-editable-v22`.
+- Slide 10 relevance correction:
+  - Slide 10 no longer teaches a generic triage-to-close lifecycle.
+  - It now explains what the second brain adds to a familiar engineering workflow: bounded intake, evidence trail, decision continuity, and verified closure.
+  - Core takeaway: `The workflow is familiar. The context continuity is new.`
+  - The browser autosave key is now `second-brain-editable-v23`.
+- All slides now display a subtle 24px gray slide number in the top-right using the shared `data-slide` attribute.

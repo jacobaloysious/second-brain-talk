@@ -230,11 +230,17 @@ This matters because we should not confuse the architecture with whichever tool 
 
 The durable idea is the contract between capture, memory, processing, and surfaced action.
 
+So at this point, we have the memory loop and the three architecture layers.
+
+Before we enter the engineering demo, I want to add one operating contract: how do we trust what this system writes?
+
 ---
 
-## Slide 8 — Trust is the adoption layer
+## Slide 8 — Make memory trustworthy
 
-An AI memory system does not need to be perfect, but it must be inspectable and correctable.
+These are the three rules I want you to watch for in both demos.
+
+An AI memory system does not need to be perfect, but every update must be inspectable and correctable.
 
 First, it needs a receipt.
 
@@ -254,161 +260,129 @@ The trust contract is:
 
 Show me what changed. Show me why. Let me fix it.
 
+These are not three unrelated product features. They are the safety rules around the memory loop.
+
+In the engineering demo, the sanitized packet acts as the receipt for what crossed the fab boundary. Missing evidence becomes a question rather than an invented fact. Any proposed shared learning remains reviewable before it is promoted.
+
+Now we have the full setup:
+
+the memory loop, the architecture, and the trust rules.
+
+With that context, let us apply the pattern to a real engineering workflow.
+
 ---
 
-## Slide 9 — Field Issue Case
+## Slide 9 — Use case 1: what reaches the engineer?
 
-Now let us move to the primary engineering demo: resolving a field issue.
+We have covered the concept, the architecture, and the trust rules.
+
+Now let us follow one field issue from the fab to the assigned engineer.
 
 A semiconductor tool in a fab has reported an intermittent wafer-alignment failure.
 
-The raw machine logs cannot leave the fab. A local model analyzes them onsite and produces a sanitized debug packet that engineering is allowed to receive.
+Start on the left.
 
-When that packet arrives, it opens an isolated case: FI-2026-00421. Shweta is the assigned engineer.
+The raw logs and restricted identifiers stay inside the fab.
 
-The case gives Shweta three things.
+In the middle, a local model creates the sanitized packet that is allowed to cross the boundary. It contains the symptoms, a field-side timeline, confidence, redactions, and open questions.
 
-First, the current state: the customer impact, confirmed facts, open hypotheses, known evidence, and the definition of done.
+On the right, engineering receives one isolated case assigned to Shweta, with one clear goal: diagnose, fix, verify, and close this issue.
 
-Second, the investigation history.
+That is the entire takeaway from this slide:
 
-At the beginning, this does not mean that the sanitized packet already contains a complete engineering investigation.
+One field report becomes one actionable case. The raw logs remain in the fab.
 
-The packet may contain a sanitized field-side timeline, observed symptoms, repeated error codes, suspicious sensor patterns, and any checks already performed onsite. Those become the first evidence entries in the case, with their source and confidence preserved.
-
-From that point onward, the case history is built by the engineering work itself. Shweta records each experiment, the evidence it produced, the decision that followed, and any hypothesis that was accepted or rejected.
-
-If information comes from a ticket, code change, test result, field engineer, or AI agent, the case records where it came from. It does not invent history, and it does not copy the restricted raw logs into engineering memory.
-
-Third, the execution surface: the next experiments and actions, with an owner and an expected result.
-
-Shweta is not being asked to maintain a knowledge base for its own sake. She is being asked to resolve the issue.
-
-Her job is to clarify missing evidence, choose the next experiment, record the result, implement and verify the fix, and close the case when the agreed completion criteria are met.
-
-The case memory supports that work. It prevents Shweta, another engineer, or an AI agent from repeatedly reconstructing the investigation from scattered messages.
-
-We keep this case isolated because early hypotheses may be wrong. With hundreds of field reports over time, we do not want every suspicion automatically entering shared component knowledge.
-
-So the rule is simple:
-
-Every field report creates a case. The case holds the investigation. Only verified and reviewed learning can later become shared knowledge.
+Now that Shweta has the case, let us follow it through its lifecycle.
 
 ---
 
-## Slide 10 — Component Knowledge
+## Slide 10 — What the second brain adds to the case
 
-Case memory and component knowledge are different.
+You already know the investigation lifecycle. I am not introducing a new software-development or incident-management process here.
 
-During triage, we may suspect that stage vibration caused the alignment failure. That is a hypothesis, not shared engineering truth.
+The point is what the second brain adds to that familiar workflow.
 
-Component knowledge contains validated, reusable guidance that has been reviewed by the relevant owner.
+First, bounded intake. Shweta begins with sanitized evidence, provenance, confidence, and explicit open questions—not an unstructured raw-log dump.
 
-For example, STAGE-119 may already have an approved settle-time diagnostic procedure. The case can retrieve and use that guidance.
+Second, an evidence trail. Each experiment stays connected to its owner, expected result, and the evidence it produced.
 
-But the agent cannot automatically write, “Stage vibration causes ALIGN-274,” simply because two values appeared near each other in one field report.
+Third, decision continuity. The case preserves why confidence changed, which hypotheses were rejected, and why the team chose the next step.
 
-Correlation plus enthusiasm is not a root cause.
+Fourth, verified closure. The success criteria remain visible, and reusable learning is proposed separately rather than mixed into the investigation.
 
-Only after the issue is resolved and verified do we propose reusable learning. That proposal includes provenance, validation evidence, an owner, a review date, and a way to supersede the guidance later.
+The engineer still performs the engineering work and owns the outcome.
 
-So:
+The second brain reduces context reconstruction around that work.
 
-Cases accumulate history.
+That is the takeaway:
 
-Component knowledge accumulates reviewed learning.
+The workflow is familiar. The context continuity is new.
 
-This separation is how we prevent memory from rotting as hundreds of issues arrive over many years.
-
----
-
-## Slide 11 — One realistic field issue loop
-
-The engineer moves the case through a concrete lifecycle.
-
-At 9:50, triage creates the case from the sanitized packet.
-
-At 10:15, investigation separates facts from hypotheses and assigns evidence-gathering actions.
-
-At 13:30, the engineer applies an approved fix or experiment and runs validation.
-
-At 15:00, the case closes only if the result is verified. Reusable learning is proposed for review.
-
-The actual timing is illustrative. I am not claiming every semiconductor issue is fixed before afternoon tea. If it were, support organizations would be much more relaxed.
-
-The important part is the state transition:
-
-Triage. Investigate. Experiment. Fix. Verify. Close.
-
-At every stage, the assigned engineer should know:
-
-What do we know?
-
-What do we only suspect?
-
-What evidence is missing?
-
-Who owns the next action?
-
-What result do we expect?
-
-And what must be true before we close?
+Now we can zoom out and ask which information should remain case-specific, and which verified lessons should help engineers working on future issues.
 
 ---
 
-## Slide 12 — The manager demo surfaces continuity, not surveillance
+## Slide 11 — What stays in the case—and what becomes reusable?
 
-The second use case is for engineering managers and collaboration.
+This slide answers the question raised by the completed case lifecycle.
 
-The same post-standup capture can surface four useful outputs.
+The case exists to solve the current issue.
 
-A daily brief gives top actions, risks, missing owners, and unresolved questions.
+It contains issue-specific evidence, experiments, actions, decisions, and hypotheses that may still be wrong.
 
-1:1 preparation carries forward professional commitments and relevant project context.
+Component knowledge exists to help with future issues.
 
-A stakeholder update communicates the rollout risk clearly and consistently.
+It contains validated diagnostics and reviewed failure modes with provenance, an owner, and a review date.
 
-A delegation context package helps an engineer or agent investigate the QA login problem without another context-reconstruction meeting.
+The relationship works in both directions.
 
-But people memory needs strict boundaries.
+The case may retrieve approved component guidance during the investigation.
+
+After resolution, verified reusable learning may be proposed back to component knowledge for review.
+
+But unverified hypotheses remain inside the case.
+
+Slide 9 showed how one issue becomes a case.
+
+Slide 10 followed that case from triage to closure.
+
+Slide 11 shows how the case can use shared knowledge—and contribute verified learning later—without polluting the wider component memory.
+
+---
+
+## Slide 12 — Use case 2: manager collaboration continuity
+
+The second use case changes the role, but not the underlying problem.
+
+A manager writes one messy post-standup note containing project risk, an owner dependency, a stakeholder update, and a commitment to an engineer.
+
+The system processes that capture into four useful surfaces: a daily brief, 1:1 preparation, a stakeholder update, and delegation context.
+
+There is one boundary to watch: professional continuity is useful; speculative judgment about people is not.
 
 It is appropriate to remember, “I promised Priya I would review staffing.”
 
 It is not appropriate to create speculative labels such as, “Priya seemed disengaged.”
 
-The first is a professional commitment. The second is an interpretation about a person.
-
-The system should help us show continuity and care—not create a secret dossier with autocomplete.
+This use case is about continuity, follow-through, and clearer coordination—not scoring people.
 
 ---
 
-## Slide 13 — Agents need case context bundles too
+## Slide 13 — What agents need: bounded context bundles
 
-AI agents also need a controlled context bundle.
+Both use cases depend on the same agent design principle: give the agent a bounded assignment.
 
-For a field issue, the bundle should contain the goal, constraints, data boundary, known facts, hypotheses, missing evidence, relevant component guidance, next actions, and definition of done.
+For the field issue, the bundle contains the goal, data boundary, facts, hypotheses, missing evidence, approved component guidance, next actions, and definition of done.
 
-Before execution, ask the agent to produce an investigation plan, risks, decision points, and expected outputs.
+For manager collaboration, it contains the original capture, relevant project and professional commitments, and strict limits on what may be inferred about people.
 
-Then review the delta against the case evidence and curated knowledge.
-
-This avoids two common failures.
-
-The first is a blank session, where the agent has intelligence but no continuity.
-
-The second is the giant context dump, where we give the agent everything and hope relevance emerges through spiritual discovery.
-
-A good context bundle is selective. It contains enough information to act, and enough boundaries to avoid converting uncertainty into fact.
-
-A blank AI session is a freelancer with amnesia.
-
-A good case bundle gives it an assignment, evidence, constraints, and a review contract.
+A useful context bundle tells the agent what it is trying to achieve, what evidence it may trust, what remains uncertain, what it must not do, and how its output will be reviewed.
 
 ---
 
 ## Slide 14 — Guardrails that prevent memory rot
 
-There are four guardrails in the engineering demo.
+There are four guardrails across these use cases.
 
 Case isolation means each field report preserves its own evidence, actions, decisions, and resolution.
 
@@ -430,17 +404,9 @@ Cases preserve history. Curated knowledge stays small.
 
 ---
 
-## Slide 15 — Two demos, one memory loop
+## Slide 15 — Two use cases, one memory loop
 
-I will now show two demos.
-
-The first is the deeper technical demo.
-
-Raw fab evidence stays onsite. A local model creates a sanitized packet. Engineering opens an isolated case, assigns actions, fixes and verifies the issue, and proposes reviewed learning.
-
-The second is shorter.
-
-A messy post-standup note updates project risk, professional follow-ups, actions, and receipts. The system surfaces a daily brief, 1:1 preparation, stakeholder communication, and delegation context.
+We have now walked through two use cases.
 
 These look like different workflows, but the architecture is the same:
 
@@ -454,9 +420,23 @@ Managers need project continuity, commitments, and communication surfaces.
 
 Same loop. Different job to be done.
 
+Now that the audience has the mental model, we can run both demos without interrupting the flow to explain the architecture again.
+
+In the first demo, watch the field evidence become an isolated engineering case that moves toward verified closure.
+
+In the second, watch one manager capture become four useful collaboration surfaces with human confirmation.
+
+**[Leave the deck and run Demo 1: field issue resolution.]**
+
+**[Then run Demo 2: manager collaboration.]**
+
+**[Return to slide 16 after both demos.]**
+
 ---
 
 ## Slide 16 — From case history to trusted knowledge
+
+Now that you have seen both workflows live, let us zoom back out to organizational scale.
 
 At organizational scale, we may have hundreds of components and hundreds or thousands of historical cases.
 
