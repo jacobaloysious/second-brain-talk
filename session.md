@@ -1388,3 +1388,7 @@ Use this concise narrative if you need to brief a new AI assistant:
   - Slide 19 is the minimal white `Q&A / Thank you!` closing screen.
   - Speaker notes follow this sequence and explicitly mark where to leave and return to the deck.
   - The HTML navigation sorts slides by `data-slide`, and the browser autosave key is now `second-brain-editable-v51`.
+- Speaker-note performance-order cleanup:
+  - The read-aloud script now flows directly from Slides 13–14 into both live-demo scripts, then returns to Slide 15 for one consolidated final recommendation and jumps to Slide 19 for Q&A.
+  - The duplicate standalone final-close script was merged into Slide 15.
+  - Slides 16–18 were moved to a clearly marked optional reference section after the Q&A notes so they no longer interrupt the normal talk track.

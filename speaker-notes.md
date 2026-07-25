@@ -110,7 +110,7 @@ When we use our brain as a database, we spend that valuable attention reconstruc
 
 ---
 
-## Slide 3 — One engineering organization, different context needs
+## Slide 3 — One engineering organization. Different context needs.
 
 This talk is for the whole engineering organization, not one specific job title.
 
@@ -210,7 +210,7 @@ A useful second brain should be simple: capture once, let the system organize th
 
 ---
 
-## Slide 7 — Architecture is portable; tools are not
+## Slide 7 — Architecture is portable. Tools are not.
 
 The architecture has three layers.
 
@@ -406,7 +406,7 @@ The agent supports the work. It does not own the outcome.
 
 ---
 
-## Slide 13 — Live demos
+## Slide 13 — LIVE DEMOS
 
 We have covered the idea. Now let us see the behavior.
 
@@ -449,90 +449,6 @@ Capture. Process. Surface.
 **[Then run Demo 2: manager collaboration.]**
 
 **[Return to slide 15 after both demos. Do not continue to the next section until both demos are complete.]**
-
----
-
-## Slide 15 — Start with one context leak
-
-You have now seen both workflows.
-
-My recommendation is not to build an enterprise second-brain platform on Monday morning.
-
-Start with one recurring context leak your team feels every week.
-
-It could be a field issue where remote engineers cannot access evidence.
-
-It could be a project handoff.
-
-It could be a missed commitment.
-
-It could be a meeting that begins with twenty minutes of reconstructing what everybody already knew last week.
-
-Capture once, where the evidence already appears.
-
-Build the correct type of memory: cases, component knowledge, projects, or professional follow-ups.
-
-Surface the action, brief, or decision each role needs.
-
-The outcome is not more documentation.
-
-The outcome is less context reconstruction and more engineering judgment.
-
-[Pause.]
-
-That is the practical starting point: one context leak, one bounded memory loop, and one outcome worth improving.
-
----
-
-# Optional demo-reference slides
-
-## Slide 16 — Demo setup: local and reviewable
-
-I am using two small local Markdown workspaces.
-
-This is intentionally less glamorous than a full enterprise platform.
-
-The advantage is that we can inspect every boundary and every file change. There is no complicated authentication, no customer data, and hopefully no conference Wi-Fi dependency. Conference Wi-Fi is a distributed system with very strong eventual-consistency properties.
-
-The setup is intentionally reliable, inspectable, and portable.
-
-Every change appears as a readable Markdown diff, and the same memory pattern could later move into enterprise tools.
-
----
-
-## Slide 17 — Two workspaces make the boundaries visible
-
-The first workspace is the field-issue demo.
-
-The second is the manager-collaboration demo.
-
-In the field-issue workspace, the folder structure separates restricted fab evidence, isolated cases, reviewed component knowledge, and the human-approved promotion queue.
-
-In the manager workspace, it separates messy capture, project state, professional commitments, and the outputs the manager reviews.
-
-The important point is not the folder names. It is that the boundary is explicit and inspectable.
-
----
-
-## Slide 18 — Live runbook: prove depth, then show breadth
-
-I will spend most of the time on the engineering case, then use the shorter manager workflow to show that the pattern generalizes.
-
-First, we will keep raw field evidence local and create a reviewed sanitized packet.
-
-Second, we will follow the engineering case through investigation, fix, verification, closure, and a proposed reusable learning.
-
-Third, we will use the manager workflow to generate role-appropriate follow-through from one messy note.
-
-One loop, different boundaries, and outputs matched to the role.
-
----
-
-## Slide 19 — Q&A and thank you
-
-Do not show this slide before the demos.
-
-After delivering the final close, jump to slide 19 and leave it visible throughout the Q&A.
 
 ---
 
@@ -840,7 +756,11 @@ Outputs matched to the role.
 
 ---
 
-# Final close
+## Slide 15 — Start with one context leak
+
+**[Return to the deck on slide 15.]**
+
+You have now seen both workflows.
 
 Let me leave you with three ideas.
 
@@ -850,9 +770,19 @@ Second, memory needs types and boundaries. A case is not component knowledge. A 
 
 Third, start small.
 
-Choose one context leak your team feels repeatedly.
+My recommendation is not to build an enterprise second-brain platform on Monday morning.
 
-Define where it is captured, how it is processed, what memory is allowed to change, and what useful output should appear.
+Choose one recurring context leak your team feels every week.
+
+It could be a field issue where remote engineers cannot access evidence.
+
+It could be a project handoff, a missed commitment, or a meeting that begins with twenty minutes of reconstructing what everybody already knew last week.
+
+Capture once, where the evidence already appears.
+
+Build the correct type of memory: cases, component knowledge, projects, or professional follow-ups.
+
+Surface the action, brief, or decision each role needs.
 
 Do not begin by asking, “Which AI second-brain product should we buy?”
 
@@ -862,13 +792,69 @@ What context are we repeatedly reconstructing, and what decision or action would
 
 The goal is not to remember everything.
 
-The goal is to reduce context reconstruction so engineers and managers can spend more time on judgment, direction, and review.
+The goal is less context reconstruction and more engineering judgment.
 
-[Jump to slide 19.]
+[Pause.]
+
+One context leak. One bounded memory loop. One outcome worth improving.
+
+**[Jump to slide 19.]**
+
+---
+
+## Slide 19 — Q&A and thank you
 
 Thank you.
 
 I am happy to take questions.
+
+**[Leave slide 19 visible throughout the Q&A.]**
+
+---
+
+# Optional demo-reference slides
+
+These slides are not part of the normal presentation sequence. Use them only when introducing implementation details or answering a question.
+
+## Slide 16 — Demo setup: local and reviewable
+
+I am using two small local Markdown workspaces.
+
+This is intentionally less glamorous than a full enterprise platform.
+
+The advantage is that we can inspect every boundary and every file change. There is no complicated authentication, no customer data, and hopefully no conference Wi-Fi dependency. Conference Wi-Fi is a distributed system with very strong eventual-consistency properties.
+
+The setup is intentionally reliable, inspectable, and portable.
+
+Every change appears as a readable Markdown diff, and the same memory pattern could later move into enterprise tools.
+
+---
+
+## Slide 17 — Two workspaces make the boundaries visible
+
+The first workspace is the field-issue demo.
+
+The second is the manager-collaboration demo.
+
+In the field-issue workspace, the folder structure separates restricted fab evidence, isolated cases, reviewed component knowledge, and the human-approved promotion queue.
+
+In the manager workspace, it separates messy capture, project state, professional commitments, and the outputs the manager reviews.
+
+The important point is not the folder names. It is that the boundary is explicit and inspectable.
+
+---
+
+## Slide 18 — Live runbook: prove depth, then show breadth
+
+I will spend most of the time on the engineering case, then use the shorter manager workflow to show that the pattern generalizes.
+
+First, we will keep raw field evidence local and create a reviewed sanitized packet.
+
+Second, we will follow the engineering case through investigation, fix, verification, closure, and a proposed reusable learning.
+
+Third, we will use the manager workflow to generate role-appropriate follow-through from one messy note.
+
+One loop, different boundaries, and outputs matched to the role.
 
 ---
 
