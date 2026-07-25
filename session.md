@@ -7,7 +7,7 @@ Last updated: 2026-07-24
 The working artifacts now available on this laptop are:
 
 ```text
-/Users/jacobaloysious/Desktop/secondbrain/Second Brain for Engineering Teams-editable.html
+/Users/jacobaloysious/Desktop/secondbrain/[SlideDeck]Second Brain for Engineering Teams.html
 /Users/jacobaloysious/Desktop/secondbrain/speaker-notes.md
 /Users/jacobaloysious/Desktop/secondbrain/Demo/field-issue/
 /Users/jacobaloysious/Desktop/secondbrain/Demo/manager-collaboration/
@@ -15,7 +15,7 @@ The working artifacts now available on this laptop are:
 
 Use them as follows:
 
-- **Authoritative slide deck:** `Second Brain for Engineering Teams-editable.html`
+- **Authoritative slide deck:** `[SlideDeck]Second Brain for Engineering Teams.html`
   - Self-contained single HTML file with all visual assets embedded.
   - Contains 21 slides and browser-editable text regions.
   - Arrow keys and toolbar buttons navigate between slides.
@@ -265,7 +265,7 @@ Why this lands:
 The self-contained local HTML listed in **Current Laptop State** is the only authoritative deck:
 
 ```text
-/Users/jacobaloysious/Desktop/secondbrain/Second Brain for Engineering Teams-editable.html
+/Users/jacobaloysious/Desktop/secondbrain/[SlideDeck]Second Brain for Engineering Teams.html
 ```
 
 Use an HTML-first workflow for every slide review and edit. The deck is a single portable file with embedded assets. Ignore remote copies or alternate formats unless the user explicitly changes this decision later.

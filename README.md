@@ -4,7 +4,7 @@ Talk materials for **Second Brain for Engineering Teams**.
 
 ## Contents
 
-- `Second Brain for Engineering Teams-editable.html` — authoritative, self-contained HTML slide deck
+- `[SlideDeck]Second Brain for Engineering Teams.html` — authoritative, self-contained HTML slide deck
 - `speaker-notes.md` — full read-aloud script for the presentation and both live demos
 - `session.md` — current session handoff, narrative decisions, and continuation context
 - `Demo/field-issue/` — primary engineering field-issue resolution demo
