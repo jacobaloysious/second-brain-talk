@@ -272,7 +272,7 @@ With that context, let us apply the pattern to a real engineering workflow.
 
 ---
 
-## Slide 9 — Use case 1: Field issue — how context crosses the boundary
+## Slide 9 — Case #1: Field issue — how context crosses the boundary
 
 We have covered the concept, the architecture, and the trust rules.
 
@@ -344,13 +344,25 @@ Many cases can accumulate as history. Only a small amount of verified learning s
 
 ---
 
-## Slide 11 — Use case 2: manager collaboration continuity
+## Slide 11 — Case #2: One stand-up, four kinds of follow-through
 
-The second use case changes the role, but not the underlying problem.
+One stand-up can create several different kinds of follow-through.
+
+There may be a project risk to track, a promise to remember, a stakeholder to update, and delegated work to check later.
+
+The manager should not have to keep all of that context in their head.
+
+The second brain keeps the relevant context ready for the moment when the manager needs to act.
 
 A manager writes one messy post-standup note containing project risk, an owner dependency, a stakeholder update, and a commitment to an engineer.
 
-The system processes that capture into four useful surfaces: a daily brief, 1:1 preparation, a stakeholder update, and delegation context.
+In this example, the QA login issue is putting the migration at risk, Rahul may unblock it once infrastructure provides credentials, Maya needs the corrected risk assessment, and I promised Priya I would review staffing.
+
+That is four different kinds of follow-through from one conversation.
+
+The manager is at the centre of this picture because all four responsibilities compete for the same attention.
+
+The system processes that capture into four reviewable surfaces: a daily brief, 1:1 preparation, a stakeholder update, and delegation context.
 
 There is one boundary to watch: professional continuity is useful; speculative judgment about people is not.
 
@@ -360,105 +372,75 @@ It is not appropriate to create speculative labels such as, “Priya seemed dise
 
 This use case is about continuity, follow-through, and clearer coordination—not scoring people.
 
----
-
-## Slide 12 — What agents need: bounded context bundles
-
-Both use cases depend on the same agent design principle: give the agent a bounded assignment.
-
-For the field issue, the bundle contains the goal, data boundary, facts, hypotheses, missing evidence, approved component guidance, next actions, and definition of done.
-
-For manager collaboration, it contains the original capture, relevant project and professional commitments, and strict limits on what may be inferred about people.
-
-A useful context bundle tells the agent what it is trying to achieve, what evidence it may trust, what remains uncertain, what it must not do, and how its output will be reviewed.
+The outputs remain drafts. They are traceable to the manager’s own note and can be reviewed or edited before use.
 
 ---
 
-## Slide 13 — Guardrails that prevent memory rot
+## Slide 12 — Same agent pattern. Different assignments.
 
-There are four guardrails across these use cases.
+Both cases use the same agent pattern, but the assignment is not generic.
 
-Case isolation means each field report preserves its own evidence, actions, decisions, and resolution.
+Read this slide across the three columns.
 
-The evidence boundary means raw logs and restricted identifiers stay fab-side. Only the sanitized packet crosses.
+First, set the job.
 
-Promotion review means a component owner must approve verified learning before it becomes shared guidance.
+In Case #1, diagnose and close one field issue.
 
-Provenance and decay mean every shared claim records where it came from, who reviewed it, when it was reviewed, and how it can be superseded.
+In Case #2, prepare the manager’s follow-ups from one stand-up.
 
-This is important because memory systems do not fail only by forgetting.
+Second, supply only the context required for that job.
 
-They also fail by remembering too much, remembering uncertain information as fact, and preserving conclusions after the system has changed.
+The field-issue agent receives the reviewed sanitized packet and approved component guidance.
 
-The target is not infinite memory.
+The manager agent receives the manager’s own note, project state, and professional commitments.
 
-The target is useful, reviewed, retrievable memory with an explicit lifecycle.
+Third, make the human decision explicit.
 
-Cases preserve history. Curated knowledge stays small.
+Shweta verifies the fix and closes the engineering case.
+
+The manager reviews collaboration drafts before using or sending them.
+
+The takeaway is:
+
+The agent supports the work. It does not own the outcome.
 
 ---
 
-## Slide 14 — Two use cases, one memory loop
+## Slide 13 — What to watch in the two demos
 
-We have now walked through two use cases.
+We have the mental model. Now let us watch the behavior rather than the mechanics of the files.
 
-These look like different workflows, but the architecture is the same:
+In Demo 1, watch the boundary:
+
+raw evidence remains onsite;
+
+a reviewed sanitized packet opens the engineering case;
+
+and Shweta verifies the fix and closure.
+
+In Demo 2, watch the follow-through:
+
+one messy manager note becomes structured memory;
+
+four reviewable collaboration drafts appear;
+
+and the manager decides what to use.
+
+Both demos use the same loop:
 
 Capture. Process. Surface.
-
-What changes are the memory boundaries and the outputs required by the role.
-
-Engineers need evidence, investigation state, and definition of done.
-
-Managers need project continuity, commitments, and communication surfaces.
-
-Same loop. Different job to be done.
-
-Now that the audience has the mental model, we can run both demos without interrupting the flow to explain the architecture again.
-
-In the first demo, watch the field evidence become an isolated engineering case that moves toward verified closure.
-
-In the second, watch one manager capture become four useful collaboration surfaces with human confirmation.
 
 **[Leave the deck and run Demo 1: field issue resolution.]**
 
 **[Then run Demo 2: manager collaboration.]**
 
-**[Return to slide 16 after both demos.]**
+**[Return to slide 14 after both demos.]**
 
 ---
 
-## Slide 15 — From case history to trusted knowledge
+## Slide 14 — Start with one context leak
 
-Now that you have seen both workflows live, let us zoom back out to organizational scale.
-
-At organizational scale, we may have hundreds of components and hundreds or thousands of historical cases.
-
-We should not compress all of that into one giant “engineering memory” file.
-
-The case layer preserves issue-specific facts, actions, experiments, and resolution.
-
-The component layer contains curated diagnostics and validated failure modes.
-
-The organization layer contains reviewed playbooks, cross-team patterns, and policy-aware retrieval.
-
-Many cases can exist without turning every case hypothesis into shared truth.
-
-The compounding value comes from retrieval and promotion:
-
-Find relevant prior cases.
-
-Use reviewed component guidance.
-
-Resolve the current issue.
-
-Promote only verified reusable learning.
-
-That is how memory compounds without becoming a landfill.
-
----
-
-## Slide 16 — Start with one context leak
+You have now seen both workflows.
 
 My recommendation is not to build an enterprise second-brain platform on Monday morning.
 
@@ -484,7 +466,7 @@ The outcome is less context reconstruction and more engineering judgment.
 
 [Pause.]
 
-Now let us look at the demos.
+That is the practical starting point: one context leak, one bounded memory loop, and one outcome worth improving.
 
 ---
 

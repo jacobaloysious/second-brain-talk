@@ -1313,4 +1313,69 @@ Use this concise narrative if you need to brief a new AI assistant:
   - The case-versus-component diagram now follows Slide 9 directly and answers the memory-rot objection.
   - The deck now contains 20 slides; subsequent slides and speaker notes were renumbered.
   - The browser autosave key is now `second-brain-editable-v31`.
+- Use Case 2 narrative correction:
+  - Slide 11 now matches the manager demo: outputs are reviewable and editable rather than explicitly approved by an unimplemented mechanism.
+  - Replaced the unsupported `08:30` scheduling implication with `TODAY`.
+  - Replaced `growth themes` with agreed commitments, blockers, and follow-ups.
+  - Slide 12 is now role-neutral: set the job, supply trusted context, and keep the human decision.
+  - Slide 13 now compares field-evidence, engineering-knowledge, manager-collaboration, and people-memory boundaries.
+  - Speaker notes no longer claim that manager drafts are autonomously confirmed or sent.
+  - The browser autosave key is now `second-brain-editable-v32`.
+- Case title shortening:
+  - Replaced `Use case 1` and `Use case 2` in the section titles with the more compact `Case #1` and `Case #2`.
+  - Updated the matching speaker-note headings.
+  - The browser autosave key is now `second-brain-editable-v33`.
+- Slide 11 radial redesign:
+  - Replaced the clipping card grid with a manager-centred radial diagram.
+  - The manager and design boundary sit in the centre, connected to daily brief, 1:1 continuity, stakeholder preparation, and delegation follow-through.
+  - Preserved the same content while increasing text-box height and using explicit offline-safe font stacks.
+  - Moved traceability, reviewability, and editability into a full-width footer band.
+  - The browser autosave key is now `second-brain-editable-v34`.
+- Slide 11 centre simplification:
+  - Reduced the manager circle and shortened the connectors to give the four responsibilities more visual space.
+  - Removed the repeated `Design boundary` and `One post-standup capture` labels.
+  - The centre now reads `Manager — Review · decide · follow through`.
+  - Replaced the long footer with `Assist the manager · Do not score people`.
+  - Traceability and reviewability remain in the subtitle and speaker notes.
+  - The browser autosave key is now `second-brain-editable-v35`.
+- Slide 11 audience-first framing:
+  - Replaced the abstract `manager surfaces` subtitle with the manager's recognizable problem: one stand-up creates risks, promises, stakeholder updates, and delegated work to follow through.
+  - Added the value statement that the second brain keeps the right context ready for each moment.
+  - Moved the messy post-standup note into the spoken demo setup instead of using it as the slide's opening abstraction.
+  - The browser autosave key is now `second-brain-editable-v36`.
+- Slide 11 concrete title and example:
+  - Renamed the slide to `Case #2: One stand-up, four kinds of follow-through`.
+  - Added the actual demo scenario to the speaker notes: QA login risk, Rahul's credential dependency, Maya's risk update, and the staffing commitment to Priya.
+  - Kept the example out of the visual to preserve the clean radial composition.
+  - The browser autosave key is now `second-brain-editable-v37`.
+- Slide 11 visible example:
+  - Added a compact example line beneath the setup statement so the audience can map the concrete case to the four responsibilities.
+  - The line shows `QA login risk · Rahul's dependency · Maya's update · Priya's staffing follow-up`.
+  - Kept the detailed scenario explanation in the speaker notes.
+  - The browser autosave key is now `second-brain-editable-v38`.
+- Slide 12 concrete two-case comparison:
+  - Replaced the abstract three-card principle slide with a two-row mapping for Case #1 and Case #2.
+  - Both cases are compared across `Set the job`, `Supply trusted context`, and `Keep the human decision`.
+  - Case #1 maps to the sanitized packet, approved component guidance, and Shweta's verification.
+  - Case #2 maps to the manager's note, project and commitment memory, and manager review before use.
+  - The visible takeaway is `The agent supports the work · It does not own the outcome`.
+  - The browser autosave key is now `second-brain-editable-v39`.
+- Slides 13–16 narrative consolidation:
+  - Removed the repeated memory-boundary recap because its points were already established on Slides 9–12.
+  - Reworked the former two-use-case summary into `What to watch in the two demos`, focused on observable boundary, memory-update, and human-decision behavior.
+  - Removed the repeated case-to-component scaling slide because Slide 10 already explains promotion into trusted knowledge.
+  - The demo run now returns directly to `Start with one context leak`, which is the practical closing recommendation.
+  - Corrected the speaker-note navigation and removed the contradictory instruction to look at demos after they had already run.
+  - The deck now contains 18 slides.
+  - The browser autosave key is now `second-brain-editable-v40`.
+- Slide 14 closing-slide redesign:
+  - Replaced the three equal cards with a stronger asymmetric closing composition.
+  - Added a dark focal panel emphasizing `ONE` recurring context leak as the first move.
+  - Converted the guidance into a clear vertical path: capture once, build the right memory, and surface the next decision.
+  - Added a full-width gradient outcome band: `Less reconstruction · More engineering judgment`.
+  - The browser autosave key is now `second-brain-editable-v41`.
+- Slide 14 decorative cleanup:
+  - Removed the gradient circle from the dark focal panel because it competed with the large `ONE` message.
+  - Retained the dark panel, three-step path, and gradient outcome band as the slide's visual hierarchy.
+  - The browser autosave key is now `second-brain-editable-v42`.
 - All slides now display a subtle 24px gray slide number in the bottom-right using the shared `data-slide` attribute.
