@@ -1,21 +1,21 @@
 # Speaker Notes — Second Brain for Engineering Teams
 
-This is the read-aloud performance script for the current 19-slide HTML deck and
-the two current demo workspaces.
+This is the read-aloud performance script for the current 19-slide HTML deck,
+the local presenter app, and the two executable proof workspaces behind it.
 
 ## Performance contract — rehearsal only
 
 - Maximum session slot: **90 minutes**
-- Prepared talk target: **72 minutes 15 seconds**
+- Prepared talk target: **69–72 minutes**
 - Protected Q&A: **12 minutes**
 - Contingency and transition reserve: **5 minutes 45 seconds**
 - Timing assumes a deliberate large-room pace of roughly **100–110 spoken
   words per minute**, including pauses, audience interactions, and visible demo
   decisions.
 - Slides 1–12: concept, use cases, and pilot metrics
-- Slides 13–14: live-demo transition and viewing contract
-- Live Demo 1: field-issue hero workflow, **17–19 minutes**
-- Live Demo 2: manager-continuity coda, **5–7 minutes**
+- Slides 13–14: demo transition and viewing contract
+- Presenter app, OnSite Fab + Fixer chats, **12–14 minutes**
+- Presenter app, Manager Assistant chat, **4–5 minutes**
 - Slide 15: 30-day pilot and close
 - Slide 19: Q&A
 - Slides 16–18: appendix only; do not show during the normal route
@@ -42,11 +42,11 @@ instruction and should not be read aloud.
 | 37:00–40:00 | 3:00 | Slide 12 — success signals | Right arrow |
 | 40:00–40:45 | 0:45 | Slide 13 — live-demo transition | Right arrow |
 | 40:45–42:45 | 2:00 | Slide 14 — what to watch | Leave deck after this slide |
-| 42:45–60:45 | 18:00 | Demo 1 — field issue | Five proof files maximum |
-| 60:45–66:45 | 6:00 | Demo 2 — short manager case | Compact decision view |
-| 66:45–72:15 | 5:30 | Slide 15 — 30-day pilot and close | Press `C` to return |
-| 72:15–84:15 | 12:00 | Slide 19 — Q&A | Right arrow from slide 15, or press `Q` |
-| 84:15–90:00 | 5:45 | Contingency reserve | Do not plan new content here |
+| 42:45–56:45 | 14:00 | App — OnSite Fab + Fixer Agents | Handoff, diff, and pull request |
+| 56:45–61:45 | 5:00 | App — Manager Assistant | Guided chat classification |
+| 61:45–67:15 | 5:30 | Slide 15 — 30-day pilot and close | Press `C` to return |
+| 67:15–82:15 | 15:00 | Slide 19 — Q&A | Right arrow from slide 15, or press `Q` |
+| 82:15–90:00 | 7:45 | Discussion / contingency reserve | Do not plan new content here |
 
 ### Deck shortcuts — rehearsal only
 
@@ -72,97 +72,70 @@ instruction and should not be read aloud.
   rearrangement.
 - Keep a large clock visible to the presenter. The hard checkpoints are:
   - slide 8 by minute 23;
-  - Demo 1 starts by minute 43;
-  - Demo 1 ends by minute 61;
-  - Demo 2 ends by minute 67;
-  - Q&A begins by minute 72.
+  - Case #1 starts by minute 43;
+  - the Fixer Agent ends by minute 57;
+  - the Manager Assistant ends by minute 62;
+  - Q&A begins by minute 67.
 
-### Field-issue demo preflight
+### Presenter-app preflight
 
-Open a terminal in:
+From:
 
 ```text
-/Users/jacobaloysious/Desktop/secondbrain/Demo/field-issue
+/Users/jacobaloysious/Desktop/secondbrain/Demo/presenter-app
 ```
 
 Run:
 
 ```bash
-./scripts/reset-demo.sh
-./scripts/test-demo.sh
-./scripts/reset-demo.sh
+./run-local.sh
 ```
 
-Use 150–175% editor and terminal zoom. Hide the file tree unless a path is the
-point. Use exactly these five proof-file paths during the demo:
+Open the printed local URL. The app has no database, live AI, or external data
+dependency.
 
-```text
-fab-side/ONSITE-EVIDENCE-BOARD.md
-fab-side/local-analysis/debug-packet.md
-engineering-side/field-issues/FI-2026-00421/agent-context-bundle.md
-engineering-side/promotion-queue/FI-2026-00421.md
-engineering-side/future-cases/FI-2027-00987/agent-brief.md
-```
+Before the room opens:
 
-The first three paths exist after reset. The promotion proposal and future-case
-brief are generated later. Keep those two paths in the presenter checklist and
-open them only after their stages are created; do not create empty placeholders.
+1. Press `R` and confirm the OnSite Fab Agent opens at the alignment alert.
+2. Use the suggested actions through packet approval.
+3. Open the packet viewer and confirm the ZIP download works.
+4. Send the packet, then press `2` and confirm the Fixer Agent has one new
+   issue.
+5. Advance to the proposed diff, switch both changed files, and create the mock
+   pull request.
+6. Press `3` for the Manager Assistant, `N` for presenter cues, and `F` for
+   browser full screen.
+7. Press `R` and return to the OnSite Fab Agent.
 
-Keep these presenter-only files available, but do not display them unless
-recovering:
+The simulation label is intentional. The app uses deterministic mock data and
+rehearsed responses. The three tabs represent three role scopes; they do not
+require three different foundation models. The scripts and test suites in the
+sibling workspaces remain the executable proof for technical Q&A.
 
-```text
-DEMO-PROMPTS.md
-DEMO-EXPECTED-OUTPUTS.md
-DEMO-RUNBOOK.md
-```
+### Technical-proof preflight — not audience-facing
 
-Copy Prompts 1–5 from
-`/Users/jacobaloysious/Desktop/secondbrain/Demo/field-issue/DEMO-PROMPTS.md`
-into a clipboard
-manager. Do not retype prompts onstage.
-
-### Manager demo preflight
-
-Open a second terminal in:
-
-```text
-/Users/jacobaloysious/Desktop/secondbrain/Demo/manager-collaboration
-```
-
-Run:
+Before the session, verify both workspaces once:
 
 ```bash
-./scripts/reset-demo.sh
-./scripts/validate-demo.sh --initial
+./Demo/field-issue/scripts/test-demo.sh
+./Demo/manager-collaboration/scripts/test-demo.sh
 ```
 
-Keep these files ready:
+Do not run these commands during the normal presentation. Keep the repository
+open only as a Q&A fallback.
 
-```text
-inbox.md
-outputs/manager-follow-through.md
-outputs/daily-brief.md
-outputs/stakeholder-draft.md
-memory/receipts.md
-```
+### The one-decision rule
 
-Copy Prompt 1 from
-`/Users/jacobaloysious/Desktop/secondbrain/Demo/manager-collaboration/DEMO-PROMPTS.md`
-into the clipboard manager.
+Each chat beat has one communication job:
 
-### The 20-second rule
+1. ask the question;
+2. take the room's answer;
+3. use the primary suggested action;
+4. state why the result matters;
+5. move on.
 
-Every live agent step has a hard 20-second limit.
-
-1. Start a visible timer when the prompt is submitted.
-2. Explain the decision contract while the agent works.
-3. At 20 seconds, stop the live run before loading a checkpoint.
-4. Load the matching golden stage.
-5. Continue without apologizing.
-
-The audience is here to inspect the decision and the guardrail, not to watch a
-typing animation.
+Do not click through every tab, validator, or generated output. The audience is
+here to inspect decisions and guardrails—not implementation choreography.
 
 ---
 
@@ -270,7 +243,7 @@ An engineer cannot compare hypotheses until the history is reconstructed.
 
 A manager cannot act on risk until ownership and uncertainty are reconstructed.
 
-A leader cannot tell whether knowledge is reusable until provenance and
+A leader cannot tell whether knowledge is reusable until its source trail and
 freshness are reconstructed.
 
 Human attention is much more valuable for finding patterns, challenging
@@ -663,7 +636,7 @@ That division of work matters because accountability does not move to the model
 just because preparation becomes faster.
 
 In the field case, the onsite field engineer owns the approved local evidence
-and the physical intervention. Shweta owns offsite diagnosis, experiment
+and the physical intervention. Engineer owns offsite diagnosis, experiment
 design, and verification. A component owner approves shared learning.
 
 In the manager case, the system produces private drafts. The manager decides
@@ -709,7 +682,7 @@ Trust is not a feeling we add after the demo works.
 
 It is an operating contract.
 
-The first part is provenance: show your work.
+The first part is traceability: show your work.
 
 For a consequential update, expose the source, the destination, the time, the
 confidence, and the unresolved questions.
@@ -813,7 +786,7 @@ Then a validator controls the crossing.
 It checks the review metadata and scans for restricted content. Engineering
 independently validates the received artifact and its checksum.
 
-On the right, Shweta leads the offsite diagnosis.
+On the right, Engineer leads the offsite diagnosis.
 
 She receives sanitized evidence, not the raw fab context.
 
@@ -822,7 +795,7 @@ experiment, assigns the owners, and verifies the returned result.
 
 The ownership is intentionally split.
 
-Shweta owns diagnosis, experiment design, and verification.
+Engineer owns diagnosis, experiment design, and verification.
 
 The onsite field engineer owns approved capture and physical work at the tool.
 
@@ -841,7 +814,7 @@ One more distinction matters.
 
 The export packet is not the raw evidence and it is not the final diagnosis.
 
-It is a decision-quality handoff: enough supported context for Shweta to choose
+It is a decision-quality handoff: enough supported context for Engineer to choose
 the next experiment, with uncertainty preserved and questions still visible.
 
 That makes the boundary useful rather than merely restrictive. Security that
@@ -884,14 +857,14 @@ The right circle is component knowledge.
 
 It is deliberately smaller.
 
-It contains approved diagnostics, validated failure modes, provenance, a
+It contains approved diagnostics, validated failure modes, a source trail, a
 review owner, and a lifecycle.
 
 The overlap is verified reusable learning.
 
 A resolved case may propose a reusable finding, but proposal is not promotion.
 
-A named human owner reviews the scope, limitations, provenance, and future
+A named human owner reviews the scope, limitations, source trail, and future
 maintenance responsibility. Only then may the shared guidance change.
 
 And if later evidence contradicts it, the entry should be superseded with its
@@ -1118,7 +1091,7 @@ turning into surveillance.
 
 ---
 
-## Slide 14 — What to watch in the two demos
+## Slide 14 — What to watch across the three agent workspaces
 
 **Target time:** 2 minutes
 
@@ -1126,8 +1099,8 @@ turning into surveillance.
 
 Before I leave the deck, here is the viewing contract.
 
-Please watch the decisions and guardrails—not the mechanics of the Markdown
-files.
+Please watch the decisions and guardrails—not the mechanics of prompts,
+commands, or generated files.
 
 In Demo 1, watch three moves:
 
@@ -1141,7 +1114,7 @@ The onsite agent should ask for the missing observation.
 
 The transfer validator should reject anything unreviewed or restricted.
 
-And a future engineer should receive only approved learning, with provenance
+And a future engineer should receive only approved learning, with its source
 and limitations.
 
 In Demo 2, watch another three moves:
@@ -1166,23 +1139,846 @@ what result do we see;
 
 what does that result mean?
 
-If the agent takes longer than 20 seconds, I will load a verified checkpoint and
-continue. That is part of the rehearsal design, not a change in the claim.
+The browser experience uses three familiar chat workspaces with deterministic
+mock data. Watch how context moves between roles, where a human gate appears,
+and what is deliberately not carried forward. The executable validators and
+tests remain in the repository for technical Q&A.
 
 ### STAGE CUES
 
-- Point left for Demo 1 and right for Demo 2.
+- Point left for the field workflow and right for manager continuity.
 - [LOOK UP] for “question, result, meaning.”
-- [LEAVE THE DECK] and switch to the field-issue workspace.
+- [LEAVE THE DECK] and switch to the presenter app.
 
 ---
 
-# Live Demo 1 — Field-issue hero workflow
+# Presenter App — Three role-scoped chats
+
+**Target time:** 17–19 minutes
+
+**Communication job:** Make the second brain feel like a familiar work
+interface while showing that each role gets different context, permissions,
+and human decision ownership.
+
+### PRESENTER ACTION
+
+Switch to the presenter app. Confirm the top label says:
+
+> Guided demo · deterministic responses · no live AI
+
+Press `R`.
+
+### SAY
+
+Instead of showing prompts, terminals, and a file tree, I will show the same
+workflow through three chat workspaces.
+
+The OnSite Fab Agent can work with restricted evidence.
+
+The Fixer Agent can work with the reviewed packet, code, tests, and approved
+component guidance.
+
+The Manager Assistant can work only with the manager's own note.
+
+These do not need to be three different foundation models. Think of them as
+three roles over the same memory architecture, each with a different context
+boundary.
+
+## Chat 1 — OnSite Fab Agent
+
+**Target time:** 5–6 minutes
+
+### SAY
+
+The first interaction begins without anyone writing a prompt.
+
+The mock telemetry reports: alignment failed.
+
+The agent notices a repeated pattern and asks the field engineer whether to
+start a local investigation.
+
+Detection is not diagnosis. It is simply a good moment to offer help.
+
+### PRESENTER ACTION
+
+Click **Start local investigation**.
+
+### SAY
+
+The agent extracts a supported relative sequence and asks one targeted
+question:
+
+does vibration continue through the measurement window?
+
+This is where the onsite engineer matters. They are next to the physical tool.
+They can observe something the offsite engineer and the model cannot.
+
+At the same time, the context inspector shows the boundary. This agent may see
+restricted machine evidence, but it cannot see offsite source code and it
+cannot update shared knowledge.
+
+### PRESENTER ACTION
+
+Click **Confirm onsite observation**, then **Create sanitized draft**.
+
+### SAY
+
+The draft contains facts, a moderate-confidence hypothesis, an open gap, and a
+redaction record.
+
+It does not claim a mechanical cause.
+
+And because this is only a draft, usefulness is not permission.
+
+Let us deliberately take the wrong action.
+
+### PRESENTER ACTION
+
+Click **Send now**.
+
+### SAY
+
+Export refused: missing approved review status.
+
+The packet remains local.
+
+The field engineer is not a courier. They are the domain expert who checks the
+observation, wording, and release boundary.
+
+### PRESENTER ACTION
+
+Click **Review packet**, then **Approve reviewed transfer**.
+
+Click **View contents**.
+
+### SAY
+
+This is the exact handoff bundle.
+
+It contains a debug packet, a manifest, and boundary instructions.
+
+Notice what is absent: raw log lines, timestamps, exact values, customer
+identifiers, tool identifiers, and local filenames.
+
+I can download this as a real ZIP. The normal on-stage route does not need the
+ZIP, but it is there for inspection and rehearsal.
+
+### PRESENTER ACTION
+
+Close the viewer. Click **Send to Fixer**, then **Open Fixer Agent**.
+
+### SAY
+
+The engineering-side importer independently validates the reviewed artifact.
+
+Only then does the Fixer Agent receive a new issue.
+
+One human-reviewed context packet crossed the boundary. The restricted evidence
+did not.
+
+## Chat 2 — Fixer Agent
+
+**Target time:** 8–9 minutes
+
+### SAY
+
+Engineer does not begin by asking, “Can somebody send me the logs again?”
+
+She receives one reviewed issue notification.
+
+### PRESENTER ACTION
+
+Click **Open field issue**.
+
+### SAY
+
+The first useful move is separation.
+
+On the left are supported facts.
+
+On the right are hypotheses.
+
+The stage path is suspicious. A stage-to-vision interaction is still possible.
+A mechanical cause is not established.
+
+What is the smallest experiment that distinguishes those paths?
+
+[TAKE TWO ANSWERS — 20 SECONDS]
+
+### PRESENTER ACTION
+
+Click **Prepare stage-settling experiment**.
+
+### SAY
+
+Now the outcome branches are explicit before the work begins.
+
+If settling normalizes and alignment recovers, the stage path is supported.
+
+If settling normalizes but alignment still fails, investigate the
+stage-to-vision interaction before changing vision configuration.
+
+The agent prepares the decision. Engineer owns the diagnosis and verification.
+The onsite engineer owns physical intervention.
+
+### PRESENTER ACTION
+
+Click **Run diagnostic + inspect code**.
+
+### SAY
+
+The diagnostic reveals a hybrid failure.
+
+Onsite inspection supports a degraded stage damper.
+
+But Engineer also finds a software weakness.
+
+The settle gate treats one in-position sample as settled. It does not check
+whether the stage is still moving, and it does not require a stable window.
+
+The motion simulator reproduces the defect: alignment begins while velocity is
+still unstable.
+
+So the current tool needs physical recovery, and the product needs a software
+guardrail.
+
+This matters because “fix the hardware” is not enough when software can start a
+precision operation before motion is actually stable.
+
+### PRESENTER ACTION
+
+Click **Review proposed diff**.
+
+### SAY
+
+Now we have an artifact software engineers recognize.
+
+The removed code accepts a single position check.
+
+The new code requires both position and velocity to be stable for consecutive
+samples.
+
+If either condition fails, alignment does not begin. The software returns an
+actionable stage diagnostic instead of allowing a generic alignment failure
+later.
+
+The second file adds the regression tests:
+
+do not report settled while the stage is still moving;
+
+and require the full stable-sample window.
+
+This is not the agent saying, “Trust me, I fixed it.”
+
+It is a diff that Engineer can inspect, test, review, and own.
+
+### PRESENTER ACTION
+
+In the diff viewer, switch once between the runtime file and test file.
+
+Click **Create pull request**.
+
+### SAY
+
+The mock pull request now has a repository, branch, two changed files, test
+results, and an open human-review requirement.
+
+It also names the rollout boundary: canary first, while watching the
+stage-not-stable rate and alignment success.
+
+The agent drafted the change.
+
+Engineer still owns whether the code is correct, who reviews it, whether it
+merges, and how it is deployed.
+
+### PRESENTER ACTION
+
+Click **Simulate review + deploy + verify**.
+
+### SAY
+
+This is an explicit time jump.
+
+Code review, merge, deployment, physical service, and five field verification
+runs did not happen instantly in the chat.
+
+The pull request is now merged.
+
+The onsite field engineer has restored the degraded damper.
+
+Five repeated runs pass with the software guard active.
+
+Now the case can close—and that creates a separate question:
+
+what, if anything, deserves to become reusable engineering guidance?
+
+The damaged damper is true for this case. The action list is useful for this
+case. Neither is a safe default for every future alignment issue.
+
+The reusable candidate is the software guardrail plus the diagnostic:
+
+require stable position and velocity before alignment;
+
+and if the guard rejects motion, run the stage-settling diagnostic before
+changing vision configuration.
+
+### PRESENTER ACTION
+
+Leave only **Promote the diagnostic + software guardrail** selected. Click
+**Review knowledge selection**.
+
+### SAY
+
+The agent creates a promotion proposal with source and limitations.
+
+But Engineer still cannot rewrite shared component guidance by herself.
+
+### PRESENTER ACTION
+
+Click **Promote now**.
+
+### SAY
+
+Promotion refused: a human approval record is missing.
+
+This is the second human gate. The first governed what may cross the fab
+boundary. This one governs what may influence future engineers.
+
+### PRESENTER ACTION
+
+Click **Request owner approval**.
+
+### SAY
+
+Only the software guardrail and narrow diagnostic are promoted.
+
+A future engineer can see both the merged code change and a better first
+experiment—not this case's physical cause or old action list.
+
+That is the difference between accumulating incidents and building trusted
+engineering memory.
+
+## Chat 3 — Manager Assistant
+
+**Target time:** 4–5 minutes
+
+### PRESENTER ACTION
+
+Press `3`.
+
+### SAY
+
+The third tab applies the same governed transformation to a different boundary.
+
+The Manager Assistant sees only a note supplied by the manager. It does not
+scrape employee messages, meetings, or private activity.
+
+The note contains a real project risk, conditional timing, a professional
+promise, and one speculative people judgment.
+
+### PRESENTER ACTION
+
+Click **Process the note**.
+
+### SAY
+
+Which two words make Thursday uncertain?
+
+[TAKE ANSWERS — 10 SECONDS]
+
+“May” and “if.”
+
+The risk and blocker are remembered.
+
+Rahul's timing stays conditional.
+
+The staffing promise becomes professional follow-through.
+
+And “Priya seemed off” is rejected. It does not become durable people memory.
+
+### PRESENTER ACTION
+
+Click **Create follow-through drafts**.
+
+### SAY
+
+The retained context becomes three surfaces:
+
+a daily brief;
+
+conversation continuity for the agreed staffing follow-up;
+
+and a stakeholder update for Maya.
+
+Nothing has been sent. These are drafts for the manager to review.
+
+### PRESENTER ACTION
+
+Click **Review Maya draft + receipt**.
+
+### SAY
+
+The receipt is the proof.
+
+It records what was remembered, what remained uncertain, what was rejected, and
+that no external action occurred.
+
+Across all three chats, the pattern is the same:
+
+the agent prepares;
+
+the boundary is visible;
+
+and a named human owns the consequential decision.
+
+### STAGE CUES
+
+- Keep the Fixer chat as the longest section; it is the engineering hero flow.
+- Use the context inspector only to reinforce permissions and ownership.
+- Do not open repository files during the normal route.
+- Press `C` in the deck to return to Slide 15.
+
+---
+
+<details>
+<summary><strong>Legacy scene-based presenter script — rehearsal history only</strong></summary>
+
+# Legacy Presenter App — Case #1: Field-issue hero workflow
+
+**Target time:** 10–12 minutes
+
+**Communication job:** Show six decisions without asking the audience to parse
+prompts, terminals, or a file tree.
+
+### PRESENTER ACTION
+
+Switch to the presenter app. Confirm the top label says:
+
+> Deterministic workflow simulation · no live AI · no data leaves this browser
+
+Press `1`, then `R`.
+
+## Case #1, Scene 1 — Diagnose before AI
+
+**Target time:** 1 minute 30 seconds
+
+### SAY
+
+Let us begin exactly where the engineer begins: with incomplete evidence.
+
+Fine alignment fails after X-axis movement. Settling exceeds its configured
+limit. The same sequence repeats. Vision confidence appears acceptable.
+
+Based on this alone, where would you look first:
+
+stage path;
+
+vision path;
+
+or not enough evidence?
+
+[SHOW OF HANDS — 20 SECONDS]
+
+The stage path is suspicious. But the evidence does not establish a cause.
+
+And there is a second constraint: every clue on this screen is restricted.
+
+### PRESENTER ACTION
+
+Click the room's chosen option if useful, then press `Space`.
+
+### SAY
+
+Useful evidence does not automatically become transferable evidence.
+
+Raw lines, identifiers, exact values, and timestamps remain onsite.
+
+### STAGE CUES
+
+- Do not reveal the later damper result.
+- End on the dark boundary statement.
+- Right arrow moves to Scene 2.
+
+## Case #1, Scene 2 — Useful is not permitted
+
+**Target time:** 2 minutes
+
+### SAY
+
+The onsite agent has prepared a draft.
+
+Notice what it does and what it does not do.
+
+It extracts the supported pattern, ranks the stage-settling hypothesis at
+moderate confidence, lists the missing evidence, records the redactions, and
+asks one targeted question.
+
+The question is whether vibration continues through the actual measurement
+window.
+
+The packet looks useful. Is that enough permission to send it?
+
+[PAUSE]
+
+Let us try.
+
+### PRESENTER ACTION
+
+Press `Space` to attempt export.
+
+### SAY
+
+Rejected: missing approved review status.
+
+The system also revokes any earlier outbox, so a stale packet cannot remain
+available after a failed re-export.
+
+The useful draft stays local.
+
+Now the field engineer uses the approved local observation, answers the
+question, reviews the wording, and explicitly approves transfer.
+
+### PRESENTER ACTION
+
+Press `Space` again.
+
+### SAY
+
+That answer raises confidence in the stage-settling path.
+
+But maintenance history and the mechanical cause remain unresolved.
+
+The field engineer is not a courier. They are the onsite domain expert and the
+release authority for this packet.
+
+### STAGE CUES
+
+- Let the red rejection remain visible for two seconds.
+- Point to “Mechanical cause is still not established.”
+- Right arrow moves to Scene 3.
+
+## Case #1, Scene 3 — Make the boundary executable
+
+**Target time:** 1 minute 30 seconds
+
+### SAY
+
+What must become true before this packet may cross?
+
+We need a named human review, a clean redaction scan, valid structure and
+identity, and a version bound to the checksum.
+
+### PRESENTER ACTION
+
+Press `Space`.
+
+### SAY
+
+The fab-side validator passes.
+
+Engineering then independently checks the exact reviewed outbox artifact.
+
+Both receipts bind the same packet identity and checksum.
+
+If an arbitrary path, stale receipt, or altered packet appears, ingestion
+fails.
+
+The boundary is executable. It is not merely a polite sentence in a prompt.
+
+This browser is a deterministic replay. The sibling repository scripts are the
+executable proof, including seventeen safety checks. I can open those during
+Q&A if useful.
+
+### STAGE CUES
+
+- Point to the four checks, then the matching receipts.
+- Do not open the internals drawer unless the room asks.
+- Right arrow moves to Scene 4.
+
+## Case #1, Scene 4 — Context becomes a decision workspace
+
+**Target time:** 2 minutes
+
+### SAY
+
+Engineer is the assigned offsite engineer.
+
+She has code and test access. She has the reviewed packet. She does not have
+the raw fab evidence.
+
+This screen separates facts from hypotheses and makes ownership explicit.
+
+What is the smallest experiment that would distinguish the paths?
+
+[TAKE TWO OR THREE ANSWERS — 30 SECONDS]
+
+### PRESENTER ACTION
+
+Press `Space`.
+
+### SAY
+
+Run the approved stage-settling diagnostic with the onsite field engineer.
+
+If settling normalizes and alignment recovers, the stage path is supported.
+
+If settling normalizes but alignment still fails, investigate the
+stage-to-vision interaction before changing vision configuration.
+
+Engineer owns diagnosis, experiment design, and verification.
+
+The field engineer owns approved local capture and any physical intervention.
+
+And shared component knowledge remains unchanged.
+
+The agent prepares the decision. Engineer owns the decision.
+
+### STAGE CUES
+
+- Do not state a specific closure run count yet; it is still `needs_review`.
+- Point to “Consulted, not changed.”
+- Right arrow moves to Scene 5.
+
+## Case #1, Scene 5 — Resolution is not promotion
+
+**Target time:** 2 minutes 30 seconds
+
+### SAY
+
+We now make an explicit time jump.
+
+The physical service and repeated validation did not happen instantly.
+
+The field engineer performed the approved onsite work. The reviewed result
+supports a degraded stage damper for this case. Engineer verified five successful
+runs and closed the case.
+
+Should a closed case automatically rewrite shared component knowledge?
+
+[SHOW OF HANDS — 15 SECONDS]
+
+Let us try.
+
+### PRESENTER ACTION
+
+Press `Space`.
+
+### SAY
+
+Promotion refused: the human approval record is missing.
+
+The case can be resolved while shared knowledge remains unchanged.
+
+Now the Motion Controls component owner reviews the scope, limitations, source
+trail, and future maintenance responsibility.
+
+### PRESENTER ACTION
+
+Press `Space` again.
+
+### SAY
+
+Only now is the diagnostic promoted.
+
+Notice how narrow it is.
+
+When alignment error and stage-settle timeout occur together, and approved
+evidence confirms motion through measurement, run the stage-settling diagnostic
+before changing vision configuration.
+
+It does not say every alignment problem is a damaged damper.
+
+A reusable diagnostic is not a reusable diagnosis.
+
+### STAGE CUES
+
+- Let the promotion refusal remain visible.
+- Name the human owner before revealing approval.
+- Right arrow moves to Scene 6.
+
+## Case #1, Scene 6 — Six months later
+
+**Target time:** 1 minute 30 seconds
+
+### SAY
+
+Six months later, a new rotation engineer receives a similar sanitized symptom.
+
+This is a fresh case. The old case is not loaded.
+
+What should this engineer inherit:
+
+the entire old incident;
+
+or one small approved diagnostic?
+
+### PRESENTER ACTION
+
+Press `Space`.
+
+### SAY
+
+The engineer receives the approved diagnostic, the source case, the human
+reviewer, and the scope.
+
+They do not inherit the old physical cause, the old actions, or a recommendation
+to replace a damper.
+
+The second brain earns its keep by shortening reconstruction without
+preselecting the answer.
+
+Three decisions controlled this case:
+
+what may cross;
+
+what is the next experiment;
+
+and what deserves reuse.
+
+### STAGE CUES
+
+- End on “Not carried forward.”
+- Press `2` to switch to the manager case.
+
+---
+
+# Legacy Presenter App — Case #2: Manager continuity without surveillance
+
+**Target time:** 4–6 minutes
+
+**Communication job:** Apply the same governed transformation to professional
+follow-through without creating a people dossier.
+
+## Case #2, Scene 1 — Decide what deserves memory
+
+**Target time:** 2 minutes 30 seconds
+
+### SAY
+
+Here is one messy post-stand-up note.
+
+The migration is behind because QA login is failing. Rahul may unblock by
+Thursday if infrastructure provides credentials. Maya needs the corrected
+medium-risk view. The manager promised Priya a staffing review.
+
+And the last line says, “Priya seemed off today.”
+
+Before we classify anything, which two words make Thursday uncertain?
+
+[TAKE ANSWERS — 10 SECONDS]
+
+### PRESENTER ACTION
+
+Press `Space`.
+
+### SAY
+
+“May” and “if.”
+
+Thursday is useful context. It is not Rahul's commitment.
+
+Now vote on the last line. Should “Priya seemed off today” become durable
+people memory?
+
+[SHOW OF HANDS — 20 SECONDS]
+
+### PRESENTER ACTION
+
+Press `Space` again.
+
+### SAY
+
+The supported risk and blocker are remembered as project context.
+
+The conditional timing stays uncertain and creates a clarification action.
+
+The manager's staffing promise becomes professional follow-through.
+
+And the speculative people judgment is rejected. It goes nowhere.
+
+The useful task is not summarization.
+
+It is deciding what to remember, what must remain uncertain, and what must not
+become memory.
+
+### STAGE CUES
+
+- Point to the three destinations: Remember, Keep uncertain, Reject.
+- Right arrow moves to Scene 2.
+
+## Case #2, Scene 2 — Prove continuity without surveillance
+
+**Target time:** 2 minutes 30 seconds
+
+### SAY
+
+The first useful surface is not a dossier.
+
+It is the manager's own follow-through:
+
+review Maya's medium-risk update today;
+
+confirm credential ownership and Thursday viability;
+
+and review staffing with Priya before sprint planning.
+
+The manager decides what to use or send.
+
+### PRESENTER ACTION
+
+Press `Space`. Use the tabs to show the daily brief and Maya draft.
+
+### SAY
+
+The daily brief keeps the blocker and uncertainty visible.
+
+The stakeholder draft corrects the risk, preserves the dependency, and says
+that Thursday is not confirmed.
+
+Nothing was sent. Every surface is a manager-private draft requiring human
+review.
+
+What proves this is continuity rather than surveillance?
+
+### PRESENTER ACTION
+
+Press `Space` again.
+
+### SAY
+
+The receipt.
+
+It records the source, what was remembered, what stayed uncertain, what was
+rejected, and which questions remain open.
+
+Its boundary check confirms that no mood or performance inference was retained.
+
+Same governed transformation; different boundary and decision.
+
+Useful professional context survives.
+
+Uncertainty stays visible.
+
+Speculative judgment does not become memory.
+
+### STAGE CUES
+
+- Keep the receipt visible for the closing line.
+- Press `C` in the slide deck to return to Slide 15.
+
+---
+
+</details>
+
+<details>
+<summary><strong>Legacy terminal walkthrough — rehearsal and technical Q&amp;A only</strong></summary>
+
+# Legacy Live Demo 1 — Field-issue terminal workflow
 
 **Target time:** 18 minutes
 
 **Communication job:** Show that the onsite expert and agent decide what may
-cross, Shweta turns the reviewed packet into the next experiment, and only
+cross, Engineer turns the reviewed packet into the next experiment, and only
 verified human-approved learning helps a later engineer.
 
 **Visible proof-file limit:** five.
@@ -1392,13 +2188,13 @@ That is a good failure mode.
 - If export fails unexpectedly, use the recovery line in the checklist and move
   to the reviewed golden stage.
 
-## Demo 1, Beat 4 — Shweta gets a decision workspace
+## Demo 1, Beat 4 — Engineer gets a decision workspace
 
 **Target time:** 3 minutes 30 seconds
 
 ### PRESENTER ACTION
 
-Paste **Prompt 3 — Create Shweta's engineering case** from:
+Paste **Prompt 3 — Create Engineer's engineering case** from:
 
 ```text
 /Users/jacobaloysious/Desktop/secondbrain/Demo/field-issue/DEMO-PROMPTS.md
@@ -1439,7 +2235,7 @@ Ask the room:
 
 ### SAY
 
-Shweta is now operating entirely inside engineering-side.
+Engineer is now operating entirely inside engineering-side.
 
 She has the reviewed packet and approved component guidance. She does not have
 the raw fab evidence.
@@ -1448,7 +2244,7 @@ This bundle separates the facts from the hypotheses.
 
 It makes the ownership explicit:
 
-Shweta owns diagnosis, experiment design, and verification.
+Engineer owns diagnosis, experiment design, and verification.
 
 The onsite field engineer owns approved local capture and physical
 intervention.
@@ -1476,7 +2272,7 @@ It is a useful investigation direction, not yet a reusable truth.
 ### STAGE CUES
 
 - Keep the audience vote to 15 seconds.
-- Do not imply that Shweta performs the physical intervention.
+- Do not imply that Engineer performs the physical intervention.
 - Do not open `investigation.md`, `actions.md`, or component-knowledge files;
   narrate the prepared experiment from the decision workspace.
 
@@ -1536,7 +2332,7 @@ that because the conference does not need to watch a mechanical intervention
 and five tool runs in real time.
 
 The approved onsite work found excessive motion through the measurement window.
-The onsite field engineer performed the approved damper replacement. Shweta
+The onsite field engineer performed the approved damper replacement. Engineer
 verified that five consecutive validation runs met the closure criteria.
 
 The agent can now close the case and write a promotion proposal.
@@ -1563,14 +2359,14 @@ Promotion requires a separate named human decision.
 
 Fixing a case does not automatically rewrite the organization.
 
-Promotion is a separate human decision with scope, provenance, an owner, and a
+Promotion is a separate human decision with scope, a source trail, an owner, and a
 future supersession path.
 
 ### STAGE CUES
 
 - Say “time-jump” before running Prompt 4.
 - Do not hide that the verified result is seeded.
-- Point to scope, limitations, provenance, and review owner.
+- Point to scope, limitations, source trail, and review owner.
 - Let the pre-approval refusal remain visible for two seconds.
 
 ## Demo 1, Beat 6 — Six months later: prove the memory earns its keep
@@ -1615,7 +2411,7 @@ Six months later, a new engineer sees a similar sanitized symptom.
 
 This is a cold start. The original case is out of scope.
 
-The new engineer receives one small approved diagnostic path, its provenance,
+The new engineer receives one small approved diagnostic path, its source,
 its reviewer, and its limitations.
 
 They can run the stage-settling diagnostic before changing vision
@@ -1871,6 +2667,8 @@ The outputs remain drafts, and the manager owns the action.
 - Keep the receipt on screen for no more than 30 seconds.
 - Press `C` to return directly to slide 15.
 
+</details>
+
 ---
 
 ## Slide 15 — Start with one context leak—and one success signal
@@ -1882,7 +2680,7 @@ The outputs remain drafts, and the manager owns the action.
 You have now seen the same memory contract in two very different settings.
 
 In the field case, restricted evidence stayed onsite. A field engineer and
-agent created a reviewed packet. Shweta received a decision workspace. A
+agent created a reviewed packet. Engineer received a decision workspace. A
 separate human approval controlled shared reuse. Six months later, a new
 engineer received a diagnostic path—not the old conclusion.
 
@@ -2036,7 +2834,7 @@ The interface could be chat, email, voice, a tracker, or a command line.
 
 The memory could be documents, a database, or an internal platform.
 
-But provenance, access boundaries, validation, human gates, and evaluation must
+But traceability, access boundaries, validation, human gates, and evaluation must
 remain visible.
 
 ### STAGE CUES
@@ -2116,9 +2914,43 @@ not be optional.
 
 ---
 
-# Demo recovery checklist — rehearsal only
+# Presenter-app recovery checklist — rehearsal only
 
-## Universal recovery rule
+## Normal recovery
+
+- `R` — reset all three chats.
+- `1` — open the OnSite Fab Agent.
+- `2` — open the Fixer Agent.
+- `3` — open the Manager Assistant.
+- `N` — show or hide the current presenter cue.
+- Reloading the page is safe; the app has no database or external write.
+- If full screen becomes awkward, press `F` or `Escape`.
+- Use the suggested action buttons for the rehearsed route.
+- Keep the local server running for the entire session.
+
+If the browser window becomes unusable, reopen:
+
+```text
+http://127.0.0.1:5173/#onsite
+```
+
+If the usual port changes, use the exact local URL printed by `./run-local.sh`.
+
+## Honest fallback line
+
+Say:
+
+> This is a deterministic chat simulation using reviewed mock data. The
+> executable validators and tests are in the repository; I can open those
+> during Q&A.
+
+Do not imply that the browser itself proves host, credential, or network
+isolation.
+
+<details>
+<summary><strong>Legacy live-agent and terminal recovery — technical rehearsal only</strong></summary>
+
+## Legacy live-agent recovery rule
 
 - Start a 20-second timer with every live agent prompt.
 - At 20 seconds, stop the live run before restoring a golden stage.
@@ -2190,7 +3022,7 @@ Keep these proof moments:
 
 1. evidence-board audience vote;
 2. rejected unreviewed export;
-3. Shweta's decision workspace;
+3. Engineer's decision workspace;
 4. rejected pre-approval promotion;
 5. future-case reuse.
 
@@ -2220,6 +3052,8 @@ If the manager demo must be shortened, show only:
 
 Preserve the audience vote and the rejection of speculative people judgment.
 
+</details>
+
 ## Deck recovery
 
 - `D` — return to slide 13
@@ -2236,14 +3070,16 @@ file:///Users/jacobaloysious/Desktop/secondbrain/%5BSlideDeck%5DSecond%20Brain%2
 
 ## Final pre-stage checklist
 
-- [ ] Both demos reset and validated.
-- [ ] First three field proof files open at large zoom; two generated proof
-      paths copied for Quick Open.
-- [ ] Manager inbox, compact view, two drafts, and receipt open.
-- [ ] Prompts copied into a clipboard manager.
-- [ ] Golden fallback commands rehearsed.
+- [ ] Presenter app started locally and left running.
+- [ ] OnSite Fab Agent reset to the alignment alert.
+- [ ] Packet viewer and ZIP download tested.
+- [ ] `1`, `2`, `3`, `N`, `F`, and `R` tested.
+- [ ] Browser zoom and projector framing checked at the presenting resolution.
+- [ ] Both executable demo test suites passed during rehearsal.
+- [ ] Repository available for technical Q&A, but terminal hidden from the
+      normal audience route.
 - [ ] Notes visible on a second device.
 - [ ] Slide shortcuts tested.
 - [ ] Notifications and sleep disabled.
 - [ ] Timer visible.
-- [ ] Q&A begins no later than minute 72.
+- [ ] Q&A begins no later than minute 66–68.

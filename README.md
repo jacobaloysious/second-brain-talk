@@ -12,6 +12,8 @@ two executable demos.
 - `session.md` — current handoff and decisions for the next working session
 - `Demo/field-issue/` — primary engineering hero demo
 - `Demo/manager-collaboration/` — short manager-continuity demo
+- `Demo/presenter-app/` — local three-agent chat experience for presenting both
+  demos without a terminal
 
 ## Talk thesis
 
@@ -40,12 +42,26 @@ durable memory, and what deserves reuse.
 Run the tests after changing either workflow. Reset both workspaces before a
 rehearsal or live session.
 
+## Run the presenter app
+
+```bash
+cd Demo/presenter-app
+./run-local.sh
+```
+
+The presenter app has no database or live AI dependency. It presents the
+workflow through three role-scoped chats: OnSite Fab Agent, Fixer Agent, and
+Manager Assistant. Suggested actions keep the live path short; typed input is
+matched to the same deterministic scenario. Use the sibling terminal
+workspaces for implementation proof and technical Q&A. Its production build
+also produces a single portable HTML fallback for presentation-day recovery.
+
 ## Presentation route
 
 - Slides 1–12: problem, governed-memory model, two use cases, and success signal
 - Slides 13–14: demo transition and the audience's watch contract
-- Live demo 1: field issue, 17–19 minutes
-- Live demo 2: manager continuity, 5–7 minutes
+- Presenter app, OnSite + Fixer chats, approximately 12–14 minutes
+- Presenter app, Manager Assistant chat, approximately 4–5 minutes
 - Slide 15: 30-day pilot and closing synthesis
 - Slide 19: Q&A
 - Slides 16–18: appendix; use only when a question needs technical depth
@@ -59,14 +75,18 @@ Useful deck shortcuts:
 
 ## What the demos prove
 
-The field demo keeps restricted evidence in `fab-side/`, admits only a reviewed
-and independently validated packet to `engineering-side/`, refuses automatic
+The field workflow keeps restricted evidence in `fab-side/`, admits only a
+reviewed and independently validated packet to `engineering-side/`, produces a
+tested mock pull request for a stage-settle software guard, refuses automatic
 knowledge promotion, and proves safe later reuse.
 
-The manager demo classifies each fragment as **remember**, **keep uncertain**,
+The manager workflow classifies each fragment as **remember**, **keep uncertain**,
 or **reject**. It preserves professional commitments while refusing speculative
 people judgments.
 
-The repository demonstrates artifact admission, validation, receipts, and
-human gates. Production isolation also requires separate credentials, hosts,
-network policy, audit storage, and approved data-loss controls.
+The browser app is a deterministic chat simulation, not a claim that three
+different foundation models are required. The tabs represent three roles with
+different context and permissions. The repository scripts remain the
+executable proof for artifact admission, validation, receipts, and human gates.
+Production isolation also requires separate credentials, hosts, network
+policy, audit storage, and approved data-loss controls.

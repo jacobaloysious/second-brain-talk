@@ -1,0 +1,1451 @@
+import {
+  FormEvent,
+  type ReactNode,
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
+import { AgentRail } from "./components/AgentRail";
+import {
+  ActionButton,
+  AgentAvatar,
+  ChatBubble,
+  DetailCard,
+  FactHypothesisCard,
+  InlineStatus,
+  QuickActions,
+} from "./components/ChatPrimitives";
+import { ContextInspector } from "./components/ContextInspector";
+import { PacketModal } from "./components/PacketModal";
+import { PullRequestModal } from "./components/PullRequestModal";
+import {
+  agents,
+  CASE_ID,
+  knowledgeChoices,
+  packetFiles,
+  PACKET_VERSION,
+  pullRequest,
+} from "./data";
+import type { AgentKey, KnowledgeChoice } from "./types";
+import { createPacketZip } from "./zip";
+
+type StepState = Record<AgentKey, number>;
+type TypedReplies = Record<AgentKey, Record<number, string>>;
+
+const initialSteps: StepState = { onsite: 0, fixer: 0, manager: 0 };
+const initialReplies: TypedReplies = { onsite: {}, fixer: {}, manager: {} };
+const workingLabels = [
+  "Thinking…",
+  "Generating results…",
+  "Rendering UI…",
+] as const;
+
+function agentFromHash(): AgentKey {
+  const key = window.location.hash.replace("#", "") as AgentKey;
+  return key in agents ? key : "onsite";
+}
+
+function RowList({ children }: { children: ReactNode }) {
+  return <ul className="compact-list">{children}</ul>;
+}
+
+export default function App() {
+  const [activeAgent, setActiveAgent] = useState<AgentKey>(agentFromHash);
+  const [steps, setSteps] = useState<StepState>(initialSteps);
+  const [typedReplies, setTypedReplies] =
+    useState<TypedReplies>(initialReplies);
+  const [composerValue, setComposerValue] = useState("");
+  const [packetSent, setPacketSent] = useState(false);
+  const [packetModalOpen, setPacketModalOpen] = useState(false);
+  const [pullRequestModalOpen, setPullRequestModalOpen] = useState(false);
+  const [unsafeExportTried, setUnsafeExportTried] = useState(false);
+  const [downloaded, setDownloaded] = useState(false);
+  const [knowledgeBlocked, setKnowledgeBlocked] = useState(false);
+  const [promotionBlocked, setPromotionBlocked] = useState(false);
+  const [knowledgePromoted, setKnowledgePromoted] = useState(false);
+  const [selectedKnowledge, setSelectedKnowledge] = useState<
+    Set<KnowledgeChoice["id"]>
+  >(new Set(["diagnostic"]));
+  const [showCue, setShowCue] = useState(true);
+  const [showInspector, setShowInspector] = useState(false);
+  const [workingPhase, setWorkingPhase] = useState<number | null>(null);
+  const workingRef = useRef(false);
+  const workingTimersRef = useRef<number[]>([]);
+  const streamRef = useRef<HTMLDivElement>(null);
+
+  const agent = agents[activeAgent];
+  const step = steps[activeAgent];
+
+  const applyAgentStep = useCallback((key: AgentKey, value: number) => {
+    setSteps((current) => ({ ...current, [key]: value }));
+  }, []);
+
+  const runAgentAction = useCallback((action: () => void) => {
+    if (workingRef.current) return;
+    workingRef.current = true;
+    setWorkingPhase(0);
+    workingTimersRef.current = [
+      window.setTimeout(() => setWorkingPhase(1), 1000),
+      window.setTimeout(() => setWorkingPhase(2), 2000),
+      window.setTimeout(() => {
+        action();
+        workingRef.current = false;
+        setWorkingPhase(null);
+        workingTimersRef.current = [];
+      }, 3000),
+    ];
+  }, []);
+
+  const setAgentStep = useCallback(
+    (key: AgentKey, value: number) => {
+      runAgentAction(() => applyAgentStep(key, value));
+    },
+    [applyAgentStep, runAgentAction],
+  );
+
+  const selectAgent = useCallback((key: AgentKey) => {
+    setActiveAgent(key);
+    setComposerValue("");
+  }, []);
+
+  const replyFor = useCallback(
+    (key: AgentKey, atStep: number, fallback: string) =>
+      typedReplies[key][atStep] ?? fallback,
+    [typedReplies],
+  );
+
+  const downloadPacket = useCallback(() => {
+    const blob = createPacketZip(packetFiles);
+    const url = URL.createObjectURL(blob);
+    const anchor = document.createElement("a");
+    anchor.href = url;
+    anchor.download = `${CASE_ID}-reviewed-sanitized-packet.zip`;
+    document.body.appendChild(anchor);
+    anchor.click();
+    anchor.remove();
+    URL.revokeObjectURL(url);
+    setDownloaded(true);
+  }, []);
+
+  const sendPacket = useCallback(() => {
+    runAgentAction(() => {
+      setPacketSent(true);
+      applyAgentStep("onsite", 6);
+    });
+  }, [applyAgentStep, runAgentAction]);
+
+  const validateKnowledgeSelection = useCallback(() => {
+    runAgentAction(() => {
+      const valid =
+        selectedKnowledge.size === 1 && selectedKnowledge.has("diagnostic");
+      if (!valid) {
+        setKnowledgeBlocked(true);
+        return;
+      }
+      setKnowledgeBlocked(false);
+      applyAgentStep("fixer", 7);
+    });
+  }, [applyAgentStep, runAgentAction, selectedKnowledge]);
+
+  const toggleKnowledge = useCallback((id: KnowledgeChoice["id"]) => {
+    setSelectedKnowledge((current) => {
+      const next = new Set(current);
+      if (next.has(id)) next.delete(id);
+      else next.add(id);
+      return next;
+    });
+    setKnowledgeBlocked(false);
+  }, []);
+
+  const handleTypedAction = useCallback(
+    (text: string) => {
+      setTypedReplies((current) => ({
+        ...current,
+        [activeAgent]: {
+          ...current[activeAgent],
+          [step]: text,
+        },
+      }));
+
+      if (activeAgent === "onsite") {
+        if (step === 3 && /\b(send|export|transfer)\b/i.test(text)) {
+          runAgentAction(() => setUnsafeExportTried(true));
+          return;
+        }
+        if (step < 5) setAgentStep("onsite", step + 1);
+        else if (step === 5) sendPacket();
+        return;
+      }
+
+      if (activeAgent === "fixer") {
+        if (!packetSent) return;
+        if (step < 6) setAgentStep("fixer", step + 1);
+        else if (step === 6) validateKnowledgeSelection();
+        else if (step === 7) {
+          if (/\b(approve|owner|review)\b/i.test(text)) {
+            runAgentAction(() => {
+              applyAgentStep("fixer", 8);
+              setKnowledgePromoted(true);
+            });
+          } else {
+            runAgentAction(() => setPromotionBlocked(true));
+          }
+        }
+        return;
+      }
+
+      if (step < 3) setAgentStep("manager", step + 1);
+    },
+    [
+      activeAgent,
+      applyAgentStep,
+      packetSent,
+      runAgentAction,
+      sendPacket,
+      setAgentStep,
+      step,
+      validateKnowledgeSelection,
+    ],
+  );
+
+  const submitComposer = useCallback(
+    (event: FormEvent) => {
+      event.preventDefault();
+      const value = composerValue.trim();
+      if (!value) return;
+      handleTypedAction(value);
+      setComposerValue("");
+    },
+    [composerValue, handleTypedAction],
+  );
+
+  const resetAll = useCallback(() => {
+    workingTimersRef.current.forEach(window.clearTimeout);
+    workingTimersRef.current = [];
+    workingRef.current = false;
+    setWorkingPhase(null);
+    setActiveAgent("onsite");
+    setSteps(initialSteps);
+    setTypedReplies(initialReplies);
+    setComposerValue("");
+    setPacketSent(false);
+    setPacketModalOpen(false);
+    setPullRequestModalOpen(false);
+    setUnsafeExportTried(false);
+    setDownloaded(false);
+    setKnowledgeBlocked(false);
+    setPromotionBlocked(false);
+    setKnowledgePromoted(false);
+    setSelectedKnowledge(new Set(["diagnostic"]));
+  }, []);
+
+  useEffect(
+    () => () => {
+      workingTimersRef.current.forEach(window.clearTimeout);
+    },
+    [],
+  );
+
+  const toggleFullscreen = useCallback(async () => {
+    if (document.fullscreenElement) await document.exitFullscreen();
+    else await document.documentElement.requestFullscreen();
+  }, []);
+
+  useEffect(() => {
+    window.history.replaceState(null, "", `#${activeAgent}`);
+  }, [activeAgent]);
+
+  useEffect(() => {
+    streamRef.current?.scrollTo({
+      top: streamRef.current.scrollHeight,
+      behavior: "smooth",
+    });
+  }, [
+    activeAgent,
+    downloaded,
+    knowledgeBlocked,
+    packetSent,
+    promotionBlocked,
+    step,
+    unsafeExportTried,
+  ]);
+
+  useEffect(() => {
+    const onKeyDown = (event: KeyboardEvent) => {
+      const target = event.target as HTMLElement | null;
+      if (
+        target?.tagName === "INPUT" ||
+        target?.tagName === "TEXTAREA" ||
+        event.metaKey ||
+        event.ctrlKey ||
+        event.altKey
+      ) {
+        return;
+      }
+
+      if (event.key === "1") selectAgent("onsite");
+      else if (event.key === "2") selectAgent("fixer");
+      else if (event.key === "3") selectAgent("manager");
+      else if (event.key.toLowerCase() === "r") resetAll();
+      else if (event.key.toLowerCase() === "f") void toggleFullscreen();
+      else if (event.key.toLowerCase() === "n") setShowCue((value) => !value);
+      else if (event.key === "Escape") {
+        setPacketModalOpen(false);
+        setPullRequestModalOpen(false);
+      }
+    };
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [resetAll, selectAgent, toggleFullscreen]);
+
+  const renderOnsiteConversation = () => (
+    <>
+      <ChatBubble
+        role="system"
+        author="System"
+        tone="alert"
+      >
+        <strong>Alignment failed</strong>
+        <span className="message-secondary">
+          A repeated failure pattern was detected after X-axis movement.
+        </span>
+      </ChatBubble>
+      <ChatBubble role="agent" author={agents.onsite.name}>
+        I can investigate the pattern inside the restricted fab workspace and
+        help prepare a sanitized packet for offsite engineering.
+        <strong className="bubble-question">
+          Start a local investigation?
+        </strong>
+      </ChatBubble>
+
+      {step >= 1 ? (
+        <>
+          <ChatBubble role="user" author="Field engineer">
+            {replyFor("onsite", 0, "Start the local investigation.")}
+          </ChatBubble>
+          <ChatBubble role="agent" author={agents.onsite.name}>
+            <DetailCard
+              eyebrow="Local analysis"
+              title="One supported pattern, one useful question"
+              tone="blue"
+            >
+              <RowList>
+                <li>Failure follows X-axis movement.</li>
+                <li>Prolonged settling precedes the alignment error.</li>
+                <li>Vision confidence appears acceptable.</li>
+                <li>A retry does not recover.</li>
+              </RowList>
+              <div className="question-callout">
+                Does vibration continue through the measurement window?
+              </div>
+            </DetailCard>
+            <p>
+              I am keeping raw lines, timestamps, identifiers, filenames, and
+              exact machine values local.
+            </p>
+          </ChatBubble>
+        </>
+      ) : null}
+
+      {step >= 2 ? (
+        <>
+          <ChatBubble role="user" author="Field engineer">
+            {replyFor(
+              "onsite",
+              1,
+              "Yes. Vibration continues through measurement. Maintenance history is not available yet.",
+            )}
+          </ChatBubble>
+          <ChatBubble role="agent" author={agents.onsite.name}>
+            That observation raises confidence in the stage-settling path, but
+            it does not establish a mechanical cause.
+            <strong className="bubble-question">
+              Create a sanitized draft for review?
+            </strong>
+          </ChatBubble>
+        </>
+      ) : null}
+
+      {step >= 3 ? (
+        <>
+          <ChatBubble role="user" author="Field engineer">
+            {replyFor("onsite", 2, "Create the sanitized draft packet.")}
+          </ChatBubble>
+          <ChatBubble role="agent" author={agents.onsite.name}>
+            <DetailCard
+              eyebrow="Draft · fab-side only"
+              title="Sanitized debug packet"
+              tone="purple"
+            >
+              <div className="packet-summary-grid">
+                <div>
+                  <span>Facts</span>
+                  <strong>Relative symptom sequence</strong>
+                </div>
+                <div>
+                  <span>Hypothesis</span>
+                  <strong>Stage path · moderate confidence</strong>
+                </div>
+                <div>
+                  <span>Open gap</span>
+                  <strong>Maintenance history unresolved</strong>
+                </div>
+                <div>
+                  <span>Redactions</span>
+                  <strong>Restricted and exact values removed</strong>
+                </div>
+              </div>
+            </DetailCard>
+            <p>
+              This is useful, but it is not authorized to leave the fab. Please
+              review the wording and boundary record.
+            </p>
+          </ChatBubble>
+        </>
+      ) : null}
+
+      {unsafeExportTried ? (
+        <ChatBubble
+          role="system"
+          author="Transfer validator"
+          tone="blocked"
+          label="Export refused"
+        >
+          <strong>Missing approved review status.</strong>
+          <span className="message-secondary">
+            The draft remains local. No offsite artifact was created.
+          </span>
+        </ChatBubble>
+      ) : null}
+
+      {step >= 4 ? (
+        <>
+          <ChatBubble role="user" author="Field engineer">
+            {replyFor("onsite", 3, "Review the packet with me.")}
+          </ChatBubble>
+          <ChatBubble role="agent" author={agents.onsite.name}>
+            <DetailCard
+              eyebrow="Human review"
+              title="What will cross—and what will not"
+              tone="blue"
+            >
+              <div className="boundary-columns">
+                <div>
+                  <span>Included</span>
+                  <p>
+                    Supported sequence, confidence, missing evidence, next
+                    experiment, reviewer metadata.
+                  </p>
+                </div>
+                <div>
+                  <span>Stays onsite</span>
+                  <p>
+                    Raw logs, exact values, timestamps, restricted identifiers,
+                    and local filenames.
+                  </p>
+                </div>
+              </div>
+            </DetailCard>
+            <p>
+              The packet still says the mechanical cause is unknown. You remain
+              the release authority.
+            </p>
+          </ChatBubble>
+        </>
+      ) : null}
+
+      {step >= 5 ? (
+        <>
+          <ChatBubble role="user" author="Field engineer">
+            {replyFor(
+              "onsite",
+              4,
+              "The wording is accurate. I approve this sanitized packet for transfer.",
+            )}
+          </ChatBubble>
+          <ChatBubble
+            role="system"
+            author="Transfer validator"
+            tone="success"
+            label="Validation passed"
+          >
+            Human review, packet structure, redaction scan, identity, and
+            checksum are bound to the same export.
+          </ChatBubble>
+          <ChatBubble role="agent" author={agents.onsite.name}>
+            <DetailCard
+              eyebrow="Ready for handoff"
+              title="Reviewed sanitized packet"
+              tone="green"
+            >
+              <div className="file-row">
+                {packetFiles.map((file) => (
+                  <span key={file.name}>{file.name}</span>
+                ))}
+              </div>
+              <code className="packet-version">{PACKET_VERSION}</code>
+            </DetailCard>
+            <p>
+              You can inspect or download the exact bundle before sending it to
+              the offsite engineer.
+            </p>
+          </ChatBubble>
+          {downloaded ? (
+            <ChatBubble
+              role="system"
+              author="Browser"
+              tone="success"
+              label="Download created"
+            >
+              The ZIP contains only the three reviewed transfer artifacts.
+            </ChatBubble>
+          ) : null}
+        </>
+      ) : null}
+
+      {step >= 6 ? (
+        <>
+          <ChatBubble role="user" author="Field engineer">
+            {replyFor(
+              "onsite",
+              5,
+              "Send the reviewed packet to the Fixer Agent.",
+            )}
+          </ChatBubble>
+          <ChatBubble
+            role="system"
+            author="Handoff service"
+            tone="success"
+            label="Packet admitted"
+          >
+            The engineering-side importer independently validated the reviewed
+            bundle. The Fixer Agent has one new field issue.
+          </ChatBubble>
+          <ChatBubble role="agent" author={agents.onsite.name}>
+            Handoff complete. The restricted evidence is still onsite; only the
+            reviewed context crossed the boundary.
+          </ChatBubble>
+        </>
+      ) : null}
+    </>
+  );
+
+  const renderFixerConversation = () => {
+    if (!packetSent) {
+      return (
+        <>
+          <ChatBubble
+            role="system"
+            author="Inbox"
+            tone="default"
+            label="Waiting for reviewed context"
+          >
+            No field issue has crossed the fab boundary yet.
+          </ChatBubble>
+          <ChatBubble role="agent" author={agents.fixer.name}>
+            I will only open a case from a reviewed packet admitted by the
+            engineering-side validator. I cannot inspect the raw fab workspace.
+          </ChatBubble>
+        </>
+      );
+    }
+
+    return (
+      <>
+        <ChatBubble
+          role="system"
+          author="Engineering inbox"
+          tone="alert"
+          label="New field issue"
+        >
+          <strong>{CASE_ID} · Fine alignment failure</strong>
+          <span className="message-secondary">
+            Reviewed packet available · assigned engineer: Engineer
+          </span>
+        </ChatBubble>
+        <ChatBubble role="agent" author={agents.fixer.name}>
+          I have a reviewed sanitized packet and can combine it with code, test
+          access, and approved component guidance.
+          <strong className="bubble-question">Open the case?</strong>
+        </ChatBubble>
+
+        {step >= 1 ? (
+          <>
+            <ChatBubble role="user" author="Engineer">
+              {replyFor("fixer", 0, "Open the field issue.")}
+            </ChatBubble>
+            <ChatBubble role="agent" author={agents.fixer.name}>
+              <DetailCard
+                eyebrow="Decision workspace"
+                title="Facts stay separate from hypotheses"
+                tone="purple"
+              >
+                <FactHypothesisCard />
+              </DetailCard>
+              <p>
+                The smallest useful next step is an experiment that separates
+                stage settling from a stage-to-vision interaction.
+              </p>
+            </ChatBubble>
+          </>
+        ) : null}
+
+        {step >= 2 ? (
+          <>
+            <ChatBubble role="user" author="Engineer">
+              {replyFor("fixer", 1, "Prepare the stage-settling experiment.")}
+            </ChatBubble>
+            <ChatBubble role="agent" author={agents.fixer.name}>
+              <DetailCard
+                eyebrow="Discriminating experiment"
+                title="One test, two meaningful branches"
+                tone="blue"
+              >
+                <div className="branch-grid">
+                  <div>
+                    <span>If settling normalizes</span>
+                    <strong>and alignment recovers</strong>
+                    <p>The stage path is supported.</p>
+                  </div>
+                  <div>
+                    <span>If settling normalizes</span>
+                    <strong>but alignment still fails</strong>
+                    <p>Investigate stage-to-vision before changing vision.</p>
+                  </div>
+                </div>
+              </DetailCard>
+              <p>
+                The onsite field engineer owns physical intervention. You own
+                diagnosis, experiment design, and verification.
+              </p>
+            </ChatBubble>
+          </>
+        ) : null}
+
+        {step >= 3 ? (
+          <>
+            <ChatBubble role="user" author="Engineer">
+              {replyFor(
+                "fixer",
+                2,
+                "Run the diagnostic and inspect the stage-settle code path.",
+              )}
+            </ChatBubble>
+            <ChatBubble
+              role="system"
+              author="Investigation workspace"
+              tone="warning"
+              label="Hybrid finding"
+            >
+              Onsite inspection supports an unhealthy stage damper. Code review
+              also found that alignment can start after one in-position sample
+              without checking velocity or consecutive stability.
+            </ChatBubble>
+            <ChatBubble role="agent" author={agents.fixer.name}>
+              <DetailCard
+                eyebrow="Two fixes · different owners"
+                title="Restore the tool and harden the software"
+                tone="purple"
+              >
+                <div className="hybrid-fix-grid">
+                  <div>
+                    <span>Physical recovery</span>
+                    <strong>Service the degraded stage damper</strong>
+                    <p>Owner: onsite field engineer</p>
+                  </div>
+                  <div>
+                    <span>Software resilience</span>
+                    <strong>Strengthen the stage-settle gate</strong>
+                    <p>Owner: Engineer · code review required</p>
+                  </div>
+                </div>
+                <div className="failing-test-row">
+                  <span>Failing reproduction</span>
+                  <strong>
+                    Motion simulator starts alignment while velocity is still
+                    unstable
+                  </strong>
+                </div>
+              </DetailCard>
+              <p>
+                The software must require stable position and velocity for a
+                consecutive window before alignment begins. Unhealthy hardware
+                should fail with a useful stage diagnostic—not a generic
+                alignment error.
+              </p>
+            </ChatBubble>
+          </>
+        ) : null}
+
+        {step >= 4 ? (
+          <>
+            <ChatBubble role="user" author="Engineer">
+              {replyFor("fixer", 3, "Show the proposed code changes.")}
+            </ChatBubble>
+            <ChatBubble role="agent" author={agents.fixer.name}>
+              <DetailCard
+                eyebrow={`Proposed diff · ${pullRequest.repository}`}
+                title={pullRequest.title}
+                tone="green"
+              >
+                <div className="mini-diff">
+                  <div className="mini-remove">
+                    − settle on one in-position sample
+                  </div>
+                  <div className="mini-add">
+                    + require position and velocity stability
+                  </div>
+                  <div className="mini-add">
+                    + require consecutive stable samples
+                  </div>
+                  <div className="mini-add">
+                    + return an actionable stage diagnostic
+                  </div>
+                </div>
+                <div className="proposal-meta">
+                  <span>2 files</span>
+                  <span>+{pullRequest.additions} −{pullRequest.deletions}</span>
+                  <span>unit tests included</span>
+                </div>
+              </DetailCard>
+              <p>
+                The patch changes the runtime guard and adds regression tests.
+                It is still a proposal; no repository has been modified.
+              </p>
+            </ChatBubble>
+          </>
+        ) : null}
+
+        {step >= 5 ? (
+          <>
+            <ChatBubble role="user" author="Engineer">
+              {replyFor(
+                "fixer",
+                4,
+                `Create pull request #${pullRequest.number} for review.`,
+              )}
+            </ChatBubble>
+            <ChatBubble role="agent" author={agents.fixer.name}>
+              <DetailCard
+                eyebrow="Mock pull request · open"
+                title={`#${pullRequest.number} ${pullRequest.title}`}
+                tone="blue"
+              >
+                <div className="pull-request-card">
+                  <div className="pr-repository-row">
+                    <span>{pullRequest.repository}</span>
+                    <InlineStatus tone="warning">review required</InlineStatus>
+                  </div>
+                  <p>{pullRequest.summary}</p>
+                  <div className="pr-checks">
+                    <span>✓ Type check</span>
+                    <span>✓ Unit tests</span>
+                    <span>✓ Motion simulator</span>
+                    <span>○ Human review</span>
+                  </div>
+                  <code>
+                    {pullRequest.branch} → {pullRequest.base}
+                  </code>
+                  <div className="rollout-line">
+                    Canary rollout · watch stage-not-stable rate and alignment
+                    success
+                  </div>
+                </div>
+              </DetailCard>
+              <p>
+                The agent drafted the change. Engineer still owns the code, test
+                evidence, reviewer choice, and merge decision.
+              </p>
+            </ChatBubble>
+          </>
+        ) : null}
+
+        {step >= 6 ? (
+          <>
+            <ChatBubble role="user" author="Engineer">
+              {replyFor(
+                "fixer",
+                5,
+                "Proceed after code review, deployment, onsite service, and verification.",
+              )}
+            </ChatBubble>
+            <ChatBubble
+              role="system"
+              author="Demo timeline"
+              tone="warning"
+              label="Explicit time jump"
+            >
+              The pull request is reviewed, merged, and deployed. The onsite
+              field engineer services the degraded damper. Engineer then verifies
+              five repeated runs.
+            </ChatBubble>
+            <ChatBubble role="agent" author={agents.fixer.name}>
+              <DetailCard
+                eyebrow="Verified result"
+                title="Hardware recovered · software guard active"
+                tone="green"
+              >
+                <div className="verification-grid">
+                  <div>
+                    <span>Pull request</span>
+                    <strong>#{pullRequest.number} merged</strong>
+                  </div>
+                  <div>
+                    <span>Field service</span>
+                    <strong>Stage damper restored</strong>
+                  </div>
+                  <div>
+                    <span>Verification</span>
+                    <strong>5 runs passed</strong>
+                  </div>
+                </div>
+              </DetailCard>
+              <p>
+                The case is closed. Which part should be proposed as reusable
+                guidance for the next engineer?
+              </p>
+              <div className="knowledge-selector">
+                {knowledgeChoices.map((choice) => (
+                  <label
+                    key={choice.id}
+                    className={
+                      selectedKnowledge.has(choice.id) ? "is-selected" : ""
+                    }
+                  >
+                    <input
+                      type="checkbox"
+                      checked={selectedKnowledge.has(choice.id)}
+                      onChange={() => toggleKnowledge(choice.id)}
+                    />
+                    <span>
+                      <strong>{choice.title}</strong>
+                      <small>{choice.detail}</small>
+                    </span>
+                    <InlineStatus
+                      tone={
+                        choice.verdict === "reusable" ? "success" : "warning"
+                      }
+                    >
+                      {choice.verdict}
+                    </InlineStatus>
+                  </label>
+                ))}
+              </div>
+            </ChatBubble>
+          </>
+        ) : null}
+
+        {knowledgeBlocked ? (
+          <ChatBubble
+            role="system"
+            author="Knowledge validator"
+            tone="blocked"
+            label="Selection needs revision"
+          >
+            Case-specific cause or actions cannot become default component
+            guidance. Keep only the narrow, reusable diagnostic rule.
+          </ChatBubble>
+        ) : null}
+
+        {step >= 7 ? (
+          <>
+            <ChatBubble role="user" author="Engineer">
+              {replyFor(
+                "fixer",
+                6,
+                "Propose only the reusable guardrail and diagnostic.",
+              )}
+            </ChatBubble>
+            <ChatBubble role="agent" author={agents.fixer.name}>
+              <DetailCard
+                eyebrow="Promotion proposal"
+                title="Stage-settling guardrail + diagnostic"
+                tone="purple"
+              >
+                <p>
+                  Require both position and velocity to remain stable for the
+                  configured window before alignment. If the guard rejects
+                  motion, run the approved stage-settling diagnostic before
+                  changing vision configuration.
+                </p>
+                <div className="proposal-meta">
+                  <span>Source case: {CASE_ID}</span>
+                  <span>Code: PR #{pullRequest.number}</span>
+                  <span>Limitation: no default physical cause</span>
+                </div>
+              </DetailCard>
+              <p>
+                The proposal is ready. Shared component knowledge is still
+                unchanged.
+              </p>
+            </ChatBubble>
+          </>
+        ) : null}
+
+        {promotionBlocked ? (
+          <ChatBubble
+            role="system"
+            author="Knowledge gate"
+            tone="blocked"
+            label="Promotion refused"
+          >
+            Human approval record is missing. A resolved case cannot rewrite
+            shared guidance on its own.
+          </ChatBubble>
+        ) : null}
+
+        {step >= 8 ? (
+          <>
+            <ChatBubble role="user" author="Engineer">
+              {replyFor(
+                "fixer",
+                7,
+                "Request and record Motion Controls approval.",
+              )}
+            </ChatBubble>
+            <ChatBubble role="agent" author="Motion Controls review">
+              The code reference, diagnostic scope, source trail, and limitations
+              are acceptable. I approve this reusable guidance.
+              <span className="approval-signature">
+                Named human decision · Motion Controls
+              </span>
+            </ChatBubble>
+            <ChatBubble
+              role="system"
+              author="Knowledge service"
+              tone="success"
+              label="Shared guidance updated"
+            >
+              One software guardrail and diagnostic were promoted with source,
+              pull request, reviewer, limitations, and ownership. The old case
+              actions and physical cause were not carried forward.
+            </ChatBubble>
+            <ChatBubble role="agent" author={agents.fixer.name}>
+              A future engineer will see the code safeguard and a better first
+              diagnostic—not this case's conclusion.
+            </ChatBubble>
+          </>
+        ) : null}
+      </>
+    );
+  };
+
+  const renderManagerConversation = () => (
+    <>
+      <ChatBubble
+        role="system"
+        author="Private capture"
+        tone="alert"
+        label="Manager-provided note"
+      >
+        <strong>Post-stand-up note ready to process</strong>
+        <span className="message-secondary">
+          Visible only in this manager workspace.
+        </span>
+      </ChatBubble>
+      <ChatBubble role="agent" author={agents.manager.name}>
+        I can turn your note into professional follow-through. I will classify
+        each fragment before anything becomes durable memory.
+        <DetailCard
+          eyebrow="Unprocessed capture"
+          title="Mobile App Migration"
+          tone="pink"
+        >
+          <RowList>
+            <li>Auth migration is behind because QA login keeps failing.</li>
+            <li>
+              Rahul may unblock by Thursday if infrastructure provides test
+              credentials.
+            </li>
+            <li>Tell Maya the rollout risk is medium, not low.</li>
+            <li>I promised Priya I would review staffing.</li>
+            <li className="rejected-input">
+              “Priya seemed off today.”{" "}
+              <span>Input only · requires a memory decision</span>
+            </li>
+          </RowList>
+        </DetailCard>
+      </ChatBubble>
+
+      {step >= 1 ? (
+        <>
+          <ChatBubble role="user" author="Manager">
+            {replyFor("manager", 0, "Process this note.")}
+          </ChatBubble>
+          <ChatBubble role="agent" author={agents.manager.name}>
+            <div className="memory-decision-grid">
+              <DetailCard eyebrow="Remember" title="Supported context" tone="blue">
+                <p>
+                  Migration risk, QA login blocker, Maya update, and the
+                  manager's staffing promise.
+                </p>
+              </DetailCard>
+              <DetailCard
+                eyebrow="Keep uncertain"
+                title="Conditional timing"
+                tone="purple"
+              >
+                <p>
+                  Rahul <strong>may</strong> unblock by Thursday{" "}
+                  <strong>if</strong> credentials arrive.
+                </p>
+              </DetailCard>
+              <DetailCard
+                eyebrow="Reject"
+                title="People judgment"
+                tone="pink"
+              >
+                <p>
+                  “Priya seemed off” is not supported professional context and
+                  is not retained.
+                </p>
+              </DetailCard>
+            </div>
+            <p>
+              I can now create reviewable follow-through from the retained
+              context.
+            </p>
+          </ChatBubble>
+        </>
+      ) : null}
+
+      {step >= 2 ? (
+        <>
+          <ChatBubble role="user" author="Manager">
+            {replyFor("manager", 1, "Create my follow-through drafts.")}
+          </ChatBubble>
+          <ChatBubble role="agent" author={agents.manager.name}>
+            <DetailCard
+              eyebrow="Draft surfaces"
+              title="Useful context at the next decision"
+              tone="green"
+            >
+              <div className="surface-list">
+                <div>
+                  <span>Today</span>
+                  <strong>Daily brief</strong>
+                  <p>Risk, blocker, and the few follow-ups that matter.</p>
+                </div>
+                <div>
+                  <span>1:1</span>
+                  <strong>Conversation continuity</strong>
+                  <p>Agreed staffing follow-up—not a dossier.</p>
+                </div>
+                <div>
+                  <span>Update</span>
+                  <strong>Maya stakeholder draft</strong>
+                  <p>Medium risk, dependency, and conditional timing.</p>
+                </div>
+              </div>
+            </DetailCard>
+            <p>Nothing has been sent. Every surface requires your review.</p>
+          </ChatBubble>
+        </>
+      ) : null}
+
+      {step >= 3 ? (
+        <>
+          <ChatBubble role="user" author="Manager">
+            {replyFor("manager", 2, "Show me the Maya draft and receipt.")}
+          </ChatBubble>
+          <ChatBubble role="agent" author={agents.manager.name}>
+            <DetailCard
+              eyebrow="Draft · human review required"
+              title="Stakeholder update for Maya"
+              tone="pink"
+            >
+              <blockquote>
+                The auth migration rollout risk is medium. QA login remains
+                blocked on test credentials from infrastructure. Thursday is a
+                possibility, not a confirmed recovery date. I will update you
+                when ownership and timing are confirmed.
+              </blockquote>
+            </DetailCard>
+            <div className="receipt-strip">
+              <span>Receipt</span>
+              <strong>Remembered 4</strong>
+              <strong>Uncertain 1</strong>
+              <strong>Rejected 1</strong>
+              <strong>External actions 0</strong>
+            </div>
+            <p>
+              Professional continuity survived. Uncertainty stayed visible.
+              Speculative judgment did not become memory.
+            </p>
+          </ChatBubble>
+        </>
+      ) : null}
+    </>
+  );
+
+  const renderQuickActions = () => {
+    if (activeAgent === "onsite") {
+      if (step === 0) {
+        return (
+          <ActionButton onClick={() => setAgentStep("onsite", 1)}>
+            Start local investigation
+          </ActionButton>
+        );
+      }
+      if (step === 1) {
+        return (
+          <ActionButton onClick={() => setAgentStep("onsite", 2)}>
+            Confirm onsite observation
+          </ActionButton>
+        );
+      }
+      if (step === 2) {
+        return (
+          <ActionButton onClick={() => setAgentStep("onsite", 3)}>
+            Create sanitized draft
+          </ActionButton>
+        );
+      }
+      if (step === 3) {
+        return (
+          <>
+            <ActionButton
+              variant="danger"
+              onClick={() =>
+                runAgentAction(() => setUnsafeExportTried(true))
+              }
+            >
+              Send now
+            </ActionButton>
+            <ActionButton
+              variant="primary"
+              onClick={() => setAgentStep("onsite", 4)}
+            >
+              Review packet
+            </ActionButton>
+          </>
+        );
+      }
+      if (step === 4) {
+        return (
+          <ActionButton onClick={() => setAgentStep("onsite", 5)}>
+            Approve reviewed transfer
+          </ActionButton>
+        );
+      }
+      if (step === 5) {
+        return (
+          <>
+            <ActionButton
+              variant="secondary"
+              onClick={() => setPacketModalOpen(true)}
+            >
+              View contents
+            </ActionButton>
+            <ActionButton variant="secondary" onClick={downloadPacket}>
+              Download .zip
+            </ActionButton>
+            <ActionButton onClick={sendPacket}>Send to Fixer</ActionButton>
+          </>
+        );
+      }
+      return (
+        <ActionButton onClick={() => selectAgent("fixer")}>
+          Open Fixer Agent
+        </ActionButton>
+      );
+    }
+
+    if (activeAgent === "fixer") {
+      if (!packetSent) {
+        return (
+          <ActionButton onClick={() => selectAgent("onsite")}>
+            Return to OnSite Agent
+          </ActionButton>
+        );
+      }
+      if (step === 0) {
+        return (
+          <ActionButton onClick={() => setAgentStep("fixer", 1)}>
+            Open field issue
+          </ActionButton>
+        );
+      }
+      if (step === 1) {
+        return (
+          <ActionButton onClick={() => setAgentStep("fixer", 2)}>
+            Prepare stage-settling experiment
+          </ActionButton>
+        );
+      }
+      if (step === 2) {
+        return (
+          <ActionButton onClick={() => setAgentStep("fixer", 3)}>
+            Run diagnostic + inspect code
+          </ActionButton>
+        );
+      }
+      if (step === 3) {
+        return (
+          <ActionButton
+            onClick={() =>
+              runAgentAction(() => {
+                applyAgentStep("fixer", 4);
+                setPullRequestModalOpen(true);
+              })
+            }
+          >
+            Review proposed diff
+          </ActionButton>
+        );
+      }
+      if (step === 4) {
+        return (
+          <>
+            <ActionButton
+              variant="secondary"
+              onClick={() => setPullRequestModalOpen(true)}
+            >
+              Open full diff
+            </ActionButton>
+            <ActionButton onClick={() => setAgentStep("fixer", 5)}>
+              Create pull request
+            </ActionButton>
+          </>
+        );
+      }
+      if (step === 5) {
+        return (
+          <>
+            <ActionButton
+              variant="secondary"
+              onClick={() => setPullRequestModalOpen(true)}
+            >
+              View pull request
+            </ActionButton>
+            <ActionButton onClick={() => setAgentStep("fixer", 6)}>
+              Simulate review + deploy + verify
+            </ActionButton>
+          </>
+        );
+      }
+      if (step === 6) {
+        return (
+          <ActionButton onClick={validateKnowledgeSelection}>
+            Review knowledge selection
+          </ActionButton>
+        );
+      }
+      if (step === 7) {
+        return (
+          <>
+            <ActionButton
+              variant="danger"
+              onClick={() =>
+                runAgentAction(() => setPromotionBlocked(true))
+              }
+            >
+              Promote now
+            </ActionButton>
+            <ActionButton
+              onClick={() =>
+                runAgentAction(() => {
+                  applyAgentStep("fixer", 8);
+                  setKnowledgePromoted(true);
+                })
+              }
+            >
+              Request owner approval
+            </ActionButton>
+          </>
+        );
+      }
+      return (
+        <ActionButton variant="secondary" onClick={() => selectAgent("manager")}>
+          Open Manager Assistant
+        </ActionButton>
+      );
+    }
+
+    if (step === 0) {
+      return (
+        <ActionButton onClick={() => setAgentStep("manager", 1)}>
+          Process the note
+        </ActionButton>
+      );
+    }
+    if (step === 1) {
+      return (
+        <ActionButton onClick={() => setAgentStep("manager", 2)}>
+          Create follow-through drafts
+        </ActionButton>
+      );
+    }
+    if (step === 2) {
+      return (
+        <ActionButton onClick={() => setAgentStep("manager", 3)}>
+          Review Maya draft + receipt
+        </ActionButton>
+      );
+    }
+    return (
+      <ActionButton variant="secondary" onClick={resetAll}>
+        Restart guided demo
+      </ActionButton>
+    );
+  };
+
+  return (
+    <div className={`app-shell${workingPhase !== null ? " is-working" : ""}`}>
+      <header className="product-header">
+        <div className="brand-lockup">
+          <span className="brand-mark" aria-hidden="true" />
+          <div>
+            <strong>Second Brain</strong>
+            <span>Agent workspace</span>
+          </div>
+        </div>
+        <div className="header-actions">
+          <button
+            type="button"
+            onClick={() => setShowInspector((value) => !value)}
+          >
+            {showInspector ? "Hide context" : "Show context"}
+          </button>
+          <button type="button" onClick={() => setShowCue((value) => !value)}>
+            {showCue ? "Hide cue" : "Show cue"}
+          </button>
+          <button type="button" onClick={() => void toggleFullscreen()}>
+            Fullscreen
+          </button>
+          <button type="button" onClick={resetAll}>
+            Reset
+          </button>
+        </div>
+      </header>
+
+      <div
+        className={`workspace-grid${showInspector ? " inspector-open" : ""}`}
+      >
+        <AgentRail
+          activeAgent={activeAgent}
+          steps={steps}
+          packetSent={packetSent}
+          onSelect={selectAgent}
+        />
+
+        <main className="chat-workspace">
+          <header className="chat-header">
+            <div className="chat-identity">
+              <AgentAvatar agent={agent} size="large" />
+              <div>
+                <h1>{agent.name}</h1>
+                <span>
+                  {agent.subtitle} ·{" "}
+                  <InlineStatus tone="success">available</InlineStatus>
+                </span>
+              </div>
+            </div>
+            <div className="scope-pill">
+              <span className="lock-icon" aria-hidden="true" />
+              Role-scoped context
+            </div>
+          </header>
+
+          <div className="conversation-stream" ref={streamRef}>
+            <div className="conversation-inner">
+              <div className="conversation-date">
+                <span>Guided scenario</span>
+              </div>
+              {activeAgent === "onsite"
+                ? renderOnsiteConversation()
+                : activeAgent === "fixer"
+                  ? renderFixerConversation()
+                  : renderManagerConversation()}
+              {workingPhase !== null ? (
+                <div className="ai-working" role="status" aria-live="polite">
+                  <div className="ai-working-orb" aria-hidden="true">
+                    <span />
+                    <span />
+                    <span />
+                  </div>
+                  <div className="ai-working-copy">
+                    <strong>{workingLabels[workingPhase]}</strong>
+                    <div className="ai-working-stages" aria-hidden="true">
+                      {workingLabels.map((label, index) => (
+                        <span
+                          className={
+                            index < workingPhase
+                              ? "is-complete"
+                              : index === workingPhase
+                                ? "is-active"
+                                : ""
+                          }
+                          key={label}
+                        >
+                          {label.replace("…", "")}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              ) : (
+                <QuickActions>{renderQuickActions()}</QuickActions>
+              )}
+            </div>
+          </div>
+
+          <form className="chat-composer" onSubmit={submitComposer}>
+            <div className="composer-box">
+              <textarea
+                aria-label={`Message ${agent.name}`}
+                value={composerValue}
+                onChange={(event) => setComposerValue(event.target.value)}
+                placeholder={`Message ${agent.shortName}…`}
+                rows={1}
+                disabled={workingPhase !== null}
+                onKeyDown={(event) => {
+                  if (event.key === "Enter" && !event.shiftKey) {
+                    event.preventDefault();
+                    event.currentTarget.form?.requestSubmit();
+                  }
+                }}
+              />
+              <button
+                type="submit"
+                className="send-button"
+                disabled={!composerValue.trim() || workingPhase !== null}
+                aria-label="Send message"
+              >
+                ↑
+              </button>
+            </div>
+            <p>
+              Guided demo: typed input is matched to this rehearsed workflow.
+              Suggested actions are safest on stage.
+            </p>
+          </form>
+        </main>
+
+        {showInspector ? (
+          <ContextInspector
+            activeAgent={activeAgent}
+            step={step}
+            packetSent={packetSent}
+            knowledgePromoted={knowledgePromoted}
+            showCue={showCue}
+            onClose={() => setShowInspector(false)}
+          />
+        ) : null}
+      </div>
+
+      <PacketModal
+        open={packetModalOpen}
+        onClose={() => setPacketModalOpen(false)}
+        onDownload={downloadPacket}
+      />
+      <PullRequestModal
+        open={pullRequestModalOpen}
+        created={steps.fixer >= 5}
+        onClose={() => setPullRequestModalOpen(false)}
+        onCreate={() => setAgentStep("fixer", 5)}
+      />
+    </div>
+  );
+}

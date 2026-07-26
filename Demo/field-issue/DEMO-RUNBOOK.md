@@ -5,7 +5,7 @@ Target time: 17–19 minutes
 Communication job:
 
 > Show that a second brain is a governed memory pipeline: the onsite expert and
-> onsite agent decide what may cross, Shweta turns it into the next experiment, and
+> onsite agent decide what may cross, Engineer turns it into the next experiment, and
 > only verified human-approved learning helps a future engineer.
 
 ## Preflight
@@ -106,7 +106,7 @@ Say:
 > validates it again and accepts only this outbox path. The boundary is a test,
 > not a sentence in a prompt.
 
-## Beat 4 — Shweta gets a decision workspace (4 minutes)
+## Beat 4 — Engineer gets a decision workspace (4 minutes)
 
 Run Prompt 3.
 
@@ -120,7 +120,7 @@ Show only `agent-context-bundle.md`, centred on:
 
 Say:
 
-> Shweta is offsite. She diagnoses, designs the experiment, and verifies the
+> Engineer is offsite. She diagnoses, designs the experiment, and verifies the
 > result. The field engineer owns approved local capture and the physical tool
 > work.
 

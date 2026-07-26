@@ -1,7 +1,7 @@
 # Case FI-2026-00421
 
 Status: investigate
-Assigned engineer: Shweta
+Assigned engineer: Engineer
 Severity: production blocking
 Opened: 2026-07-18
 Source: reviewed engineering inbox packet
@@ -17,7 +17,7 @@ coordinate any approved onsite intervention, and verify recovery.
 
 ## Ownership Boundary
 
-- **Shweta, offsite:** diagnosis, experiment design, code/test access, and
+- **Engineer, offsite:** diagnosis, experiment design, code/test access, and
   verification decision.
 - **Onsite field engineer:** approved local capture, tool observation, and
   physical intervention.
@@ -32,7 +32,7 @@ The mechanical cause is not yet established.
 ## Definition of Done
 
 - Cause is supported by reviewed evidence.
-- Shweta defines the intervention and verification criteria.
+- Engineer defines the intervention and verification criteria.
 - The onsite field engineer applies any approved physical intervention.
 - Returned sanitized results meet the agreed verification criteria.
 - Field follow-up is complete.

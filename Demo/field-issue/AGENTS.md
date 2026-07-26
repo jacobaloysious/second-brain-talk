@@ -78,12 +78,12 @@ Move the case through:
 
 `triage -> investigate -> experiment -> fix -> verify -> close`
 
-Shweta is the assigned offsite engineer. She owns diagnosis, experiment design,
+Engineer is the assigned offsite engineer. She owns diagnosis, experiment design,
 and verification. The onsite field engineer owns approved evidence capture and
-physical intervention at the tool. Do not imply that Shweta physically replaces
+physical intervention at the tool. Do not imply that Engineer physically replaces
 hardware onsite.
 
-For Shweta, always make clear:
+For Engineer, always make clear:
 
 - current case state and impact
 - known facts versus hypotheses
@@ -118,7 +118,7 @@ When closing a case:
 
 - use only the human-reviewed result under
   `engineering-side/verified-input/<case-id>/`
-- record the verified cause, onsite physical fix, and Shweta's verification
+- record the verified cause, onsite physical fix, and Engineer's verification
 - propose reusable learning in `engineering-side/promotion-queue/`
 - do not promote it automatically
 

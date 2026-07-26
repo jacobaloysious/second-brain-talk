@@ -1,7 +1,7 @@
 # Resolution — FI-2026-00421
 
 Status: verified and closed
-Verification owner: Shweta
+Verification owner: Engineer
 Physical intervention owner: Onsite field engineer
 
 ## Verified Cause
@@ -16,7 +16,7 @@ physical-service procedure.
 
 ## Verification
 
-Shweta reviewed the returned sanitized results:
+Engineer reviewed the returned sanitized results:
 
 - stage settling returned within the approved limit
 - five consecutive validation runs completed successfully

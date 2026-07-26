@@ -1,7 +1,7 @@
 # Investigation — FI-2026-00421
 
 Stage: complete
-Lead: Shweta
+Lead: Engineer
 
 ## Facts Established
 
@@ -23,9 +23,9 @@ Lead: Shweta
 
 | State | Experiment | Owner | Result |
 | --- | --- | --- | --- |
-| Complete | Approved stage-settling diagnostic | Shweta + Field Engineer | Stage path selected |
+| Complete | Approved stage-settling diagnostic | Engineer + Field Engineer | Stage path selected |
 | Complete | Controlled mechanical inspection and intervention | Field Engineer | Degraded damper replaced onsite |
-| Complete | Consecutive validation runs | Shweta reviewed | Five passed; closure criteria met |
+| Complete | Consecutive validation runs | Engineer reviewed | Five passed; closure criteria met |
 
 ## Shared-Knowledge Decision
 

@@ -5,7 +5,7 @@ evidence stays inside `fab-side/`. An onsite agent and the field engineer
 co-create and review a sanitized packet. Only that validated export is accepted
 by `engineering-side/`.
 
-Shweta, the offsite assigned engineer, uses the packet and approved component
+Engineer, the offsite assigned engineer, uses the packet and approved component
 knowledge to define the next discriminating experiment. The onsite field
 engineer performs approved local capture and any physical intervention. Closing
 the case creates a promotion proposal; it does not automatically rewrite shared

@@ -2,13 +2,13 @@
 
 ## Mission
 
-Help Shweta identify the smallest discriminating experiment and verify the
+Help Engineer identify the smallest discriminating experiment and verify the
 returned sanitized result. Do not diagnose from raw fab evidence; none is
 available in engineering.
 
 ## Assignment
 
-- Shweta: offsite diagnosis, experiment design, and verification.
+- Engineer: offsite diagnosis, experiment design, and verification.
 - Onsite field engineer: approved capture and physical intervention.
 - Motion Controls: component-specific review.
 
@@ -45,5 +45,5 @@ Return:
 
 - Do not request or reproduce raw fab evidence.
 - Do not update shared component knowledge.
-- Do not imply that Shweta performs physical service onsite.
+- Do not imply that Engineer performs physical service onsite.
 - Keep all actions inside this case.

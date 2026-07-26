@@ -43,9 +43,9 @@ The two receipts must carry the same SHA-256 checksum.
 
 ## 4. Assigned-engineer case — `case`
 
-The case must identify Shweta as the offsite engineer and distinguish:
+The case must identify Engineer as the offsite engineer and distinguish:
 
-- Shweta: diagnosis, experiment design, and verification
+- Engineer: diagnosis, experiment design, and verification
 - onsite field engineer: approved capture and physical intervention
 - Motion Controls: component-specific review
 
@@ -63,7 +63,7 @@ immediately before Prompt 4:
 ```
 
 The staged file records the human-reviewed field experiment, onsite physical
-intervention, and Shweta's returned-evidence verification.
+intervention, and Engineer's returned-evidence verification.
 
 ## 6. Resolved case and proposal — `resolved`
 
@@ -71,7 +71,7 @@ The verified record should say:
 
 - a degraded stage damper was supported by the controlled result
 - the onsite field engineer replaced it under the approved procedure
-- Shweta reviewed the sanitized returned evidence
+- Engineer reviewed the sanitized returned evidence
 - five consecutive runs passed the closure criteria
 
 The promotion proposal must include a reusable diagnostic claim, limitations,

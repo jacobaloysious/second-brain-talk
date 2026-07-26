@@ -79,7 +79,7 @@ These are deterministic, independently validated steps:
 An unreviewed packet, raw evidence, checksum mismatch, or arbitrary source path
 must be rejected.
 
-## Prompt 3 — Create Shweta's engineering case
+## Prompt 3 — Create Engineer's engineering case
 
 ```text
 Operate only inside engineering-side/ and follow AGENTS.md.
@@ -94,7 +94,7 @@ Update only engineering-side/field-issues/FI-2026-00421/:
 - actions.md
 - agent-context-bundle.md
 
-Prepare Shweta, the offsite engineer, to move from triage to investigation:
+Prepare Engineer, the offsite engineer, to move from triage to investigation:
 - separate facts from hypotheses
 - cite relevant approved component knowledge without modifying it
 - select the smallest discriminating experiment
@@ -115,7 +115,7 @@ If the live run is slow:
 ## Human action — Install the reviewed time-jump result
 
 The final result is deliberately absent during triage. Install it only after
-Shweta has created the investigation workspace and the presenter announces the
+Engineer has created the investigation workspace and the presenter announces the
 time jump:
 
 ```bash
@@ -129,7 +129,7 @@ Operate only inside engineering-side/ and follow AGENTS.md.
 
 Use engineering-side/verified-input/FI-2026-00421/verified-resolution.md as a
 human-reviewed experiment result for FI-2026-00421. Update the case to show:
-- Shweta led offsite diagnosis, experiment design, and verification
+- Engineer led offsite diagnosis, experiment design, and verification
 - the onsite field engineer performed the approved physical damper replacement
 - five consecutive validation runs met the closure criteria
 

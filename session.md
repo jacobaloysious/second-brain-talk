@@ -1,6 +1,6 @@
 # Session Handoff — Second Brain for Engineering Teams
 
-Updated: 25 July 2026
+Updated: 26 July 2026
 Workspace: `/Users/jacobaloysious/Desktop/secondbrain`
 Repository: `https://github.com/jacobaloysious/second-brain-talk.git`
 Branch: `main`
@@ -49,11 +49,17 @@ pitch.
 - `speaker-notes.md`
   - read-aloud script
   - 90-minute route
-  - exact demo commands, stage cues, and recovery lines
+  - presenter-app script, stage cues, and terminal Q&A fallback
+- `Demo/presenter-app/`
+  - primary conference-facing demo surface
+  - three role-scoped chat tabs: OnSite Fab Agent, Fixer Agent, and Manager
+    Assistant
+  - deterministic, local-only, and database-free
+  - creates a real ZIP containing only reviewed, sanitized transfer artifacts
 - `Demo/field-issue/`
-  - primary, 17–19 minute engineering demo
+  - executable field-workflow proof and technical Q&A source
 - `Demo/manager-collaboration/`
-  - secondary, 5–7 minute manager demo
+  - executable manager-workflow proof and technical Q&A source
 
 ## Deck route
 
@@ -75,7 +81,7 @@ pitch.
 7. **Agents prepare context. Humans own the outcome.**
    Preparation is automated; accountability is not.
 8. **Trust is an operating contract**
-   Provenance, clarification, correction, and tests.
+   Traceability, clarification, correction, and tests.
 9. **Case #1: Field issue — how context crosses the boundary**
    Onsite human + agent, reviewed packet, validator, offsite diagnosis.
 10. **Not every case becomes component knowledge**
@@ -89,7 +95,7 @@ pitch.
 ### Demo and close
 
 13. **LIVE DEMOS**
-14. **What to watch in the two demos**
+14. **What to watch across the three agent workspaces**
 15. **Start with one context leak—and one success signal**
 16. **Appendix: the memory contract is portable**
 17. **Appendix: the field boundary is separate and testable**
@@ -109,7 +115,7 @@ Keyboard shortcuts:
 
 ## 90-minute timing
 
-Target prepared content: about 72–75 minutes.
+Target prepared content: about 65–70 minutes before Q&A and discussion.
 
 | Segment | Target |
 | --- | ---: |
@@ -117,16 +123,49 @@ Target prepared content: about 72–75 minutes.
 | Problem and model, Slides 2–8 | 17 min |
 | Use cases and success signals, Slides 9–12 | 8 min |
 | Demo setup, Slides 13–14 | 2 min |
-| Field-issue hero demo | 17–19 min |
-| Manager-continuity demo | 5–7 min |
+| Presenter app, OnSite + Fixer chats | 12–14 min |
+| Presenter app, Manager Assistant chat | 4–5 min |
 | Synthesis and 30-day pilot, Slide 15 | 4–5 min |
-| Q&A, Slide 19 | 12 min |
-| Contingency / final thesis | 3–6 min |
+| Q&A, Slide 19 | 15 min |
+| Discussion / contingency / final thesis | 7–10 min |
 
 Do not fill the entire 90 minutes with scripted speech. Preserve room for
 audience answers, live-demo variance, and Q&A.
 
-## Demo 1 — Field issue
+## Presenter app
+
+Run:
+
+```bash
+cd Demo/presenter-app
+./run-local.sh
+```
+
+The app is the normal audience-facing route. It:
+
+- runs entirely in the browser from reviewed mock data
+- requires no database, authentication, external service, or live model call
+- labels itself as a guided deterministic simulation
+- presents three agent tabs with different context boundaries and human owners
+- allows suggested-button or typed-chat interaction along one rehearsed path
+- creates a viewable and downloadable reviewed ZIP after onsite approval
+- shows a hybrid field resolution: onsite hardware recovery plus a tested
+  stage-settle software guard
+- renders a two-file code diff and creates a deterministic mock pull request
+- asks the fixer to select what deserves reusable knowledge, then enforces a
+  separate component-owner approval
+- supports `1`, `2`, `3`, `N`, `F`, and `R`
+- exposes a concise presenter cue in the context inspector
+- produces `Demo/presenter-app/portable/[Demo]Second Brain Presenter.html` as a
+  no-server emergency fallback
+
+The tabs represent three roles with different context and permissions; they do
+not imply that three different foundation models are required. The app must not
+claim that one browser bundle proves filesystem, credential, or network
+isolation. The sibling scripts remain the executable proof of validator
+behavior.
+
+## Demo 1 proof workspace — Field issue
 
 Read first:
 
@@ -141,21 +180,26 @@ Read first:
 2. An onsite agent drafts a sanitized packet and asks one useful question.
 3. The onsite field engineer answers and explicitly reviews the wording.
 4. Export and engineering ingestion independently validate the packet.
-5. Shweta, the offsite engineer, receives a decision workspace and defines the
+5. Engineer, the offsite engineer, receives a decision workspace and defines the
    smallest discriminating experiment.
-6. A later human-reviewed result closes the case and creates a promotion
+6. The investigation separates the unhealthy hardware from a software
+   weakness: the settle gate can accept one in-position sample without checking
+   stable velocity.
+7. The Fixer Agent proposes a two-file patch and mock pull request; Engineer owns
+   code review, merge, deployment, and verification.
+8. A later human-reviewed result closes the case and creates a promotion
    proposal.
-7. Component knowledge does not change until a named human approval exists.
-8. Six months later, a new case reuses only the approved diagnostic, provenance,
-   scope, and limitations.
+9. Component knowledge does not change until a named human approval exists.
+10. Six months later, a new case reuses only the approved guardrail,
+    diagnostic, source trail, scope, and limitations.
 
 ### Ownership
 
-- Shweta: offsite diagnosis, experiment design, and verification
+- Engineer: offsite diagnosis, experiment design, and verification
 - onsite field engineer: approved evidence capture and physical intervention
 - component owner/reviewer: reusable-knowledge approval
 
-Never imply that Shweta physically replaces hardware onsite.
+Never imply that Engineer physically replaces hardware onsite.
 
 ### Boundary rule
 
@@ -186,10 +230,11 @@ The test suite currently contains 17 checks, including:
 - required human approval
 - safe six-month reuse
 
-If a live agent exceeds 20 seconds, use the matching
-`./scripts/load-golden-stage.sh <stage>` command from the runbook.
+For an optional technical walkthrough, use the matching
+`./scripts/load-golden-stage.sh <stage>` recovery command from the runbook.
+This is not part of the normal audience route.
 
-## Demo 2 — Manager continuity
+## Demo 2 proof workspace — Manager continuity
 
 Read first:
 
@@ -255,12 +300,11 @@ Fallback:
 ## Presenter guardrails
 
 - Ask a question before revealing an answer.
-- During demos, show one proof file per decision; do not tour the whole tree.
+- During the presenter app, show one proof state per decision; do not tour the
+  repository tree.
 - Give every audience interaction a time limit.
-- If a live step takes more than 20 seconds, say:
-
-  > The important behavior is the contract, not the typing animation. I will
-  > load the verified checkpoint and keep the decision moving.
+- Keep terminal and prompt execution out of the normal audience route. Use them
+  only for technical Q&A.
 
 - For each demo beat, state:
   1. the question
@@ -271,6 +315,7 @@ Fallback:
 
 - Field demo: all 17 deterministic checks pass.
 - Manager demo: reset, golden recovery, and validation checks pass.
+- Presenter app: local production build and nine contract tests pass.
 - Deck: 19 unique slide IDs and unique editable keys; all intentional
   decorations are the only objects outside slide bounds.
 - Speaker notes must always be checked against the current deck titles and demo
@@ -279,9 +324,11 @@ Fallback:
 ## Next-session checklist
 
 1. Read this file.
-2. Run both demo tests.
+2. Start the presenter app and run both proof-workspace test suites.
 3. Open the HTML deck and spot-check Slides 1, 6, 9, 10, 11, 12, 15, and 19
    at the actual presenting resolution.
-4. Rehearse once with no live agents, using only golden checkpoints.
-5. Rehearse once with live agents and enforce the 20-second fallback.
-6. Confirm the projector, terminal zoom, privacy mode, and Q&A clock.
+4. Rehearse the app route once using only suggested action buttons and agent
+   shortcuts `1`, `2`, and `3`.
+5. Open the packet viewer, test the ZIP download, inspect both diff files,
+   create the mock pull request, and rehearse `N`, `F`, and `R`.
+6. Confirm the projector, browser full screen, privacy mode, and Q&A clock.

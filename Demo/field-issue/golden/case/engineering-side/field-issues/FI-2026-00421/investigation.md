@@ -1,7 +1,7 @@
 # Investigation — FI-2026-00421
 
 Stage: investigate
-Lead: Shweta
+Lead: Engineer
 
 ## Known Facts
 
@@ -29,7 +29,7 @@ The curated guidance is retrieved, not modified.
 
 ## Next Discriminating Experiment
 
-Shweta will use the approved stage-settling diagnostic and define pass/fail
+Engineer will use the approved stage-settling diagnostic and define pass/fail
 criteria for a controlled onsite mechanical inspection and repeat validation.
 
 Expected distinction:
@@ -49,6 +49,6 @@ Expected distinction:
 
 | State | Experiment | Owner | Decision enabled |
 | --- | --- | --- | --- |
-| Planned | Approved stage-settling diagnostic | Shweta + Field Engineer | Select stage path or retain cross-subsystem hypothesis |
+| Planned | Approved stage-settling diagnostic | Engineer + Field Engineer | Select stage path or retain cross-subsystem hypothesis |
 | Planned | Controlled mechanical inspection | Field Engineer | Confirm or reject a physical stage cause |
-| Planned | Consecutive validation runs | Shweta reviews returned result | Verify recovery and close or continue |
+| Planned | Consecutive validation runs | Engineer reviews returned result | Verify recovery and close or continue |

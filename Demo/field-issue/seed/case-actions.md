@@ -4,7 +4,7 @@ These actions belong only to this case.
 
 | Status | Owner | Action | Expected result |
 | --- | --- | --- | --- |
-| Open | Shweta | Review the ingested sanitized packet | Confirm facts, hypotheses, and the first offsite investigation step |
+| Open | Engineer | Review the ingested sanitized packet | Confirm facts, hypotheses, and the first offsite investigation step |
 
 ## Needs Review
 

@@ -1,7 +1,7 @@
 # Case FI-2026-00421
 
 Status: awaiting reviewed engineering ingestion
-Assigned engineer: Shweta
+Assigned engineer: Engineer
 Severity: needs triage
 Opened: 2026-07-18
 
@@ -9,7 +9,7 @@ Opened: 2026-07-18
 
 Identify, fix, and verify the cause of the reported fine-alignment failure.
 
-Shweta owns offsite diagnosis, experiment design, and verification. The onsite
+Engineer owns offsite diagnosis, experiment design, and verification. The onsite
 field engineer owns approved evidence capture and any physical intervention at
 the tool.
 

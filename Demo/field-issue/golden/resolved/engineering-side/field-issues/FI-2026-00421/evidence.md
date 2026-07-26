@@ -20,7 +20,7 @@
 - An onsite physical inspection identified a degraded stage damper.
 - The onsite field engineer replaced the damper using the approved procedure.
 - Returned sanitized results showed settling within the approved limit.
-- Shweta verified five consecutive successful validation runs without the two
+- Engineer verified five consecutive successful validation runs without the two
   reported error conditions.
 
 ## Evidence Boundary
