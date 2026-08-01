@@ -44,7 +44,8 @@ pitch.
   - the only slide deck
   - 19 slides
   - self-contained HTML; no PPTX is in use
-  - contenteditable text and browser-local autosave
+  - locked presentation mode by default; add `?edit=1` for contenteditable text
+    and browser-local autosave
   - 1600×900 design that scales to the available viewport
 - `speaker-notes.md`
   - read-aloud script
@@ -86,15 +87,15 @@ pitch.
    Onsite human + agent, reviewed packet, validator, offsite diagnosis.
 10. **Not every case becomes component knowledge**
     Every case stays traceable; only verified, approved learning is promoted.
-11. **Case #2: Continuity without surveillance**
+11. **Case #2: What deserves to become memory?**
     Professional follow-through without a people dossier.
-12. **A second brain must improve decisions—not just create files**
-    Measure the next grounded decision, recovery time, late clarification, and
+12. **A second brain must improve decisions**
+    Measure the next grounded decision, recovery time, repeated clarification, and
     governed reuse.
 
 ### Demo and close
 
-13. **LIVE DEMOS**
+13. **GUIDED DECISION LAB**
 14. **What to watch across the three agent workspaces**
 15. **Start with one context leak—and one success signal**
 16. **Appendix: the memory contract is portable**
@@ -102,7 +103,7 @@ pitch.
 18. **Appendix: test the memory contract like software**
 19. **Q&A / Thank you**
 
-The normal route is Slides 1–14, both live demos, Slide 15, then Slide 19.
+The normal route is Slides 1–14, both guided cases, Slide 15, then Slide 19.
 Slides 16–18 are appendix material only.
 
 Keyboard shortcuts:

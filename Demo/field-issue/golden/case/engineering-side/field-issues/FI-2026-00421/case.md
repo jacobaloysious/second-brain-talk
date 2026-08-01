@@ -13,7 +13,8 @@ Fine alignment is failing repeatedly and the onsite run is paused.
 ## Goal
 
 Identify the failing subsystem, define the smallest discriminating experiment,
-coordinate any approved onsite intervention, and verify recovery.
+inspect any implicated software guard, coordinate approved onsite intervention,
+and verify recovery.
 
 ## Ownership Boundary
 
@@ -35,5 +36,6 @@ The mechanical cause is not yet established.
 - Engineer defines the intervention and verification criteria.
 - The onsite field engineer applies any approved physical intervention.
 - Returned sanitized results meet the agreed verification criteria.
+- Any software change has code review and regression evidence before deployment.
 - Field follow-up is complete.
 - Reusable learning is proposed for human review, not automatically promoted.

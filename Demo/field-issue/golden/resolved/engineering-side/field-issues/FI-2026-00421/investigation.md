@@ -9,7 +9,10 @@ Lead: Engineer
 - Vibration persisted through the measurement window.
 - The approved diagnostic isolated the stage path.
 - Physical inspection found a degraded stage damper.
-- Replacement restored settling and five validation runs completed successfully.
+- Engineering review found a position-only settle gate that did not require
+  stable velocity or consecutive stable samples.
+- The hardware replacement and reviewed software guard restored safe settling;
+  five validation runs completed successfully.
 
 ## Hypotheses Disposition
 
@@ -25,9 +28,12 @@ Lead: Engineer
 | --- | --- | --- | --- |
 | Complete | Approved stage-settling diagnostic | Engineer + Field Engineer | Stage path selected |
 | Complete | Controlled mechanical inspection and intervention | Field Engineer | Degraded damper replaced onsite |
+| Complete | Stage-settle gate review and motion-simulator reproduction | Engineer | Software guard weakness reproduced |
+| Complete | Two-file mock PR `#1847`, review, and deployment | Engineer | Stable position and velocity required before alignment |
 | Complete | Consecutive validation runs | Engineer reviewed | Five passed; closure criteria met |
 
 ## Shared-Knowledge Decision
 
-The verified diagnostic sequence may be reusable. It has been proposed for
-component-owner review and has not been automatically promoted.
+The reviewed software guardrail and verified diagnostic sequence may be
+reusable. They have been proposed for component-owner review and have not been
+automatically promoted.

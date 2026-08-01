@@ -39,7 +39,8 @@ Return:
 3. expected result for each branch
 4. stop condition
 5. evidence required to close
-6. claims still marked `needs_review`
+6. any supported stage-settle code finding and regression test
+7. claims still marked `needs_review`
 
 ## Constraints
 

@@ -28,6 +28,8 @@ trap cleanup EXIT
 cmp -s "$ROOT/seed/debug-packet.md" "$ROOT/fab-side/local-analysis/debug-packet.md"
 cmp -s "$ROOT/seed/stage-known-failure-modes.md" \
   "$ROOT/engineering-side/component-knowledge/stage-controller/known-failure-modes.md"
+cmp -s "$ROOT/seed/software-change.md" \
+  "$ROOT/engineering-side/field-issues/FI-2026-00421/software-change.md"
 [[ ! -e "$ROOT/engineering-side/verified-input/FI-2026-00421/verified-resolution.md" ]]
 pass "reset restores the deterministic baseline"
 
@@ -103,9 +105,19 @@ pass "verified result appears only at the explicit time jump"
 
 "$ROOT/scripts/load-golden-stage.sh" resolved >/dev/null
 [[ -f "$ROOT/engineering-side/promotion-queue/FI-2026-00421.md" ]]
+SOFTWARE_CHANGE="$ROOT/engineering-side/field-issues/FI-2026-00421/software-change.md"
+grep -Fqx 'Pull request: `#1847`' "$SOFTWARE_CHANGE"
+grep -Fq 'src/motion/stage-settle-gate.ts' "$SOFTWARE_CHANGE"
+grep -Fq 'test/motion/stage-settle-gate.test.ts' "$SOFTWARE_CHANGE"
+grep -Fq '`positionStable` and `velocityStable`' "$SOFTWARE_CHANGE"
+grep -Fq '`requiredStableSamples` consecutive stable samples' "$SOFTWARE_CHANGE"
+grep -Fq 'mock PR `#1847`' \
+  "$ROOT/engineering-side/promotion-queue/FI-2026-00421.md"
+grep -Fq 'position and velocity' \
+  "$ROOT/engineering-side/promotion-queue/FI-2026-00421.md"
 cmp -s "$ROOT/seed/stage-known-failure-modes.md" \
   "$ROOT/engineering-side/component-knowledge/stage-controller/known-failure-modes.md"
-pass "resolution creates a proposal but does not auto-promote it"
+pass "resolution records the two-file guardrail and proposes it without auto-promotion"
 
 expect_fail "promotion is refused without a human approval record" \
   "$ROOT/scripts/promote-approved-knowledge.sh"
@@ -113,12 +125,21 @@ expect_fail "promotion is refused without a human approval record" \
 "$ROOT/scripts/promote-approved-knowledge.sh" >/dev/null
 grep -Fq 'Source case: `FI-2026-00421`' \
   "$ROOT/engineering-side/component-knowledge/stage-controller/known-failure-modes.md"
-pass "human-approved promotion is enforced and traceable to the source case"
+grep -Fq 'mock PR `#1847`' \
+  "$ROOT/engineering-side/component-knowledge/stage-controller/known-failure-modes.md"
+grep -Fq 'position and velocity' \
+  "$ROOT/engineering-side/component-knowledge/stage-controller/known-failure-modes.md"
+grep -Fq 'stage_not_stable' \
+  "$ROOT/engineering-side/component-knowledge/stage-controller/known-failure-modes.md"
+pass "human-approved guardrail promotion is enforced and traceable"
 
 "$ROOT/scripts/load-golden-stage.sh" reuse >/dev/null
 REUSE_BRIEF="$ROOT/engineering-side/future-cases/FI-2027-00987/agent-brief.md"
 grep -Fq 'FI-2026-00421' "$REUSE_BRIEF"
 grep -Fq 'approved component knowledge' "$REUSE_BRIEF"
+grep -Fq 'mock PR `#1847`' "$REUSE_BRIEF"
+grep -Fq 'stable position and velocity' "$REUSE_BRIEF"
+grep -Fq 'stage-settling diagnostic' "$REUSE_BRIEF"
 if grep -REqi \
   'LOT=|WAFER=|FAB=|TOOL=|tool-run-0421\.log|sensor-snapshot\.csv|recipe=ALIGN_FINE|settle_time_ms=|target=[0-9]' \
   "$ROOT/engineering-side"; then

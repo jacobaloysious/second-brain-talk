@@ -35,6 +35,7 @@ cp "$ROOT/seed/case-actions.md" "$ROOT/engineering-side/field-issues/FI-2026-004
 cp "$ROOT/seed/evidence.md" "$ROOT/engineering-side/field-issues/FI-2026-00421/evidence.md"
 cp "$ROOT/seed/resolution.md" "$ROOT/engineering-side/field-issues/FI-2026-00421/resolution.md"
 cp "$ROOT/seed/case-agent-context-bundle.md" "$ROOT/engineering-side/field-issues/FI-2026-00421/agent-context-bundle.md"
+cp "$ROOT/seed/software-change.md" "$ROOT/engineering-side/field-issues/FI-2026-00421/software-change.md"
 
 cp "$ROOT/seed/stage-known-failure-modes.md" "$ROOT/engineering-side/component-knowledge/stage-controller/known-failure-modes.md"
 cp "$ROOT/seed/vision-known-failure-modes.md" "$ROOT/engineering-side/component-knowledge/vision-alignment/known-failure-modes.md"

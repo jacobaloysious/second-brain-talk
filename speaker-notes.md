@@ -40,7 +40,7 @@ instruction and should not be read aloud.
 | 30:30–33:30 | 3:00 | Slide 10 — case history and shared knowledge | Right arrow |
 | 33:30–37:00 | 3:30 | Slide 11 — manager continuity | Right arrow |
 | 37:00–40:00 | 3:00 | Slide 12 — success signals | Right arrow |
-| 40:00–40:45 | 0:45 | Slide 13 — live-demo transition | Right arrow |
+| 40:00–40:45 | 0:45 | Slide 13 — guided decision lab | Right arrow |
 | 40:45–42:45 | 2:00 | Slide 14 — what to watch | Leave deck after this slide |
 | 42:45–56:45 | 14:00 | App — OnSite Fab + Fixer Agents | Handoff, diff, and pull request |
 | 56:45–61:45 | 5:00 | App — Manager Assistant | Guided chat classification |
@@ -51,7 +51,7 @@ instruction and should not be read aloud.
 ### Deck shortcuts — rehearsal only
 
 - `Home` — slide 1
-- `D` — slide 13, live-demo transition
+- `D` — slide 13, guided decision lab transition
 - `C` — slide 15, post-demo close
 - `Q` or `End` — slide 19, Q&A
 - `A` — slide 16, appendix
@@ -101,16 +101,18 @@ Before the room opens:
 3. Open the packet viewer and confirm the ZIP download works.
 4. Send the packet, then press `2` and confirm the Fixer Agent has one new
    issue.
-5. Advance to the proposed diff, switch both changed files, and create the mock
-   pull request.
-6. Press `3` for the Manager Assistant, `N` for presenter cues, and `F` for
-   browser full screen.
-7. Press `R` and return to the OnSite Fab Agent.
+5. Advance through the mock pull request. Confirm **Request owner review** shows
+   a pending state without promotion, then use the distinct Motion Controls
+   owner action and open the six-month cold start.
+6. Press `S` and confirm Stage view enlarges the conversation and hides the
+   composer, inspector, and presenter cues.
+7. Press `3` for the Manager Assistant and `F` for browser full screen.
+8. Press `R` and return to the OnSite Fab Agent.
 
-The simulation label is intentional. The app uses deterministic mock data and
-rehearsed responses. The three tabs represent three role scopes; they do not
-require three different foundation models. The scripts and test suites in the
-sibling workspaces remain the executable proof for technical Q&A.
+Use the same spoken disclosure on every route: the app is a deterministic
+replay backed by real local artifacts, validators, and tests; it does not
+change an external system. The three tabs represent three role scopes; they do
+not require three different foundation models.
 
 ### Technical-proof preflight — not audience-facing
 
@@ -548,7 +550,7 @@ component guidance.
 
 Notice that the loop is not “capture, summarize, store.”
 
-It is “capture, govern, decide.”
+It is “capture, govern, surface, decide.”
 
 A summary reduces the amount of text. A governed transformation changes what
 the organization can safely do next.
@@ -591,7 +593,7 @@ assumption.
 
 - Trace the diagram from left to centre to right.
 - Spend most of the time on the centre, “Govern.”
-- Emphasize “capture, govern, decide.”
+- Emphasize “capture, govern, surface, decide.”
 - [CLICK] to slide 7.
 
 ---
@@ -904,7 +906,7 @@ manager follow-through.
 
 ---
 
-## Slide 11 — Case #2: Continuity without surveillance
+## Slide 11 — Case #2: What deserves to become memory?
 
 **Target time:** 3 minutes 30 seconds
 
@@ -950,15 +952,14 @@ Remembering “I promised Priya a staffing review” is professional continuity.
 
 Inferring Priya's mood, personality, motivation, or performance is not.
 
-The live demo includes an intentionally speculative line. The system must reject
+The guided demo includes an intentionally speculative line. The system must reject
 it rather than creating a private people dossier.
 
 All outputs remain manager-private drafts. The manager reviews them before use,
 and nothing is sent automatically.
 
-Useful continuity should reduce forgotten commitments.
-
-It should not increase surveillance.
+Useful continuity should reduce forgotten commitments without creating a
+people dossier.
 
 For a real deployment, the privacy design must also be visible.
 
@@ -1066,13 +1067,17 @@ work without improving the decision, retire it rather than expanding it.
 
 ---
 
-## Slide 13 — LIVE DEMOS
+## Slide 13 — GUIDED DECISION LAB
 
 **Target time:** 45 seconds
 
 ### SAY
 
 We have the model. Now let us see whether the behavior holds up.
+
+This is a deterministic replay of the governed workflow. The downloadable
+packet, validators, tests, and boundaries are real; no external system is being
+changed.
 
 One engineering case in depth.
 
@@ -1081,8 +1086,8 @@ One short manager case for breadth.
 The first demo is the main proof: a field issue moves through clarification,
 validation, diagnosis, human approval, and later reuse.
 
-The second is shorter: one manager note becomes useful follow-through without
-turning into surveillance.
+The second is shorter: one manager note becomes useful follow-through while
+speculative people judgments are deliberately rejected.
 
 ### STAGE CUES
 
@@ -1139,10 +1144,10 @@ what result do we see;
 
 what does that result mean?
 
-The browser experience uses three familiar chat workspaces with deterministic
-mock data. Watch how context moves between roles, where a human gate appears,
-and what is deliberately not carried forward. The executable validators and
-tests remain in the repository for technical Q&A.
+The browser experience uses three familiar role-scoped workspaces. Watch how
+context moves between roles, where a human gate appears, and what is
+deliberately not carried forward. The executable validators and tests remain
+available for technical Q&A.
 
 ### STAGE CUES
 
@@ -1162,11 +1167,10 @@ and human decision ownership.
 
 ### PRESENTER ACTION
 
-Switch to the presenter app. Confirm the top label says:
-
-> Guided demo · deterministic responses · no live AI
-
-Press `R`.
+Switch to the presenter app, press `S` to enter Stage view, then press `R`. Do
+not look for, or imply the
+existence of, a live-AI status banner; the disclosure has already been made on
+Slide 13 and spoken aloud.
 
 ### SAY
 
@@ -1431,7 +1435,7 @@ Leave only **Promote the diagnostic + software guardrail** selected. Click
 
 The agent creates a promotion proposal with source and limitations.
 
-But Engineer still cannot rewrite shared component guidance by herself.
+But Engineer still cannot rewrite shared component guidance directly.
 
 ### PRESENTER ACTION
 
@@ -1446,14 +1450,32 @@ boundary. This one governs what may influence future engineers.
 
 ### PRESENTER ACTION
 
-Click **Request owner approval**.
+Click **Request owner review**.
 
 ### SAY
 
-Only the software guardrail and narrow diagnostic are promoted.
+The request has been sent, but shared guidance is unchanged. The component
+owner receives the source case, code reference, proposed scope, and explicit
+limitations. Requesting review is not the approval decision.
 
-A future engineer can see both the merged code change and a better first
-experiment—not this case's physical cause or old action list.
+### PRESENTER ACTION
+
+Click **Motion Controls owner: approve**.
+
+### SAY
+
+Now a named component owner has made the separate decision. Only the software
+guardrail and narrow diagnostic are promoted.
+
+### PRESENTER ACTION
+
+Click **Six months later: open cold start**.
+
+### SAY
+
+A new engineer receives the approved diagnostic, its source, its limitation,
+and a justified next action—not this case's physical cause or old action list.
+The system explicitly refuses to assume another damaged damper.
 
 That is the difference between accumulating incidents and building trusted
 engineering memory.
@@ -1552,11 +1574,8 @@ prompts, terminals, or a file tree.
 
 ### PRESENTER ACTION
 
-Switch to the presenter app. Confirm the top label says:
-
-> Deterministic workflow simulation · no live AI · no data leaves this browser
-
-Press `1`, then `R`.
+Switch to the presenter app, press `1`, then `R`. Use the Slide 13 spoken
+disclosure; do not depend on an in-app simulation banner.
 
 ## Case #1, Scene 1 — Diagnose before AI
 
@@ -1842,7 +1861,7 @@ and what deserves reuse.
 
 ---
 
-# Legacy Presenter App — Case #2: Manager continuity without surveillance
+# Legacy Presenter App — Case #2: What deserves to become memory?
 
 **Target time:** 4–6 minutes
 
@@ -1906,7 +1925,7 @@ become memory.
 - Point to the three destinations: Remember, Keep uncertain, Reject.
 - Right arrow moves to Scene 2.
 
-## Case #2, Scene 2 — Prove continuity without surveillance
+## Case #2, Scene 2 — Prove useful continuity with clear boundaries
 
 **Target time:** 2 minutes 30 seconds
 
@@ -1938,7 +1957,7 @@ that Thursday is not confirmed.
 Nothing was sent. Every surface is a manager-private draft requiring human
 review.
 
-What proves this is continuity rather than surveillance?
+What proves this is useful continuity with clear boundaries?
 
 ### PRESENTER ACTION
 
@@ -2461,7 +2480,7 @@ And that memory must earn its keep by helping the next engineer.
 
 ---
 
-# Live Demo 2 — Manager continuity without surveillance
+# Live Demo 2 — What deserves to become memory?
 
 **Target time:** 6 minutes
 

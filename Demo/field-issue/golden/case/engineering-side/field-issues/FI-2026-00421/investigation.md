@@ -39,6 +39,11 @@ Expected distinction:
 - If settling normalizes but alignment still fails, investigate the
   stage-to-vision interaction before changing vision configuration.
 
+In parallel, Engineer will inspect the stage-settle gate and its regression
+tests for any path that can report settled without stable velocity or a
+consecutive stability window. Any finding remains `needs_review` until code and
+simulator evidence support it.
+
 ## Missing Evidence
 
 - Reviewed stage maintenance and mechanical inspection result.
@@ -51,4 +56,5 @@ Expected distinction:
 | --- | --- | --- | --- |
 | Planned | Approved stage-settling diagnostic | Engineer + Field Engineer | Select stage path or retain cross-subsystem hypothesis |
 | Planned | Controlled mechanical inspection | Field Engineer | Confirm or reject a physical stage cause |
+| Planned | Stage-settle gate review and simulator reproduction | Engineer | Confirm or reject a software guard weakness |
 | Planned | Consecutive validation runs | Engineer reviews returned result | Verify recovery and close or continue |

@@ -44,8 +44,8 @@ portable/[Demo]Second Brain Presenter.html
 ```
 
 That file contains the app, styling, and mock data in one HTML document. It can
-be opened directly without starting a server and is the recommended emergency
-fallback for presentation day.
+be opened directly without starting a server and is the recommended primary
+stage artifact. Keep the local-server build as the secondary fallback.
 
 ## Presenter controls
 
@@ -53,12 +53,16 @@ fallback for presentation day.
 - `2` — Fixer Agent
 - `3` — Manager Assistant
 - `N` — toggle the current presenter cue
+- `S` — toggle projection-safe Stage view
 - `F` — browser fullscreen
 - `R` — reset the whole guided demo
 
-The primary on-stage controls are the suggested action buttons in each chat.
-The text composer is also functional, but it is intentionally deterministic
-rather than a live general-purpose assistant.
+Enter Stage view before presenting. It enlarges the decision content, hides the
+composer, context inspector, and presenter cues, and replaces the full diff
+with a projection-safe summary. The primary on-stage controls are the suggested
+action buttons in each chat. The text composer remains available outside Stage
+view, but it is intentionally deterministic rather than a live general-purpose
+assistant.
 
 ## Handoff bundle
 
@@ -92,13 +96,19 @@ hybrid resolution is intentionally honest:
 The pull request is deterministic demo data. The app does not call GitHub or
 modify a remote repository.
 
+Knowledge promotion uses a separate request and decision: requesting Motion
+Controls review leaves shared guidance unchanged; the named owner approval is a
+distinct action. The final cold-start scene opens a new case six months later
+and retrieves only the approved diagnostic, source, scope, and limitations.
+
 ## What the browser experience proves
 
-The app is intentionally labelled a guided deterministic simulation. The
-three tabs demonstrate role-scoped context, human gates, and handoffs without
-requiring a terminal or a sequence of prompts. The executable shell scripts
-and test suites in the sibling demo workspaces remain the technical proof for
-packet admission, checksum binding, reset behavior, and human promotion gates.
+The app is explicitly labelled a deterministic replay backed by real local
+artifacts and tests; it does not change an external system. The three tabs
+demonstrate role-scoped context, human gates, and handoffs without requiring a
+terminal or a sequence of prompts. The executable shell scripts and test suites
+in the sibling demo workspaces remain the technical proof for packet admission,
+checksum binding, reset behavior, and human promotion gates.
 
 The app never reads the restricted raw-log directory. Audience-visible field
 data comes from the sanitized evidence board and reviewed golden snapshots.

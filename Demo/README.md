@@ -6,8 +6,9 @@ The talk uses one deep engineering demo and one short manager case.
 
 Path: `presenter-app/`
 
-A local, deterministic chat experience for presenting both cases without
-running terminal commands in front of the audience.
+A local, deterministic replay for presenting both cases without running
+terminal commands in front of the audience. Its header explicitly distinguishes
+the replay from the real local artifacts and tests that back it.
 
 ```bash
 cd presenter-app
@@ -24,8 +25,10 @@ tabs:
 Each tab has a different context boundary and human decision owner. The
 OnSite chat can generate a real sanitized ZIP, the Fixer chat carries the case
 through diagnosis, a visible code diff, a mock pull request, verification, and
-governed knowledge promotion, and the Manager chat demonstrates continuity
-without surveillance. The app is the
+governed knowledge promotion, then proves scoped reuse in a six-month cold
+start. A review request and the Motion Controls approval are separate visible
+actions. The Manager chat demonstrates useful continuity with clear boundaries.
+Press `S` for projection-safe Stage view. The app is the
 conference-facing story; the two workspaces below remain the executable
 evidence and recovery source.
 

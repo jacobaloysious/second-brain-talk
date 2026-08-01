@@ -191,8 +191,8 @@ Then name the current decision and continue.
   diagnosis.
 - **LEAK 2:** Post-stand-up note—risk, conditional timing, promise, speculative
   judgment.
-- **BRIDGE:** “Both leaks need the same transformation: capture, govern, then
-  surface.”
+- **BRIDGE:** “Both leaks need the same transformation: capture, govern,
+  surface, then decide.”
 
 ### Layer 2 — expand or recover
 
@@ -219,7 +219,7 @@ Then name the current decision and continue.
 - **CAPTURE:** Preserve facts, provenance, uncertainty, and open questions.
 - **GOVERN:** Apply boundaries, validation, review, correction, and expiry.
 - **SURFACE:** Provide the smallest useful context for the next decision.
-- **REFRAIN:** Capture → Govern → Surface.
+- **REFRAIN:** Capture → Govern → Surface → Decide.
 - **BRIDGE:** “That transformation can be assisted by agents, but responsibility
   must stay named.”
 
@@ -228,7 +228,7 @@ Then name the current decision and continue.
 - Capture without governance produces a larger pile.
 - Governance without a useful surface produces compliant archives nobody uses.
 - Surface without provenance produces persuasive but unsafe answers.
-- Ask the room to say or remember the three verbs with you.
+- Ask the room to say or remember the four verbs with you.
 - Optional expansion: run one field observation through all three stages.
 
 ---
@@ -338,7 +338,7 @@ Then name the current decision and continue.
 
 ---
 
-## Slide 11 — Case #2: Continuity without surveillance
+## Slide 11 — Case #2: What deserves to become memory?
 
 **Time:** 3:30  
 **Memory word:** PRIVACY
@@ -388,9 +388,9 @@ Then name the current decision and continue.
 
 ---
 
-# Part 4 — Live proof
+# Part 4 — Guided decision lab
 
-## Slide 13 — LIVE DEMOS
+## Slide 13 — GUIDED DECISION LAB
 
 **Time:** 0:45  
 **Memory word:** WATCH
@@ -398,8 +398,10 @@ Then name the current decision and continue.
 ### Layer 1 — glanceable cue
 
 - **POINT:** One engineering case in depth; one manager case for breadth.
+- **DISCLOSE:** “This is a deterministic replay. The local artifacts,
+  validators, tests, and boundaries are real; no external system is changed.”
 - **FIELD:** Clarification → validation → diagnosis → approval → reuse.
-- **MANAGER:** Useful follow-through without surveillance.
+- **MANAGER:** Useful follow-through with clear boundaries.
 - **BRIDGE:** “Before we switch, here are the decisions I want you to watch.”
 
 ### Layer 2 — expand or recover
@@ -424,12 +426,12 @@ Then name the current decision and continue.
 
 ### Layer 2 — expand or recover
 
-- The app is a deterministic workflow simulation, not live AI.
+- The app is a deterministic replay, not live AI.
 - The executable validators and tests remain available for technical Q&A.
 - Ask the audience to watch decisions and guardrails rather than prompts,
   commands, or files.
-- Leave the deck and switch to the presenter app. Confirm the guided-demo label,
-  then press `R`.
+- Leave the deck, switch to the presenter app, and press `R`. Do not depend on
+  an in-app simulation banner.
 
 ---
 
@@ -443,6 +445,7 @@ Then name the current decision and continue.
 - **ONSITE AGENT:** Restricted evidence.
 - **FIXER AGENT:** Reviewed packet, code, tests, approved guidance.
 - **MANAGER ASSISTANT:** Only the manager's supplied note.
+- **ACTION:** Press `S` for Stage view, then `R`.
 - **BRIDGE:** “The first interaction begins before anyone writes a prompt.”
 
 ### Layer 2 — expand or recover
@@ -501,7 +504,10 @@ Then name the current decision and continue.
    verifies.
 6. **SELECT:** Promote only the narrow diagnostic rule.
 7. **REFUSE:** Try **Promote now**; missing owner approval must reject.
-8. **APPROVE:** Request owner approval; record approved promotion.
+8. **REQUEST:** Request owner review; shared guidance must remain unchanged.
+9. **APPROVE:** Click the distinct Motion Controls owner approval action.
+10. **REUSE:** Open the six-month cold start and inspect source, limitation,
+    next action, and explicit non-assumption.
 - **POINT:** The agent prepares; named humans diagnose, intervene, verify, and
   approve reuse.
 - **BRIDGE:** “A future engineer inherits a better first experiment, not this
@@ -519,6 +525,7 @@ Then name the current decision and continue.
   - onsite engineer owns physical intervention;
   - component owner owns reusable-knowledge approval.
 - Pause on the second refusal: promotion is a different human gate from transfer.
+- Pause on the pending state: a review request is not an approval record.
 - Narrow learning: run the stage-settling diagnostic before changing vision
   configuration when the approved symptom pattern appears.
 - If early: ask whether the cause, action list, or diagnostic deserves promotion.
@@ -533,6 +540,7 @@ Then name the current decision and continue.
 
 ### Layer 1 — glanceable cue
 
+- **ACTION:** Click **Six months later: open cold start**.
 - **POINT:** The new engineer gets approved guidance, provenance, scope, and
   limitations—not the old incident.
 - **CARRY:** Diagnostic path and source.

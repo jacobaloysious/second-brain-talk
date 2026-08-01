@@ -27,7 +27,11 @@ import {
   PACKET_VERSION,
   pullRequest,
 } from "./data";
-import type { AgentKey, KnowledgeChoice } from "./types";
+import type {
+  AgentKey,
+  KnowledgeChoice,
+  OwnerApprovalStatus,
+} from "./types";
 import { createPacketZip } from "./zip";
 
 type StepState = Record<AgentKey, number>;
@@ -64,11 +68,15 @@ export default function App() {
   const [knowledgeBlocked, setKnowledgeBlocked] = useState(false);
   const [promotionBlocked, setPromotionBlocked] = useState(false);
   const [knowledgePromoted, setKnowledgePromoted] = useState(false);
+  const [ownerApprovalStatus, setOwnerApprovalStatus] =
+    useState<OwnerApprovalStatus>("not-requested");
+  const [futureCaseOpen, setFutureCaseOpen] = useState(false);
   const [selectedKnowledge, setSelectedKnowledge] = useState<
     Set<KnowledgeChoice["id"]>
   >(new Set(["diagnostic"]));
-  const [showCue, setShowCue] = useState(true);
+  const [showCue, setShowCue] = useState(false);
   const [showInspector, setShowInspector] = useState(false);
+  const [stageMode, setStageMode] = useState(false);
   const [workingPhase, setWorkingPhase] = useState<number | null>(null);
   const workingRef = useRef(false);
   const workingTimersRef = useRef<number[]>([]);
@@ -86,25 +94,27 @@ export default function App() {
     workingRef.current = true;
     setWorkingPhase(0);
     workingTimersRef.current = [
-      window.setTimeout(() => setWorkingPhase(1), 1000),
-      window.setTimeout(() => setWorkingPhase(2), 2000),
+      window.setTimeout(() => setWorkingPhase(1), 800),
+      window.setTimeout(() => setWorkingPhase(2), 1600),
       window.setTimeout(() => {
         action();
         workingRef.current = false;
         setWorkingPhase(null);
         workingTimersRef.current = [];
-      }, 3000),
+      }, 2400),
     ];
   }, []);
 
   const setAgentStep = useCallback(
-    (key: AgentKey, value: number) => {
-      runAgentAction(() => applyAgentStep(key, value));
+    (key: AgentKey, value: number, showWorking = false) => {
+      if (showWorking) runAgentAction(() => applyAgentStep(key, value));
+      else applyAgentStep(key, value);
     },
     [applyAgentStep, runAgentAction],
   );
 
   const selectAgent = useCallback((key: AgentKey) => {
+    if (workingRef.current) return;
     setActiveAgent(key);
     setComposerValue("");
   }, []);
@@ -129,24 +139,41 @@ export default function App() {
   }, []);
 
   const sendPacket = useCallback(() => {
-    runAgentAction(() => {
-      setPacketSent(true);
-      applyAgentStep("onsite", 6);
-    });
-  }, [applyAgentStep, runAgentAction]);
+    setPacketSent(true);
+    applyAgentStep("onsite", 6);
+  }, [applyAgentStep]);
 
   const validateKnowledgeSelection = useCallback(() => {
-    runAgentAction(() => {
-      const valid =
-        selectedKnowledge.size === 1 && selectedKnowledge.has("diagnostic");
-      if (!valid) {
-        setKnowledgeBlocked(true);
-        return;
+    const valid =
+      selectedKnowledge.size === 1 && selectedKnowledge.has("diagnostic");
+    if (!valid) {
+      setKnowledgeBlocked(true);
+      return;
+    }
+    setKnowledgeBlocked(false);
+    applyAgentStep("fixer", 7);
+  }, [applyAgentStep, selectedKnowledge]);
+
+  const requestOwnerApproval = useCallback(() => {
+    setOwnerApprovalStatus("pending");
+  }, []);
+
+  const recordOwnerApproval = useCallback(() => {
+    setOwnerApprovalStatus("approved");
+    setKnowledgePromoted(true);
+    applyAgentStep("fixer", 8);
+  }, [applyAgentStep]);
+
+  const toggleStageMode = useCallback(() => {
+    setStageMode((current) => {
+      const next = !current;
+      if (next) {
+        setShowInspector(false);
+        setShowCue(false);
       }
-      setKnowledgeBlocked(false);
-      applyAgentStep("fixer", 7);
+      return next;
     });
-  }, [applyAgentStep, runAgentAction, selectedKnowledge]);
+  }, []);
 
   const toggleKnowledge = useCallback((id: KnowledgeChoice["id"]) => {
     setSelectedKnowledge((current) => {
@@ -170,38 +197,39 @@ export default function App() {
 
       if (activeAgent === "onsite") {
         if (step === 3 && /\b(send|export|transfer)\b/i.test(text)) {
-          runAgentAction(() => setUnsafeExportTried(true));
+          setUnsafeExportTried(true);
           return;
         }
-        if (step < 5) setAgentStep("onsite", step + 1);
+        if (step < 5) setAgentStep("onsite", step + 1, step === 2);
         else if (step === 5) sendPacket();
         return;
       }
 
       if (activeAgent === "fixer") {
         if (!packetSent) return;
-        if (step < 6) setAgentStep("fixer", step + 1);
+        if (step < 6) setAgentStep("fixer", step + 1, step === 2);
         else if (step === 6) validateKnowledgeSelection();
         else if (step === 7) {
-          if (/\b(approve|owner|review)\b/i.test(text)) {
-            runAgentAction(() => {
-              applyAgentStep("fixer", 8);
-              setKnowledgePromoted(true);
-            });
-          } else {
-            runAgentAction(() => setPromotionBlocked(true));
-          }
+          if (
+            ownerApprovalStatus === "pending" &&
+            /\b(approve|accept|record|decision)\b/i.test(text)
+          )
+            recordOwnerApproval();
+          else if (/\b(owner|request|review)\b/i.test(text))
+            requestOwnerApproval();
+          else setPromotionBlocked(true);
         }
         return;
       }
 
-      if (step < 3) setAgentStep("manager", step + 1);
+      if (step < 3) setAgentStep("manager", step + 1, step === 0);
     },
     [
       activeAgent,
-      applyAgentStep,
+      ownerApprovalStatus,
       packetSent,
-      runAgentAction,
+      recordOwnerApproval,
+      requestOwnerApproval,
       sendPacket,
       setAgentStep,
       step,
@@ -237,6 +265,8 @@ export default function App() {
     setKnowledgeBlocked(false);
     setPromotionBlocked(false);
     setKnowledgePromoted(false);
+    setOwnerApprovalStatus("not-requested");
+    setFutureCaseOpen(false);
     setSelectedKnowledge(new Set(["diagnostic"]));
   }, []);
 
@@ -264,11 +294,15 @@ export default function App() {
   }, [
     activeAgent,
     downloaded,
+    futureCaseOpen,
     knowledgeBlocked,
+    ownerApprovalStatus,
     packetSent,
     promotionBlocked,
     step,
     unsafeExportTried,
+    workingPhase,
+    stageMode,
   ]);
 
   useEffect(() => {
@@ -290,6 +324,7 @@ export default function App() {
       else if (event.key.toLowerCase() === "r") resetAll();
       else if (event.key.toLowerCase() === "f") void toggleFullscreen();
       else if (event.key.toLowerCase() === "n") setShowCue((value) => !value);
+      else if (event.key.toLowerCase() === "s") toggleStageMode();
       else if (event.key === "Escape") {
         setPacketModalOpen(false);
         setPullRequestModalOpen(false);
@@ -297,7 +332,7 @@ export default function App() {
     };
     window.addEventListener("keydown", onKeyDown);
     return () => window.removeEventListener("keydown", onKeyDown);
-  }, [resetAll, selectAgent, toggleFullscreen]);
+  }, [resetAll, selectAgent, toggleFullscreen, toggleStageMode]);
 
   const renderOnsiteConversation = () => (
     <>
@@ -689,7 +724,7 @@ export default function App() {
                 title={pullRequest.title}
                 tone="green"
               >
-                <div className="mini-diff">
+                <div className="mini-diff standard-detail">
                   <div className="mini-remove">
                     − settle on one in-position sample
                   </div>
@@ -701,6 +736,16 @@ export default function App() {
                   </div>
                   <div className="mini-add">
                     + return an actionable stage diagnostic
+                  </div>
+                </div>
+                <div className="stage-only stage-diff-summary">
+                  <div>
+                    <span>Before</span>
+                    <strong>One position sample could start alignment</strong>
+                  </div>
+                  <div>
+                    <span>After</span>
+                    <strong>Position + velocity must stay stable</strong>
                   </div>
                 </div>
                 <div className="proposal-meta">
@@ -786,7 +831,7 @@ export default function App() {
                 title="Hardware recovered · software guard active"
                 tone="green"
               >
-                <div className="verification-grid">
+                <div className="verification-grid standard-detail">
                   <div>
                     <span>Pull request</span>
                     <strong>#{pullRequest.number} merged</strong>
@@ -799,6 +844,10 @@ export default function App() {
                     <span>Verification</span>
                     <strong>5 runs passed</strong>
                   </div>
+                </div>
+                <div className="stage-only stage-result-summary">
+                  <strong>PR merged · damper restored · 5/5 runs passed</strong>
+                  <span>The case is closed. Reuse still needs a new decision.</span>
                 </div>
               </DetailCard>
               <p>
@@ -895,18 +944,32 @@ export default function App() {
           </ChatBubble>
         ) : null}
 
-        {step >= 8 ? (
+        {ownerApprovalStatus === "pending" ? (
           <>
             <ChatBubble role="user" author="Engineer">
-              {replyFor(
-                "fixer",
-                7,
-                "Request and record Motion Controls approval.",
-              )}
+              Request Motion Controls owner review. Do not update shared
+              guidance yet.
             </ChatBubble>
-            <ChatBubble role="agent" author="Motion Controls review">
-              The code reference, diagnostic scope, source trail, and limitations
-              are acceptable. I approve this reusable guidance.
+            <ChatBubble
+              role="system"
+              author="Approval workflow"
+              tone="warning"
+              label="Owner decision pending"
+            >
+              <strong>Shared component guidance is unchanged.</strong>
+              <span className="message-secondary">
+                Motion Controls received the source case, PR reference, proposed
+                scope, and explicit no-default-cause limitation.
+              </span>
+            </ChatBubble>
+          </>
+        ) : null}
+
+        {step >= 8 ? (
+          <>
+            <ChatBubble role="user" author="Motion Controls owner">
+              I reviewed the code reference, diagnostic scope, source trail, and
+              limitations. I approve this reusable guidance.
               <span className="approval-signature">
                 Named human decision · Motion Controls
               </span>
@@ -924,6 +987,69 @@ export default function App() {
             <ChatBubble role="agent" author={agents.fixer.name}>
               A future engineer will see the code safeguard and a better first
               diagnostic—not this case's conclusion.
+            </ChatBubble>
+          </>
+        ) : null}
+
+        {futureCaseOpen ? (
+          <>
+            <ChatBubble
+              role="system"
+              author="Demo timeline"
+              tone="alert"
+              label="Six months later · cold start"
+            >
+              A new engineer opens a similar post-X-axis alignment failure. No
+              engineer from the original case is available.
+            </ChatBubble>
+            <ChatBubble role="agent" author={agents.fixer.name}>
+              <DetailCard
+                eyebrow="Six months later · scoped retrieval · approved guidance"
+                title="Start with the stage-settling diagnostic"
+                tone="green"
+              >
+                <div className="cold-start-grid">
+                  <div>
+                    <span>Retrieved guidance</span>
+                    <strong>
+                      Require stable position and velocity for the configured
+                      window before alignment.
+                    </strong>
+                  </div>
+                  <div>
+                    <span>Source</span>
+                    <strong>
+                      {CASE_ID} · PR #{pullRequest.number} · Motion Controls
+                      approval
+                    </strong>
+                  </div>
+                  <div>
+                    <span>Limitation</span>
+                    <strong>
+                      Use only for the approved settling symptom pattern; this
+                      guidance does not establish a mechanical cause.
+                    </strong>
+                  </div>
+                  <div>
+                    <span>Next action</span>
+                    <strong>
+                      Run the stage-settling diagnostic. If motion normalizes but
+                      alignment still fails, inspect stage-to-vision interaction.
+                    </strong>
+                  </div>
+                  <div className="cold-start-non-assumption">
+                    <span>Explicit non-assumption</span>
+                    <strong>
+                      Do not assume a damaged damper or repeat the old case's
+                      service actions.
+                    </strong>
+                  </div>
+                </div>
+              </DetailCard>
+              <p>
+                The second brain shortens reconstruction without preselecting the
+                diagnosis.
+              </p>
             </ChatBubble>
           </>
         ) : null}
@@ -1097,7 +1223,7 @@ export default function App() {
       }
       if (step === 2) {
         return (
-          <ActionButton onClick={() => setAgentStep("onsite", 3)}>
+          <ActionButton onClick={() => setAgentStep("onsite", 3, true)}>
             Create sanitized draft
           </ActionButton>
         );
@@ -1107,9 +1233,7 @@ export default function App() {
           <>
             <ActionButton
               variant="danger"
-              onClick={() =>
-                runAgentAction(() => setUnsafeExportTried(true))
-              }
+              onClick={() => setUnsafeExportTried(true)}
             >
               Send now
             </ActionButton>
@@ -1176,7 +1300,7 @@ export default function App() {
       }
       if (step === 2) {
         return (
-          <ActionButton onClick={() => setAgentStep("fixer", 3)}>
+          <ActionButton onClick={() => setAgentStep("fixer", 3, true)}>
             Run diagnostic + inspect code
           </ActionButton>
         );
@@ -1184,12 +1308,10 @@ export default function App() {
       if (step === 3) {
         return (
           <ActionButton
-            onClick={() =>
-              runAgentAction(() => {
-                applyAgentStep("fixer", 4);
-                setPullRequestModalOpen(true);
-              })
-            }
+            onClick={() => {
+              applyAgentStep("fixer", 4);
+              if (!stageMode) setPullRequestModalOpen(true);
+            }}
           >
             Review proposed diff
           </ActionButton>
@@ -1198,12 +1320,14 @@ export default function App() {
       if (step === 4) {
         return (
           <>
-            <ActionButton
-              variant="secondary"
-              onClick={() => setPullRequestModalOpen(true)}
-            >
-              Open full diff
-            </ActionButton>
+            {!stageMode ? (
+              <ActionButton
+                variant="secondary"
+                onClick={() => setPullRequestModalOpen(true)}
+              >
+                Open full diff
+              </ActionButton>
+            ) : null}
             <ActionButton onClick={() => setAgentStep("fixer", 5)}>
               Create pull request
             </ActionButton>
@@ -1213,12 +1337,14 @@ export default function App() {
       if (step === 5) {
         return (
           <>
-            <ActionButton
-              variant="secondary"
-              onClick={() => setPullRequestModalOpen(true)}
-            >
-              View pull request
-            </ActionButton>
+            {!stageMode ? (
+              <ActionButton
+                variant="secondary"
+                onClick={() => setPullRequestModalOpen(true)}
+              >
+                View pull request
+              </ActionButton>
+            ) : null}
             <ActionButton onClick={() => setAgentStep("fixer", 6)}>
               Simulate review + deploy + verify
             </ActionButton>
@@ -1233,27 +1359,32 @@ export default function App() {
         );
       }
       if (step === 7) {
+        if (ownerApprovalStatus === "pending") {
+          return (
+            <ActionButton onClick={recordOwnerApproval}>
+              Motion Controls owner: approve
+            </ActionButton>
+          );
+        }
         return (
           <>
             <ActionButton
               variant="danger"
-              onClick={() =>
-                runAgentAction(() => setPromotionBlocked(true))
-              }
+              onClick={() => setPromotionBlocked(true)}
             >
               Promote now
             </ActionButton>
-            <ActionButton
-              onClick={() =>
-                runAgentAction(() => {
-                  applyAgentStep("fixer", 8);
-                  setKnowledgePromoted(true);
-                })
-              }
-            >
-              Request owner approval
+            <ActionButton onClick={requestOwnerApproval}>
+              Request owner review
             </ActionButton>
           </>
+        );
+      }
+      if (!futureCaseOpen) {
+        return (
+          <ActionButton onClick={() => setFutureCaseOpen(true)}>
+            Six months later: open cold start
+          </ActionButton>
         );
       }
       return (
@@ -1265,7 +1396,7 @@ export default function App() {
 
     if (step === 0) {
       return (
-        <ActionButton onClick={() => setAgentStep("manager", 1)}>
+        <ActionButton onClick={() => setAgentStep("manager", 1, true)}>
           Process the note
         </ActionButton>
       );
@@ -1292,7 +1423,11 @@ export default function App() {
   };
 
   return (
-    <div className={`app-shell${workingPhase !== null ? " is-working" : ""}`}>
+    <div
+      className={`app-shell${workingPhase !== null ? " is-working" : ""}${
+        stageMode ? " stage-mode" : ""
+      }`}
+    >
       <header className="product-header">
         <div className="brand-lockup">
           <span className="brand-mark" aria-hidden="true" />
@@ -1301,20 +1436,38 @@ export default function App() {
             <span>Agent workspace</span>
           </div>
         </div>
+        <div className="demo-mode" role="note">
+          <span className="demo-dot" aria-hidden="true" />
+          Deterministic replay · real local artifacts + tests · no external
+          system changes
+        </div>
         <div className="header-actions">
           <button
             type="button"
+            className="secondary-control"
             onClick={() => setShowInspector((value) => !value)}
           >
             {showInspector ? "Hide context" : "Show context"}
           </button>
-          <button type="button" onClick={() => setShowCue((value) => !value)}>
+          <button
+            type="button"
+            className="secondary-control"
+            onClick={() => setShowCue((value) => !value)}
+          >
             {showCue ? "Hide cue" : "Show cue"}
+          </button>
+          <button
+            type="button"
+            className="stage-mode-toggle"
+            aria-pressed={stageMode}
+            onClick={toggleStageMode}
+          >
+            {stageMode ? "Exit stage view" : "Stage view"}
           </button>
           <button type="button" onClick={() => void toggleFullscreen()}>
             Fullscreen
           </button>
-          <button type="button" onClick={resetAll}>
+          <button type="button" className="secondary-control" onClick={resetAll}>
             Reset
           </button>
         </div>

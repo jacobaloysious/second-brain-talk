@@ -10,7 +10,12 @@ Human-confirmed result for demo use:
   physical-service procedure.
 - Engineer reviewed the returned sanitized results and confirmed that settle time
   returned below the approved threshold.
+- Engineer's code review and motion-simulator regression confirmed that the
+  stage-settle gate needed stable position and velocity for a consecutive
+  sample window before alignment could start. The reviewed guard was deployed
+  before final validation.
 - Five consecutive validation runs completed without `ALIGN-274` or `STAGE-119`.
-- The component owner considers the stage-vibration diagnostic reusable, pending formal knowledge review.
+- The component owner considers the software guardrail and stage-vibration
+  diagnostic reusable, pending formal knowledge review.
 
 This file simulates evidence already reviewed by the engineer. It is not raw fab data.

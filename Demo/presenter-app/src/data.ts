@@ -74,7 +74,7 @@ export const agents: Record<AgentKey, AgentDefinition> = {
       "Supported project context",
     ],
     cannotSee: [
-      "Employee surveillance",
+      "Unrequested employee monitoring",
       "Private-message scraping",
       "Speculative people judgments",
     ],
@@ -88,53 +88,78 @@ export const agents: Record<AgentKey, AgentDefinition> = {
 export const agentOrder: AgentKey[] = ["onsite", "fixer", "manager"];
 
 const debugPacket = `---
-case_id: ${CASE_ID}
 packet_id: ${PACKET_ID}
+case_id: ${CASE_ID}
 review_status: approved
 reviewed_by: "Onsite Field Engineer"
 reviewed_at: "2026-07-18T10:15:00Z"
 transfer_approved: true
 classification: sanitized
-assigned_engineer: Engineer
 ---
 
-# Sanitized field-issue packet
+# Reviewed Sanitized Debug Packet
 
-## Reported symptom
+## Sanitized Summary
 
-Fine alignment fails after X-axis movement.
+Fine alignment failed repeatedly after an X-axis move. Stage settling was outside
+the configured limit while the vision-confidence indication remained acceptable.
+An alignment error repeated and a stage-settle timeout was also observed.
 
-## Supported relative sequence
+## Relative Event Timeline
 
-- X-axis movement occurs before the failure.
-- Prolonged settling precedes the alignment error.
-- Vision confidence appears acceptable.
-- A retry does not recover.
-- A stage-settle timeout occurs later in the sequence.
+1. Fine alignment began.
+2. An X-axis move completed, followed by prolonged settling.
+3. Vision detected the fiducial with acceptable confidence.
+4. Alignment exceeded its permitted deviation.
+5. Retry reproduced the same sequence.
+6. A later attempt reproduced the alignment error and added a stage-settle timeout.
+7. The operator stopped the run.
 
-## Field clarification
+## Observed Patterns
 
-The onsite field engineer confirmed that vibration continues through the
-measurement window.
+- Failure follows X-axis movement.
+- Prolonged settling appears before each failed alignment.
+- Retrying does not recover.
+- Vision confidence remains acceptable during the observed failures.
+- The onsite approved observation confirmed motion through the measurement window.
 
-## Working hypothesis
+## Subsystem Hypotheses
 
-The stage-settling path is suspicious at moderate confidence. A mechanical
-cause is not established.
+1. **Stage settling instability — primary, moderate-to-high confidence.**
+   Repeated event order and onsite clarification support an X-axis motion or
+   settling path.
+2. **Stage-to-vision interaction — secondary, low confidence.**
+   An acceptable vision score does not eliminate motion during measurement.
 
-## Missing evidence
+These are hypotheses, not verified causes.
 
-- Maintenance history remains unresolved.
-- The physical cause remains unknown.
+## Confidence
 
-## Recommended next experiment
+Moderate to high for the stage-settling path; low for a vision-only cause.
+The mechanical cause and maintenance correlation remain unverified.
 
-Run the approved stage-settling diagnostic with the onsite field engineer.
+## Missing Evidence
 
-## Boundary record
+- Recent stage maintenance or mechanical-change history.
+- Result of the approved stage-settling diagnostic selected by offsite engineering.
+- Post-intervention verification against an agreed run count.
 
-Raw log lines, timestamps, customer and fab identifiers, tool identifiers,
-filenames, and exact machine values were not transferred.
+## Redactions Applied
+
+- Customer, fab, tool, lot, and wafer identifiers withheld.
+- Absolute event timestamps and exact machine values generalized.
+- Raw filenames and raw evidence lines omitted.
+
+## Field Clarification
+
+The onsite field engineer used the approved longer local observation and
+confirmed that X-axis vibration continued through the fine-alignment measurement
+window. Maintenance history remains to be reviewed.
+
+## Review Record
+
+The onsite field engineer reviewed the wording, confirmed that the summary
+matches the local observation, and approved this sanitized packet for transfer.
 `;
 
 const manifest = `{

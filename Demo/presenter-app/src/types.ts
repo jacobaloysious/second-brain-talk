@@ -4,6 +4,8 @@ export type AgentKey = "onsite" | "fixer" | "manager";
 
 export type MessageRole = "agent" | "user" | "system";
 
+export type OwnerApprovalStatus = "not-requested" | "pending" | "approved";
+
 export type MessageTone =
   | "default"
   | "alert"

@@ -1,6 +1,8 @@
 import assert from "node:assert/strict";
+import { createHash } from "node:crypto";
 import { readFile, readdir } from "node:fs/promises";
 import test from "node:test";
+import ts from "typescript";
 
 const appSource = await readFile(
   new URL("../src/App.tsx", import.meta.url),
@@ -14,6 +16,26 @@ const zipSource = await readFile(
   new URL("../src/zip.ts", import.meta.url),
   "utf8",
 );
+const stylesSource = await readFile(
+  new URL("../src/styles.css", import.meta.url),
+  "utf8",
+);
+
+async function importTypeScriptSource(source, fileName) {
+  const { outputText } = ts.transpileModule(source, {
+    compilerOptions: {
+      module: ts.ModuleKind.ESNext,
+      target: ts.ScriptTarget.ES2022,
+    },
+    fileName,
+  });
+  const moduleUrl = `data:text/javascript;base64,${Buffer.from(outputText).toString("base64")}`;
+  return import(moduleUrl);
+}
+
+const { PACKET_CHECKSUM, PACKET_VERSION, packetFiles } =
+  await importTypeScriptSource(dataSource, "data.ts");
+const { createPacketZip } = await importTypeScriptSource(zipSource, "zip.ts");
 const railSource = await readFile(
   new URL("../src/components/AgentRail.tsx", import.meta.url),
   "utf8",
@@ -34,6 +56,39 @@ const portableHtml = await readFile(
   new URL("../portable/[Demo]Second Brain Presenter.html", import.meta.url),
   "utf8",
 );
+
+async function readStoredZipEntries(blob) {
+  const bytes = new Uint8Array(await blob.arrayBuffer());
+  const view = new DataView(bytes.buffer, bytes.byteOffset, bytes.byteLength);
+  const decoder = new TextDecoder();
+  const entries = new Map();
+  let offset = 0;
+
+  while (
+    offset + 30 <= bytes.length &&
+    view.getUint32(offset, true) === 0x04034b50
+  ) {
+    assert.equal(
+      view.getUint16(offset + 8, true),
+      0,
+      "packet ZIP entries must use the supported stored format",
+    );
+    const contentLength = view.getUint32(offset + 18, true);
+    const nameLength = view.getUint16(offset + 26, true);
+    const extraLength = view.getUint16(offset + 28, true);
+    const nameStart = offset + 30;
+    const contentStart = nameStart + nameLength + extraLength;
+    const contentEnd = contentStart + contentLength;
+
+    assert.ok(contentEnd <= bytes.length, "packet ZIP entry is truncated");
+    const name = decoder.decode(bytes.slice(nameStart, nameStart + nameLength));
+    const content = decoder.decode(bytes.slice(contentStart, contentEnd));
+    entries.set(name, content);
+    offset = contentEnd;
+  }
+
+  return entries;
+}
 
 test("the local build exposes the application root", () => {
   assert.match(html, /id="root"/);
@@ -75,7 +130,24 @@ test("the fixer conversation separates resolution from promotion", () => {
   assert.match(appSource, /Explicit time jump/);
   assert.match(appSource, /Case-specific cause or actions cannot become default/);
   assert.match(appSource, /Human approval record is missing/);
+  assert.match(appSource, /Owner decision pending/);
+  assert.match(appSource, /Shared component guidance is unchanged/);
+  assert.match(appSource, /Motion Controls owner: approve/);
+  assert.match(appSource, /Six months later · cold start/);
+  assert.match(appSource, /Do not assume a damaged damper/);
   assert.match(appSource, /future engineer will see the code safeguard/i);
+});
+
+test("the presenter has an explicit, projection-safe stage contract", () => {
+  assert.match(appSource, /Deterministic replay/);
+  assert.match(appSource, /real local artifacts \+ tests/);
+  assert.match(appSource, /no external\s+system changes/);
+  assert.match(appSource, /Stage view/);
+  assert.match(stylesSource, /\.stage-mode \.message-bubble/);
+  assert.match(stylesSource, /font-size: clamp\(20px, 1\.55vw, 24px\)/);
+  assert.match(stylesSource, /\.stage-mode \.chat-composer/);
+  assert.match(stylesSource, /\.stage-mode \.standard-detail/);
+  assert.match(stylesSource, /\.stage-mode \.stage-only/);
 });
 
 test("the mock pull request exposes a readable code diff and review boundary", () => {
@@ -104,6 +176,27 @@ test("the ZIP implementation writes standard local, central, and end signatures"
   assert.match(dataSource, /README\.md/);
 });
 
+test("the packet ZIP manifest authenticates the embedded debug packet", async () => {
+  const entries = await readStoredZipEntries(createPacketZip(packetFiles));
+  assert.deepEqual([...entries.keys()], [
+    "debug-packet.md",
+    "manifest.json",
+    "README.md",
+  ]);
+
+  const debugPacket = entries.get("debug-packet.md");
+  const manifest = JSON.parse(entries.get("manifest.json"));
+  const actualChecksum = createHash("sha256")
+    .update(debugPacket, "utf8")
+    .digest("hex");
+  const expectedVersion = `${manifest.packet_id}-${actualChecksum.slice(0, 16)}`;
+
+  assert.equal(manifest.sha256, actualChecksum);
+  assert.equal(PACKET_CHECKSUM, actualChecksum);
+  assert.equal(manifest.version, expectedVersion);
+  assert.equal(PACKET_VERSION, expectedVersion);
+});
+
 test("the source is local and deterministic", async () => {
   const sourceDirectory = new URL("../src/", import.meta.url);
   const files = await readdir(sourceDirectory, { recursive: true });
@@ -120,5 +213,20 @@ test("the source is local and deterministic", async () => {
   assert.doesNotMatch(combined, /\blocalStorage\b/);
   assert.doesNotMatch(combined, /\bindexedDB\b/);
   assert.doesNotMatch(combined, /fab-side\/raw-logs/);
-  assert.match(appSource, /Guided demo · deterministic responses · no live AI/);
+  assert.doesNotMatch(
+    appSource,
+    /Guided demo · deterministic responses · no live AI/,
+  );
+  assert.doesNotMatch(appSource, /Mock telemetry event/);
+  assert.match(appSource, /Thinking…/);
+  assert.match(appSource, /Generating results…/);
+  assert.match(appSource, /Rendering UI…/);
+  assert.match(
+    appSource,
+    /const \[showInspector, setShowInspector\] = useState\(false\);/,
+  );
+  assert.match(
+    appSource,
+    /const \[showCue, setShowCue\] = useState\(false\);/,
+  );
 });
