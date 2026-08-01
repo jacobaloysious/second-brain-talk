@@ -7,8 +7,10 @@ The talk uses one deep engineering demo and one short manager case.
 Path: `presenter-app/`
 
 A local, deterministic replay for presenting both cases without running
-terminal commands in front of the audience. Its header explicitly distinguishes
-the replay from the real local artifacts and tests that back it.
+terminal commands in front of the audience. It is labelled "Demo app" in the
+header; the fuller disclosure — deterministic replay, real local artifacts and
+tests, no external system changes — is spoken on Slide 13 and lives in this
+README.
 
 ```bash
 cd presenter-app

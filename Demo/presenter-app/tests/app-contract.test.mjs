@@ -139,9 +139,7 @@ test("the fixer conversation separates resolution from promotion", () => {
 });
 
 test("the presenter has an explicit, projection-safe stage contract", () => {
-  assert.match(appSource, /Deterministic replay/);
-  assert.match(appSource, /real local artifacts \+ tests/);
-  assert.match(appSource, /no external\s+system changes/);
+  assert.match(appSource, /Demo app/);
   assert.match(appSource, /Stage view/);
   assert.match(stylesSource, /\.stage-mode \.message-bubble/);
   assert.match(stylesSource, /font-size: clamp\(20px, 1\.55vw, 24px\)/);
@@ -219,8 +217,9 @@ test("the source is local and deterministic", async () => {
   );
   assert.doesNotMatch(appSource, /Mock telemetry event/);
   assert.match(appSource, /Thinking…/);
-  assert.match(appSource, /Generating results…/);
-  assert.match(appSource, /Rendering UI…/);
+  assert.match(appSource, /Drafting sanitized summary…/);
+  assert.match(appSource, /Inspecting the stage-settle code path…/);
+  assert.match(appSource, /Classifying supported vs\. speculative context…/);
   assert.match(
     appSource,
     /const \[showInspector, setShowInspector\] = useState\(false\);/,

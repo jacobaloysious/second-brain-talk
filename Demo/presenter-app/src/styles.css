@@ -263,7 +263,7 @@ input:focus-visible {
   inset: 12px auto 12px -1px;
   width: 3px;
   border-radius: 0 999px 999px 0;
-  background: linear-gradient(var(--blue), var(--purple), var(--pink));
+  background: var(--blue);
 }
 
 .agent-tab-copy {
@@ -493,6 +493,23 @@ input:focus-visible {
   flex: 1;
   height: 1px;
   background: #e8edf2;
+}
+
+@keyframes message-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.chat-message,
+.system-message,
+.ai-working {
+  animation: message-in 220ms ease both;
 }
 
 .chat-message {
@@ -1624,7 +1641,7 @@ blockquote {
   display: block;
   height: 100%;
   border-radius: inherit;
-  background: linear-gradient(90deg, var(--blue), var(--purple), var(--pink));
+  background: var(--blue);
   transition: width 220ms ease;
 }
 
@@ -2610,5 +2627,7 @@ blockquote {
   *::after {
     scroll-behavior: auto !important;
     transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
   }
 }

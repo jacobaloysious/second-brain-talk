@@ -39,11 +39,64 @@ type TypedReplies = Record<AgentKey, Record<number, string>>;
 
 const initialSteps: StepState = { onsite: 0, fixer: 0, manager: 0 };
 const initialReplies: TypedReplies = { onsite: {}, fixer: {}, manager: {} };
-const workingLabels = [
-  "Thinking…",
-  "Generating results…",
-  "Rendering UI…",
-] as const;
+const DEFAULT_WORKING_PHASES = ["Thinking…", "Preparing response…"];
+const INVESTIGATE_PHASES = [
+  "Reading local machine signals…",
+  "Looking for a supported failure pattern…",
+];
+const DRAFT_PACKET_PHASES = [
+  "Reviewing local observations…",
+  "Drafting sanitized summary…",
+];
+const REVIEW_PACKET_PHASES = [
+  "Comparing the draft against the boundary rules…",
+  "Preparing the review view…",
+];
+const FINALIZE_PACKET_PHASES = [
+  "Binding packet identity and checksum…",
+  "Assembling the reviewed bundle…",
+];
+const OPEN_CASE_PHASES = [
+  "Loading the reviewed packet…",
+  "Separating facts from hypotheses…",
+];
+const EXPERIMENT_PHASES = [
+  "Weighing the two outcome branches…",
+  "Drafting the experiment plan…",
+];
+const DIAGNOSE_PHASES = [
+  "Reading the reviewed packet…",
+  "Inspecting the stage-settle code path…",
+];
+const NOTE_PHASES = [
+  "Reading the note…",
+  "Classifying supported vs. speculative context…",
+];
+const DRAFT_SURFACES_PHASES = [
+  "Matching retained context to each surface…",
+  "Drafting follow-through…",
+];
+const STAKEHOLDER_DRAFT_PHASES = [
+  "Drafting the stakeholder update…",
+  "Assembling the receipt…",
+];
+
+const ONSITE_STEP_PHASES: Partial<Record<number, readonly string[]>> = {
+  0: INVESTIGATE_PHASES,
+  2: DRAFT_PACKET_PHASES,
+  3: REVIEW_PACKET_PHASES,
+  4: FINALIZE_PACKET_PHASES,
+};
+const FIXER_STEP_PHASES: Partial<Record<number, readonly string[]>> = {
+  0: OPEN_CASE_PHASES,
+  1: EXPERIMENT_PHASES,
+  2: DIAGNOSE_PHASES,
+};
+const MANAGER_STEP_PHASES: Partial<Record<number, readonly string[]>> = {
+  0: NOTE_PHASES,
+  1: DRAFT_SURFACES_PHASES,
+  2: STAKEHOLDER_DRAFT_PHASES,
+};
 
 function agentFromHash(): AgentKey {
   const key = window.location.hash.replace("#", "") as AgentKey;
@@ -78,6 +131,9 @@ export default function App() {
   const [showInspector, setShowInspector] = useState(false);
   const [stageMode, setStageMode] = useState(false);
   const [workingPhase, setWorkingPhase] = useState<number | null>(null);
+  const [workingPhases, setWorkingPhases] = useState<readonly string[]>(
+    DEFAULT_WORKING_PHASES,
+  );
   const workingRef = useRef(false);
   const workingTimersRef = useRef<number[]>([]);
   const streamRef = useRef<HTMLDivElement>(null);
@@ -89,25 +145,33 @@ export default function App() {
     setSteps((current) => ({ ...current, [key]: value }));
   }, []);
 
-  const runAgentAction = useCallback((action: () => void) => {
-    if (workingRef.current) return;
-    workingRef.current = true;
-    setWorkingPhase(0);
-    workingTimersRef.current = [
-      window.setTimeout(() => setWorkingPhase(1), 800),
-      window.setTimeout(() => setWorkingPhase(2), 1600),
-      window.setTimeout(() => {
-        action();
-        workingRef.current = false;
-        setWorkingPhase(null);
-        workingTimersRef.current = [];
-      }, 2400),
-    ];
-  }, []);
+  const TOTAL_WORKING_MS = 2400;
+
+  const runAgentAction = useCallback(
+    (action: () => void, phases: readonly string[] = DEFAULT_WORKING_PHASES) => {
+      if (workingRef.current) return;
+      workingRef.current = true;
+      const stepMs = TOTAL_WORKING_MS / phases.length;
+      setWorkingPhases(phases);
+      setWorkingPhase(0);
+      workingTimersRef.current = phases.slice(1).map((_, index) =>
+        window.setTimeout(() => setWorkingPhase(index + 1), stepMs * (index + 1)),
+      );
+      workingTimersRef.current.push(
+        window.setTimeout(() => {
+          action();
+          workingRef.current = false;
+          setWorkingPhase(null);
+          workingTimersRef.current = [];
+        }, TOTAL_WORKING_MS),
+      );
+    },
+    [],
+  );
 
   const setAgentStep = useCallback(
-    (key: AgentKey, value: number, showWorking = false) => {
-      if (showWorking) runAgentAction(() => applyAgentStep(key, value));
+    (key: AgentKey, value: number, phases?: readonly string[]) => {
+      if (phases) runAgentAction(() => applyAgentStep(key, value), phases);
       else applyAgentStep(key, value);
     },
     [applyAgentStep, runAgentAction],
@@ -200,14 +264,16 @@ export default function App() {
           setUnsafeExportTried(true);
           return;
         }
-        if (step < 5) setAgentStep("onsite", step + 1, step === 2);
+        if (step < 5)
+          setAgentStep("onsite", step + 1, ONSITE_STEP_PHASES[step]);
         else if (step === 5) sendPacket();
         return;
       }
 
       if (activeAgent === "fixer") {
         if (!packetSent) return;
-        if (step < 6) setAgentStep("fixer", step + 1, step === 2);
+        if (step < 6)
+          setAgentStep("fixer", step + 1, FIXER_STEP_PHASES[step]);
         else if (step === 6) validateKnowledgeSelection();
         else if (step === 7) {
           if (
@@ -222,7 +288,8 @@ export default function App() {
         return;
       }
 
-      if (step < 3) setAgentStep("manager", step + 1, step === 0);
+      if (step < 3)
+        setAgentStep("manager", step + 1, MANAGER_STEP_PHASES[step]);
     },
     [
       activeAgent,
@@ -1209,7 +1276,11 @@ export default function App() {
     if (activeAgent === "onsite") {
       if (step === 0) {
         return (
-          <ActionButton onClick={() => setAgentStep("onsite", 1)}>
+          <ActionButton
+            onClick={() =>
+              setAgentStep("onsite", 1, ONSITE_STEP_PHASES[0])
+            }
+          >
             Start local investigation
           </ActionButton>
         );
@@ -1223,7 +1294,11 @@ export default function App() {
       }
       if (step === 2) {
         return (
-          <ActionButton onClick={() => setAgentStep("onsite", 3, true)}>
+          <ActionButton
+            onClick={() =>
+              setAgentStep("onsite", 3, ONSITE_STEP_PHASES[2])
+            }
+          >
             Create sanitized draft
           </ActionButton>
         );
@@ -1239,7 +1314,9 @@ export default function App() {
             </ActionButton>
             <ActionButton
               variant="primary"
-              onClick={() => setAgentStep("onsite", 4)}
+              onClick={() =>
+                setAgentStep("onsite", 4, ONSITE_STEP_PHASES[3])
+              }
             >
               Review packet
             </ActionButton>
@@ -1248,7 +1325,11 @@ export default function App() {
       }
       if (step === 4) {
         return (
-          <ActionButton onClick={() => setAgentStep("onsite", 5)}>
+          <ActionButton
+            onClick={() =>
+              setAgentStep("onsite", 5, ONSITE_STEP_PHASES[4])
+            }
+          >
             Approve reviewed transfer
           </ActionButton>
         );
@@ -1286,21 +1367,27 @@ export default function App() {
       }
       if (step === 0) {
         return (
-          <ActionButton onClick={() => setAgentStep("fixer", 1)}>
+          <ActionButton
+            onClick={() => setAgentStep("fixer", 1, FIXER_STEP_PHASES[0])}
+          >
             Open field issue
           </ActionButton>
         );
       }
       if (step === 1) {
         return (
-          <ActionButton onClick={() => setAgentStep("fixer", 2)}>
+          <ActionButton
+            onClick={() => setAgentStep("fixer", 2, FIXER_STEP_PHASES[1])}
+          >
             Prepare stage-settling experiment
           </ActionButton>
         );
       }
       if (step === 2) {
         return (
-          <ActionButton onClick={() => setAgentStep("fixer", 3, true)}>
+          <ActionButton
+            onClick={() => setAgentStep("fixer", 3, FIXER_STEP_PHASES[2])}
+          >
             Run diagnostic + inspect code
           </ActionButton>
         );
@@ -1396,21 +1483,33 @@ export default function App() {
 
     if (step === 0) {
       return (
-        <ActionButton onClick={() => setAgentStep("manager", 1, true)}>
+        <ActionButton
+          onClick={() =>
+            setAgentStep("manager", 1, MANAGER_STEP_PHASES[0])
+          }
+        >
           Process the note
         </ActionButton>
       );
     }
     if (step === 1) {
       return (
-        <ActionButton onClick={() => setAgentStep("manager", 2)}>
+        <ActionButton
+          onClick={() =>
+            setAgentStep("manager", 2, MANAGER_STEP_PHASES[1])
+          }
+        >
           Create follow-through drafts
         </ActionButton>
       );
     }
     if (step === 2) {
       return (
-        <ActionButton onClick={() => setAgentStep("manager", 3)}>
+        <ActionButton
+          onClick={() =>
+            setAgentStep("manager", 3, MANAGER_STEP_PHASES[2])
+          }
+        >
           Review Maya draft + receipt
         </ActionButton>
       );
@@ -1438,8 +1537,7 @@ export default function App() {
         </div>
         <div className="demo-mode" role="note">
           <span className="demo-dot" aria-hidden="true" />
-          Deterministic replay · real local artifacts + tests · no external
-          system changes
+          Demo app
         </div>
         <div className="header-actions">
           <button
@@ -1519,9 +1617,9 @@ export default function App() {
                     <span />
                   </div>
                   <div className="ai-working-copy">
-                    <strong>{workingLabels[workingPhase]}</strong>
+                    <strong>{workingPhases[workingPhase]}</strong>
                     <div className="ai-working-stages" aria-hidden="true">
-                      {workingLabels.map((label, index) => (
+                      {workingPhases.map((label, index) => (
                         <span
                           className={
                             index < workingPhase
