@@ -7,6 +7,7 @@ import {
   useState,
 } from "react";
 import { AgentRail } from "./components/AgentRail";
+import { ActionActivity } from "./components/ActivityTrail";
 import {
   ActionButton,
   AgentAvatar,
@@ -408,10 +409,37 @@ export default function App() {
         author="System"
         tone="alert"
       >
-        <strong>Alignment failed</strong>
+        <span className="system-alert-heading">
+          <svg
+            className="alert-icon"
+            viewBox="0 0 20 20"
+            aria-hidden="true"
+            focusable="false"
+          >
+            <path
+              d="M10 2.2 18.4 17H1.6L10 2.2Z"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.5"
+              strokeLinejoin="round"
+            />
+            <line
+              x1="10"
+              y1="7.6"
+              x2="10"
+              y2="11.6"
+              stroke="currentColor"
+              strokeWidth="1.5"
+              strokeLinecap="round"
+            />
+            <circle cx="10" cy="14.1" r="0.95" fill="currentColor" />
+          </svg>
+          <strong>Alignment failed</strong>
+        </span>
         <span className="message-secondary">
           A repeated failure pattern was detected after X-axis movement.
         </span>
+        <span className="message-timestamp">Started 09:41 local time</span>
       </ChatBubble>
       <ChatBubble role="agent" author={agents.onsite.name}>
         I can investigate the pattern inside the restricted fab workspace and
@@ -435,7 +463,7 @@ export default function App() {
               <RowList>
                 <li>Failure follows X-axis movement.</li>
                 <li>Prolonged settling precedes the alignment error.</li>
-                <li>Vision confidence appears acceptable.</li>
+                <li>Imaging confidence appears acceptable.</li>
                 <li>A retry does not recover.</li>
               </RowList>
               <div className="question-callout">
@@ -447,6 +475,7 @@ export default function App() {
               exact machine values local.
             </p>
           </ChatBubble>
+          <ActionActivity agent="onsite" step={1} />
         </>
       ) : null}
 
@@ -466,6 +495,7 @@ export default function App() {
               Create a sanitized draft for review?
             </strong>
           </ChatBubble>
+          <ActionActivity agent="onsite" step={2} />
         </>
       ) : null}
 
@@ -504,6 +534,7 @@ export default function App() {
               review the wording and boundary record.
             </p>
           </ChatBubble>
+          <ActionActivity agent="onsite" step={3} />
         </>
       ) : null}
 
@@ -554,6 +585,7 @@ export default function App() {
               the release authority.
             </p>
           </ChatBubble>
+          <ActionActivity agent="onsite" step={4} />
         </>
       ) : null}
 
@@ -603,6 +635,7 @@ export default function App() {
               The ZIP contains only the three reviewed transfer artifacts.
             </ChatBubble>
           ) : null}
+          <ActionActivity agent="onsite" step={5} />
         </>
       ) : null}
 
@@ -628,6 +661,7 @@ export default function App() {
             Handoff complete. The restricted evidence is still onsite; only the
             reviewed context crossed the boundary.
           </ChatBubble>
+          <ActionActivity agent="onsite" step={6} />
         </>
       ) : null}
     </>
@@ -687,9 +721,10 @@ export default function App() {
               </DetailCard>
               <p>
                 The smallest useful next step is an experiment that separates
-                stage settling from a stage-to-vision interaction.
+                stage settling from a stage-to-imaging interaction.
               </p>
             </ChatBubble>
+            <ActionActivity agent="fixer" step={1} />
           </>
         ) : null}
 
@@ -713,7 +748,7 @@ export default function App() {
                   <div>
                     <span>If settling normalizes</span>
                     <strong>but alignment still fails</strong>
-                    <p>Investigate stage-to-vision before changing vision.</p>
+                    <p>Investigate stage-to-imaging before changing imaging.</p>
                   </div>
                 </div>
               </DetailCard>
@@ -722,6 +757,7 @@ export default function App() {
                 diagnosis, experiment design, and verification.
               </p>
             </ChatBubble>
+            <ActionActivity agent="fixer" step={2} />
           </>
         ) : null}
 
@@ -777,6 +813,7 @@ export default function App() {
                 alignment error.
               </p>
             </ChatBubble>
+            <ActionActivity agent="fixer" step={3} />
           </>
         ) : null}
 
@@ -826,6 +863,7 @@ export default function App() {
                 It is still a proposal; no repository has been modified.
               </p>
             </ChatBubble>
+            <ActionActivity agent="fixer" step={4} />
           </>
         ) : null}
 
@@ -863,6 +901,13 @@ export default function App() {
                     Canary rollout · watch stage-not-stable rate and alignment
                     success
                   </div>
+                  <button
+                    type="button"
+                    className="action-button action-secondary pr-diff-button"
+                    onClick={() => setPullRequestModalOpen(true)}
+                  >
+                    Show pull request diff
+                  </button>
                 </div>
               </DetailCard>
               <p>
@@ -870,6 +915,7 @@ export default function App() {
                 evidence, reviewer choice, and merge decision.
               </p>
             </ChatBubble>
+            <ActionActivity agent="fixer" step={5} />
           </>
         ) : null}
 
@@ -949,6 +995,7 @@ export default function App() {
                 ))}
               </div>
             </ChatBubble>
+            <ActionActivity agent="fixer" step={6} />
           </>
         ) : null}
 
@@ -983,7 +1030,7 @@ export default function App() {
                   Require both position and velocity to remain stable for the
                   configured window before alignment. If the guard rejects
                   motion, run the approved stage-settling diagnostic before
-                  changing vision configuration.
+                  changing imaging configuration.
                 </p>
                 <div className="proposal-meta">
                   <span>Source case: {CASE_ID}</span>
@@ -996,6 +1043,7 @@ export default function App() {
                 unchanged.
               </p>
             </ChatBubble>
+            <ActionActivity agent="fixer" step={7} />
           </>
         ) : null}
 
@@ -1029,6 +1077,7 @@ export default function App() {
                 scope, and explicit no-default-cause limitation.
               </span>
             </ChatBubble>
+            <ActionActivity agent="fixer" step={8} />
           </>
         ) : null}
 
@@ -1101,7 +1150,7 @@ export default function App() {
                     <span>Next action</span>
                     <strong>
                       Run the stage-settling diagnostic. If motion normalizes but
-                      alignment still fails, inspect stage-to-vision interaction.
+                      alignment still fails, inspect stage-to-imaging interaction.
                     </strong>
                   </div>
                   <div className="cold-start-non-assumption">
@@ -1200,6 +1249,7 @@ export default function App() {
               context.
             </p>
           </ChatBubble>
+          <ActionActivity agent="manager" step={1} />
         </>
       ) : null}
 
@@ -1234,6 +1284,7 @@ export default function App() {
             </DetailCard>
             <p>Nothing has been sent. Every surface requires your review.</p>
           </ChatBubble>
+          <ActionActivity agent="manager" step={2} />
         </>
       ) : null}
 
@@ -1267,6 +1318,7 @@ export default function App() {
               Speculative judgment did not become memory.
             </p>
           </ChatBubble>
+          <ActionActivity agent="manager" step={3} />
         </>
       ) : null}
     </>
@@ -1424,14 +1476,12 @@ export default function App() {
       if (step === 5) {
         return (
           <>
-            {!stageMode ? (
-              <ActionButton
-                variant="secondary"
-                onClick={() => setPullRequestModalOpen(true)}
-              >
-                View pull request
-              </ActionButton>
-            ) : null}
+            <ActionButton
+              variant="secondary"
+              onClick={() => setPullRequestModalOpen(true)}
+            >
+              Show diff
+            </ActionButton>
             <ActionButton onClick={() => setAgentStep("fixer", 6)}>
               Simulate review + deploy + verify
             </ActionButton>

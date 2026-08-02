@@ -82,7 +82,7 @@ pitch.
 7. **Agents prepare context. Humans own the outcome.**
    Preparation is automated; accountability is not.
 8. **Trust is an operating contract**
-   Traceability, clarification, correction, and tests.
+   Traceability, clarification, correction, and checks.
 9. **Case #1: Field issue — how context crosses the boundary**
    Onsite human + agent, reviewed packet, validator, offsite diagnosis.
 10. **Not every case becomes component knowledge**

@@ -9,9 +9,9 @@ import type {
 export const CASE_ID = "FI-2026-00421";
 export const PACKET_ID = "FI-2026-00421-packet-v1";
 export const PACKET_VERSION =
-  "FI-2026-00421-packet-v1-cbb2e63f337a6c6c";
+  "FI-2026-00421-packet-v1-965848cb6787f70a";
 export const PACKET_CHECKSUM =
-  "cbb2e63f337a6c6c8599c6173574afa8074dda5a141844a4879f8fdb99287370";
+  "965848cb6787f70ad0fca1320d29f77151d5a50cc8b49e014e4b0206981e24a7";
 
 export const agents: Record<AgentKey, AgentDefinition> = {
   onsite: {
@@ -102,14 +102,14 @@ classification: sanitized
 ## Sanitized Summary
 
 Fine alignment failed repeatedly after an X-axis move. Stage settling was outside
-the configured limit while the vision-confidence indication remained acceptable.
+the configured limit while the imaging-confidence indication remained acceptable.
 An alignment error repeated and a stage-settle timeout was also observed.
 
 ## Relative Event Timeline
 
 1. Fine alignment began.
 2. An X-axis move completed, followed by prolonged settling.
-3. Vision detected the fiducial with acceptable confidence.
+3. Imaging detected the fiducial with acceptable confidence.
 4. Alignment exceeded its permitted deviation.
 5. Retry reproduced the same sequence.
 6. A later attempt reproduced the alignment error and added a stage-settle timeout.
@@ -120,7 +120,7 @@ An alignment error repeated and a stage-settle timeout was also observed.
 - Failure follows X-axis movement.
 - Prolonged settling appears before each failed alignment.
 - Retrying does not recover.
-- Vision confidence remains acceptable during the observed failures.
+- Imaging confidence remains acceptable during the observed failures.
 - The onsite approved observation confirmed motion through the measurement window.
 
 ## Subsystem Hypotheses
@@ -128,14 +128,14 @@ An alignment error repeated and a stage-settle timeout was also observed.
 1. **Stage settling instability — primary, moderate-to-high confidence.**
    Repeated event order and onsite clarification support an X-axis motion or
    settling path.
-2. **Stage-to-vision interaction — secondary, low confidence.**
-   An acceptable vision score does not eliminate motion during measurement.
+2. **Stage-to-imaging interaction — secondary, low confidence.**
+   An acceptable imaging score does not eliminate motion during measurement.
 
 These are hypotheses, not verified causes.
 
 ## Confidence
 
-Moderate to high for the stage-settling path; low for a vision-only cause.
+Moderate to high for the stage-settling path; low for an imaging-only cause.
 The mechanical cause and maintenance correlation remain unverified.
 
 ## Missing Evidence

@@ -268,11 +268,11 @@ Then name the current decision and continue.
 ### Layer 1 — glanceable cue
 
 - **POINT:** Trust comes from inspectable behavior, not confidence or fluency.
-- **FOUR CHECKS:** Provenance; clarification; correction; tests.
-- **PROVENANCE:** Where did this come from?
+- **TRUST CHECKS:** Traceability; clarification; correction; verification.
+- **TRACEABILITY:** Where did this come from?
 - **CLARIFICATION:** What is missing or uncertain?
 - **CORRECTION:** How is stale or wrong memory changed?
-- **TESTS:** What must the workflow refuse?
+- **VERIFICATION:** What must the workflow refuse?
 - **BRIDGE:** “Now let us apply that contract to the hardest boundary in the
   talk: a live field issue.”
 
