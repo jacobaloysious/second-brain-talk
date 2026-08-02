@@ -704,7 +704,7 @@ or stop and ask one useful question?
 The answer sounds obvious on a slide. It becomes harder when asking adds delay.
 That is why the behavior needs a clear contract.
 
-The third part is correction plus evaluation: correct and test.
+The third part is correction plus checks: correct and verify.
 
 Human corrections must update the record, and deterministic checks must protect
 important boundaries.
@@ -722,17 +722,7 @@ In the manager demo, conditional timing remains conditional, speculative people
 judgment is rejected, and every surfaced output remains a private draft with a
 receipt.
 
-So the trust contract is:
-
-visible;
-
-correctable;
-
-testable.
-
-Those are the behaviors to watch in the live work.
-
-There are two different kinds of tests behind this contract.
+There are two different kinds of checks behind this contract.
 
 Model evaluations tell us whether the output is useful: did it separate facts
 from hypotheses, ask a discriminating question, or preserve the intended
@@ -748,9 +738,19 @@ A deterministic validator cannot judge whether an engineering hypothesis is
 insightful. A model should not be the only control deciding whether restricted
 evidence may cross.
 
+So the trust contract is:
+
+visible;
+
+correctable;
+
+verifiable.
+
+Those are the behaviors to watch in the live work.
+
 ### STAGE CUES
 
-- Point to “Show your work,” “Ask when unsure,” and “Correct and test.”
+- Point to “Show your work,” “Ask when unsure,” and “Correct and verify.”
 - Hold the show-of-hands interaction to 20 seconds.
 - [PAUSE] after “A prompt alone is not enforcement.”
 - [CLICK] to slide 9.

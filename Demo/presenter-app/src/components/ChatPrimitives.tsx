@@ -117,7 +117,7 @@ export function FactHypothesisCard() {
         <ul>
           <li>Failure follows X-axis movement</li>
           <li>Prolonged settling precedes failure</li>
-          <li>Vision confidence appears acceptable</li>
+          <li>Imaging confidence appears acceptable</li>
           <li>Vibration continues through measurement</li>
         </ul>
       </div>
@@ -125,7 +125,7 @@ export function FactHypothesisCard() {
         <span className="column-label label-hypothesis">Hypotheses</span>
         <ul>
           <li>Stage-settling path is suspicious</li>
-          <li>Stage-to-vision interaction remains possible</li>
+          <li>Stage-to-imaging interaction remains possible</li>
           <li>Mechanical cause is not established</li>
         </ul>
       </div>

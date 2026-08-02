@@ -48,6 +48,10 @@ const pullRequestSource = await readFile(
   new URL("../src/components/PullRequestModal.tsx", import.meta.url),
   "utf8",
 );
+const activityTrailSource = await readFile(
+  new URL("../src/components/ActivityTrail.tsx", import.meta.url),
+  "utf8",
+);
 const html = await readFile(
   new URL("../dist/index.html", import.meta.url),
   "utf8",
@@ -110,6 +114,27 @@ test("the interface exposes three role-scoped agents", () => {
   assert.match(dataSource, /name: "Manager Assistant"/);
   assert.match(appSource, /Role-scoped context/);
   assert.match(railSource, /Same foundation/);
+  assert.doesNotMatch(appSource, /\b[Vv]ision\b/);
+  assert.doesNotMatch(dataSource, /\b[Vv]ision\b/);
+  assert.match(appSource, /Imaging confidence appears acceptable/);
+});
+
+test("each completed agent action exposes its own collapsed activity details", () => {
+  assert.doesNotMatch(appSource, /<ActivityTrail/);
+  assert.match(appSource, /<ActionActivity agent="onsite" step=\{1\}/);
+  assert.match(appSource, /<ActionActivity agent="fixer" step=\{5\}/);
+  assert.match(appSource, /<ActionActivity agent="manager" step=\{3\}/);
+  assert.match(
+    activityTrailSource,
+    /<details className="activity-trail action-activity">/,
+  );
+  assert.match(activityTrailSource, /Thinking steps…/);
+  assert.match(activityTrailSource, /Reasoning summary/);
+  assert.match(activityTrailSource, /Tools called/);
+  assert.match(activityTrailSource, /Sanitization scanner/);
+  assert.match(activityTrailSource, /Repository search/);
+  assert.match(activityTrailSource, /Speculation filter/);
+  assert.match(stylesSource, /\.stage-mode \.activity-trail/);
 });
 
 test("the onsite conversation preserves the review and transfer boundary", () => {
@@ -126,6 +151,9 @@ test("the fixer conversation separates resolution from promotion", () => {
   assert.match(appSource, /Facts stay separate from hypotheses/);
   assert.match(appSource, /Two fixes · different owners/);
   assert.match(appSource, /Create pull request/);
+  assert.match(appSource, /Show pull request diff/);
+  assert.match(appSource, />\s*Show diff\s*</);
+  assert.match(pullRequestSource, /aria-label="Code changes"/);
   assert.match(appSource, /Hardware recovered · software guard active/);
   assert.match(appSource, /Explicit time jump/);
   assert.match(appSource, /Case-specific cause or actions cannot become default/);
