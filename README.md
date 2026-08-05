@@ -64,15 +64,17 @@ Press `S` for the projection-safe Stage view.
 - Slides 13–14: guided decision lab transition and the audience's watch contract
 - Presenter app, OnSite + Fixer chats, approximately 12–14 minutes
 - Presenter app, Manager Assistant chat, approximately 4–5 minutes
-- Slide 15: 30-day pilot and closing synthesis
+- Slide 15: 30-day pilot
+- Slides 16–17: Microsoft-first reference architecture and four-week build path
 - Slide 19: Q&A
-- Slides 16–18: appendix; use only when a question needs technical depth
+- Slide 18: test-contract appendix; use when a question needs technical depth
 
 Useful deck shortcuts:
 
 - `D` — demo transition
 - `C` — closing pilot
-- `A` — appendix
+- `B` — Microsoft build architecture
+- `A` — test-contract appendix
 - `Q` or `End` — Q&A
 
 ## What the demos prove
