@@ -5,9 +5,9 @@ This is the on-stage companion to `speaker-notes.md`.
 - `speaker-notes.md` remains the complete read-aloud rehearsal script.
 - This file is the stage-facing, two-layer version for recall, pacing, and
   recovery.
-- The normal route is Slides 1–14, the three presenter-app chats, Slide 15,
+- The normal route is Slides 1–14, the three presenter-app chats, Slides 15–17,
   then Slide 19.
-- Slides 16–18 are Q&A appendix slides only.
+- Slide 18 is a Q&A appendix slide only.
 
 ## How to use this file
 
@@ -22,7 +22,7 @@ For every stop:
 Do not memorize the sentences. Memorize this ladder:
 
 > **Archaeology → Tax → Roles → Storage → Leaks → Loop → Ownership → Trust →
-> Boundary → Promotion → Privacy → Proof → Watch → Start small**
+> Boundary → Promotion → Privacy → Proof → Watch → Start small → Build**
 
 The entire story is:
 
@@ -36,13 +36,13 @@ The entire story is:
 | Clock | You should be here | If early | If late |
 | --- | --- | --- | --- |
 | 00:00 | Slide 1 | Settle; pause after archaeology | Keep the personal opening concise |
-| 00:23 | Slide 8 | Invite one trust-risk answer | State the four trust checks and move |
-| 00:43 | Start OnSite Fab Agent | Take audience predictions | Skip secondary interface details |
-| 00:55 | Finish field workflow | Restate the two human gates | Go directly to the narrow promotion |
-| 01:01 | Finish Manager Assistant | Show the receipt clearly | Summarize the three classifications |
-| 01:06 | Q&A | Use the full reflection exercise | Shorten reflection to one question |
+| 00:25 | Slide 8 | Invite one trust-risk answer | State the four trust checks and move |
+| 00:45 | Start OnSite Fab Agent | Take audience predictions | Skip secondary interface details |
+| 00:59 | Finish field workflow | Restate the two human gates | Go directly to the narrow promotion |
+| 01:04 | Finish Manager Assistant | Show the receipt clearly | Summarize the three classifications |
+| 01:15 | Q&A | Use the full reflection exercise | Shorten reflection to one question |
 
-The target is not to speak continuously for 66 minutes. Audience answers,
+The target is not to speak continuously for 75 minutes. Audience answers,
 pauses, transitions, and visible demo decisions are part of the time.
 
 ## Universal recovery pattern
@@ -109,17 +109,21 @@ Then name the current decision and continue.
 - **ASK:** “Who reconstructed an old decision, incident, or handoff in the last
   month?”
 - **POINT:** Reconstructing yesterday's context delays today's judgment.
+- **META SEV:** Service degraded → team paged → chat thread → people join.
+- **FIVE QUESTIONS:** When did it start? How many users? What changed? Right
+  people? What have we tried?
+- **KEY LINE:** “I may be present in the incident, but I am not yet useful.”
 - **THREE FORMS:** Drifting context; lost rationale; open loops.
-- **EXAMPLE:** Search chat, find the former on-call engineer, discover that the
-  dashboard was renamed.
-- **BRIDGE:** “Different roles reconstruct different details, but they are all
-  missing the same thing: decision context.”
+- **BRIDGE:** “The exact context needed changes depending on the role. Let us
+  look at that next.”
 
 ### Layer 2 — expand or recover
 
-- Engineers cannot compare hypotheses until history is rebuilt.
-- Managers cannot act until ownership and uncertainty are rebuilt.
-- Leaders cannot judge reuse until provenance and freshness are rebuilt.
+- Decision context may be scattered across alerts, dashboards, chat messages,
+  and different people's memories.
+- Everyone joining the incident may reconstruct the same picture before they
+  can contribute.
+- Slow down for the five questions; let each land as a familiar need.
 - Optional expansion: ten minutes lost by six people is no longer an individual
   productivity problem; it is organizational cost.
 - Do not rush the show of hands. Look across the room and acknowledge the
@@ -129,7 +133,7 @@ Then name the current decision and continue.
 
 ## Slide 3 — Different roles lose the same thing: decision context
 
-**Time:** 3:00  
+**Time:** 3:00
 **Memory word:** ROLES
 
 ### Layer 1 — glanceable cue
@@ -155,26 +159,33 @@ Then name the current decision and continue.
 
 ## Slide 4 — Storage preserves information. It does not maintain trust.
 
-**Time:** 3:00  
+**Time:** 4:00
 **Memory word:** STORAGE
 
 ### Layer 1 — glanceable cue
 
-- **POINT:** A stored statement can still be stale, unsupported, ambiguous, or
-  outside its permitted boundary.
-- **CONTRAST:** Storage asks, “Can I retrieve it?” Governed memory asks, “Should
-  I use it for this decision?”
-- **TRUST QUESTIONS:** Source? Freshness? Scope? Owner? Confidence?
+- **ASK:** “Has anyone here heard of the Bullet Journal method?”
+- **PERSONAL STORY:** Daily list → complete or migrate → weekly/monthly review.
+- **TURN:** It felt like control, but it failed for me because maintenance was
+  entirely manual.
+- **MY JOBS:** Capture meetings; carry notebook or reconstruct; group; migrate;
+  remove stale items; review.
+- **KEY LINE:** “Storage was working. The memory system depended entirely on
+  me.”
+- **ORG CONNECTION:** Documents, tickets, and chat store information; they do
+  not maintain freshness, meaning, boundaries, or ownership.
+- **GOVERNED LIFECYCLE:** Trace; classify; review; retire or supersede.
 - **BRIDGE:** “So rather than capture everything, begin where useful context
   first leaks.”
 
 ### Layer 2 — expand or recover
 
-- Search can retrieve a confident-looking statement without telling us whether
-  it was later corrected.
-- A decision without rationale invites the same rejected option to return.
-- Optional expansion: compare a warehouse full of parts with a calibrated,
-  traceable part approved for a specific machine.
+- Ask for hands only; do not ask someone to explain Bullet Journaling.
+- Say “it failed for me,” not that the method generally fails.
+- The notebook could not detect missed capture, ask a clarifying question, flag
+  stale information, or prepare decision context.
+- Searchability is not trustworthiness; an old answer may be easier to find
+  than the correct one.
 
 ---
 
@@ -209,27 +220,36 @@ Then name the current decision and continue.
 
 ## Slide 6 — The second brain is the governed transformation
 
-**Time:** 3:30  
+**Time:** 4:00
 **Memory word:** LOOP
 
 ### Layer 1 — glanceable cue
 
 - **POINT:** The second brain is not the store. It is the governed
   transformation.
-- **CAPTURE:** Preserve facts, provenance, uncertainty, and open questions.
-- **GOVERN:** Apply boundaries, validation, review, correction, and expiry.
-- **SURFACE:** Provide the smallest useful context for the next decision.
 - **REFRAIN:** Capture → Govern → Surface → Decide.
-- **BRIDGE:** “That transformation can be assisted by agents, but responsibility
-  must stay named.”
+- **EXAMPLE SETUP:** Chat with Hari → “Let us catch up next week” → move on.
+- **REAL PROBLEM:** The promise stays in chat and in my head; I must remember to
+  return, find it, compare calendars, and follow through.
+- **WORKFLOW:** Personal assistant reviews recent chats → detects a possible
+  commitment → checks both calendars → suggests a few slots.
+- **LIGHT GOVERNANCE:** Possible commitment, not automatic meeting.
+- **KEY LINE:** “The value is not saving three minutes. I do not have to keep
+  the promise active in my head.”
+- **BRIDGE:** “The context returns when a decision is needed. But the system
+  still should not make that decision for me.”
 
 ### Layer 2 — expand or recover
 
-- Capture without governance produces a larger pile.
-- Governance without a useful surface produces compliant archives nobody uses.
-- Surface without provenance produces persuasive but unsafe answers.
-- Ask the room to say or remember the four verbs with you.
-- Optional expansion: run one field observation through all three stages.
+- **EXAMPLE HIT 1 — CAPTURE:** Identify a possible commitment.
+- **EXAMPLE HIT 2 — GOVERN:** Treat it as something to confirm, not an automatic
+  meeting request.
+- **EXAMPLE HIT 3 — SURFACE:** Return the commitment with workable time slots.
+- **EXAMPLE HIT 4 — DECIDE:** I confirm the meaning and select a slot.
+- The workflow supports recall; do not claim it detects every commitment
+  correctly.
+- Do not explain source visibility, access controls, correction, or testing
+  here; those belong to slide 8.
 
 ---
 
@@ -590,7 +610,7 @@ Then name the current decision and continue.
 
 ---
 
-# Part 5 — Close
+# Part 5 — Pilot, build, and close
 
 ## Slide 15 — Start with one context leak—and one success signal
 
@@ -610,7 +630,7 @@ Then name the current decision and continue.
   Then add one boundary.
 - **CLOSE:** One leak. One boundary. One owner. One metric.
 - **FINAL THESIS:** Less reconstruction. Safer reuse. More engineering judgment.
-- **BRIDGE:** “Thank you. I would be happy to take your questions.”
+- **BRIDGE:** “Now let us make that pilot concrete in a Microsoft environment.”
 
 ### Layer 2 — expand or recover
 
@@ -622,15 +642,65 @@ Then name the current decision and continue.
 - Give the room the full 45-second silent exercise if on time or early.
 - If late, ask them to write only the leak and boundary in 20 seconds.
 - Stopping a pilot that does not improve decisions is a valid governance result.
-- Look up for the final lines. Click once to skip the appendix and reach Slide
-  19.
+- Look up for the final lines. Click once to reach the Microsoft architecture on
+  Slide 16.
+
+---
+
+## Slide 16 — Build the system around one job—not one clever prompt
+
+**Time:** 3:00
+
+**Memory words:** TRIGGER → LOOP → TOOLS → MEMORY → CONTROLS
+
+### Layer 1 — glanceable cue
+
+- **TRIGGER:** One Teams, SharePoint, or Azure DevOps event.
+- **LOOP:** Durable Functions owns state/retry; Azure OpenAI / Foundry owns
+  bounded judgment.
+- **TOOLS:** Graph, Azure DevOps API, Functions, Logic Apps, validators.
+- **MEMORY:** Cosmos run state; SharePoint/Blob approved record; AI Search
+  derived index.
+- **CONTROL RAIL:** Entra; Purview; human publish/promotion gate; App Insights.
+- **REFRAIN:** The approved record is memory. Indexes and chats are disposable.
+- **BRIDGE:** “Here is the smallest build sequence.”
+
+### Layer 2 — expand or recover
+
+- Follow the diagram left to right, then explain the memory plane and dark rail.
+- The model is one component; the state machine and contracts make it operable.
+- Do not imply every team needs every service on day one.
+
+---
+
+## Slide 17 — Ship one governed loop; earn the right to scale
+
+**Time:** 3:00
+
+**Memory words:** DEFINE → WIRE → GROUND → OPERATE
+
+### Layer 1 — glanceable cue
+
+1. **DEFINE:** one job, stop rules, memory schema, 20 eval cases.
+2. **WIRE:** Graph/ADO → Service Bus → Durable Functions; receipts and tests.
+3. **GROUND:** AI Search → Azure OpenAI → Teams approval; cite or abstain.
+4. **OPERATE:** owner, review/expiry, telemetry, reindex, rollback, weekly metric.
+- **MVP DONE:** one job; one entry; one human gate; one owner; one decision
+  metric.
+- **BRIDGE:** “Thank you. I am happy to take your questions.”
+
+### Layer 2 — expand or recover
+
+- Start read-only; no silent publish or promotion.
+- Rehearse deletion, revocation, reindexing, and rollback before expanding scope.
+- Click once; Slide 18 is skipped and Q&A opens on Slide 19.
 
 ---
 
 ## Slide 19 — Q&A
 
-**Time:** 12–15 minutes  
-**Checkpoint:** Begin by approximately 01:06.
+**Time:** 12 minutes
+**Checkpoint:** Begin by approximately 01:13.
 
 ### Layer 1 — glanceable cue
 
@@ -643,9 +713,8 @@ Then name the current decision and continue.
 
 ### Layer 2 — expand or recover
 
-- Portability question → press `A`, use Slide 16.
-- Enforcement/architecture question → Slide 17.
-- Evaluation/testing question → Slide 18.
+- Architecture/build question → press `B`, use Slides 16–17.
+- Evaluation/testing question → press `A`, use Slide 18.
 - Press `Q` to return to Slide 19.
 - Closing callback:
 
@@ -654,35 +723,7 @@ Then name the current decision and continue.
 
 ---
 
-# Q&A appendix cue cards
-
-## Slide 16 — The memory contract is portable
-
-### Layer 1 — glanceable cue
-
-- **POINT:** The durable element is the contract, not the interface, file format,
-  storage system, or model.
-- **CONTRACT:** What may be read? Written? Who owns it? Who approves change?
-- **BRIDGE BACK:** Provenance, boundaries, validation, human gates, evaluation.
-
-### Layer 2 — expand or recover
-
-- Interfaces may be chat, email, voice, tracker, or command line.
-- Memory may be documents, a database, or an internal platform.
-
-## Slide 17 — The field boundary is separate and testable
-
-### Layer 1 — glanceable cue
-
-- **POINT:** Fab-side raw evidence and engineering-side memory are separated by
-  an executable transfer gate.
-- **CHECKS:** Human review, redaction, schema, accepted source, checksum.
-- **CAUTION:** The demo does not by itself prove production host isolation.
-
-### Layer 2 — expand or recover
-
-- Production also needs separate credentials, hosts, network policy, audit
-  storage, and approved data-loss controls.
+# Q&A appendix cue card
 
 ## Slide 18 — Test the memory contract like software
 
@@ -718,8 +759,9 @@ Then name the current decision and continue.
 - `Home` — Slide 1
 - `D` — Slide 13
 - `C` — Slide 15
+- `B` — Slide 16
 - `Q` or `End` — Slide 19
-- `A` — Slide 16
+- `A` — Slide 18
 - Presenter app: `R` reset; `1` OnSite; `2` Fixer; `3` Manager; `N` cue
 
 ## Final grounding line

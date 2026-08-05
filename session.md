@@ -1,6 +1,6 @@
 # Session Handoff — Second Brain for Engineering Teams
 
-Updated: 26 July 2026
+Updated: 3 August 2026
 Workspace: `/Users/jacobaloysious/Desktop/secondbrain`
 Repository: `https://github.com/jacobaloysious/second-brain-talk.git`
 Branch: `main`
@@ -93,30 +93,34 @@ pitch.
     Measure the next grounded decision, recovery time, repeated clarification, and
     governed reuse.
 
-### Demo and close
+### Demo, build, and close
 
 13. **GUIDED DECISION LAB**
 14. **What to watch across the three agent workspaces**
 15. **Start with one context leak—and one success signal**
-16. **Appendix: the memory contract is portable**
-17. **Appendix: the field boundary is separate and testable**
+16. **Build the system around one job—not one clever prompt**
+    Microsoft-first architecture: triggers, durable agent loop, narrow tools,
+    layered memory, human gates, identity, policy, and observability.
+17. **Ship one governed loop; earn the right to scale**
+    Four-week build path with a memory contract and testable exit criteria.
 18. **Appendix: test the memory contract like software**
 19. **Q&A / Thank you**
 
-The normal route is Slides 1–14, both guided cases, Slide 15, then Slide 19.
-Slides 16–18 are appendix material only.
+The normal route is Slides 1–14, both guided cases, then Slides 15–17 and
+Slide 19. Slide 18 is appendix material only.
 
 Keyboard shortcuts:
 
 - `D` — Slide 13
 - `C` — Slide 15
-- `A` — Slide 16
+- `B` — Slide 16
+- `A` — Slide 18
 - `Q` or `End` — Slide 19
 - arrow keys, Page Up/Down, or Space — navigate
 
 ## 90-minute timing
 
-Target prepared content: about 65–70 minutes before Q&A and discussion.
+Target prepared content: about 73–75 minutes before Q&A and discussion.
 
 | Segment | Target |
 | --- | ---: |
@@ -127,8 +131,9 @@ Target prepared content: about 65–70 minutes before Q&A and discussion.
 | Presenter app, OnSite + Fixer chats | 12–14 min |
 | Presenter app, Manager Assistant chat | 4–5 min |
 | Synthesis and 30-day pilot, Slide 15 | 4–5 min |
-| Q&A, Slide 19 | 15 min |
-| Discussion / contingency / final thesis | 7–10 min |
+| Microsoft architecture and build path, Slides 16–17 | 5–6 min |
+| Q&A, Slide 19 | 12 min |
+| Discussion / contingency / final thesis | 4–5 min |
 
 Do not fill the entire 90 minutes with scripted speech. Preserve room for
 audience answers, live-demo variance, and Q&A.
@@ -295,6 +300,12 @@ Fallback:
 - No toolbar during presentation.
 - Slides use diagrams, contrasts, and decision flows rather than repeated card
   grids where possible.
+- Slides 16–17 are now part of the normal route and provide the implementation
+  handoff: a Microsoft-first architecture plus a four-week governed MVP plan.
+- The architecture follows the trigger → agent loop → tools → memory → controls
+  shape from Danica Simic's agentic-system build guide. The approved record is
+  authoritative; retrieval indexes and agent conversations are rebuildable
+  projections.
 - The HTML remains directly editable, but it is not a Google Slides-style
   drag-and-drop editor.
 
@@ -326,7 +337,8 @@ Fallback:
 
 1. Read this file.
 2. Start the presenter app and run both proof-workspace test suites.
-3. Open the HTML deck and spot-check Slides 1, 6, 9, 10, 11, 12, 15, and 19
+3. Open the HTML deck and spot-check Slides 1, 6, 9, 10, 11, 12, 15, 16, 17,
+   and 19
    at the actual presenting resolution.
 4. Rehearse the app route once using only suggested action buttons and agent
    shortcuts `1`, `2`, and `3`.

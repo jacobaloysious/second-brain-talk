@@ -6,9 +6,9 @@ the local presenter app, and the two executable proof workspaces behind it.
 ## Performance contract — rehearsal only
 
 - Maximum session slot: **90 minutes**
-- Prepared talk target: **69–72 minutes**
+- Prepared talk target: **75–77 minutes**
 - Protected Q&A: **12 minutes**
-- Contingency and transition reserve: **5 minutes 45 seconds**
+- Contingency and transition reserve: **3 minutes 15 seconds**
 - Timing assumes a deliberate large-room pace of roughly **100–110 spoken
   words per minute**, including pauses, audience interactions, and visible demo
   decisions.
@@ -16,9 +16,10 @@ the local presenter app, and the two executable proof workspaces behind it.
 - Slides 13–14: demo transition and viewing contract
 - Presenter app, OnSite Fab + Fixer chats, **12–14 minutes**
 - Presenter app, Manager Assistant chat, **4–5 minutes**
-- Slide 15: 30-day pilot and close
+- Slide 15: 30-day pilot
+- Slides 16–17: Microsoft reference architecture and build path
 - Slide 19: Q&A
-- Slides 16–18: appendix only; do not show during the normal route
+- Slide 18: appendix only; do not show during the normal route
 
 Text under **SAY** is intended to be spoken. Everything marked **STAGE CUES**,
 **PRESENTER ACTION**, **REHEARSAL ONLY**, or enclosed in square brackets is an
@@ -31,33 +32,36 @@ instruction and should not be read aloud.
 | 00:00–03:30 | 3:30 | Slide 1 — opening and personal context | Start at slide 1 |
 | 03:30–07:00 | 3:30 | Slide 2 — memory tax | Right arrow |
 | 07:00–10:00 | 3:00 | Slide 3 — role-specific decisions | Right arrow |
-| 10:00–13:00 | 3:00 | Slide 4 — storage versus governed memory | Right arrow |
-| 13:00–16:30 | 3:30 | Slide 5 — two context leaks | Right arrow |
-| 16:30–20:00 | 3:30 | Slide 6 — governed transformation | Right arrow |
-| 20:00–23:00 | 3:00 | Slide 7 — agent and human responsibilities | Right arrow |
-| 23:00–27:00 | 4:00 | Slide 8 — trust contract | Right arrow |
-| 27:00–30:30 | 3:30 | Slide 9 — field boundary | Right arrow |
-| 30:30–33:30 | 3:00 | Slide 10 — case history and shared knowledge | Right arrow |
-| 33:30–37:00 | 3:30 | Slide 11 — manager continuity | Right arrow |
-| 37:00–40:00 | 3:00 | Slide 12 — success signals | Right arrow |
-| 40:00–40:45 | 0:45 | Slide 13 — guided decision lab | Right arrow |
-| 40:45–42:45 | 2:00 | Slide 14 — what to watch | Leave deck after this slide |
-| 42:45–56:45 | 14:00 | App — OnSite Fab + Fixer Agents | Handoff, diff, and pull request |
-| 56:45–61:45 | 5:00 | App — Manager Assistant | Guided chat classification |
-| 61:45–67:15 | 5:30 | Slide 15 — 30-day pilot and close | Press `C` to return |
-| 67:15–82:15 | 15:00 | Slide 19 — Q&A | Right arrow from slide 15, or press `Q` |
-| 82:15–90:00 | 7:45 | Discussion / contingency reserve | Do not plan new content here |
+| 10:00–14:00 | 4:00 | Slide 4 — storage versus governed memory | Right arrow |
+| 14:00–17:30 | 3:30 | Slide 5 — two context leaks | Right arrow |
+| 17:30–21:30 | 4:00 | Slide 6 — governed transformation | Right arrow |
+| 21:30–24:30 | 3:00 | Slide 7 — agent and human responsibilities | Right arrow |
+| 24:30–28:30 | 4:00 | Slide 8 — trust contract | Right arrow |
+| 28:30–32:00 | 3:30 | Slide 9 — field boundary | Right arrow |
+| 32:00–35:00 | 3:00 | Slide 10 — case history and shared knowledge | Right arrow |
+| 35:00–38:30 | 3:30 | Slide 11 — manager continuity | Right arrow |
+| 38:30–41:30 | 3:00 | Slide 12 — success signals | Right arrow |
+| 41:30–42:15 | 0:45 | Slide 13 — guided decision lab | Right arrow |
+| 42:15–44:15 | 2:00 | Slide 14 — what to watch | Leave deck after this slide |
+| 44:15–58:15 | 14:00 | App — OnSite Fab + Fixer Agents | Handoff, diff, and pull request |
+| 58:15–63:15 | 5:00 | App — Manager Assistant | Guided chat classification |
+| 63:15–68:45 | 5:30 | Slide 15 — 30-day pilot and transition | Press `C` to return |
+| 68:45–71:45 | 3:00 | Slide 16 — Microsoft reference architecture | Right arrow |
+| 71:45–74:45 | 3:00 | Slide 17 — build and operate path | Right arrow |
+| 74:45–86:45 | 12:00 | Slide 19 — Q&A | Right arrow from slide 17, or press `Q` |
+| 86:45–90:00 | 3:15 | Discussion / contingency reserve | Do not plan new content here |
 
 ### Deck shortcuts — rehearsal only
 
 - `Home` — slide 1
 - `D` — slide 13, guided decision lab transition
-- `C` — slide 15, post-demo close
+- `C` — slide 15, post-demo pilot
+- `B` — slide 16, Microsoft build architecture
 - `Q` or `End` — slide 19, Q&A
-- `A` — slide 16, appendix
+- `A` — slide 18, appendix test contract
 - Right arrow, Page Down, or Space — next slide
 - Left arrow or Page Up — previous slide
-- The normal next action from slide 15 skips the appendix and opens slide 19.
+- The normal next action from slide 17 skips slide 18 and opens slide 19.
 
 ## Before the session — rehearsal only
 
@@ -66,16 +70,16 @@ instruction and should not be read aloud.
 - Put these notes on a second device or confidence monitor.
 - Open the deck at:
   `/Users/jacobaloysious/Desktop/secondbrain/[SlideDeck]Second Brain for Engineering Teams.html`
-- Enter full screen and confirm slides 1, 13, 15, 16, and 19 respond to the
+- Enter full screen and confirm slides 1, 13, 15, 16, 17, 18, and 19 respond to the
   shortcuts above.
 - Disable notifications, screen sleep, software updates, and automatic window
   rearrangement.
 - Keep a large clock visible to the presenter. The hard checkpoints are:
-  - slide 8 by minute 23;
-  - Case #1 starts by minute 43;
-  - the Fixer Agent ends by minute 57;
-  - the Manager Assistant ends by minute 62;
-  - Q&A begins by minute 67.
+  - slide 8 by minute 25;
+  - Case #1 starts by minute 45;
+  - the Fixer Agent ends by minute 59;
+  - the Manager Assistant ends by minute 64;
+  - Q&A begins by minute 75.
 
 ### Presenter-app preflight
 
@@ -226,6 +230,32 @@ incident, or handoff that your organization had already discussed?
 
 That reconstruction is the tax.
 
+Let me make that concrete with an example from Meta.
+
+When a high-severity incident happens, a service may be unavailable or
+seriously degraded. The responsible team is paged—sometimes by an automated
+phone call—a chat thread is created, and people begin joining.
+
+When I enter that thread, I cannot contribute meaningfully straight away.
+First, I need answers to a familiar set of questions.
+
+When did the problem begin?
+
+How many users are affected?
+
+What changed?
+
+Do we have the right people in the room?
+
+What have we already tried?
+
+Those answers are decision context. Until I have them, I may be present in the
+incident, but I am not yet useful.
+
+If those details are scattered across alerts, dashboards, chat messages, and
+different people's memories, everyone joining the incident has to reconstruct
+the same picture. That is how the memory tax appears under pressure.
+
 It appears in three familiar forms.
 
 First, drifting context. The code changes, the configuration changes, the tool
@@ -241,13 +271,6 @@ as if it were a commitment. A small promise remains active in somebody's head.
 The expensive part is not simply forgetting. The expensive part is that
 judgment starts late.
 
-An engineer cannot compare hypotheses until the history is reconstructed.
-
-A manager cannot act on risk until ownership and uncertainty are reconstructed.
-
-A leader cannot tell whether knowledge is reusable until its source trail and
-freshness are reconstructed.
-
 Human attention is much more valuable for finding patterns, challenging
 assumptions, weighing trade-offs, and deciding what to do next.
 
@@ -257,22 +280,23 @@ before the real work even begins.
 The goal of a second brain is not perfect recall. The goal is to make reliable
 context available at the moment a decision must be made.
 
-Think about a familiar incident review. The team may eventually reach the right
-answer, but first somebody searches chat, somebody asks who was on call, and
-somebody else discovers that the dashboard changed names last quarter. None of
-that reconstruction is the expert work we hired the team to do.
-
 The memory tax also compounds across handoffs. Ten minutes lost by one person
 becomes an hour when six people independently rebuild the same picture. At
 organizational scale, the tax is not a personal productivity problem. It is an
 execution-system problem.
 
+And the exact context needed changes depending on the role. Let us look at
+that next.
+
 ### STAGE CUES
 
 - [LOOK UP] before asking for hands.
 - Hold the hand vote to 20 seconds; do not invite stories yet.
+- Slow down for the five incident questions; they are the audience's entry into
+  the example.
 - Point once to each of the three cards.
 - Emphasize the slide's central line: “judgment starts late.”
+- Use the final two sentences as the bridge into role-specific context.
 - [CLICK] to slide 3.
 
 ---
@@ -358,7 +382,7 @@ only the context and authority appropriate to its decision.
 
 ## Slide 4 — Storage preserves information. It does not maintain trust.
 
-**Target time:** 3 minutes
+**Target time:** 4 minutes
 
 ### SAY
 
@@ -367,65 +391,71 @@ Most organizations already have plenty of storage.
 We have document systems, tickets, chat, dashboards, repositories, and a folder
 somewhere called “miscellaneous” that nobody is emotionally ready to open.
 
-Storage is useful, but storage is passive.
+Let me make this personal.
 
-It can hold a note. It cannot tell us whether the note is still current, whether
-it is safe to move, whether the author meant a fact or a guess, or whether one
-incident should become guidance for every future incident.
+Has anyone here heard of the Bullet Journal method?
 
-The passive loop on the left is familiar:
+[SHOW OF HANDS — 15 SECONDS]
 
-capture;
+I used it for some time. At the start of the day, I would write down what I
+needed to do. At the end of the day, I would review the list.
 
-file;
+If something was complete, I would mark it complete. If it still mattered, I
+would move it to the next day. At the end of the week, I would review everything
+again and decide what deserved attention in the following week. I would do a
+similar review at the end of the month.
 
-search;
+Initially, it felt great. Writing everything down gave me a sense of control.
 
-guess.
+But eventually, it failed for me—and the reason was maintenance.
 
-The pile grows. Ownership becomes unclear. Freshness becomes invisible.
+I was responsible for every part of the system.
 
-A governed memory system has a lifecycle.
+I had to remember to capture what happened in every meeting. I had to carry the
+notebook or reconstruct the details later. I had to group the information,
+decide what still mattered, migrate unfinished work, remove stale items, and
+perform every review.
 
-Trace the source.
+The notebook stored exactly what I wrote. But it could not tell me what I had
+forgotten to capture. It could not ask a clarifying question. It could not tell
+me that something had become stale. And it could not prepare the right context
+for the next decision.
 
-Classify the information.
+[PAUSE]
 
-Review consequential changes.
+Storage was working. The memory system depended entirely on me.
 
-Retire or supersede knowledge when the evidence changes.
+The same problem appears at organizational scale. Our documents, tickets, chat,
+and repositories can preserve information. But they do not automatically tell
+us whether it is current, what boundary applies, whether it represents a fact
+or a guess, or who should maintain it.
 
-“Retire” matters. Trusted memory cannot be append-only forever. An entry needs
-an owner, a review date, and a way to say, “This was correct under the old
-evidence, but it is no longer the current guidance.”
+That is why governed memory needs a lifecycle:
 
-So the main problem is not capture. Engineers are already producing context all
-day.
+trace the source;
 
-The problem is maintenance: deciding what the context means, where it belongs,
-what boundary applies, and when it should be trusted again.
+classify the information;
 
-That is the work we want the system to help prepare—without handing the final
-decision to the system.
+review consequential changes;
 
-There is another subtle risk with passive storage: an old answer can be easier
-to find than a correct answer.
+and retire or supersede knowledge when the evidence changes.
 
-Searchability is not the same as trustworthiness.
+Searchability is not the same as trustworthiness. An old answer can be easier
+to find than the correct answer.
 
-A beautifully indexed diagnostic from three product versions ago can make the
-wrong action arrive faster. Governed memory therefore needs negative
-information too: what was rejected, what has expired, what superseded this
-entry, and which scope the guidance does not cover.
-
-The goal is not to make every artifact permanent. The goal is to make the
-current decision traceable.
+So instead of trying to capture and maintain everything, we should begin with
+the places where important context repeatedly leaks.
 
 ### STAGE CUES
 
-- Point to the left column while saying the passive loop.
-- Move to the right column for the governed lifecycle.
+- Ask only whether people have heard of Bullet Journaling; do not invite an
+  audience explanation.
+- Keep the daily, weekly, and monthly description concise.
+- [PAUSE] before “Storage was working. The memory system depended entirely on
+  me.”
+- Point to the governed lifecycle while naming its four actions.
 - Keep the “miscellaneous” joke brief.
+- Use the final sentence as the bridge to slide 5.
 - [CLICK] to slide 5.
 
 ---
@@ -510,90 +540,79 @@ the system with broader context.
 
 ## Slide 6 — The second brain is the governed transformation
 
-**Target time:** 3 minutes 30 seconds
+**Target time:** 4 minutes
 
 ### SAY
 
 This is the core model for the rest of the talk.
 
-The second brain is not the raw input and it is not the final document.
+The second brain is not the raw input, the storage system, or the final
+document. It is the governed transformation between raw context and the next
+decision.
 
-It is the governed transformation between raw context and the next decision.
-
-Step one is capture.
-
-Capture should be natural: logs, notes, observations, messages, tickets, or
-voice. The human should not need to perform a twenty-step filing ritual at the
-end of every day.
-
-Step two is govern.
-
-This is where the real value sits.
-
-Classify before remembering.
-
-Separate facts from hypotheses.
-
-Preserve conditional language.
-
-Ask when evidence is incomplete.
-
-Validate a data boundary.
-
-Require review before shared reuse.
-
-Step three is surface.
-
-The output should be ready for a decision: an isolated case, the next
-experiment, a daily brief, a draft update, or a small piece of reviewed
-component guidance.
-
-Notice that the loop is not “capture, summarize, store.”
+The loop is not “capture, summarize, store.”
 
 It is “capture, govern, surface, decide.”
 
-A summary reduces the amount of text. A governed transformation changes what
-the organization can safely do next.
+Let me give you a small example from my own day.
 
-In the field case, governance decides which sanitized packet may cross and
-which verified lesson may later be reused.
+Imagine I am chatting with a colleague—let us call him Hari. During the
+conversation, I say, “Let us catch up next week,” or, “I will get back to you.”
 
-In the manager case, governance decides what becomes project context, what
-remains uncertain, and what speculative judgment is rejected.
+Normally, that promise remains inside the chat. I move to the next meeting or
+the next problem. I have to remember to return later, find the conversation,
+open the calendar, locate a suitable time, and complete the follow-up.
 
-The model and the storage technology can change. The contract around
-classification, ownership, evidence, and review should remain.
+I now have a personal assistant workflow that reviews my recent chats for
+possible commitments I have made.
 
-That is why this idea is larger than a specific note-taking product or a
-specific AI model.
+Periodically, it notices something like my promise to follow up with Hari. It
+checks our calendar availability and returns with a few possible meeting times.
 
-The word “govern” can sound heavy, so let me make it practical.
+But it does not schedule the meeting automatically. It comes back with the
+possible follow-up and asks me to choose a time.
 
-Governance here is not a committee reviewing every sentence.
+This sounds like a tiny convenience. I could open the calendar and do it
+myself. Perhaps it saves only a few minutes.
 
-It is a set of typed decisions:
+But the important benefit is not the calendar work.
 
-this observation is a fact;
+[PAUSE]
 
-this cause is a hypothesis;
+The value is that I do not have to keep the promise active in my head while I
+move through the rest of my day. It returns when my attention is needed.
 
-this date is conditional;
+Now look at the transformation.
 
-this packet may cross;
+Capture: it identifies a possible commitment from the conversation.
 
-this lesson requires a component owner;
+Govern: it treats the sentence as something to confirm, not as an automatic
+meeting request.
 
-this people judgment must not be stored.
+Surface: it brings the commitment back with practical options.
 
-When those decisions are explicit, the automation becomes easier to inspect,
-test, and correct. When they are implicit, a fluent answer can hide a dangerous
-assumption.
+Decide: I confirm the meaning and select a slot.
+
+The system does not replace my judgment. It makes sure the right context returns
+when my judgment is needed.
+
+That is the transformation: context is captured, interpreted, and returned when
+a decision is needed. But the system still should not make that decision for
+me.
+
+So if the system prepares the context and the options, what remains human?
 
 ### STAGE CUES
 
 - Trace the diagram from left to centre to right.
-- Spend most of the time on the centre, “Govern.”
+- Use the Hari example as four clear beats: capture, govern, surface, decide.
+- [PAUSE] before “The value is that I do not have to keep the promise active in
+  my head.”
+- Keep “govern” lightweight here: possible commitment, not automatic meeting.
+- Leave source visibility, permissions, correction, and verification for slide
+  8.
 - Emphasize “capture, govern, surface, decide.”
+- Use the final two sentences as the bridge to human ownership.
 - [CLICK] to slide 7.
 
 ---
@@ -2785,14 +2804,130 @@ The goal is not to remember everything.
 
 The goal is less reconstruction, safer reuse, and more engineering judgment.
 
-Thank you.
+Now let us make that pilot concrete in a Microsoft environment.
 
 ### STAGE CUES
 
 - [PRESS `C`] before beginning this slide.
 - Give the room the full 45 seconds; silence is intentional.
 - [LOOK UP] for the final eight lines.
-- [CLICK] once; the deck skips the appendix and opens slide 19.
+- [CLICK] once to open the Microsoft reference architecture on slide 16.
+
+---
+
+## Slide 16 — Build the system around one job—not one clever prompt
+
+**Target time:** 3 minutes
+
+### SAY
+
+This is one production-shaped way to implement the contract with Microsoft
+tools.
+
+It follows the same system shape as the build guide that inspired this slide:
+a trigger, an inspectable agent loop, narrow tools, layered memory, guardrails,
+verification, human approval, and observability.
+
+On the left, one scoped event starts the workflow: a Teams message, a SharePoint
+change, or an Azure DevOps event.
+
+That event enters a durable state machine. Azure Durable Functions owns routing,
+checkpoints, retries, stopping rules, and the current workflow state. Azure
+OpenAI or Microsoft Foundry handles only the bounded judgment: retrieve relevant
+context, reason over it, draft a result, and evaluate whether it has enough
+evidence to continue.
+
+The tools remain small and explicit. Microsoft Graph reads approved Microsoft
+365 context. Azure DevOps APIs read the work item or draft a proposed change.
+Azure Functions and Logic Apps perform narrow actions. Deterministic validators
+enforce schema, redaction, access, and artifact integrity.
+
+The memory plane is deliberately split.
+
+Cosmos DB holds working state and receipts. SharePoint or Blob Storage holds the
+approved record. Azure AI Search is a derived retrieval index.
+
+That distinction matters: the approved record is the memory. The index and the
+agent conversation are disposable projections that can be rebuilt.
+
+The dark rail is the control plane. Entra and managed identities enforce who can
+read and act. Purview supplies labels, DLP, and retention. A human approves
+publishing, promotion, and other consequential writes. Application Insights and
+evaluations make failures inspectable.
+
+The model is one component inside the system. The workflow, record, gates, and
+telemetry are what make it maintainable.
+
+### STAGE CUES
+
+- Read the slide left to right, then explain the memory plane and control rail.
+- Do not imply that every organization needs every service on day one.
+- [CLICK] to slide 17 for the smallest build sequence.
+
+### [Sources]
+
+- Danica Simic, [How to build your first Agentic System](https://danicasimic.substack.com/p/how-to-build-your-first-agentic-system), especially the trigger, agent loop, tools, layered memory, guardrails, verification, human gate, and logging structure.
+- Microsoft, [Change notifications for Microsoft Teams resources](https://learn.microsoft.com/en-us/graph/teams-change-notification-in-microsoft-teams-overview).
+- Microsoft, [Durable Functions overview](https://learn.microsoft.com/en-us/azure/durable-task/durable-functions/durable-functions-overview).
+- Microsoft, [Document-level access control in Azure AI Search](https://learn.microsoft.com/en-us/azure/search/search-document-level-access-overview).
+- Microsoft, [Microsoft 365 Agents Toolkit](https://learn.microsoft.com/en-us/microsoftteams/platform/toolkit/overview-agents-toolkit).
+
+---
+
+## Slide 17 — Ship one governed loop; earn the right to scale
+
+**Target time:** 3 minutes
+
+### SAY
+
+Here is a four-week build path for one team.
+
+Week one: define one job before choosing a model.
+
+Write the input, output, stop rules, approval boundary, and the memory record.
+Create a small evaluation set from real, sanitized examples—including cases the
+system must reject or leave uncertain.
+
+Week two: wire the deterministic shell.
+
+Use Graph notifications or Azure DevOps service hooks to put events on a queue.
+Run the state machine in Durable Functions. Persist receipts and state. Make
+retries idempotent. Prove that tampered, out-of-scope, or unauthorized artifacts
+cannot enter memory.
+
+Week three: add retrieval and bounded reasoning.
+
+Index only approved content. Retrieve with explicit access filters. Require the
+agent to cite the record or abstain. Put the draft and its evidence into a Teams
+Adaptive Card. Start with read-only tools; no publish or promotion happens
+without the named human gate.
+
+Week four is when maintenance begins.
+
+Give every durable item an owner, review date, expiry or retention rule, and a
+supersession path. Instrument latency, retrieval, tool calls, approvals, and
+human overrides. Rehearse deletion, revocation, reindexing, and rollback. Review
+the decision metric every week.
+
+The MVP is done when one job has one entry point, one human gate, one owner, and
+one decision metric.
+
+Only then add more sources, more tools, more agents, or more autonomy.
+
+### STAGE CUES
+
+- Keep the pace brisk; the timeline is a build handoff, not a cloud catalog.
+- Point to the memory contract before moving across the four weeks.
+- [CLICK] once; the deck skips slide 18 and opens Q&A on slide 19.
+
+### [Sources]
+
+- Danica Simic, [How to build your first Agentic System](https://danicasimic.substack.com/p/how-to-build-your-first-agentic-system), especially “define the job,” deterministic routing, layered memory, narrow tools, verification, approval, logging, and minimal-version guidance.
+- Microsoft, [Durable Functions overview](https://learn.microsoft.com/en-us/azure/durable-task/durable-functions/durable-functions-overview).
+- Microsoft, [Retrieval-augmented generation in Azure AI Search](https://learn.microsoft.com/en-us/azure/search/retrieval-augmented-generation-overview).
+- Microsoft, [Time to live in Azure Cosmos DB](https://learn.microsoft.com/en-us/azure/cosmos-db/time-to-live).
+- Microsoft, [Set up tracing in Microsoft Foundry](https://learn.microsoft.com/en-us/azure/foundry/observability/how-to/trace-agent-setup).
+- Microsoft, [Purview protections for AI apps](https://learn.microsoft.com/en-ie/purview/ai-microsoft-purview).
 
 ---
 
@@ -2813,8 +2948,9 @@ I am happy to take questions.
   - “Where would your first context leak be?”
   - “Which boundary would be hardest to enforce in your environment?”
   - “What evidence would convince you that a pilot is working?”
-- For a portability question, press `A` for slide 16.
-- From slide 16, use the right arrow for slides 17 and 18.
+- For an architecture or implementation question, press `B` for slide 16 and
+  use the right arrow for slide 17.
+- For an evaluation or contract-testing question, press `A` for slide 18.
 - Press `Q` to return to slide 19.
 - Protect the final two minutes to answer one last question and close cleanly.
 
@@ -2822,80 +2958,9 @@ I am happy to take questions.
 
 # Appendix — use only in Q&A
 
-These slides are outside the normal presentation route. Every appendix slide
-still has a short read-aloud answer so the presenter does not need to improvise
-the main point under pressure.
-
-## Slide 16 — Appendix: the memory contract is portable
-
-**Target time if used:** 1 minute 30 seconds
-
-### SAY
-
-The demonstration uses transparent local files because that makes every read,
-write, review, and test inspectable.
-
-The durable part is not the interface, storage format, or model.
-
-Those can change.
-
-The durable part is the contract:
-
-what may be read;
-
-what may be written;
-
-who owns the result;
-
-and who must approve a consequential change.
-
-The interface could be chat, email, voice, a tracker, or a command line.
-
-The memory could be documents, a database, or an internal platform.
-
-But traceability, access boundaries, validation, human gates, and evaluation must
-remain visible.
-
-### STAGE CUES
-
-- Press `A` from anywhere to open slide 16.
-- Answer the question, then either continue to slide 17 or press `Q`.
-
----
-
-## Slide 17 — Appendix: the field boundary is separate and testable
-
-**Target time if used:** 1 minute 30 seconds
-
-### SAY
-
-The field demo uses two operational roots.
-
-Fab-side contains restricted raw evidence, local analysis, and the field
-engineer's response.
-
-Engineering-side contains only independently validated sanitized packets,
-isolated cases, reviewed guidance, and the later reuse proof.
-
-Between them is a transfer gate.
-
-It checks human review, redaction, schema, the accepted source path, and the
-checksum.
-
-The prompt constrains the agent's scope, while the deterministic transfer path
-enforces which artifact engineering memory will admit.
-
-In production, the same contract would also use separate credentials, hosts,
-network policy, audit storage, and the organization's approved data-loss
-controls.
-
-### STAGE CUES
-
-- Use this slide for enforcement or architecture questions.
-- Do not claim the demo repository alone is equivalent to production security.
-- [CLICK] to slide 18 only if the question moves to testing.
-
----
+Slide 18 is outside the normal presentation route. It has a short read-aloud
+answer so the presenter does not need to improvise the main point under
+pressure.
 
 ## Slide 18 — Appendix: test the memory contract like software
 
@@ -3077,8 +3142,9 @@ Preserve the audience vote and the rejection of speculative people judgment.
 
 - `D` — return to slide 13
 - `C` — return to slide 15
+- `B` — Microsoft build architecture on slide 16
 - `Q` — Q&A slide 19
-- `A` — appendix slide 16
+- `A` — test-contract appendix on slide 18
 - Direct file URLs:
 
 ```text
@@ -3101,4 +3167,4 @@ file:///Users/jacobaloysious/Desktop/secondbrain/%5BSlideDeck%5DSecond%20Brain%2
 - [ ] Slide shortcuts tested.
 - [ ] Notifications and sleep disabled.
 - [ ] Timer visible.
-- [ ] Q&A begins no later than minute 66–68.
+- [ ] Q&A begins no later than minute 75–76.
